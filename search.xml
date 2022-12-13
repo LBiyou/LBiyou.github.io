@@ -4,6 +4,97 @@
   
     
     <entry>
+      <title>hexo上传本地图片无法显示d</title>
+      <link href="/post/a809a6f1.html"/>
+      <url>/post/a809a6f1.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="个人的解决方案"><a href="#个人的解决方案" class="headerlink" title="个人的解决方案"></a>个人的解决方案</h2><h4 id="在网上很多的做法都是-安装插件："><a href="#在网上很多的做法都是-安装插件：" class="headerlink" title="在网上很多的做法都是 安装插件："></a>在网上很多的做法都是 安装插件：</h4><blockquote><p>npm install <a href="https://github.com/CodeFalling/hexo-asset-image">https://github.com/CodeFalling/hexo-asset-image</a> –save</p></blockquote><h4 id="然后执行三连指令："><a href="#然后执行三连指令：" class="headerlink" title="然后执行三连指令："></a>然后执行三连指令：</h4><blockquote><p> hexo clean &amp;&amp; hexo g &amp;&amp; hexo s</p></blockquote><p>然后就是不出意外的，，，并没有什么用，然后我就把图片上传到网上，获取图片的链接</p><p>类似于这样：</p><blockquote><p><img src="/post/a809a6f1.htm/%E8%BF%99%E9%87%8C%E8%BE%93%E5%85%A5%E5%9B%BE%E7%89%87%E7%9A%84%E9%93%BE%E6%8E%A5" alt="这里对图片的描述"></p></blockquote><p>转换的网站为：<a href="https://postimages.org/">https://postimages.org/</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Hexo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+            <tag> 心得 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>maven、mybatis使用</title>
+      <link href="/post/3026a51f.html"/>
+      <url>/post/3026a51f.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="Maven-基础篇"><a href="#Maven-基础篇" class="headerlink" title="Maven 基础篇"></a>Maven 基础篇</h2><h3 id="maven简介："><a href="#maven简介：" class="headerlink" title="maven简介："></a>maven简介：</h3><p><img src="https://i.postimg.cc/CM4HNM5Z/image-20221213225428988.png" alt="maven的简介"></p><h4 id="maven项目结构的介绍："><a href="#maven项目结构的介绍：" class="headerlink" title="maven项目结构的介绍："></a>maven项目结构的介绍：</h4><p><img src="https://i.postimg.cc/cL658tsM/image-20221213230116022.png" alt="temp"></p><h4 id="maven-的依赖管理"><a href="#maven-的依赖管理" class="headerlink" title="maven 的依赖管理"></a>maven 的依赖管理</h4><p><img src="https://i.postimg.cc/Dy1PwmC0/image-20221213235637602.png" alt="image-20221213235637602"></p><h5 id="仓库的介绍："><a href="#仓库的介绍：" class="headerlink" title="仓库的介绍："></a>仓库的介绍：</h5><p><img src="https://i.postimg.cc/jjyDzJ7n/image-20221214000311293.png" alt="image-20221214000311293"></p><p><img src="https://i.postimg.cc/wvVcQrmN/image-20221214000538632.png" alt="image-20221214000538632"></p><h2 id="maven的下载安装及配置"><a href="#maven的下载安装及配置" class="headerlink" title="maven的下载安装及配置"></a>maven的下载安装及配置</h2><h5 id="参考网上博客：Maven安装与配置教程-IT学长的博客-CSDN博客-mvn-安装配置"><a href="#参考网上博客：Maven安装与配置教程-IT学长的博客-CSDN博客-mvn-安装配置" class="headerlink" title="参考网上博客：Maven安装与配置教程_IT学长的博客-CSDN博客_mvn 安装配置"></a>参考网上博客：<a href="https://blog.csdn.net/qq_40625778/article/details/125229241?ops_request_misc=%7B%22request_id%22:%22167094139716782395314173%22,%22scm%22:%2220140713.130102334..%22%7D&request_id=167094139716782395314173&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-4-125229241-null-null.142%5Ev68%5Econtrol,201%5Ev4%5Eadd_ask,213%5Ev2%5Et3_control2&utm_term=maven%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE&spm=1018.2226.3001.4187">Maven安装与配置教程_IT学长的博客-CSDN博客_mvn 安装配置</a></h5>]]></content>
+      
+      
+      <categories>
+          
+          <category> Spring </category>
+          
+          <category> ssm </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> MyBatis </tag>
+            
+            <tag> Maven </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Spring框架</title>
+      <link href="/post/62d904b9.html"/>
+      <url>/post/62d904b9.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="1-spring-要学什么"><a href="#1-spring-要学什么" class="headerlink" title="1. spring 要学什么"></a>1. spring 要学什么</h2><h4 id="简化开发"><a href="#简化开发" class="headerlink" title="简化开发"></a>简化开发</h4><ul><li><p>IoC</p></li><li><p>AOP</p><ul><li>​         事务处理</li></ul></li></ul><h4 id="框架整合"><a href="#框架整合" class="headerlink" title="框架整合"></a>框架整合</h4><ul><li>MyBatis</li><li>MyBatis-plus</li><li>Struts</li><li>Struts2</li><li>Hibernate</li><li>…..</li></ul><h2 id="2-spring网站：Spring官网"><a href="#2-spring网站：Spring官网" class="headerlink" title="2. spring网站：Spring官网"></a>2. spring网站：<a href="https://spring.io/">Spring官网</a></h2><h2 id="3-Spring-Framework系统框架"><a href="#3-Spring-Framework系统框架" class="headerlink" title="3. Spring Framework系统框架"></a>3. Spring Framework系统框架</h2><h4 id="Spring-Framework-系统构架图："><a href="#Spring-Framework-系统构架图：" class="headerlink" title="Spring Framework 系统构架图："></a>Spring Framework 系统构架图：</h4><p><img src="https://i.postimg.cc/QdHjmqgF/image-20221213224019913.png" alt="Spring Framework系统框架图"></p><h4 id="Spring-Framework学习路线："><a href="#Spring-Framework学习路线：" class="headerlink" title="Spring Framework学习路线："></a>Spring Framework学习路线：</h4><p><img src="https://i.postimg.cc/90F6MWJD/image-20221213224330433.png" alt="Spring Framework学习路线"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Spring </category>
+          
+          <category> ssm </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Maven </tag>
+            
+            <tag> SSM </tag>
+            
+            <tag> MyBatis-Plus </tag>
+            
+            <tag> MVC </tag>
+            
+            <tag> SpringBoot </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>区块链入门2022.12.11</title>
       <link href="/post/4ed6308b.html"/>
       <url>/post/4ed6308b.html</url>
@@ -60,12 +151,14 @@
       <link href="/post/64a9b5c6.html"/>
       <url>/post/64a9b5c6.html</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<h2 id="在maven的pom-xml配置文件中引入相应的jar包"><a href="#在maven的pom-xml配置文件中引入相应的jar包" class="headerlink" title="在maven的pom.xml配置文件中引入相应的jar包"></a>在maven的pom.xml配置文件中引入相应的jar包</h2><h2 id="在src目录下创建数据库的配置文件"><a href="#在src目录下创建数据库的配置文件" class="headerlink" title="在src目录下创建数据库的配置文件"></a>在src目录下创建数据库的配置文件</h2><h4 id="注意：我的mysql版本为8-0-，url那两行代码当时候调整一下，放在一行"><a href="#注意：我的mysql版本为8-0-，url那两行代码当时候调整一下，放在一行" class="headerlink" title="注意：我的mysql版本为8.0+，url那两行代码当时候调整一下，放在一行"></a>注意：我的mysql版本为8.0+，url那两行代码当时候调整一下，放在一行</h4><h4 id="其中-url的配置8-0-以上版本通吃："><a href="#其中-url的配置8-0-以上版本通吃：" class="headerlink" title="其中 url的配置8.0+以上版本通吃："></a>其中 url的配置8.0+以上版本通吃：</h4><h4 id="url-x3D-jdbc-mysql-x2F-x2F-localhost-3306-x2F-lby-db01-useSSL-x3D-false-amp-serverTimezone-x3D-GMT-amp-characterEncoding-x3D-utf-8-amp-autoReconnect-x3D-true"><a href="#url-x3D-jdbc-mysql-x2F-x2F-localhost-3306-x2F-lby-db01-useSSL-x3D-false-amp-serverTimezone-x3D-GMT-amp-characterEncoding-x3D-utf-8-amp-autoReconnect-x3D-true" class="headerlink" title="url&#x3D;jdbc:mysql:&#x2F;&#x2F;localhost:3306&#x2F;lby_db01?useSSL&#x3D;false&amp;serverTimezone&#x3D;GMT&amp;characterEncoding&#x3D;utf-8&amp;autoReconnect&#x3D;true"></a>url&#x3D;jdbc:mysql:&#x2F;&#x2F;localhost:3306&#x2F;lby_db01?useSSL&#x3D;false&amp;serverTimezone&#x3D;GMT&amp;characterEncoding&#x3D;utf-8&amp;autoReconnect&#x3D;true</h4><figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#key=value</span></span><br><span class="line"><span class="attr">driverClassName</span>=<span class="string">com.mysql.cj.jdbc.Driver</span></span><br><span class="line"><span class="attr">url</span>=<span class="string">jdbc:mysql://localhost:3306/lby_db01?useSSL=false&amp;serverTimezone=GMT&amp;characterEncoding=utf-8&amp;autoReconnect=true</span></span><br><span class="line"><span class="comment">#url=127.0.0.1:3306/db1</span></span><br><span class="line"><span class="attr">username</span>=<span class="string">root</span></span><br><span class="line"><span class="attr">password</span>=<span class="string">123456</span></span><br><span class="line"><span class="comment">#initial connection Size</span></span><br><span class="line"><span class="attr">initialSize</span>=<span class="string">10</span></span><br><span class="line"><span class="comment">#min idle connection size</span></span><br><span class="line"><span class="attr">minIdle</span>=<span class="string">5</span></span><br><span class="line"><span class="comment">#max active connection size</span></span><br><span class="line"><span class="attr">maxActive</span>=<span class="string">50</span></span><br><span class="line"><span class="comment">#max wait time (5000 mil seconds)</span></span><br><span class="line"><span class="attr">maxWait</span>=<span class="string">5000</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
           
           <category> Java </category>
+          
+          <category> JDBC </category>
           
       </categories>
       
@@ -73,6 +166,10 @@
         <tags>
             
             <tag> Java </tag>
+            
+            <tag> JDBC </tag>
+            
+            <tag> 数据库 </tag>
             
         </tags>
       
@@ -85,7 +182,7 @@
       <link href="/post/649f4f6.html"/>
       <url>/post/649f4f6.html</url>
       
-        <content type="html"><![CDATA[<h2 id="柚子第一次搭建博客"><a href="#柚子第一次搭建博客" class="headerlink" title="柚子第一次搭建博客"></a>柚子第一次搭建博客</h2><h3 id="搭建博客的经历"><a href="#搭建博客的经历" class="headerlink" title="搭建博客的经历"></a>搭建博客的经历</h3><p>没有想象中的那样一帆风顺，最大的问题出现在hexo d 的部署上，每次都是卡在网络连接超时，在_config.xml文件中修改了 repository的值，将<a href="https://github.com/LBiyou/LBiyou.github.io.git">https://github.com/LBiyou/LBiyou.github.io.git</a> 换成：<a href="mailto:&#103;&#105;&#116;&#64;&#x67;&#105;&#116;&#104;&#x75;&#98;&#x2e;&#99;&#x6f;&#109;">&#103;&#105;&#116;&#64;&#x67;&#105;&#116;&#104;&#x75;&#98;&#x2e;&#99;&#x6f;&#109;</a>:LBiyou&#x2F;LBiyou.github.io.git 之后，获取公钥然后添加公钥，执行hexo d 就报 remote 什么什么，还有什么exsit之类的。 然后就是 在git 执行  <font size=5>ssh -T <a href="mailto:&#x67;&#x69;&#x74;&#64;&#103;&#x69;&#116;&#104;&#117;&#x62;&#46;&#99;&#x6f;&#x6d;">&#x67;&#x69;&#x74;&#64;&#103;&#x69;&#116;&#104;&#117;&#x62;&#46;&#99;&#x6f;&#x6d;</a></font>   这行语句验证是否配置成果，结果报<br>ssh: connect to host github.com port 22: Connection timed out<br>连接超时，然后网上找资料，到 D:\Git\Git\etc\ssh 下修改ssh_config文件 将</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Host ssh.dev.azure.com</span><br><span class="line"> HostkeyAlgorithms +ssh-rsa</span><br><span class="line"> PubkeyAcceptedAlgorithms +ssh-rsa</span><br><span class="line"># Added by git-extra</span><br><span class="line">Host *.visualstudio.com</span><br><span class="line"> HostkeyAlgorithms +ssh-rsa</span><br><span class="line"> PubkeyAcceptedAlgorithms +ssh-rsa</span><br></pre></td></tr></table></figure><p>配置新的端口号443</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Host github.com/* 服务器地址：github.com */</span><br><span class="line">User YourEmail/* 用户账号：github上的注册邮箱 */</span><br><span class="line">Hostname ssh.github.com/* 服务器地址为github地址*/</span><br><span class="line">PreferredAuthentications publickey/* 采用公匙 */</span><br><span class="line">IdentityFile ~/.ssh/id_rsa/* 公匙文件路径 */</span><br><span class="line">Port 443/* 端口 */</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>参考博客为：[报错： ssh: connect to host github.com port 22: Connection timed out_taotianlucky的博客-CSDN博客](<a href="https://blog.csdn.net/qq_31020665/article/details/114113108?ops_request_misc=%7B%22request_id%22:%22167030504016800186529240%22,%22scm%22:%2220140713.130102334.pc_all.%22%7D&amp;request_id=167030504016800186529240&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~rank_v31_ecpm-8-114113108-null-null.142%5Ev67%5Econtrol,201%5Ev4%5Eadd_ask,213%5Ev2%5Et3_control2&amp;utm_term=ssh">https://blog.csdn.net/qq_31020665/article/details/114113108?ops_request_misc=%7B%22request%5Fid%22%3A%22167030504016800186529240%22%2C%22scm%22%3A%2220140713.130102334.pc%5Fall.%22%7D&amp;request_id=167030504016800186529240&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~rank_v31_ecpm-8-114113108-null-null.142^v67^control,201^v4^add_ask,213^v2^t3_control2&amp;utm_term=ssh</a> -t git%40github.com超时&amp;spm&#x3D;1018.2226.3001.4187)</p><p>在本机的配置文件为：</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Host github.com</span><br><span class="line">User 3071709373@qq.com</span><br><span class="line">Hostname ssh.github.com</span><br><span class="line">PreferredAuthentications publickey</span><br><span class="line">IdentityFile ~/.ssh/id_rsa</span><br><span class="line">Port 443</span><br></pre></td></tr></table></figure><p>修改之后，运行  ssh -T <a href="mailto:&#103;&#x69;&#x74;&#64;&#103;&#105;&#x74;&#104;&#117;&#x62;&#46;&#x63;&#x6f;&#x6d;">&#103;&#x69;&#x74;&#64;&#103;&#105;&#x74;&#104;&#117;&#x62;&#46;&#x63;&#x6f;&#x6d;</a>  成功，执行 hexo g     hexo d 都成功</p>]]></content>
+        <content type="html"><![CDATA[<h2 id="搭建博客的经历"><a href="#搭建博客的经历" class="headerlink" title="搭建博客的经历"></a>搭建博客的经历</h2><p>没有想象中的那样一帆风顺，最大的问题出现在hexo d 的部署上，每次都是卡在网络连接超时，在_config.xml文件中修改了 repository的值，将<a href="https://github.com/LBiyou/LBiyou.github.io.git">https://github.com/LBiyou/LBiyou.github.io.git</a> 换成：<a href="mailto:&#103;&#x69;&#116;&#x40;&#x67;&#x69;&#x74;&#104;&#x75;&#98;&#46;&#x63;&#111;&#109;">&#103;&#x69;&#116;&#x40;&#x67;&#x69;&#x74;&#104;&#x75;&#98;&#46;&#x63;&#111;&#109;</a>:LBiyou&#x2F;LBiyou.github.io.git 之后，获取公钥然后添加公钥，执行hexo d 就报 remote 什么什么，还有什么exsit之类的。 然后就是 在git 执行  <font size="5">ssh -T <a href="mailto:&#x67;&#105;&#116;&#x40;&#x67;&#105;&#116;&#104;&#x75;&#98;&#x2e;&#x63;&#111;&#x6d;">&#x67;&#105;&#116;&#x40;&#x67;&#105;&#116;&#104;&#x75;&#98;&#x2e;&#x63;&#111;&#x6d;</a></font>   这行语句验证是否配置成果，结果报<br>ssh: connect to host github.com port 22: Connection timed out<br>连接超时，然后网上找资料，到 D:\Git\Git\etc\ssh 下修改ssh_config文件 将</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Host ssh.dev.azure.com</span><br><span class="line"> HostkeyAlgorithms +ssh-rsa</span><br><span class="line"> PubkeyAcceptedAlgorithms +ssh-rsa</span><br><span class="line"># Added by git-extra</span><br><span class="line">Host *.visualstudio.com</span><br><span class="line"> HostkeyAlgorithms +ssh-rsa</span><br><span class="line"> PubkeyAcceptedAlgorithms +ssh-rsa</span><br></pre></td></tr></table></figure><p>配置新的端口号443</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Host github.com/* 服务器地址：github.com */</span><br><span class="line">User YourEmail/* 用户账号：github上的注册邮箱 */</span><br><span class="line">Hostname ssh.github.com/* 服务器地址为github地址*/</span><br><span class="line">PreferredAuthentications publickey/* 采用公匙 */</span><br><span class="line">IdentityFile ~/.ssh/id_rsa/* 公匙文件路径 */</span><br><span class="line">Port 443/* 端口 */</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>参考博客为：[报错： ssh: connect to host github.com port 22: Connection timed out_taotianlucky的博客-CSDN博客](<a href="https://blog.csdn.net/qq_31020665/article/details/114113108?ops_request_misc=%7B%22request_id%22:%22167030504016800186529240%22,%22scm%22:%2220140713.130102334.pc_all.%22%7D&amp;request_id=167030504016800186529240&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~rank_v31_ecpm-8-114113108-null-null.142%5Ev67%5Econtrol,201%5Ev4%5Eadd_ask,213%5Ev2%5Et3_control2&amp;utm_term=ssh">https://blog.csdn.net/qq_31020665/article/details/114113108?ops_request_misc=%7B%22request%5Fid%22%3A%22167030504016800186529240%22%2C%22scm%22%3A%2220140713.130102334.pc%5Fall.%22%7D&amp;request_id=167030504016800186529240&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~rank_v31_ecpm-8-114113108-null-null.142^v67^control,201^v4^add_ask,213^v2^t3_control2&amp;utm_term=ssh</a> -t git%40github.com超时&amp;spm&#x3D;1018.2226.3001.4187)</p><p>在本机的配置文件为：</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Host github.com</span><br><span class="line">User 3071709373@qq.com</span><br><span class="line">Hostname ssh.github.com</span><br><span class="line">PreferredAuthentications publickey</span><br><span class="line">IdentityFile ~/.ssh/id_rsa</span><br><span class="line">Port 443</span><br></pre></td></tr></table></figure><p>修改之后，运行  ssh -T <a href="mailto:&#x67;&#105;&#116;&#x40;&#x67;&#105;&#116;&#104;&#117;&#98;&#x2e;&#x63;&#x6f;&#109;">&#x67;&#105;&#116;&#x40;&#x67;&#105;&#116;&#104;&#117;&#98;&#x2e;&#x63;&#x6f;&#109;</a>  成功，执行 hexo g     hexo d 都成功</p>]]></content>
       
       
       <categories>
