@@ -693,7 +693,7 @@ article#tag .all-tags ul li span:before {
 }
 .article .widget.list .content a,
 .article .widget.related_posts .content a {
-  color: #2092ec;
+  color: #16f4ef;
 }
 .article .widget.list .content a:hover,
 .article .widget.related_posts .content a:hover {
@@ -720,7 +720,7 @@ article#tag .all-tags ul li span:before {
   border-left: none;
   padding: 0;
   padding-left: 4px;
-  color: #2092ec;
+  color: #16f4ef;
   font-weight: normal;
   text-decoration: none;
 }
@@ -737,7 +737,7 @@ article#tag .all-tags ul li span:before {
   display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
   display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
   display: inline;
-  color: #2092ec;
+  color: #16f4ef;
 }
 .article .widget .content .list a:hover .name {
   color: #ff5722;
@@ -3029,7 +3029,7 @@ img.lazyload:not(.placeholder).loaded {
   word-break: break-all;
 }
 .widget.text .content a {
-  color: #2092ec;
+  color: #16f4ef;
   transition: all 0.28s ease;
   -webkit-transition: all 0.28s ease;
   -khtml-transition: all 0.28s ease;
@@ -4226,7 +4226,7 @@ div.dropmenu {
   -moz-transition: all 0.28s ease;
   -o-transition: all 0.28s ease;
   -ms-transition: all 0.28s ease;
-  color: #2092ec;
+  color: #16f4ef;
 }
 div.dropmenu:hover {
   color: inherit;
