@@ -1793,7 +1793,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1685637782448),
+    lastupdate: new Date(1685673264369),
     sidebar: {
       for_page: ["blogger","category","tagcloud","webinfo","qrcode"],
       for_post: ["toc","blogger","qrcode"],
@@ -2278,14 +2278,84 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
               <li>
                 <a class="menuitem flat-box faa-parent animated-hover"
-                href="/categories/" title="Categories"
+                 href="/" onclick="return false;" title="Categories"
                   
                   
-                  
-                    active-action="action-categories"
                   >
                   <i class='fa-solid fa-folder-open fa-fw'></i>Categories
                 </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/categories/Solidity/" title="Solidity"
+                  
+                  
+                  
+                    active-action="action-categoriesSolidity"
+                  >
+                  <i class='fa-solid fa-book fa-fw'></i>Solidity
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/categories/Ethers-js/" title="Ethersjs"
+                  
+                  
+                  
+                    active-action="action-categoriesEthers-js"
+                  >
+                  <i class='fa-solid fa-book fa-fw'></i>Ethersjs
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/categories/Web3/" title="Web3"
+                  
+                  
+                  
+                    active-action="action-categoriesWeb3"
+                  >
+                  <i class='fa-solid fa-book fa-fw'></i>Web3
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/categories/Hexo/" title="Hexo"
+                  
+                  
+                  
+                    active-action="action-categoriesHexo"
+                  >
+                  <i class='fa-solid fa-book fa-fw'></i>Hexo
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
                 
               </li>
             
@@ -2428,14 +2498,84 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
               <li>
                 <a class="menuitem flat-box faa-parent animated-hover"
-                href="/categories/" title="Categories"
+                 href="/" onclick="return false;" title="Categories"
                   
                   
-                  
-                    active-action="action-categories"
                   >
                   <i class='fa-solid fa-folder-open fa-fw'></i>Categories
                 </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/categories/Solidity/" title="Solidity"
+                  
+                  
+                  
+                    active-action="action-categoriesSolidity"
+                  >
+                  <i class='fa-solid fa-book fa-fw'></i>Solidity
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/categories/Ethers-js/" title="Ethersjs"
+                  
+                  
+                  
+                    active-action="action-categoriesEthers-js"
+                  >
+                  <i class='fa-solid fa-book fa-fw'></i>Ethersjs
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/categories/Web3/" title="Web3"
+                  
+                  
+                  
+                    active-action="action-categoriesWeb3"
+                  >
+                  <i class='fa-solid fa-book fa-fw'></i>Web3
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/categories/Hexo/" title="Hexo"
+                  
+                  
+                  
+                    active-action="action-categoriesHexo"
+                  >
+                  <i class='fa-solid fa-book fa-fw'></i>Hexo
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
                 
               </li>
             
@@ -2571,7 +2711,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
       <div class="m_search">
         <form name="searchform" class="form u-search-form">
-          <input type="text" class="input u-search-input" placeholder="A Wonderful Theme for Hexo" />
+          <input type="text" class="input u-search-input" placeholder="search..." />
           <i class="icon fa-solid fa-search fa-fw"></i>
         </form>
       </div>
@@ -2934,13 +3074,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 获取钱包地址</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> address1 = <span class="keyword">await</span> wallet1.<span class="title function_">getAddress</span>()</span><br><span class="line"><span class="keyword">const</span> address2 = <span class="keyword">await</span> wallet2.<span class="title function_">getAddress</span>() </span><br><span class="line"><span class="keyword">const</span> address3 = <span class="keyword">await</span> wallet3.<span class="title function_">getAddress</span>() <span class="comment">// 获取地址</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`1. 获取钱包地址`</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`钱包1地址: <span class="subst">$&#123;address1&#125;</span>`</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`钱包2地址: <span class="subst">$&#123;address2&#125;</span>`</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`钱包3地址: <span class="subst">$&#123;address3&#125;</span>`</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`钱包1和钱包3的地址是否相同: <span class="subst">$&#123;address1 === address3&#125;</span>`</span>);</span><br></pre></td></tr></table></figure>
 
 <p>运行结果：</p>
-<p><img src="https://s1.vika.cn/space/2023/05/16/63ecec420ee94ae3a0142e94157daec7" alt="image-20230516181912331"></p>
+<p><img src="https://cdn.staticaly.com/gh/LBiyou/BlogImages@main/img/202306021012243.png" alt="image-20230516181912331"></p>
 </blockquote>
 <h4 id="5-4-3-获取助记词"><a href="#5-4-3-获取助记词" class="headerlink" title="5.4.3 获取助记词"></a>5.4.3 获取助记词</h4><p>利用钱包对象的<code>mnemonic</code>成员获取助记词：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`钱包1助记词: <span class="subst">$&#123;wallet1.mnemonic.phrase&#125;</span>`</span>)</span><br></pre></td></tr></table></figure>
 
 <p>结果：</p>
-<p><img src="https://s1.vika.cn/space/2023/05/16/1f002ed673004a98bcc8626d410b0191" alt="image-20230516182108758"></p>
+<p><img src="https://cdn.staticaly.com/gh/LBiyou/BlogImages@main/img/202306021012518.png" alt="image-20230516182108758"></p>
 <h4 id="5-4-4-利用钱包对象的-privateKey-成员获取私钥："><a href="#5-4-4-利用钱包对象的-privateKey-成员获取私钥：" class="headerlink" title="5.4.4 利用钱包对象的 privateKey 成员获取私钥："></a>5.4.4 利用钱包对象的 <code>privateKey</code> 成员获取私钥：</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`钱包2私钥: <span class="subst">$&#123;wallet2.privateKey&#125;</span>`</span>)</span><br></pre></td></tr></table></figure>
 
 <p>运行结果：</p>
@@ -2954,7 +3094,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>运行结果：</p>
 <p><img src="https://cdn.staticaly.com/gh/LBiyou/BlogImages@main/img/202306012216221.png" alt="image-20230516182720008"></p>
 <p>到<code>ganache</code>上查看：</p>
-<p><img src="https://s1.vika.cn/space/2023/05/16/7c424113d9a543a182a4bf6ac031b975" alt="image-20230516182746669"></p>
+<p><img src="https://cdn.staticaly.com/gh/LBiyou/BlogImages@main/img/202306021012427.png" alt="image-20230516182746669"></p>
 <h3 id="5-4-6-发送ETH"><a href="#5-4-6-发送ETH" class="headerlink" title="5.4.6 发送ETH"></a>5.4.6 发送ETH</h3><p>我们用<code>wallet2</code>给<code>wallet1</code>发送<code>0.001 ETH</code>，并打印交易前后的钱包余额。由于<code>wallet1</code>是新建的随机私钥钱包，因此交易前余额为<code>0</code>，而交易后余额为<code>0.001 ETH</code>。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> wallet1 = ethers.<span class="property">Wallet</span>.<span class="title function_">createRandom</span>();</span><br><span class="line"><span class="keyword">const</span> wallet1WithProvider = wallet1.<span class="title function_">connect</span>(provider);</span><br><span class="line"><span class="keyword">const</span> mnemonic = wallet1.<span class="property">mnemonic</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> privateKey = <span class="string">&quot;0x9b139483dc6f6c8782fda2301e9b65a75b3d084d79e79e04c64683bebfa1741d&quot;</span>;</span><br><span class="line"><span class="keyword">const</span> wallet2 = <span class="keyword">new</span> ethers.<span class="title class_">Wallet</span>(privateKey, provider);</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 获取钱包地址</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> address1 = <span class="keyword">await</span> wallet1.<span class="title function_">getAddress</span>()</span><br><span class="line"><span class="keyword">const</span> address2 = <span class="keyword">await</span> wallet2.<span class="title function_">getAddress</span>() </span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 发送ETH</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot; wallet2 给 wallet1 转账0.01ETH&quot;</span>);</span><br><span class="line"><span class="comment">//交易前余额</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`钱包1: <span class="subst">$&#123;ethers.utils.formatEther(<span class="keyword">await</span> wallet1WithProvider.getBalance())&#125;</span> ETH`</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`钱包2: <span class="subst">$&#123;ethers.utils.formatEther(<span class="keyword">await</span> wallet2.getBalance())&#125;</span> ETH`</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 构建交易请求；to为接收地址，value为ETH数额</span></span><br><span class="line"><span class="keyword">const</span> <span class="variable constant_">TX</span> = &#123;</span><br><span class="line">    <span class="attr">to</span>: address1,</span><br><span class="line">    <span class="attr">value</span>: ethers.<span class="property">utils</span>.<span class="title function_">parseEther</span>(<span class="string">&quot;0.001&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 发送交易，获得收据</span></span><br><span class="line"><span class="keyword">const</span> recepit = <span class="keyword">await</span> wallet2.<span class="title function_">sendTransaction</span>(<span class="variable constant_">TX</span>);</span><br><span class="line"><span class="keyword">await</span> recepit.<span class="title function_">wait</span>();</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;receipt =&gt; &quot;</span>,recepit);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;发送后的账户余额&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`钱包1: <span class="subst">$&#123;ethers.utils.formatEther(<span class="keyword">await</span> wallet1WithProvider.getBalance())&#125;</span> ETH`</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`钱包2: <span class="subst">$&#123;ethers.utils.formatEther(<span class="keyword">await</span> wallet2.getBalance())&#125;</span> ETH`</span>);</span><br></pre></td></tr></table></figure>
 
@@ -3044,10 +3184,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; ethers &#125; <span class="keyword">from</span> <span class="string">&quot;ethers&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> fs <span class="keyword">from</span> <span class="string">&quot;fs&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取本地的provider</span></span><br><span class="line"><span class="keyword">const</span> provider = <span class="keyword">new</span> ethers.<span class="property">providers</span>.<span class="title class_">JsonRpcProvider</span>(<span class="string">&quot;HTTP://127.0.0.1:8545&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 根据私钥创建 wallet对象</span></span><br><span class="line"><span class="keyword">const</span> privateKey = <span class="string">&quot;0x9b139483dc6f6c8782fda2301e9b65a75b3d084d79e79e04c64683bebfa1741d&quot;</span>;</span><br><span class="line"><span class="keyword">const</span> wallet = <span class="keyword">new</span> ethers.<span class="title class_">Wallet</span>(privateKey, provider);</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>准备demo1合约的字节码和ABI(这里我使用remix生成的ABI)。因为demo2的构造函数含有参数，因此我们需要把它包含再ABI中。合约的字节码可以从remix的编译面板中点击bytecode按钮拷贝下来(为了代码的可读性，将拷贝的字节码新建一个 <code>.code</code>文件存放，获取的时候 使用 <code>fs</code>来读取)，其中”object”字段对应的数据就是字节码。如果部署在链上的合约，你可以在etherscan的Contract页面的Contract Creation Code中找到。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">   <span class="comment">// demo2人类可读abi</span></span><br><span class="line">   <span class="comment">/**</span></span><br><span class="line"><span class="comment">   const demo2ABI = [</span></span><br><span class="line"><span class="comment">   &quot;constructor(uint _slot0, address _slot1, string memory _slot2) payable&quot;,</span></span><br><span class="line"><span class="comment">   .......</span></span><br><span class="line"><span class="comment">   ]</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">   <span class="comment">// 读取文件的abi</span></span><br><span class="line">   <span class="keyword">const</span> <span class="variable constant_">ABI</span> = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(fs.<span class="title function_">readFileSync</span>(<span class="string">&quot;LearningSelf\\day03\\demo2.abi&quot;</span>).<span class="title function_">toString</span>());</span><br><span class="line">                           </span><br><span class="line">   <span class="comment">// 读取文件的bytecode</span></span><br><span class="line">   <span class="keyword">const</span> byteCode = fs.<span class="title function_">readFileSync</span>(<span class="string">&quot;LearningSelf\\day03\\demo2.code&quot;</span>).<span class="title function_">toString</span>();</span><br><span class="line">   </span><br><span class="line">   </span><br><span class="line">   </span><br><span class="line"></span><br><span class="line"><span class="number">3.</span> 创建合约工厂<span class="title class_">ContractFactory</span>实例</span><br><span class="line"></span><br><span class="line">   <span class="string">``</span><span class="string">`js</span></span><br><span class="line"><span class="string">   // 创建合约工厂 ContractFactory 实例</span></span><br><span class="line"><span class="string">   const factoryDemo2 = new ethers.ContractFactory(ABI, byteCode, wallet);</span></span><br><span class="line"><span class="string">   </span></span><br><span class="line"><span class="string">   </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">4. 调用工厂合约的deploy() 函数并填入构造函数的参数，部署demo2合约并获取合约实例。有写常用方法：</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">   - `</span>contract.<span class="property">address</span><span class="string">`获取合约地址，</span></span><br><span class="line"><span class="string">   - `</span>contract.<span class="property">deployTransaction</span><span class="string">`获取部署详情，</span></span><br><span class="line"><span class="string">   - `</span>contractERC20.<span class="title function_">deployed</span>()<span class="string">`等待合约部署在链上确认。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">   `</span><span class="string">``</span>js</span><br><span class="line">   <span class="comment">// 利用 factoryDemo2 部署demo2 合约</span></span><br><span class="line">   <span class="keyword">const</span> gasPrice = <span class="keyword">await</span> provider.<span class="title function_">getGasPrice</span>();</span><br><span class="line">   <span class="keyword">const</span> transaction = &#123; <span class="attr">value</span>: ethers.<span class="property">utils</span>.<span class="title function_">parseEther</span>(<span class="string">&#x27;1&#x27;</span>), gasPrice &#125;;</span><br><span class="line">   <span class="keyword">const</span> constract = <span class="keyword">await</span> factoryDemo2.<span class="title function_">deploy</span>(<span class="number">9</span>,<span class="string">&quot;0xfDc84b042c01F01C7cC6eF08452BA156844c3A5C&quot;</span>,<span class="string">&quot;biyou&quot;</span>,transaction);</span><br><span class="line">   <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`部署得到的合约地址：<span class="subst">$&#123;constract.address&#125;</span>`</span>);</span><br><span class="line">   </span><br><span class="line">   <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;部署合约的交易详情&quot;</span>);</span><br><span class="line">   <span class="variable language_">console</span>.<span class="title function_">log</span>(constract.<span class="property">deployTransaction</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">   <span class="comment">// demo2人类可读abi</span></span><br><span class="line">   <span class="comment">/**</span></span><br><span class="line"><span class="comment">   const demo2ABI = [</span></span><br><span class="line"><span class="comment">   &quot;constructor(uint _slot0, address _slot1, string memory _slot2) payable&quot;,</span></span><br><span class="line"><span class="comment">   .......</span></span><br><span class="line"><span class="comment">   ]</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">   <span class="comment">// 读取文件的abi</span></span><br><span class="line">   <span class="keyword">const</span> <span class="variable constant_">ABI</span> = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(fs.<span class="title function_">readFileSync</span>(<span class="string">&quot;LearningSelf\\day03\\demo2.abi&quot;</span>).<span class="title function_">toString</span>());</span><br><span class="line">                              </span><br><span class="line">   <span class="comment">// 读取文件的bytecode</span></span><br><span class="line">   <span class="keyword">const</span> byteCode = fs.<span class="title function_">readFileSync</span>(<span class="string">&quot;LearningSelf\\day03\\demo2.code&quot;</span>).<span class="title function_">toString</span>();</span><br><span class="line">   </span><br><span class="line">   </span><br><span class="line">   </span><br><span class="line"></span><br><span class="line"><span class="number">3.</span> 创建合约工厂<span class="title class_">ContractFactory</span>实例</span><br><span class="line"></span><br><span class="line">   <span class="string">``</span><span class="string">`js</span></span><br><span class="line"><span class="string">   // 创建合约工厂 ContractFactory 实例</span></span><br><span class="line"><span class="string">   const factoryDemo2 = new ethers.ContractFactory(ABI, byteCode, wallet);</span></span><br><span class="line"><span class="string">   </span></span><br><span class="line"><span class="string">   </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">4. 调用工厂合约的deploy() 函数并填入构造函数的参数，部署demo2合约并获取合约实例。有写常用方法：</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">   - `</span>contract.<span class="property">address</span><span class="string">`获取合约地址，</span></span><br><span class="line"><span class="string">   - `</span>contract.<span class="property">deployTransaction</span><span class="string">`获取部署详情，</span></span><br><span class="line"><span class="string">   - `</span>contractERC20.<span class="title function_">deployed</span>()<span class="string">`等待合约部署在链上确认。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">   `</span><span class="string">``</span>js</span><br><span class="line">   <span class="comment">// 利用 factoryDemo2 部署demo2 合约</span></span><br><span class="line">   <span class="keyword">const</span> gasPrice = <span class="keyword">await</span> provider.<span class="title function_">getGasPrice</span>();</span><br><span class="line">   <span class="keyword">const</span> transaction = &#123; <span class="attr">value</span>: ethers.<span class="property">utils</span>.<span class="title function_">parseEther</span>(<span class="string">&#x27;1&#x27;</span>), gasPrice &#125;;</span><br><span class="line">   <span class="keyword">const</span> constract = <span class="keyword">await</span> factoryDemo2.<span class="title function_">deploy</span>(<span class="number">9</span>,<span class="string">&quot;0xfDc84b042c01F01C7cC6eF08452BA156844c3A5C&quot;</span>,<span class="string">&quot;biyou&quot;</span>,transaction);</span><br><span class="line">   <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`部署得到的合约地址：<span class="subst">$&#123;constract.address&#125;</span>`</span>);</span><br><span class="line">   </span><br><span class="line">   <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;部署合约的交易详情&quot;</span>);</span><br><span class="line">   <span class="variable language_">console</span>.<span class="title function_">log</span>(constract.<span class="property">deployTransaction</span>);</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>调用合约函数</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 调用合约的函数</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">let</span> slot0 = <span class="keyword">await</span> constract.<span class="title function_">getSlot0</span>();</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`slot0&#x27;s value is =&gt; <span class="subst">$&#123;slot0&#125;</span>`</span>);</span><br><span class="line"><span class="keyword">let</span> slot1 = <span class="keyword">await</span> constract.<span class="title function_">getSlot1</span>();</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`slot1&#x27;s value is =&gt; <span class="subst">$&#123;slot1&#125;</span>`</span>);</span><br><span class="line"><span class="keyword">let</span> slot2 = <span class="keyword">await</span> constract.<span class="title function_">getSlot2</span>();</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`slot2&#x27;s value is =&gt; <span class="subst">$&#123;slot2&#125;</span>`</span>);</span><br><span class="line">                        </span><br><span class="line"><span class="keyword">let</span> balance = <span class="keyword">await</span> constract.<span class="title function_">balanceOf</span>(<span class="string">&quot;0x643bB521371F66E271937C6365F5812118e58a6D&quot;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`ETH balance is =&gt; <span class="subst">$&#123;balance&#125;</span>`</span>);</span><br><span class="line">                        </span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 调用合约的函数</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">let</span> slot0 = <span class="keyword">await</span> constract.<span class="title function_">getSlot0</span>();</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`slot0&#x27;s value is =&gt; <span class="subst">$&#123;slot0&#125;</span>`</span>);</span><br><span class="line"><span class="keyword">let</span> slot1 = <span class="keyword">await</span> constract.<span class="title function_">getSlot1</span>();</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`slot1&#x27;s value is =&gt; <span class="subst">$&#123;slot1&#125;</span>`</span>);</span><br><span class="line"><span class="keyword">let</span> slot2 = <span class="keyword">await</span> constract.<span class="title function_">getSlot2</span>();</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`slot2&#x27;s value is =&gt; <span class="subst">$&#123;slot2&#125;</span>`</span>);</span><br><span class="line">                           </span><br><span class="line"><span class="keyword">let</span> balance = <span class="keyword">await</span> constract.<span class="title function_">balanceOf</span>(<span class="string">&quot;0x643bB521371F66E271937C6365F5812118e58a6D&quot;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`ETH balance is =&gt; <span class="subst">$&#123;balance&#125;</span>`</span>);</span><br><span class="line">                           </span><br></pre></td></tr></table></figure>
 
 <p>执行结果：</p>
 <p><img src="https://cdn.staticaly.com/gh/LBiyou/BlogImages@main/img/202306012218199.png" alt="image-20230517152117690"></p>
@@ -3270,7 +3410,7 @@ abi.encodePacked 函数将其参数按顺序拼接起来，不添加任何类型
         </a>
       
       
-        <a class='next' href='/2023/04/24/Solidity/Contract%20range/capther%20the%20ether/Public%20Key/'>
+        <a class='next' href='/2023/04/24/Smart%20contracts/capther%20the%20ether/Public%20Key/'>
           <p class='title'>Public Key<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
           <p class='content'>Public Key1. 题目2. 分析3. 解题</p>
         </a>
