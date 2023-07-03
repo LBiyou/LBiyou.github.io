@@ -1794,7 +1794,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1686810648114),
+    lastupdate: new Date(1688390291400),
     sidebar: {
       for_page: ["blogger","category","tagcloud","webinfo","qrcode"],
       for_post: ["toc","blogger","qrcode"],
@@ -3077,8 +3077,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class='next' href='/2023/05/24/Solidity/Basic_Knowledge/abi.encode&&abi.encodePacked/'>
           <p class='title'>encode && encodePacked<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>abi.encode 和 abi.encodePacked的区别abi编码的详解 移步&#x3D;&#x3D;&#x3D;》1.abi.encode
-abi.encode 将它的每个参数填充为3...</p>
+          <p class='content'>abi编码的详解1.abi.encode
+abi.encode 将它的每个参数填充为32字节【32 * 8 &#x3D;256位】（1byte &#x3D; 8bit）的数据，并拼接在一起。
+注...</p>
         </a>
       
     </div>
