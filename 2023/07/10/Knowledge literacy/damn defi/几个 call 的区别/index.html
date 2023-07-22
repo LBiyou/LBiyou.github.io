@@ -1795,7 +1795,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1689408595098),
+    lastupdate: new Date(1690017620643),
     sidebar: {
       for_page: ["blogger","category","tagcloud","webinfo","qrcode"],
       for_post: ["toc","blogger","qrcode"],
@@ -3054,9 +3054,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <h3 id="1-1-delegatecall-和-call-的区别"><a href="#1-1-delegatecall-和-call-的区别" class="headerlink" title="1.1 delegatecall 和 call 的区别"></a>1.1 delegatecall 和 call 的区别</h3><blockquote>
 <p><code>delegatecall</code>与<code>call</code>类似，是<code>solidity</code>中地址类型的低级成员函数。<code>delegate</code>中是委托&#x2F;代表的意思，那么<code>delegatecall</code>委托了什么？</p>
 <p>当用户<code>A</code>通过合约<code>B</code>来<code>call</code>合约<code>C</code>的时候，执行的是合约<code>C</code>的函数，<code>上下文</code>(<code>Context</code>，可以理解为包含变量和状态的环境)也是合约<code>C</code>的：<code>msg.sender</code>是<code>B</code>的地址，并且如果函数改变一些状态变量，产生的效果会作用于合约<code>C</code>的变量上。</p>
-<p><img src="/2023/07/10/Knowledge%20literacy/damn%20defi/%E5%87%A0%E4%B8%AA%20call%20%E7%9A%84%E5%8C%BA%E5%88%AB/image-20230710124307363.png" alt="image-20230710124307363"></p>
+<p><img src="https://cdn.staticaly.com/gh/LBiyou/BlogImages@main/img/202307190948085.png" alt="image-20230710124307363"></p>
 <p>而当用户<code>A</code>通过合约<code>B</code>来<code>delegatecall</code>合约<code>C</code>的时候，执行的是合约<code>C</code>的函数，但是<code>上下文</code>仍是合约<code>B</code>的：<code>msg.sender</code>是<code>A</code>的地址，并且如果函数改变一些状态变量，产生的效果会作用于合约<code>B</code>的变量上。</p>
-<p><img src="/2023/07/10/Knowledge%20literacy/damn%20defi/%E5%87%A0%E4%B8%AA%20call%20%E7%9A%84%E5%8C%BA%E5%88%AB/image-20230710124429867.png" alt="image-20230710124429867"></p>
+<p><img src="https://cdn.staticaly.com/gh/LBiyou/BlogImages@main/img/202307190948586.png" alt="image-20230710124429867"></p>
 </blockquote>
 <p>这样咋一看不太好理解，举个例子</p>
 <blockquote>
@@ -3080,10 +3080,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 <p>部署B 、C合约</p>
 <p>通过call的方式：</p>
-<p><img src="/2023/07/10/Knowledge%20literacy/damn%20defi/%E5%87%A0%E4%B8%AA%20call%20%E7%9A%84%E5%8C%BA%E5%88%AB/image-20230710125539817.png" alt="image-20230710125539817"></p>
+<p><img src="https://cdn.staticaly.com/gh/LBiyou/BlogImages@main/img/202307190948720.png" alt="image-20230710125539817"></p>
 <p>可以看到，B合约的状态变量没发生改变，C的状态变量发生了改变</p>
 <p>通过delegatecall的方式：</p>
-<p><img src="/2023/07/10/Knowledge%20literacy/damn%20defi/%E5%87%A0%E4%B8%AA%20call%20%E7%9A%84%E5%8C%BA%E5%88%AB/image-20230710125733682.png" alt="image-20230710125733682"></p>
+<p><img src="https://cdn.staticaly.com/gh/LBiyou/BlogImages@main/img/202307190948197.png" alt="image-20230710125733682"></p>
 <p>可以看到，B合约的状态变量发生了改变，而C合约的状态变量未发生改变。</p>
 <h3 id="1-4-注意"><a href="#1-4-注意" class="headerlink" title="1.4 注意"></a>1.4 注意</h3><p><em><strong>注意B和C的数据存储布局必须相同！变量类型、声明的前后顺序要相同，不然会搞砸合约。</strong></em></p>
 <h2 id="2-staticcall"><a href="#2-staticcall" class="headerlink" title="2. staticcall"></a>2. staticcall</h2><blockquote>
