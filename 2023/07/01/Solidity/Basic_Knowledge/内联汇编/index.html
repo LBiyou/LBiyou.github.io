@@ -1793,7 +1793,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1690017620643),
+    lastupdate: new Date(1690522141791),
     sidebar: {
       for_page: ["blogger","category","tagcloud","webinfo","qrcode"],
       for_post: ["toc","blogger","qrcode"],
@@ -2994,13 +2994,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fa-solid fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：5.4k 字</p>
+      <p>字数：5.6k 字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fa-solid fa-bell fa-fw" aria-hidden="true"></i>
-      <p>时长：24 分钟</p>
+      <p>时长：25 分钟</p>
     </a>
   </div>
 
@@ -3788,13 +3788,15 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 <p><em>运行结果：</em></p>
 <p><img src="/2023/07/01/Solidity/Basic_Knowledge/%E5%86%85%E8%81%94%E6%B1%87%E7%BC%96/image-20230703203149921.png" alt="image-20230703203149921"></p>
-<h4 id="2-2-18-call的用法"><a href="#2-2-18-call的用法" class="headerlink" title="2.2.18 call的用法"></a>2.2.18 <code>call的用法</code></h4><p>（暂时还没理解到位。。。。）</p>
-<p><em>语法：</em></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">*示例：*</span><br><span class="line"></span><br><span class="line">```solidity</span><br></pre></td></tr></table></figure>
+<h4 id="2-2-18-call的用法"><a href="#2-2-18-call的用法" class="headerlink" title="2.2.18 call的用法"></a>2.2.18 <code>call的用法</code></h4><p><em>语法：</em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">call(g, a, v, in, insize, out, outsize)</span><br></pre></td></tr></table></figure>
 
-
+<p>其中，<code>g</code>是可用的gas数量，<code>a</code>是要调用的合约地址，<code>v</code>是要发送的以太币数量，<code>in</code>是要发送的调用数据，<code>insize</code>是调用数据的长度，<code>out</code>是一个指向输出缓冲区的指针，<code>outsize</code>是输出缓冲区的大小。</p>
+<p><em>示例：</em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function fun(uint256 num1, uint256 num2) external returns (uint256) &#123;</span><br><span class="line">    return sum = num1 + num2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function inline_call() public returns(bool success)&#123;</span><br><span class="line">   </span><br><span class="line">    bytes memory data = abi.encodeWithSignature(&quot;fun(uint256,uint256)&quot;, 260, 261);</span><br><span class="line">    address to = address(this);</span><br><span class="line"></span><br><span class="line">    assembly &#123;</span><br><span class="line">        success := call(gas(), to, 0, add(data, 0x20), mload(data), 0, 0)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p><em>运行结果：</em></p>
+<p><img src="/2023/07/01/Solidity/Basic_Knowledge/%E5%86%85%E8%81%94%E6%B1%87%E7%BC%96/image-20230725133537904.png" alt="image-20230725133537904"></p>
 
   </div>
   
@@ -3855,11 +3857,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       </span>
     
       <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-        <a href="/categories/Solidity/Basic-Knowledge/" itemprop="url"><span itemprop="name">Basic_Knowledge</span></a>
+        <a href="/categories/Solidity/Utils/" itemprop="url"><span itemprop="name">Utils</span></a>
       </span>
     
       <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-        <a href="/categories/Solidity/Utils/" itemprop="url"><span itemprop="name">Utils</span></a>
+        <a href="/categories/Solidity/Basic-Knowledge/" itemprop="url"><span itemprop="name">Basic_Knowledge</span></a>
       </span>
     
   </div>
@@ -5120,7 +5122,7 @@ window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListener
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"笔友🍉の知识库","url":"https://biyouqiuqiu.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"笔友🍉","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://biyouqiuqiu.com/","sameAs":["https://github.com/volantis-x"],"description":"Self-Discipline"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://biyouqiuqiu.com/","name":"笔友🍉の知识库"}},{"@type":"ListItem","position":2,"item":{"@id":"https://biyouqiuqiu.com/categories/Solidity/","name":"Solidity"}},{"@type":"ListItem","position":2,"item":{"@id":"https://biyouqiuqiu.com/categories/Solidity/Basic-Knowledge/","name":"Basic_Knowledge"}},{"@type":"ListItem","position":2,"item":{"@id":"https://biyouqiuqiu.com/categories/Solidity/Utils/","name":"Utils"}},{"@type":"ListItem","position":3,"item":{"@id":"https://biyouqiuqiu.com/2023/07/01/Solidity/Basic_Knowledge/内联汇编/","name":"内联汇编"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"笔友🍉の知识库","url":"https://biyouqiuqiu.com/","keywords":null,"description":"Self-Discipline","author":{"@type":"Person","name":"笔友🍉","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://biyouqiuqiu.com/","description":"Self-Discipline"},"publisher":{"@type":"Organization","name":"笔友🍉の知识库","url":"https://biyouqiuqiu.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://biyouqiuqiu.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"内联汇编","description":"Self-Discipline","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://biyouqiuqiu.com/2023/07/01/Solidity/Basic_Knowledge/%E5%86%85%E8%81%94%E6%B1%87%E7%BC%96/"},"author":{"@type":"Person","name":"笔友🍉","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://biyouqiuqiu.com/"},"publisher":{"@type":"Organization","name":"笔友🍉の知识库","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://biyouqiuqiu.com/2023/07/01/Solidity/Basic_Knowledge/%E5%86%85%E8%81%94%E6%B1%87%E7%BC%96/","wordCount":0,"datePublished":"2023-07-01T00:47:10.000Z","dateModified":"2023-07-01T00:47:10.000Z","articleSection":"Solidity","keywords":"内联汇编","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"笔友🍉の知识库","url":"https://biyouqiuqiu.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"笔友🍉","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://biyouqiuqiu.com/","sameAs":["https://github.com/volantis-x"],"description":"Self-Discipline"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://biyouqiuqiu.com/","name":"笔友🍉の知识库"}},{"@type":"ListItem","position":2,"item":{"@id":"https://biyouqiuqiu.com/categories/Solidity/","name":"Solidity"}},{"@type":"ListItem","position":2,"item":{"@id":"https://biyouqiuqiu.com/categories/Solidity/Utils/","name":"Utils"}},{"@type":"ListItem","position":2,"item":{"@id":"https://biyouqiuqiu.com/categories/Solidity/Basic-Knowledge/","name":"Basic_Knowledge"}},{"@type":"ListItem","position":3,"item":{"@id":"https://biyouqiuqiu.com/2023/07/01/Solidity/Basic_Knowledge/内联汇编/","name":"内联汇编"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"笔友🍉の知识库","url":"https://biyouqiuqiu.com/","keywords":null,"description":"Self-Discipline","author":{"@type":"Person","name":"笔友🍉","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://biyouqiuqiu.com/","description":"Self-Discipline"},"publisher":{"@type":"Organization","name":"笔友🍉の知识库","url":"https://biyouqiuqiu.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://biyouqiuqiu.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"内联汇编","description":"Self-Discipline","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://biyouqiuqiu.com/2023/07/01/Solidity/Basic_Knowledge/%E5%86%85%E8%81%94%E6%B1%87%E7%BC%96/"},"author":{"@type":"Person","name":"笔友🍉","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://biyouqiuqiu.com/"},"publisher":{"@type":"Organization","name":"笔友🍉の知识库","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://biyouqiuqiu.com/2023/07/01/Solidity/Basic_Knowledge/%E5%86%85%E8%81%94%E6%B1%87%E7%BC%96/","wordCount":0,"datePublished":"2023-07-01T00:47:10.000Z","dateModified":"2023-07-01T00:47:10.000Z","articleSection":"Solidity","keywords":"内联汇编","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
