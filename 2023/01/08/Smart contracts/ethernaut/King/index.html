@@ -35,21 +35,21 @@
   <!-- feed -->
   <!-- 页面元数据 -->
   <title>King - 笔友🍉の知识库</title>
-  <meta name="keywords" content="靶场,Solidity,null">
+  <meta name="keywords" content="Solidity,靶场,null">
   <meta desc name="description" content="Self-Discipline - 笔友🍉 - 笔友🍉の知识库">
   
 <meta property="og:type" content="article">
 <meta property="og:title" content="King">
 <meta property="og:url" content="https://biyouqiuqiu.com/2023/01/08/Smart%20contracts/ethernaut/King/index.html">
 <meta property="og:site_name" content="笔友🍉の知识库">
-<meta property="og:description" content="King1. 题目要求 1.1 题目：下面的合约表示了一个很简单的游戏:   任何一个发送了高于目前价格的人将成为新的国王.  在这个情况下, 上一个国王将会获得新的出价, 这样可以赚得一些以太币. 看起来像是庞氏骗局.这么有趣的游戏, 你的目标是攻破他, 当你提交实例给关卡时, 关卡会重新申明王位. 你需要阻止他重获王位来通过这一关.  1.2 题目代码：  &#x2F;&#x2F; SPDX-License-Id">
+<meta property="og:description" content="King1. 题目要求 1.1 题目：下面的合约表示了一个很简单的游戏:   任何一个发送了高于目前价格的人将成为新的国王.  在这个情况下, 上一个国王将会获得新的出价, 这样可以赚得一些以太币. 看起来像是庞氏骗局.这么有趣的游戏, 你的目标是攻破他, 当你提交实例给关卡时, 关卡会重新申明王位. 你需要阻止他重获王位来通过这一关.  1.2 题目代码：    1234567891011121">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2023-01-08T08:17:13.000Z">
 <meta property="article:modified_time" content="2023-01-08T08:17:13.000Z">
 <meta property="article:author" content="笔友🍉">
-<meta property="article:tag" content="靶场">
 <meta property="article:tag" content="Solidity">
+<meta property="article:tag" content="靶场">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
   <style>
@@ -1794,7 +1794,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1690522141791),
+    lastupdate: new Date(1692682587051),
     sidebar: {
       for_page: ["blogger","category","tagcloud","webinfo","qrcode"],
       for_post: ["toc","blogger","qrcode"],
@@ -2995,7 +2995,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fa-solid fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：572 字</p>
+      <p>字数：558 字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -3054,37 +3054,27 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </li>
 <li><p>1.2 题目代码：</p>
 </li>
-<li><pre><code class="solidity">// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
+</ul>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">// SPDX-License-Identifier: MIT</span><br><span class="line">pragma solidity ^0.8.0;</span><br><span class="line"></span><br><span class="line">contract King &#123;</span><br><span class="line"></span><br><span class="line">  address king;</span><br><span class="line">  uint public prize;</span><br><span class="line">  address public owner;</span><br><span class="line"></span><br><span class="line">  constructor() payable &#123;</span><br><span class="line">    owner = msg.sender;  </span><br><span class="line">    king = msg.sender;</span><br><span class="line">    prize = msg.value;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  receive() external payable &#123;</span><br><span class="line">    require(msg.value &gt;= prize || msg.sender == owner);</span><br><span class="line">    payable(king).transfer(msg.value);</span><br><span class="line">    king = msg.sender;</span><br><span class="line">    prize = msg.value;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  function _king() public view returns (address) &#123;</span><br><span class="line">    return king;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-contract King &#123;
 
-  address king;
-  uint public prize;
-  address public owner;
 
-  constructor() payable &#123;
-    owner = msg.sender;  
-    king = msg.sender;
-    prize = msg.value;
-  &#125;
-
-  receive() external payable &#123;
-    require(msg.value &gt;= prize || msg.sender == owner);
-    payable(king).transfer(msg.value);
-    king = msg.sender;
-    prize = msg.value;
-  &#125;
-
-  function _king() public view returns (address) &#123;
-    return king;
-  &#125;
-&#125;
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## 2. 分析</span><br><span class="line"></span><br><span class="line">### tips：[参考博客](https://stermi.medium.com/the-ethernaut-challenge-9-solution-king-ee9a689bcf0e)</span><br><span class="line"></span><br><span class="line">- 2.1 阅读代码可知，该`receive`函数是一个**特殊**函数，允许合约直接从外部合约或 EOA 接收以太币</span><br><span class="line"></span><br><span class="line">- 2.2 我们首先看到的是`require(msg.value &gt;= prize || msg.sender == owner)`。此检查允许`owner`合约的 始终拥有合约的王权，重置所有值。</span><br><span class="line"></span><br><span class="line">- 2.3 所以现在我们知道`transfer`允许您将 Ether 发送到一个地址，消耗`2300`gas 并在无法执行交易时**恢复。**</span><br><span class="line"></span><br><span class="line">  如果“将以太币转移到”交易恢复，为什么会出现问题？好吧，因为如果还原，我们的功能`transfer`也会**还原！**并且通过还原它会使**合约无法使用**，没有人可以成为新的国王！`receive`</span><br><span class="line"></span><br><span class="line">  一种可能的解决方案是只创建一个`Contract`不接受任何类型的 Ether 转移的对象。</span><br><span class="line"></span><br><span class="line">- 2.4 攻击合约</span><br><span class="line"></span><br><span class="line">- ```solidity</span><br><span class="line">  contract Exploiter &#123; </span><br><span class="line">      constructor(address payable _to)  payable &#123; </span><br><span class="line">          (bool success, ) = address(_to).call&#123;value: msg.value&#125;(&quot;&quot;);</span><br><span class="line">          require(success, &quot;call failed!!!&quot;); </span><br><span class="line">      &#125; </span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-</code></pre>
+<h2 id="2-分析"><a href="#2-分析" class="headerlink" title="2. 分析"></a>2. 分析</h2><h3 id="tips：参考博客"><a href="#tips：参考博客" class="headerlink" title="tips：参考博客"></a>tips：<a target="_blank" rel="noopener" href="https://stermi.medium.com/the-ethernaut-challenge-9-solution-king-ee9a689bcf0e">参考博客</a></h3><ul>
+<li><p>2.1 阅读代码可知，该<code>receive</code>函数是一个<strong>特殊</strong>函数，允许合约直接从外部合约或 EOA 接收以太币</p>
 </li>
-<li><p>2.5 获取实例地址，并填入到Exploiter合约构造器中</p>
+<li><p>2.2 我们首先看到的是<code>require(msg.value &gt;= prize || msg.sender == owner)</code>。此检查允许<code>owner</code>合约的 始终拥有合约的王权，重置所有值。</p>
 </li>
+<li><p>2.3 所以现在我们知道<code>transfer</code>允许您将 Ether 发送到一个地址，消耗<code>2300</code>gas 并在无法执行交易时<strong>恢复。</strong></p>
+<p>如果“将以太币转移到”交易恢复，为什么会出现问题？好吧，因为如果还原，我们的功能<code>transfer</code>也会<strong>还原！</strong>并且通过还原它会使<strong>合约无法使用</strong>，没有人可以成为新的国王！<code>receive</code></p>
+<p>一种可能的解决方案是只创建一个<code>Contract</code>不接受任何类型的 Ether 转移的对象。</p>
+</li>
+<li><p>2.4 攻击合约</p>
+</li>
+</ul>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">contract Exploiter &#123; </span><br><span class="line">    constructor(address payable _to)  payable &#123; </span><br><span class="line">        (bool success, ) = address(_to).call&#123;value: msg.value&#125;(&quot;&quot;);</span><br><span class="line">        require(success, &quot;call failed!!!&quot;); </span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>2.5 获取实例地址，并填入到Exploiter合约构造器中</li>
 </ul>
 <h2 id="3-解题"><a href="#3-解题" class="headerlink" title="3. 解题"></a>3. 解题</h2><ul>
 <li><p>3.1 获取关卡实例地址：0x25766108F8Fa65C8061FB17E7762D4BC42Fc882C</p>
@@ -3179,8 +3169,8 @@ contract King &#123;
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E9%9D%B6%E5%9C%BA/" rel="nofollow"><i class="fa-solid fa-bookmark fa-fw" aria-hidden="true"></i><p>靶场</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Solidity/" rel="nofollow"><i class="fa-solid fa-bookmark fa-fw" aria-hidden="true"></i><p>Solidity</p></a></div>
-  <span hidden itemprop="keywords">靶场 Solidity</span>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Solidity/" rel="nofollow"><i class="fa-solid fa-bookmark fa-fw" aria-hidden="true"></i><p>Solidity</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E9%9D%B6%E5%9C%BA/" rel="nofollow"><i class="fa-solid fa-bookmark fa-fw" aria-hidden="true"></i><p>靶场</p></a></div>
+  <span hidden itemprop="keywords">Solidity 靶场</span>
 
 
         
@@ -3227,10 +3217,8 @@ Fallback methods
 
 题目代码：
 
-// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
 
-...</p>
+ 123456789101112131415161718// SPDX-License-Identifier: ...</p>
         </a>
       
     </div>
@@ -3391,7 +3379,7 @@ pragma solidity ^0.8.0;
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E9%A2%98%E7%9B%AE%E8%A6%81%E6%B1%82"><span class="toc-text">1. 题目要求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E8%A7%A3%E9%A2%98"><span class="toc-text">3. 解题</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E9%A2%98%E7%9B%AE%E8%A6%81%E6%B1%82"><span class="toc-text">1. 题目要求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%88%86%E6%9E%90"><span class="toc-text">2. 分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#tips%EF%BC%9A%E5%8F%82%E8%80%83%E5%8D%9A%E5%AE%A2"><span class="toc-text">tips：参考博客</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E8%A7%A3%E9%A2%98"><span class="toc-text">3. 解题</span></a></li></ol>
     </div>
   </section>
 
@@ -4439,7 +4427,7 @@ window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListener
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"笔友🍉の知识库","url":"https://biyouqiuqiu.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"笔友🍉","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://biyouqiuqiu.com/","sameAs":["https://github.com/volantis-x"],"description":"Self-Discipline"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://biyouqiuqiu.com/","name":"笔友🍉の知识库"}},{"@type":"ListItem","position":2,"item":{"@id":"https://biyouqiuqiu.com/categories/Smart-contracts/","name":"Smart contracts"}},{"@type":"ListItem","position":2,"item":{"@id":"https://biyouqiuqiu.com/categories/Smart-contracts/ethernaut/","name":"ethernaut"}},{"@type":"ListItem","position":3,"item":{"@id":"https://biyouqiuqiu.com/2023/01/08/Smart contracts/ethernaut/King/","name":"King"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"笔友🍉の知识库","url":"https://biyouqiuqiu.com/","keywords":null,"description":"Self-Discipline","author":{"@type":"Person","name":"笔友🍉","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://biyouqiuqiu.com/","description":"Self-Discipline"},"publisher":{"@type":"Organization","name":"笔友🍉の知识库","url":"https://biyouqiuqiu.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://biyouqiuqiu.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"King","description":"Self-Discipline","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://biyouqiuqiu.com/2023/01/08/Smart%20contracts/ethernaut/King/"},"author":{"@type":"Person","name":"笔友🍉","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://biyouqiuqiu.com/"},"publisher":{"@type":"Organization","name":"笔友🍉の知识库","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://biyouqiuqiu.com/2023/01/08/Smart%20contracts/ethernaut/King/","wordCount":0,"datePublished":"2023-01-08T08:17:13.000Z","dateModified":"2023-01-08T08:17:13.000Z","articleSection":"Smart contracts","keywords":"靶场,Solidity","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"笔友🍉の知识库","url":"https://biyouqiuqiu.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"笔友🍉","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://biyouqiuqiu.com/","sameAs":["https://github.com/volantis-x"],"description":"Self-Discipline"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://biyouqiuqiu.com/","name":"笔友🍉の知识库"}},{"@type":"ListItem","position":2,"item":{"@id":"https://biyouqiuqiu.com/categories/Smart-contracts/","name":"Smart contracts"}},{"@type":"ListItem","position":2,"item":{"@id":"https://biyouqiuqiu.com/categories/Smart-contracts/ethernaut/","name":"ethernaut"}},{"@type":"ListItem","position":3,"item":{"@id":"https://biyouqiuqiu.com/2023/01/08/Smart contracts/ethernaut/King/","name":"King"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"笔友🍉の知识库","url":"https://biyouqiuqiu.com/","keywords":null,"description":"Self-Discipline","author":{"@type":"Person","name":"笔友🍉","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://biyouqiuqiu.com/","description":"Self-Discipline"},"publisher":{"@type":"Organization","name":"笔友🍉の知识库","url":"https://biyouqiuqiu.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://biyouqiuqiu.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"King","description":"Self-Discipline","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://biyouqiuqiu.com/2023/01/08/Smart%20contracts/ethernaut/King/"},"author":{"@type":"Person","name":"笔友🍉","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://biyouqiuqiu.com/"},"publisher":{"@type":"Organization","name":"笔友🍉の知识库","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://biyouqiuqiu.com/2023/01/08/Smart%20contracts/ethernaut/King/","wordCount":0,"datePublished":"2023-01-08T08:17:13.000Z","dateModified":"2023-01-08T08:17:13.000Z","articleSection":"Smart contracts","keywords":"Solidity,靶场","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

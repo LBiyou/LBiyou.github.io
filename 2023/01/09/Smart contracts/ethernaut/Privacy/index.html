@@ -35,21 +35,21 @@
   <!-- feed -->
   <!-- 页面元数据 -->
   <title>Privacy - 笔友🍉の知识库</title>
-  <meta name="keywords" content="靶场,Solidity,null">
+  <meta name="keywords" content="Solidity,靶场,null">
   <meta desc name="description" content="Self-Discipline - 笔友🍉 - 笔友🍉の知识库">
   
 <meta property="og:type" content="article">
 <meta property="og:title" content="Privacy">
 <meta property="og:url" content="https://biyouqiuqiu.com/2023/01/09/Smart%20contracts/ethernaut/Privacy/index.html">
 <meta property="og:site_name" content="笔友🍉の知识库">
-<meta property="og:description" content="Privacy1. 题目要求 1.1 这个合约的制作者非常小心的保护了敏感区域的 storage.解开这个合约来完成这一关.这些可能有帮助:  理解 storage 的原理 理解 parameter parsing 的原理 理解 casting 的原理   1.2 题目代码：  &#x2F;&#x2F; SPDX-License-Identifier: MIT pragma solidity ^0.8.0;  con">
+<meta property="og:description" content="Privacy1. 题目要求 1.1 这个合约的制作者非常小心的保护了敏感区域的 storage.解开这个合约来完成这一关.这些可能有帮助:  理解 storage 的原理 理解 parameter parsing 的原理 理解 casting 的原理   1.2 题目代码：    12345678910111213141516171819202122232425262728293031&#x2F;&#x2F; SP">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2023-01-09T02:16:15.000Z">
 <meta property="article:modified_time" content="2023-01-09T02:16:15.000Z">
 <meta property="article:author" content="笔友🍉">
-<meta property="article:tag" content="靶场">
 <meta property="article:tag" content="Solidity">
+<meta property="article:tag" content="靶场">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
   <style>
@@ -1794,7 +1794,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1690522141791),
+    lastupdate: new Date(1692682587051),
     sidebar: {
       for_page: ["blogger","category","tagcloud","webinfo","qrcode"],
       for_post: ["toc","blogger","qrcode"],
@@ -2995,7 +2995,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fa-solid fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：750 字</p>
+      <p>字数：728 字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -3057,38 +3057,47 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </li>
 <li><p>1.2 题目代码：</p>
 </li>
-<li><pre><code class="solidity">// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
+</ul>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">// SPDX-License-Identifier: MIT</span><br><span class="line">pragma solidity ^0.8.0;</span><br><span class="line"></span><br><span class="line">contract Privacy &#123;</span><br><span class="line"></span><br><span class="line">  bool public locked = true;</span><br><span class="line">  uint256 public ID = block.timestamp;</span><br><span class="line">  uint8 private flattening = 10;</span><br><span class="line">  uint8 private denomination = 255;</span><br><span class="line">  uint16 private awkwardness = uint16(block.timestamp);</span><br><span class="line">  bytes32[3] private data;</span><br><span class="line"></span><br><span class="line">  constructor(bytes32[3] memory _data) &#123;</span><br><span class="line">    data = _data;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  function unlock(bytes16 _key) public &#123;</span><br><span class="line">    require(_key == bytes16(data[2]));</span><br><span class="line">    locked = false;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  /*</span><br><span class="line">    A bunch of super advanced solidity algorithms...</span><br><span class="line"></span><br><span class="line">      ,*&#x27;^`*.,*&#x27;^`*.,*&#x27;^`*.,*&#x27;^`*.,*&#x27;^`*.,*&#x27;^`</span><br><span class="line">      .,*&#x27;^`*.,*&#x27;^`*.,*&#x27;^`*.,*&#x27;^`*.,*&#x27;^`*.,*&#x27;^`*.,</span><br><span class="line">      *.,*&#x27;^`*.,*&#x27;^`*.,*&#x27;^`*.,*&#x27;^`*.,*&#x27;^`*.,*&#x27;^`*.,*&#x27;^         ,---/V\</span><br><span class="line">      `*.,*&#x27;^`*.,*&#x27;^`*.,*&#x27;^`*.,*&#x27;^`*.,*&#x27;^`*.,*&#x27;^`*.,*&#x27;^`*.    ~|__(o.o)</span><br><span class="line">      ^`*.,*&#x27;^`*.,*&#x27;^`*.,*&#x27;^`*.,*&#x27;^`*.,*&#x27;^`*.,*&#x27;^`*.,*&#x27;^`*.,*&#x27;  UU  UU</span><br><span class="line">  */</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-contract Privacy &#123;
 
-  bool public locked = true;
-  uint256 public ID = block.timestamp;
-  uint8 private flattening = 10;
-  uint8 private denomination = 255;
-  uint16 private awkwardness = uint16(block.timestamp);
-  bytes32[3] private data;
 
-  constructor(bytes32[3] memory _data) &#123;
-    data = _data;
-  &#125;
-  
-  function unlock(bytes16 _key) public &#123;
-    require(_key == bytes16(data[2]));
-    locked = false;
-  &#125;
-
-  /*
-    A bunch of super advanced solidity algorithms...
-
-      ,*&#39;^`*.,*&#39;^`*.,*&#39;^`*.,*&#39;^`*.,*&#39;^`*.,*&#39;^`
-      .,*&#39;^`*.,*&#39;^`*.,*&#39;^`*.,*&#39;^`*.,*&#39;^`*.,*&#39;^`*.,
-      *.,*&#39;^`*.,*&#39;^`*.,*&#39;^`*.,*&#39;^`*.,*&#39;^`*.,*&#39;^`*.,*&#39;^         ,---/V\
-      `*.,*&#39;^`*.,*&#39;^`*.,*&#39;^`*.,*&#39;^`*.,*&#39;^`*.,*&#39;^`*.,*&#39;^`*.    ~|__(o.o)
-      ^`*.,*&#39;^`*.,*&#39;^`*.,*&#39;^`*.,*&#39;^`*.,*&#39;^`*.,*&#39;^`*.,*&#39;^`*.,*&#39;  UU  UU
-  */
-&#125;
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## 2. 分析</span><br><span class="line"></span><br><span class="line">- 2.1 目标：将locked修改为false</span><br><span class="line">  - `bool public locked`初始化为 true 并保存必须设置为 false 才能赢得挑战的值</span><br><span class="line">  - `bytes32[3] private data`是存储我们的密钥的变量。我们需要找出`data[2]`解决挑战的价值</span><br><span class="line"></span><br><span class="line">- 2.2 我们可以将所有其他变量仅视为“存储填充”，以达到我们想要读取的内容 ( `data[2]`) 以解决挑战。</span><br><span class="line">  - `constructor(bytes32[3] memory _data)`初始化`data`变量的值</span><br><span class="line">  - 然后我们只需检查我们传递的输入`unlock(bytes16 _key)`是否与值匹配。如果比较返回 true，我们就**解锁了**合约，通过了挑战。`byte16 _key``data[2]``true`</span><br><span class="line"></span><br><span class="line">- 2.3 `data`首先，必须检索变量中的数据。这可以通过从区块链上的合约存储中提取数据来完成。在 brownie 中，这可以使用 来完成`web3.eth.getStorageAt()`，第一个参数是合约的地址，以及要查看的合约存储槽的方向。每个槽的容量为 32 字节（256 位），这意味着实际填满 32 字节槽的数据类型将占用整个槽，因此后续数据类型将滚动到下一个槽。如果数据类型声明为`uint256`或`bytes32`，它将始终占用一个完整的存储槽，因为这些类型的大小已经是 32 字节。</span><br><span class="line"></span><br><span class="line">  在隐私合约的情况下，我们知道相关数据是数组的最后一个元素`data`。因此，要提取这个，我们必须确定这条数据在*哪里，在什么存储槽中。*</span><br><span class="line"></span><br><span class="line">- 2.4 [参考博客](https://dac.ac/blog/ethernaut_solutions/#delegation)</span><br><span class="line">- ![image-20230224230120932](https://cdn.staticaly.com/gh/LBiyou/BlogImages@main/img/202306020025595.png)</span><br><span class="line"></span><br><span class="line">- 2.5 在浏览器控制台依次执行 **web3.eth.getStorageAt() ** ，**data.slice(0,34)** 命令</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## 3 .解题</span><br><span class="line"></span><br><span class="line">- 3.1 获取关卡实例地址：0xb6b2910033C8934D4eBf2FBb72EF87cbC09BE4d0</span><br><span class="line"></span><br><span class="line">- 3.2 依次执行如下代码得到 data[2] </span><br><span class="line"></span><br><span class="line">- ```solidity</span><br><span class="line">  addr = &quot;0xb6b2910033C8934D4eBf2FBb72EF87cbC09BE4d0&quot;</span><br><span class="line">  &#x27;0xb6b2910033C8934D4eBf2FBb72EF87cbC09BE4d0&#x27;</span><br><span class="line">  await web3.eth.getStorageAt(addr, 5)</span><br><span class="line">  &#x27;0xa9cbb829703de0df913fc95cc78d10df15dc54270f501657492c89ceec732fb2&#x27;</span><br><span class="line">  data = &quot;0xa9cbb829703de0df913fc95cc78d10df15dc54270f501657492c89ceec732fb2&quot;</span><br><span class="line">  &#x27;0xa9cbb829703de0df913fc95cc78d10df15dc54270f501657492c89ceec732fb2&#x27;</span><br><span class="line">  data.slice(0,34)</span><br><span class="line">  &#x27;0xa9cbb829703de0df913fc95cc78d10df&#x27;</span><br></pre></td></tr></table></figure>
+<h2 id="2-分析"><a href="#2-分析" class="headerlink" title="2. 分析"></a>2. 分析</h2><ul>
+<li><p>2.1 目标：将locked修改为false</p>
+<ul>
+<li><code>bool public locked</code>初始化为 true 并保存必须设置为 false 才能赢得挑战的值</li>
+<li><code>bytes32[3] private data</code>是存储我们的密钥的变量。我们需要找出<code>data[2]</code>解决挑战的价值</li>
+</ul>
+</li>
+<li><p>2.2 我们可以将所有其他变量仅视为“存储填充”，以达到我们想要读取的内容 ( <code>data[2]</code>) 以解决挑战。</p>
+<ul>
+<li><code>constructor(bytes32[3] memory _data)</code>初始化<code>data</code>变量的值</li>
+<li>然后我们只需检查我们传递的输入<code>unlock(bytes16 _key)</code>是否与值匹配。如果比较返回 true，我们就<strong>解锁了</strong>合约，通过了挑战。<code>byte16 _key``data[2]``true</code></li>
+</ul>
+</li>
+<li><p>2.3 <code>data</code>首先，必须检索变量中的数据。这可以通过从区块链上的合约存储中提取数据来完成。在 brownie 中，这可以使用 来完成<code>web3.eth.getStorageAt()</code>，第一个参数是合约的地址，以及要查看的合约存储槽的方向。每个槽的容量为 32 字节（256 位），这意味着实际填满 32 字节槽的数据类型将占用整个槽，因此后续数据类型将滚动到下一个槽。如果数据类型声明为<code>uint256</code>或<code>bytes32</code>，它将始终占用一个完整的存储槽，因为这些类型的大小已经是 32 字节。</p>
+<p>在隐私合约的情况下，我们知道相关数据是数组的最后一个元素<code>data</code>。因此，要提取这个，我们必须确定这条数据在<em>哪里，在什么存储槽中。</em></p>
+</li>
+<li><p>2.4 <a target="_blank" rel="noopener" href="https://dac.ac/blog/ethernaut_solutions/#delegation">参考博客</a></p>
+</li>
+<li><p><img src="https://cdn.staticaly.com/gh/LBiyou/BlogImages@main/img/202306020025595.png" alt="image-20230224230120932"></p>
+</li>
+<li><p>2.5 在浏览器控制台依次执行 <strong>web3.eth.getStorageAt() ** ，</strong>data.slice(0,34)** 命令</p>
+</li>
+</ul>
+<h2 id="3-解题"><a href="#3-解题" class="headerlink" title="3 .解题"></a>3 .解题</h2><ul>
+<li><p>3.1 获取关卡实例地址：0xb6b2910033C8934D4eBf2FBb72EF87cbC09BE4d0</p>
+</li>
+<li><p>3.2 依次执行如下代码得到 data[2] </p>
+</li>
+<li><pre><code class="solidity">addr = &quot;0xb6b2910033C8934D4eBf2FBb72EF87cbC09BE4d0&quot;
+&#39;0xb6b2910033C8934D4eBf2FBb72EF87cbC09BE4d0&#39;
+await web3.eth.getStorageAt(addr, 5)
+&#39;0xa9cbb829703de0df913fc95cc78d10df15dc54270f501657492c89ceec732fb2&#39;
+data = &quot;0xa9cbb829703de0df913fc95cc78d10df15dc54270f501657492c89ceec732fb2&quot;
+&#39;0xa9cbb829703de0df913fc95cc78d10df15dc54270f501657492c89ceec732fb2&#39;
+data.slice(0,34)
+&#39;0xa9cbb829703de0df913fc95cc78d10df&#39;
 </code></pre>
 </li>
 <li></li>
@@ -3180,8 +3189,8 @@ contract Privacy &#123;
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E9%9D%B6%E5%9C%BA/" rel="nofollow"><i class="fa-solid fa-bookmark fa-fw" aria-hidden="true"></i><p>靶场</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Solidity/" rel="nofollow"><i class="fa-solid fa-bookmark fa-fw" aria-hidden="true"></i><p>Solidity</p></a></div>
-  <span hidden itemprop="keywords">靶场 Solidity</span>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Solidity/" rel="nofollow"><i class="fa-solid fa-bookmark fa-fw" aria-hidden="true"></i><p>Solidity</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E9%9D%B6%E5%9C%BA/" rel="nofollow"><i class="fa-solid fa-bookmark fa-fw" aria-hidden="true"></i><p>靶场</p></a></div>
+  <span hidden itemprop="keywords">Solidity 靶场</span>
 
 
         
@@ -3387,7 +3396,7 @@ contract Privacy &#123;
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E9%A2%98%E7%9B%AE%E8%A6%81%E6%B1%82"><span class="toc-text">1. 题目要求</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E9%A2%98%E7%9B%AE%E8%A6%81%E6%B1%82"><span class="toc-text">1. 题目要求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%88%86%E6%9E%90"><span class="toc-text">2. 分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E8%A7%A3%E9%A2%98"><span class="toc-text">3 .解题</span></a></li></ol>
     </div>
   </section>
 
@@ -4435,7 +4444,7 @@ window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListener
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"笔友🍉の知识库","url":"https://biyouqiuqiu.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"笔友🍉","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://biyouqiuqiu.com/","sameAs":["https://github.com/volantis-x"],"description":"Self-Discipline"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://biyouqiuqiu.com/","name":"笔友🍉の知识库"}},{"@type":"ListItem","position":2,"item":{"@id":"https://biyouqiuqiu.com/categories/Smart-contracts/","name":"Smart contracts"}},{"@type":"ListItem","position":2,"item":{"@id":"https://biyouqiuqiu.com/categories/Smart-contracts/ethernaut/","name":"ethernaut"}},{"@type":"ListItem","position":3,"item":{"@id":"https://biyouqiuqiu.com/2023/01/09/Smart contracts/ethernaut/Privacy/","name":"Privacy"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"笔友🍉の知识库","url":"https://biyouqiuqiu.com/","keywords":null,"description":"Self-Discipline","author":{"@type":"Person","name":"笔友🍉","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://biyouqiuqiu.com/","description":"Self-Discipline"},"publisher":{"@type":"Organization","name":"笔友🍉の知识库","url":"https://biyouqiuqiu.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://biyouqiuqiu.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"Privacy","description":"Self-Discipline","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://biyouqiuqiu.com/2023/01/09/Smart%20contracts/ethernaut/Privacy/"},"author":{"@type":"Person","name":"笔友🍉","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://biyouqiuqiu.com/"},"publisher":{"@type":"Organization","name":"笔友🍉の知识库","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://biyouqiuqiu.com/2023/01/09/Smart%20contracts/ethernaut/Privacy/","wordCount":0,"datePublished":"2023-01-09T02:16:15.000Z","dateModified":"2023-01-09T02:16:15.000Z","articleSection":"Smart contracts","keywords":"靶场,Solidity","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"笔友🍉の知识库","url":"https://biyouqiuqiu.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"笔友🍉","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://biyouqiuqiu.com/","sameAs":["https://github.com/volantis-x"],"description":"Self-Discipline"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://biyouqiuqiu.com/","name":"笔友🍉の知识库"}},{"@type":"ListItem","position":2,"item":{"@id":"https://biyouqiuqiu.com/categories/Smart-contracts/","name":"Smart contracts"}},{"@type":"ListItem","position":2,"item":{"@id":"https://biyouqiuqiu.com/categories/Smart-contracts/ethernaut/","name":"ethernaut"}},{"@type":"ListItem","position":3,"item":{"@id":"https://biyouqiuqiu.com/2023/01/09/Smart contracts/ethernaut/Privacy/","name":"Privacy"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"笔友🍉の知识库","url":"https://biyouqiuqiu.com/","keywords":null,"description":"Self-Discipline","author":{"@type":"Person","name":"笔友🍉","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://biyouqiuqiu.com/","description":"Self-Discipline"},"publisher":{"@type":"Organization","name":"笔友🍉の知识库","url":"https://biyouqiuqiu.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://biyouqiuqiu.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"Privacy","description":"Self-Discipline","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://biyouqiuqiu.com/2023/01/09/Smart%20contracts/ethernaut/Privacy/"},"author":{"@type":"Person","name":"笔友🍉","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://biyouqiuqiu.com/"},"publisher":{"@type":"Organization","name":"笔友🍉の知识库","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://biyouqiuqiu.com/2023/01/09/Smart%20contracts/ethernaut/Privacy/","wordCount":0,"datePublished":"2023-01-09T02:16:15.000Z","dateModified":"2023-01-09T02:16:15.000Z","articleSection":"Smart contracts","keywords":"Solidity,靶场","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

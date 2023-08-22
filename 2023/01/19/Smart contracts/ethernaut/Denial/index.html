@@ -35,21 +35,21 @@
   <!-- feed -->
   <!-- 页面元数据 -->
   <title>Denial - 笔友🍉の知识库</title>
-  <meta name="keywords" content="靶场,Solidity,null">
+  <meta name="keywords" content="Solidity,靶场,null">
   <meta desc name="description" content="Self-Discipline - 笔友🍉 - 笔友🍉の知识库">
   
 <meta property="og:type" content="article">
 <meta property="og:title" content="Denial">
 <meta property="og:url" content="https://biyouqiuqiu.com/2023/01/19/Smart%20contracts/ethernaut/Denial/index.html">
 <meta property="og:site_name" content="笔友🍉の知识库">
-<meta property="og:description" content="Denial1. 题目要求 1.1 这是一个简单的钱包，会随着时间的推移而流失资金。您可以成为提款伙伴，慢慢提款。 通关条件： 在owner调用withdraw()时拒绝提取资金（合约仍有资金，并且交易的gas少于1M）  1.2 题目要求  &#x2F;&#x2F; SPDX-License-Identifier: MIT pragma solidity ^0.8.0; contract Denial &amp;#123;">
+<meta property="og:description" content="Denial1. 题目要求 1.1 这是一个简单的钱包，会随着时间的推移而流失资金。您可以成为提款伙伴，慢慢提款。 通关条件： 在owner调用withdraw()时拒绝提取资金（合约仍有资金，并且交易的gas少于1M）  1.2 题目要求    123456789101112131415161718192021222324252627282930313233&#x2F;&#x2F; SPDX-License-Ide">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2023-01-19T07:10:10.000Z">
 <meta property="article:modified_time" content="2023-01-19T07:10:10.000Z">
 <meta property="article:author" content="笔友🍉">
-<meta property="article:tag" content="靶场">
 <meta property="article:tag" content="Solidity">
+<meta property="article:tag" content="靶场">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
   <style>
@@ -1794,7 +1794,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1690522141791),
+    lastupdate: new Date(1692682587051),
     sidebar: {
       for_page: ["blogger","category","tagcloud","webinfo","qrcode"],
       for_post: ["toc","blogger","qrcode"],
@@ -2995,13 +2995,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fa-solid fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：993 字</p>
+      <p>字数：960 字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fa-solid fa-bell fa-fw" aria-hidden="true"></i>
-      <p>时长：4 分钟</p>
+      <p>时长：3 分钟</p>
     </a>
   </div>
 
@@ -3053,45 +3053,51 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </li>
 <li><p>1.2 题目要求</p>
 </li>
-<li><pre><code class="solidity">// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
-contract Denial &#123;
+</ul>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">// SPDX-License-Identifier: MIT</span><br><span class="line">pragma solidity ^0.8.0;</span><br><span class="line">contract Denial &#123;</span><br><span class="line"></span><br><span class="line">    address public partner; // withdrawal partner - pay the gas, split the withdraw</span><br><span class="line">    address public constant owner = address(0xA9E);</span><br><span class="line">    uint timeLastWithdrawn;</span><br><span class="line">    mapping(address =&gt; uint) withdrawPartnerBalances; // keep track of partners balances</span><br><span class="line"></span><br><span class="line">    function setWithdrawPartner(address _partner) public &#123;</span><br><span class="line">        partner = _partner;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // withdraw 1% to recipient and 1% to owner</span><br><span class="line">    function withdraw() public &#123;</span><br><span class="line">        uint amountToSend = address(this).balance / 100;</span><br><span class="line">        // perform a call without checking return</span><br><span class="line">        // The recipient can revert, the owner will still get their share</span><br><span class="line">        partner.call&#123;value:amountToSend&#125;(&quot;&quot;);</span><br><span class="line">        payable(owner).transfer(amountToSend);</span><br><span class="line">        // keep track of last withdrawal time</span><br><span class="line">        timeLastWithdrawn = block.timestamp;</span><br><span class="line">        withdrawPartnerBalances[partner] +=  amountToSend;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // allow deposit of funds</span><br><span class="line">    receive() external payable &#123;&#125;</span><br><span class="line"></span><br><span class="line">    // convenience function</span><br><span class="line">    function contractBalance() public view returns (uint) &#123;</span><br><span class="line">        return address(this).balance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    address public partner; // withdrawal partner - pay the gas, split the withdraw
-    address public constant owner = address(0xA9E);
-    uint timeLastWithdrawn;
-    mapping(address =&gt; uint) withdrawPartnerBalances; // keep track of partners balances
 
-    function setWithdrawPartner(address _partner) public &#123;
-        partner = _partner;
-    &#125;
 
-    // withdraw 1% to recipient and 1% to owner
-    function withdraw() public &#123;
-        uint amountToSend = address(this).balance / 100;
-        // perform a call without checking return
-        // The recipient can revert, the owner will still get their share
-        partner.call&#123;value:amountToSend&#125;(&quot;&quot;);
-        payable(owner).transfer(amountToSend);
-        // keep track of last withdrawal time
-        timeLastWithdrawn = block.timestamp;
-        withdrawPartnerBalances[partner] +=  amountToSend;
-    &#125;
+<h2 id="2-分析"><a href="#2-分析" class="headerlink" title="2. 分析"></a>2. 分析</h2><h4 id="tips：-参考博客"><a href="#tips：-参考博客" class="headerlink" title="tips： 参考博客"></a>tips： <a target="_blank" rel="noopener" href="https://stermi.medium.com/the-ethernaut-challenge-19-solution-denial-e498e19e9b4d">参考博客</a></h4><ul>
+<li><p>2.1这个函数做了什么：</p>
+<ul>
+<li>设置合约的余额<code>amountToSend</code></li>
+<li><code>partner</code>通过低级别将余额的 1% 转移到<code>call</code></li>
+<li>将余额的 1% 转入合约的<code>owner</code>via<code>transfer</code></li>
+<li><code>withdraw</code>更新函数最后一次执行的时间</li>
+<li>更新合作伙伴提取的金额</li>
+</ul>
+<p>正如我们所说，这个挑战完全是关于拒绝服务 (DOS) 的概念，这是一个通用术语，用于描述外部参与者拒绝服务的某个方面的情况。在这种特定情况下，我们要否认<code>withdraw</code>合约的过程。</p>
+<p>我们该怎么做？<code>call</code>我们唯一的选择是在外部对地址做一些坏事<code>partner</code>。让我们看看底层<code>call</code>在 Solidity 中是如何工作的。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(bool success, bytes memory data) = targetAddress.call&#123;value: &lt;weiSent&gt;, gas: &lt;gasForwarded&gt;&#125;(&lt;calldata&gt;);</span><br></pre></td></tr></table></figure>
 
-    // allow deposit of funds
-    receive() external payable &#123;&#125;
-
-    // convenience function
-    function contractBalance() public view returns (uint) &#123;
-        return address(this).balance;
-    &#125;
-&#125;
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## 2. 分析</span><br><span class="line"></span><br><span class="line">#### tips： [参考博客](https://stermi.medium.com/the-ethernaut-challenge-19-solution-denial-e498e19e9b4d)</span><br><span class="line"></span><br><span class="line">- 2.1这个函数做了什么：</span><br><span class="line"></span><br><span class="line">  - 设置合约的余额`amountToSend`</span><br><span class="line">  - `partner`通过低级别将余额的 1% 转移到`call`</span><br><span class="line">  - 将余额的 1% 转入合约的`owner`via`transfer`</span><br><span class="line">  - `withdraw`更新函数最后一次执行的时间</span><br><span class="line">  - 更新合作伙伴提取的金额</span><br><span class="line"></span><br><span class="line">  正如我们所说，这个挑战完全是关于拒绝服务 (DOS) 的概念，这是一个通用术语，用于描述外部参与者拒绝服务的某个方面的情况。在这种特定情况下，我们要否认`withdraw`合约的过程。</span><br><span class="line"></span><br><span class="line">  我们该怎么做？`call`我们唯一的选择是在外部对地址做一些坏事`partner`。让我们看看底层`call`在 Solidity 中是如何工作的。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-(bool success, bytes memory data) = targetAddress.call&#123;value: &lt;weiSent&gt;, gas: &lt;gasForwarded&gt;&#125;(&lt;calldata&gt;);
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  正如我提到的，这是一个允许您做很多事情的低级函数。通常，它用于：</span><br><span class="line"></span><br><span class="line">  - `value`通过在选项中指定 wei 的数量将 Ether 发送到 EAO</span><br><span class="line">  - 通过在选项中指定 wei 的数量，将 Ether 发送到已实现`receive`or函数的合约`fallback``value`</span><br><span class="line">  - 通过将哪个函数和哪些参数传递给目标函数来调用合约函数`&lt;calldata&gt;`。例如，`abi.encodeWithSignature(&quot;callMePlease()&quot;)`</span><br><span class="line"></span><br><span class="line">  虽然这两个`transfer`高级`send`函数（用于将 ETH 发送到目标地址）都使用**2300 gas**的硬编码量来执行操作，但该`call`函数有两个选项：</span><br><span class="line"></span><br><span class="line">  - 默认情况下，如果您不指定任何内容，它将转发**所有剩余的交易气体**</span><br><span class="line">  - `gas`否则，您可以指定外部合约可以使用参数的气体量</span><br><span class="line"></span><br><span class="line">  该`call`函数将返回两个参数：</span><br><span class="line"></span><br><span class="line">  - `bool success`如果调用成功</span><br><span class="line">  - `bytes memory data`返回值</span><br><span class="line"></span><br><span class="line">  每次你执行一个`call`你应该**总是**检查它是否已经成功并恢复（或处理它但是你的场景需要）如果`success`值为假。有关此方面的更多信息，请参阅[SWC-104：未经检查的调用返回值。](https://swcregistry.io/docs/SWC-104)</span><br><span class="line"></span><br><span class="line">  无论如何，回到我们的场景。我们需要找到一种方法来在`Denial` `withdraw`函数向我们发送`partner`资金时对其进行 DoS。</span><br><span class="line"></span><br><span class="line">  因为函数没有检查返回值（一般来说，这是一个巨大的错误，请参阅 SWC-104 问题）**即使我们**在调用执行中恢复`withdraw`，函数的流程也会继续。我们如何强制停止执行？</span><br><span class="line"></span><br><span class="line">  我们唯一的选择是**排出所有转发的气体**，并由于“气体不足”异常而使智能合约恢复。</span><br><span class="line"></span><br><span class="line">  一种简单的方法是使用无限循环对状态变量执行计数器增加</span><br><span class="line"></span><br><span class="line">- [参考视频](https://www.youtube.com/watch?v=Lx0L_3RuJ8c) 写的攻击合约：</span><br><span class="line"></span><br><span class="line">- ```solidity</span><br><span class="line">  contract Hack &#123;</span><br><span class="line">      constructor(Denial target) &#123;</span><br><span class="line">          target.setWithdrawPartner(address(this));</span><br><span class="line">      &#125;</span><br><span class="line">  </span><br><span class="line">      fallback() external payable &#123;</span><br><span class="line">          assembly &#123;</span><br><span class="line">              invalid()</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-</code></pre>
+<p>正如我提到的，这是一个允许您做很多事情的低级函数。通常，它用于：</p>
+<ul>
+<li><code>value</code>通过在选项中指定 wei 的数量将 Ether 发送到 EAO</li>
+<li>通过在选项中指定 wei 的数量，将 Ether 发送到已实现<code>receive</code>or函数的合约<code>fallback``value</code></li>
+<li>通过将哪个函数和哪些参数传递给目标函数来调用合约函数<code>&lt;calldata&gt;</code>。例如，<code>abi.encodeWithSignature(&quot;callMePlease()&quot;)</code></li>
+</ul>
+<p>虽然这两个<code>transfer</code>高级<code>send</code>函数（用于将 ETH 发送到目标地址）都使用<strong>2300 gas</strong>的硬编码量来执行操作，但该<code>call</code>函数有两个选项：</p>
+<ul>
+<li>默认情况下，如果您不指定任何内容，它将转发<strong>所有剩余的交易气体</strong></li>
+<li><code>gas</code>否则，您可以指定外部合约可以使用参数的气体量</li>
+</ul>
+<p>该<code>call</code>函数将返回两个参数：</p>
+<ul>
+<li><code>bool success</code>如果调用成功</li>
+<li><code>bytes memory data</code>返回值</li>
+</ul>
+<p>每次你执行一个<code>call</code>你应该<strong>总是</strong>检查它是否已经成功并恢复（或处理它但是你的场景需要）如果<code>success</code>值为假。有关此方面的更多信息，请参阅<a target="_blank" rel="noopener" href="https://swcregistry.io/docs/SWC-104">SWC-104：未经检查的调用返回值。</a></p>
+<p>无论如何，回到我们的场景。我们需要找到一种方法来在<code>Denial</code> <code>withdraw</code>函数向我们发送<code>partner</code>资金时对其进行 DoS。</p>
+<p>因为函数没有检查返回值（一般来说，这是一个巨大的错误，请参阅 SWC-104 问题）<strong>即使我们</strong>在调用执行中恢复<code>withdraw</code>，函数的流程也会继续。我们如何强制停止执行？</p>
+<p>我们唯一的选择是<strong>排出所有转发的气体</strong>，并由于“气体不足”异常而使智能合约恢复。</p>
+<p>一种简单的方法是使用无限循环对状态变量执行计数器增加</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Lx0L_3RuJ8c">参考视频</a> 写的攻击合约：</p>
 </li>
 </ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">contract Hack &#123;</span><br><span class="line">    constructor(Denial target) &#123;</span><br><span class="line">        target.setWithdrawPartner(address(this));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    fallback() external payable &#123;</span><br><span class="line">        assembly &#123;</span><br><span class="line">            invalid()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h2 id="3-解题"><a href="#3-解题" class="headerlink" title="3. 解题"></a>3. 解题</h2><ul>
 <li>3.1 获取关卡实例地址：0xa22A605788d9828cb51eAd6AA5d5549cb40Da5F0</li>
 <li>3.2 将实力地址作为参数，用以部署攻击合约</li>
@@ -3171,8 +3177,8 @@ contract Denial &#123;
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E9%9D%B6%E5%9C%BA/" rel="nofollow"><i class="fa-solid fa-bookmark fa-fw" aria-hidden="true"></i><p>靶场</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Solidity/" rel="nofollow"><i class="fa-solid fa-bookmark fa-fw" aria-hidden="true"></i><p>Solidity</p></a></div>
-  <span hidden itemprop="keywords">靶场 Solidity</span>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Solidity/" rel="nofollow"><i class="fa-solid fa-bookmark fa-fw" aria-hidden="true"></i><p>Solidity</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E9%9D%B6%E5%9C%BA/" rel="nofollow"><i class="fa-solid fa-bookmark fa-fw" aria-hidden="true"></i><p>靶场</p></a></div>
+  <span hidden itemprop="keywords">Solidity 靶场</span>
 
 
         
@@ -3374,7 +3380,7 @@ contract Denial &#123;
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E9%A2%98%E7%9B%AE%E8%A6%81%E6%B1%82"><span class="toc-text">1. 题目要求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E8%A7%A3%E9%A2%98"><span class="toc-text">3. 解题</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E9%A2%98%E7%9B%AE%E8%A6%81%E6%B1%82"><span class="toc-text">1. 题目要求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%88%86%E6%9E%90"><span class="toc-text">2. 分析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#tips%EF%BC%9A-%E5%8F%82%E8%80%83%E5%8D%9A%E5%AE%A2"><span class="toc-text">tips： 参考博客</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E8%A7%A3%E9%A2%98"><span class="toc-text">3. 解题</span></a></li></ol>
     </div>
   </section>
 
@@ -4422,7 +4428,7 @@ window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListener
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"笔友🍉の知识库","url":"https://biyouqiuqiu.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"笔友🍉","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://biyouqiuqiu.com/","sameAs":["https://github.com/volantis-x"],"description":"Self-Discipline"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://biyouqiuqiu.com/","name":"笔友🍉の知识库"}},{"@type":"ListItem","position":2,"item":{"@id":"https://biyouqiuqiu.com/categories/Smart-contracts/","name":"Smart contracts"}},{"@type":"ListItem","position":2,"item":{"@id":"https://biyouqiuqiu.com/categories/Smart-contracts/ethernaut/","name":"ethernaut"}},{"@type":"ListItem","position":3,"item":{"@id":"https://biyouqiuqiu.com/2023/01/19/Smart contracts/ethernaut/Denial/","name":"Denial"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"笔友🍉の知识库","url":"https://biyouqiuqiu.com/","keywords":null,"description":"Self-Discipline","author":{"@type":"Person","name":"笔友🍉","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://biyouqiuqiu.com/","description":"Self-Discipline"},"publisher":{"@type":"Organization","name":"笔友🍉の知识库","url":"https://biyouqiuqiu.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://biyouqiuqiu.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"Denial","description":"Self-Discipline","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://biyouqiuqiu.com/2023/01/19/Smart%20contracts/ethernaut/Denial/"},"author":{"@type":"Person","name":"笔友🍉","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://biyouqiuqiu.com/"},"publisher":{"@type":"Organization","name":"笔友🍉の知识库","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://biyouqiuqiu.com/2023/01/19/Smart%20contracts/ethernaut/Denial/","wordCount":0,"datePublished":"2023-01-19T07:10:10.000Z","dateModified":"2023-01-19T07:10:10.000Z","articleSection":"Smart contracts","keywords":"靶场,Solidity","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"笔友🍉の知识库","url":"https://biyouqiuqiu.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"笔友🍉","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://biyouqiuqiu.com/","sameAs":["https://github.com/volantis-x"],"description":"Self-Discipline"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://biyouqiuqiu.com/","name":"笔友🍉の知识库"}},{"@type":"ListItem","position":2,"item":{"@id":"https://biyouqiuqiu.com/categories/Smart-contracts/","name":"Smart contracts"}},{"@type":"ListItem","position":2,"item":{"@id":"https://biyouqiuqiu.com/categories/Smart-contracts/ethernaut/","name":"ethernaut"}},{"@type":"ListItem","position":3,"item":{"@id":"https://biyouqiuqiu.com/2023/01/19/Smart contracts/ethernaut/Denial/","name":"Denial"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"笔友🍉の知识库","url":"https://biyouqiuqiu.com/","keywords":null,"description":"Self-Discipline","author":{"@type":"Person","name":"笔友🍉","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://biyouqiuqiu.com/","description":"Self-Discipline"},"publisher":{"@type":"Organization","name":"笔友🍉の知识库","url":"https://biyouqiuqiu.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://biyouqiuqiu.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"Denial","description":"Self-Discipline","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://biyouqiuqiu.com/2023/01/19/Smart%20contracts/ethernaut/Denial/"},"author":{"@type":"Person","name":"笔友🍉","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://biyouqiuqiu.com/"},"publisher":{"@type":"Organization","name":"笔友🍉の知识库","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://biyouqiuqiu.com/2023/01/19/Smart%20contracts/ethernaut/Denial/","wordCount":0,"datePublished":"2023-01-19T07:10:10.000Z","dateModified":"2023-01-19T07:10:10.000Z","articleSection":"Smart contracts","keywords":"Solidity,靶场","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

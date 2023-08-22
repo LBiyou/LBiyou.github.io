@@ -35,7 +35,7 @@
   <!-- feed -->
   <!-- 页面元数据 -->
   <title>MagicNumber - 笔友🍉の知识库</title>
-  <meta name="keywords" content="靶场,Solidity,null">
+  <meta name="keywords" content="Solidity,靶场,null">
   <meta desc name="description" content="Self-Discipline - 笔友🍉 - 笔友🍉の知识库">
   
 <meta property="og:type" content="article">
@@ -48,8 +48,8 @@
 <meta property="article:published_time" content="2023-01-19T01:10:10.000Z">
 <meta property="article:modified_time" content="2023-01-19T01:10:10.000Z">
 <meta property="article:author" content="笔友🍉">
-<meta property="article:tag" content="靶场">
 <meta property="article:tag" content="Solidity">
+<meta property="article:tag" content="靶场">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
   <style>
@@ -1794,7 +1794,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1690522141791),
+    lastupdate: new Date(1692682587051),
     sidebar: {
       for_page: ["blogger","category","tagcloud","webinfo","qrcode"],
       for_post: ["toc","blogger","qrcode"],
@@ -2995,13 +2995,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fa-solid fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：692 字</p>
+      <p>字数：661 字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fa-solid fa-bell fa-fw" aria-hidden="true"></i>
-      <p>时长：3 分钟</p>
+      <p>时长：2 分钟</p>
     </a>
   </div>
 
@@ -3062,35 +3062,27 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </li>
 <li><p>1.3 题目代码：</p>
 </li>
-<li><pre><code class="solidity">// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
+</ul>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">// SPDX-License-Identifier: MIT</span><br><span class="line">pragma solidity ^0.8.0;</span><br><span class="line"></span><br><span class="line">contract MagicNum &#123;</span><br><span class="line"></span><br><span class="line">  address public solver;</span><br><span class="line"></span><br><span class="line">  constructor() &#123;&#125;</span><br><span class="line"></span><br><span class="line">  function setSolver(address _solver) public &#123;</span><br><span class="line">    solver = _solver;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  /*</span><br><span class="line">    ____________/\\\_______/\\\\\\\\\_____        </span><br><span class="line">     __________/\\\\\_____/\\\///////\\\___       </span><br><span class="line">      ________/\\\/\\\____\///______\//\\\__      </span><br><span class="line">       ______/\\\/\/\\\______________/\\\/___     </span><br><span class="line">        ____/\\\/__\/\\\___________/\\\//_____    </span><br><span class="line">         __/\\\\\\\\\\\\\\\\_____/\\\//________   </span><br><span class="line">          _\///////////\\\//____/\\\/___________  </span><br><span class="line">           ___________\/\\\_____/\\\\\\\\\\\\\\\_ </span><br><span class="line">            ___________\///_____\///////////////__</span><br><span class="line">  */</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-contract MagicNum &#123;
-
-  address public solver;
-
-  constructor() &#123;&#125;
-
-  function setSolver(address _solver) public &#123;
-    solver = _solver;
-  &#125;
-
-  /*
-    ____________/\\\_______/\\\\\\\\\_____        
-     __________/\\\\\_____/\\\///////\\\___       
-      ________/\\\/\\\____\///______\//\\\__      
-       ______/\\\/\/\\\______________/\\\/___     
-        ____/\\\/__\/\\\___________/\\\//_____    
-         __/\\\\\\\\\\\\\\\\_____/\\\//________   
-          _\///////////\\\//____/\\\/___________  
-           ___________\/\\\_____/\\\\\\\\\\\\\\\_ 
-            ___________\///_____\///////////////__
-  */
-&#125;
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- </span><br><span class="line"></span><br><span class="line">## 2. 分析</span><br><span class="line"></span><br><span class="line">#### tips： [参考博客](https://medium.com/coinmonks/ethernaut-lvl-19-magicnumber-walkthrough-how-to-deploy-contracts-using-raw-assembly-opcodes-c50edb0f71a2)</span><br><span class="line"></span><br><span class="line">- 2.1有一个在调用时`whatIsTheMeaningOfLife`应答`0x000000000000000000000000000000000000000000000000000000000000002a`(bytes32) 的函数。这是十进制的 42 的十六进制转换。2）我们的合约代码必须小于10字节</span><br><span class="line"></span><br><span class="line">  这些要求似乎无法实现，即使使用原始字节码来定义函数、处理函数选择器等，也将远远超过 10 字节的代码。</span><br><span class="line"></span><br><span class="line">  但是我们真的需要有那个功能吗？最后，我们必须塑造合约代码才能通过挑战。如果我们的合同，无论它如何执行，**只**返回**42**怎么办？</span><br><span class="line"></span><br><span class="line">  这就是诀窍！如果你认为它就像拥有一个 Solidity 智能合约而不是只有一个`fallback`函数，那么无论你尝试低级调用哪个函数，它都将始终且只执行该`fallback`函数。</span><br><span class="line"></span><br><span class="line">- 2.2 现在我们需要部署我们刚刚在上一节中编写的最小合约。当一个智能合约被创建时（via `CREATE`or `CREATE2`opcode），EVM 会执行一次构造函数代码，并且部署的智能合约的代码会被 opcode 返回`RETURN`（这个返回的代码称为运行时代码，它是将要执行的代码当您与智能合约交互时）</span><br><span class="line"></span><br><span class="line">- [参考视频](https://www.youtube.com/watch?v=gUVS4EcrQQQ) 写的攻击合约：</span><br><span class="line"></span><br><span class="line">- ```solidity</span><br><span class="line">  contract Hack &#123;</span><br><span class="line">    constructor(MagicNum target) &#123;</span><br><span class="line">      bytes memory bytecode = hex&quot;69602a60005260206000f3600052600a6016f3&quot;;</span><br><span class="line">      address addr;</span><br><span class="line">      assembly &#123;</span><br><span class="line">        addr := create(0, add(bytecode, 0x20), 0x13)</span><br><span class="line">      &#125;</span><br><span class="line">  </span><br><span class="line">      require(addr != address(0));</span><br><span class="line">      target.setSolver(addr);</span><br><span class="line">  </span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-</code></pre>
+<p>- </p>
+<h2 id="2-分析"><a href="#2-分析" class="headerlink" title="2. 分析"></a>2. 分析</h2><h4 id="tips：-参考博客"><a href="#tips：-参考博客" class="headerlink" title="tips： 参考博客"></a>tips： <a target="_blank" rel="noopener" href="https://medium.com/coinmonks/ethernaut-lvl-19-magicnumber-walkthrough-how-to-deploy-contracts-using-raw-assembly-opcodes-c50edb0f71a2">参考博客</a></h4><ul>
+<li><p>2.1有一个在调用时<code>whatIsTheMeaningOfLife</code>应答<code>0x000000000000000000000000000000000000000000000000000000000000002a</code>(bytes32) 的函数。这是十进制的 42 的十六进制转换。2）我们的合约代码必须小于10字节</p>
+<p>这些要求似乎无法实现，即使使用原始字节码来定义函数、处理函数选择器等，也将远远超过 10 字节的代码。</p>
+<p>但是我们真的需要有那个功能吗？最后，我们必须塑造合约代码才能通过挑战。如果我们的合同，无论它如何执行，<strong>只</strong>返回<strong>42</strong>怎么办？</p>
+<p>这就是诀窍！如果你认为它就像拥有一个 Solidity 智能合约而不是只有一个<code>fallback</code>函数，那么无论你尝试低级调用哪个函数，它都将始终且只执行该<code>fallback</code>函数。</p>
+</li>
+<li><p>2.2 现在我们需要部署我们刚刚在上一节中编写的最小合约。当一个智能合约被创建时（via <code>CREATE</code>or <code>CREATE2</code>opcode），EVM 会执行一次构造函数代码，并且部署的智能合约的代码会被 opcode 返回<code>RETURN</code>（这个返回的代码称为运行时代码，它是将要执行的代码当您与智能合约交互时）</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=gUVS4EcrQQQ">参考视频</a> 写的攻击合约：</p>
 </li>
 </ul>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">contract Hack &#123;</span><br><span class="line">  constructor(MagicNum target) &#123;</span><br><span class="line">    bytes memory bytecode = hex&quot;69602a60005260206000f3600052600a6016f3&quot;;</span><br><span class="line">    address addr;</span><br><span class="line">    assembly &#123;</span><br><span class="line">      addr := create(0, add(bytecode, 0x20), 0x13)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    require(addr != address(0));</span><br><span class="line">    target.setSolver(addr);</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
 <h2 id="3-解题"><a href="#3-解题" class="headerlink" title="3. 解题"></a>3. 解题</h2><ul>
 <li>3.1 获取关卡实例地址：0x5072f4af6D9B0907833C43b199000347158f685d</li>
 <li>3.2 传入实例地址部署攻击合约</li>
@@ -3170,8 +3162,8 @@ contract MagicNum &#123;
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E9%9D%B6%E5%9C%BA/" rel="nofollow"><i class="fa-solid fa-bookmark fa-fw" aria-hidden="true"></i><p>靶场</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Solidity/" rel="nofollow"><i class="fa-solid fa-bookmark fa-fw" aria-hidden="true"></i><p>Solidity</p></a></div>
-  <span hidden itemprop="keywords">靶场 Solidity</span>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Solidity/" rel="nofollow"><i class="fa-solid fa-bookmark fa-fw" aria-hidden="true"></i><p>Solidity</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E9%9D%B6%E5%9C%BA/" rel="nofollow"><i class="fa-solid fa-bookmark fa-fw" aria-hidden="true"></i><p>靶场</p></a></div>
+  <span hidden itemprop="keywords">Solidity 靶场</span>
 
 
         
@@ -3374,7 +3366,7 @@ contract MagicNum &#123;
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E9%A2%98%E7%9B%AE%E8%A6%81%E6%B1%82"><span class="toc-text">1. 题目要求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E8%A7%A3%E9%A2%98"><span class="toc-text">3. 解题</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E9%A2%98%E7%9B%AE%E8%A6%81%E6%B1%82"><span class="toc-text">1. 题目要求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%88%86%E6%9E%90"><span class="toc-text">2. 分析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#tips%EF%BC%9A-%E5%8F%82%E8%80%83%E5%8D%9A%E5%AE%A2"><span class="toc-text">tips： 参考博客</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E8%A7%A3%E9%A2%98"><span class="toc-text">3. 解题</span></a></li></ol>
     </div>
   </section>
 
@@ -4422,7 +4414,7 @@ window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListener
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"笔友🍉の知识库","url":"https://biyouqiuqiu.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"笔友🍉","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://biyouqiuqiu.com/","sameAs":["https://github.com/volantis-x"],"description":"Self-Discipline"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://biyouqiuqiu.com/","name":"笔友🍉の知识库"}},{"@type":"ListItem","position":2,"item":{"@id":"https://biyouqiuqiu.com/categories/Smart-contracts/","name":"Smart contracts"}},{"@type":"ListItem","position":2,"item":{"@id":"https://biyouqiuqiu.com/categories/Smart-contracts/ethernaut/","name":"ethernaut"}},{"@type":"ListItem","position":3,"item":{"@id":"https://biyouqiuqiu.com/2023/01/19/Smart contracts/ethernaut/MagicNumber/","name":"MagicNumber"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"笔友🍉の知识库","url":"https://biyouqiuqiu.com/","keywords":null,"description":"Self-Discipline","author":{"@type":"Person","name":"笔友🍉","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://biyouqiuqiu.com/","description":"Self-Discipline"},"publisher":{"@type":"Organization","name":"笔友🍉の知识库","url":"https://biyouqiuqiu.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://biyouqiuqiu.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"MagicNumber","description":"Self-Discipline","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://biyouqiuqiu.com/2023/01/19/Smart%20contracts/ethernaut/MagicNumber/"},"author":{"@type":"Person","name":"笔友🍉","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://biyouqiuqiu.com/"},"publisher":{"@type":"Organization","name":"笔友🍉の知识库","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://biyouqiuqiu.com/2023/01/19/Smart%20contracts/ethernaut/MagicNumber/","wordCount":0,"datePublished":"2023-01-19T01:10:10.000Z","dateModified":"2023-01-19T01:10:10.000Z","articleSection":"Smart contracts","keywords":"靶场,Solidity","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"笔友🍉の知识库","url":"https://biyouqiuqiu.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"笔友🍉","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://biyouqiuqiu.com/","sameAs":["https://github.com/volantis-x"],"description":"Self-Discipline"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://biyouqiuqiu.com/","name":"笔友🍉の知识库"}},{"@type":"ListItem","position":2,"item":{"@id":"https://biyouqiuqiu.com/categories/Smart-contracts/","name":"Smart contracts"}},{"@type":"ListItem","position":2,"item":{"@id":"https://biyouqiuqiu.com/categories/Smart-contracts/ethernaut/","name":"ethernaut"}},{"@type":"ListItem","position":3,"item":{"@id":"https://biyouqiuqiu.com/2023/01/19/Smart contracts/ethernaut/MagicNumber/","name":"MagicNumber"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"笔友🍉の知识库","url":"https://biyouqiuqiu.com/","keywords":null,"description":"Self-Discipline","author":{"@type":"Person","name":"笔友🍉","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://biyouqiuqiu.com/","description":"Self-Discipline"},"publisher":{"@type":"Organization","name":"笔友🍉の知识库","url":"https://biyouqiuqiu.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://biyouqiuqiu.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"MagicNumber","description":"Self-Discipline","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://biyouqiuqiu.com/2023/01/19/Smart%20contracts/ethernaut/MagicNumber/"},"author":{"@type":"Person","name":"笔友🍉","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://biyouqiuqiu.com/"},"publisher":{"@type":"Organization","name":"笔友🍉の知识库","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://biyouqiuqiu.com/2023/01/19/Smart%20contracts/ethernaut/MagicNumber/","wordCount":0,"datePublished":"2023-01-19T01:10:10.000Z","dateModified":"2023-01-19T01:10:10.000Z","articleSection":"Smart contracts","keywords":"Solidity,靶场","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

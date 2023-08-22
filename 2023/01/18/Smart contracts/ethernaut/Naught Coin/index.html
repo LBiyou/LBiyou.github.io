@@ -35,21 +35,21 @@
   <!-- feed -->
   <!-- 页面元数据 -->
   <title>Naught Coin - 笔友🍉の知识库</title>
-  <meta name="keywords" content="靶场,Solidity,null">
+  <meta name="keywords" content="Solidity,靶场,null">
   <meta desc name="description" content="Self-Discipline - 笔友🍉 - 笔友🍉の知识库">
   
 <meta property="og:type" content="article">
 <meta property="og:title" content="Naught Coin">
 <meta property="og:url" content="https://biyouqiuqiu.com/2023/01/18/Smart%20contracts/ethernaut/Naught%20Coin/index.html">
 <meta property="og:site_name" content="笔友🍉の知识库">
-<meta property="og:description" content="Naught Coin1. 题目要求 1.1 NaughtCoin 是一种 ERC20 代币，而且您已经持有这些代币。问题是您只能在 10 年之后才能转移它们。您能尝试将它们转移到另一个地址，以便您可以自由使用它们吗？通过将您的代币余额变为 0 来完成此关卡。  这可能有用  ERC20标准 OpenZeppelin仓库   1.2 题目代码：  &#x2F;&#x2F; SPDX-License-Identifie">
+<meta property="og:description" content="Naught Coin1. 题目要求 1.1 NaughtCoin 是一种 ERC20 代币，而且您已经持有这些代币。问题是您只能在 10 年之后才能转移它们。您能尝试将它们转移到另一个地址，以便您可以自由使用它们吗？通过将您的代币余额变为 0 来完成此关卡。  这可能有用  ERC20标准 OpenZeppelin仓库   1.2 题目代码：    12345678910111213141516">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2023-01-18T07:10:10.000Z">
 <meta property="article:modified_time" content="2023-01-18T07:10:10.000Z">
 <meta property="article:author" content="笔友🍉">
-<meta property="article:tag" content="靶场">
 <meta property="article:tag" content="Solidity">
+<meta property="article:tag" content="靶场">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
   <style>
@@ -1794,7 +1794,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1690522141791),
+    lastupdate: new Date(1692682587051),
     sidebar: {
       for_page: ["blogger","category","tagcloud","webinfo","qrcode"],
       for_post: ["toc","blogger","qrcode"],
@@ -2995,13 +2995,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fa-solid fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：906 字</p>
+      <p>字数：859 字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fa-solid fa-bell fa-fw" aria-hidden="true"></i>
-      <p>时长：4 分钟</p>
+      <p>时长：3 分钟</p>
     </a>
   </div>
 
@@ -3057,54 +3057,57 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </li>
 <li><p>1.2 题目代码：</p>
 </li>
-<li><pre><code class="solidity">// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
+</ul>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">// SPDX-License-Identifier: MIT</span><br><span class="line">pragma solidity ^0.8.0;</span><br><span class="line"></span><br><span class="line">import &#x27;https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/ERC20.sol&#x27;;</span><br><span class="line"></span><br><span class="line"> contract NaughtCoin is ERC20 &#123;</span><br><span class="line"></span><br><span class="line">  // string public constant name = &#x27;NaughtCoin&#x27;;</span><br><span class="line">  // string public constant symbol = &#x27;0x0&#x27;;</span><br><span class="line">  // uint public constant decimals = 18;</span><br><span class="line">  uint public timeLock = block.timestamp + 10 * 365 days;</span><br><span class="line">  uint256 public INITIAL_SUPPLY;</span><br><span class="line">  address public player;</span><br><span class="line"></span><br><span class="line">  constructor(address _player) </span><br><span class="line">  ERC20(&#x27;NaughtCoin&#x27;, &#x27;0x0&#x27;) &#123;</span><br><span class="line">    player = _player;</span><br><span class="line">    INITIAL_SUPPLY = 1000000 * (10**uint256(decimals()));</span><br><span class="line">    // _totalSupply = INITIAL_SUPPLY;</span><br><span class="line">    // _balances[player] = INITIAL_SUPPLY;</span><br><span class="line">    _mint(player, INITIAL_SUPPLY);</span><br><span class="line">    emit Transfer(address(0), player, INITIAL_SUPPLY);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  function transfer(address _to, uint256 _value) override public lockTokens returns(bool) &#123;</span><br><span class="line">    super.transfer(_to, _value);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  // Prevent the initial owner from transferring tokens until the timelock has passed</span><br><span class="line">  modifier lockTokens() &#123;</span><br><span class="line">    if (msg.sender == player) &#123;</span><br><span class="line">      require(block.timestamp &gt; timeLock);</span><br><span class="line">      _;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">     _;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; </span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
 
-import &#39;https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/ERC20.sol&#39;;
+<h2 id="2-分析"><a href="#2-分析" class="headerlink" title="2. 分析"></a>2. 分析</h2><ul>
+<li><p>2.1 通过让您的代币余额为 0 来完成此级别</p>
+</li>
+<li><p>2.2  ***tips：*<em>*<em>在</em><code>*constructor*</code>*.</em> <code>*_mint*</code><em>在执行合约</em><code>*emit*</code><em>事件**后</em><code>*Transfer*</code><em>，不知道 OpenZeppelin</em><code>*_mint*</code><em>函数的本机实现已经是</em><code>*emit*</code><em>事件</em><code>*Transfer*</code></p>
+</li>
+<li><p>要解决这个合约，我们需要知道 ERC20 代币的 EIP（以太坊改进提案）是如何工作的，以及 OpenZeppelin 是如何实现它的（该合约使用的是 OpenZeppelin 框架库）。</p>
+<p>您可以从这些链接中找到所需的所有信息：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://eips.ethereum.org/EIPS/eip-20">以太坊 EIP-20</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.openzeppelin.com/contracts/4.x/api/token/erc20">OpenZeppelin ERC20 文档</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/ERC20.sol">OpenZeppelin ERC20 实现</a></li>
+</ul>
+<p>转移代币有两种方式：</p>
+<ul>
+<li>通过<code>transfer</code>允许<code>msg.sender</code>直接将代币转移到<code>recipient</code></li>
+<li>通过<code>transferFrom</code>允许外部任意<code>sender</code>（可能是代币本身的所有者）代表所有者将<code>amount</code>代币转移到<code>recipient</code>. 在发送这些代币之前，所有者必须已<strong>批准</strong>管理<code>sender</code>该数量的代币</li>
+</ul>
+<p>因为<code>transfer</code>方法已经<code>overrided</code>约定好了<code>NaughtCoin</code>，我们可以使用函数来规避限制<code>transferFrom</code>。</p>
+<p>这是我们需要做的：</p>
+<ol>
+<li>创建一个二级账户，将我们所有的代币转移到 2) 在调用之前批准我们自己管理全部代币<code>transferFrom</code>3) 调用<code>transferFrom(player, secondaryAccount, token.balanceOf(player))</code>4) 随心所欲地使用代币！</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">NaughtCoin`合约应该实施什么才能真正锁定我们的代币**10 年**？他们可以实现EIP-20 定义的**一个挂钩**`overriding`，称为.`transfer``_beforeTokenTransfer</span><br></pre></td></tr></table></figure>
 
- contract NaughtCoin is ERC20 &#123;
+<p>当发生任何类型的令牌传输时，将调用此挂钩：</p>
+<ul>
+<li><code>mint</code>（从地址转移<code>0x</code>到用户）</li>
+<li><code>burn</code>（从用户转移到<code>0x</code>地址）</li>
+<li><code>transfer</code></li>
+<li><code>transferFrom</code></li>
+</ul>
+<p>通过这样做，他们可以防止这种利用。</p>
+</li>
+<li><p>2.3 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=f4QDmG2Cgc0">参考视频</a> 写的攻击合约</p>
+</li>
+<li><pre><code class="solidity">interface INaughtCoin &#123;
+    function player() external view returns (address);
+&#125;
 
-  // string public constant name = &#39;NaughtCoin&#39;;
-  // string public constant symbol = &#39;0x0&#39;;
-  // uint public constant decimals = 18;
-  uint public timeLock = block.timestamp + 10 * 365 days;
-  uint256 public INITIAL_SUPPLY;
-  address public player;
-
-  constructor(address _player) 
-  ERC20(&#39;NaughtCoin&#39;, &#39;0x0&#39;) &#123;
-    player = _player;
-    INITIAL_SUPPLY = 1000000 * (10**uint256(decimals()));
-    // _totalSupply = INITIAL_SUPPLY;
-    // _balances[player] = INITIAL_SUPPLY;
-    _mint(player, INITIAL_SUPPLY);
-    emit Transfer(address(0), player, INITIAL_SUPPLY);
-  &#125;
-  
-  function transfer(address _to, uint256 _value) override public lockTokens returns(bool) &#123;
-    super.transfer(_to, _value);
-  &#125;
-
-  // Prevent the initial owner from transferring tokens until the timelock has passed
-  modifier lockTokens() &#123;
-    if (msg.sender == player) &#123;
-      require(block.timestamp &gt; timeLock);
-      _;
-    &#125; else &#123;
-     _;
+contract Hack &#123;
+    function pwn(IERC20 coin) external &#123;
+        address player = INaughtCoin(address(coin)).player();
+        uint bal = coin.balanceOf(player);
+        coin.transferFrom(player, address(this), bal);
     &#125;
-  &#125; 
-&#125; 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 2. 分析</span><br><span class="line"></span><br><span class="line">- 2.1 通过让您的代币余额为 0 来完成此级别</span><br><span class="line"></span><br><span class="line">- 2.2  ***tips：\****在*`*constructor*`*.* `*_mint*`*在执行合约*`*emit*`*事件**后*`*Transfer*`*，不知道 OpenZeppelin*`*_mint*`*函数的本机实现已经是*`*emit*`*事件*`*Transfer*`</span><br><span class="line"></span><br><span class="line">- 要解决这个合约，我们需要知道 ERC20 代币的 EIP（以太坊改进提案）是如何工作的，以及 OpenZeppelin 是如何实现它的（该合约使用的是 OpenZeppelin 框架库）。</span><br><span class="line"></span><br><span class="line">  您可以从这些链接中找到所需的所有信息：</span><br><span class="line"></span><br><span class="line">  - [以太坊 EIP-20](https://eips.ethereum.org/EIPS/eip-20)</span><br><span class="line">  - [OpenZeppelin ERC20 文档](https://docs.openzeppelin.com/contracts/4.x/api/token/erc20)</span><br><span class="line">  - [OpenZeppelin ERC20 实现](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/ERC20.sol)</span><br><span class="line"></span><br><span class="line">  转移代币有两种方式：</span><br><span class="line"></span><br><span class="line">  - 通过`transfer`允许`msg.sender`直接将代币转移到`recipient`</span><br><span class="line">  - 通过`transferFrom`允许外部任意`sender`（可能是代币本身的所有者）代表所有者将`amount`代币转移到`recipient`. 在发送这些代币之前，所有者必须已**批准**管理`sender`该数量的代币</span><br><span class="line"></span><br><span class="line">  因为`transfer`方法已经`overrided`约定好了`NaughtCoin`，我们可以使用函数来规避限制`transferFrom`。</span><br><span class="line"></span><br><span class="line">  这是我们需要做的：</span><br><span class="line"></span><br><span class="line">  1) 创建一个二级账户，将我们所有的代币转移到 2) 在调用之前批准我们自己管理全部代币`transferFrom`3) 调用`transferFrom(player, secondaryAccount, token.balanceOf(player))`4) 随心所欲地使用代币！</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-NaughtCoin`合约应该实施什么才能真正锁定我们的代币**10 年**？他们可以实现EIP-20 定义的**一个挂钩**`overriding`，称为.`transfer``_beforeTokenTransfer
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  当发生任何类型的令牌传输时，将调用此挂钩：</span><br><span class="line"></span><br><span class="line">  - `mint`（从地址转移`0x`到用户）</span><br><span class="line">  - `burn`（从用户转移到`0x`地址）</span><br><span class="line">  - `transfer`</span><br><span class="line">  - `transferFrom`</span><br><span class="line"></span><br><span class="line">  通过这样做，他们可以防止这种利用。</span><br><span class="line"></span><br><span class="line">- 2.3 [参考视频](https://www.youtube.com/watch?v=f4QDmG2Cgc0) 写的攻击合约</span><br><span class="line"></span><br><span class="line">- ```solidity</span><br><span class="line">  interface INaughtCoin &#123;</span><br><span class="line">      function player() external view returns (address);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  contract Hack &#123;</span><br><span class="line">      function pwn(IERC20 coin) external &#123;</span><br><span class="line">          address player = INaughtCoin(address(coin)).player();</span><br><span class="line">          uint bal = coin.balanceOf(player);</span><br><span class="line">          coin.transferFrom(player, address(this), bal);</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br></pre></td></tr></table></figure>
-</code></pre>
-</li>
-<li><p>2.4 解题步骤为：</p>
-</li>
-<li><pre><code>// 1.Deploy
-// 2.coin.approve(hack, amount)
-// 3.pwn()
+&#125;
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 2.4 解题步骤为：</span><br><span class="line"></span><br><span class="line">- ```</span><br><span class="line">  // 1.Deploy</span><br><span class="line">  // 2.coin.approve(hack, amount)</span><br><span class="line">  // 3.pwn()</span><br></pre></td></tr></table></figure>
 </code></pre>
 </li>
 <li></li>
@@ -3199,8 +3202,8 @@ NaughtCoin`合约应该实施什么才能真正锁定我们的代币**10 年**�
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E9%9D%B6%E5%9C%BA/" rel="nofollow"><i class="fa-solid fa-bookmark fa-fw" aria-hidden="true"></i><p>靶场</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Solidity/" rel="nofollow"><i class="fa-solid fa-bookmark fa-fw" aria-hidden="true"></i><p>Solidity</p></a></div>
-  <span hidden itemprop="keywords">靶场 Solidity</span>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Solidity/" rel="nofollow"><i class="fa-solid fa-bookmark fa-fw" aria-hidden="true"></i><p>Solidity</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E9%9D%B6%E5%9C%BA/" rel="nofollow"><i class="fa-solid fa-bookmark fa-fw" aria-hidden="true"></i><p>靶场</p></a></div>
+  <span hidden itemprop="keywords">Solidity 靶场</span>
 
 
         
@@ -3403,7 +3406,7 @@ NaughtCoin`合约应该实施什么才能真正锁定我们的代币**10 年**�
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E9%A2%98%E7%9B%AE%E8%A6%81%E6%B1%82"><span class="toc-text">1. 题目要求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E8%A7%A3%E9%A2%98"><span class="toc-text">3. 解题</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E9%A2%98%E7%9B%AE%E8%A6%81%E6%B1%82"><span class="toc-text">1. 题目要求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%88%86%E6%9E%90"><span class="toc-text">2. 分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E8%A7%A3%E9%A2%98"><span class="toc-text">3. 解题</span></a></li></ol>
     </div>
   </section>
 
@@ -4451,7 +4454,7 @@ window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListener
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"笔友🍉の知识库","url":"https://biyouqiuqiu.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"笔友🍉","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://biyouqiuqiu.com/","sameAs":["https://github.com/volantis-x"],"description":"Self-Discipline"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://biyouqiuqiu.com/","name":"笔友🍉の知识库"}},{"@type":"ListItem","position":2,"item":{"@id":"https://biyouqiuqiu.com/categories/Smart-contracts/","name":"Smart contracts"}},{"@type":"ListItem","position":2,"item":{"@id":"https://biyouqiuqiu.com/categories/Smart-contracts/ethernaut/","name":"ethernaut"}},{"@type":"ListItem","position":3,"item":{"@id":"https://biyouqiuqiu.com/2023/01/18/Smart contracts/ethernaut/Naught Coin/","name":"Naught Coin"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"笔友🍉の知识库","url":"https://biyouqiuqiu.com/","keywords":null,"description":"Self-Discipline","author":{"@type":"Person","name":"笔友🍉","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://biyouqiuqiu.com/","description":"Self-Discipline"},"publisher":{"@type":"Organization","name":"笔友🍉の知识库","url":"https://biyouqiuqiu.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://biyouqiuqiu.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"Naught Coin","description":"Self-Discipline","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://biyouqiuqiu.com/2023/01/18/Smart%20contracts/ethernaut/Naught%20Coin/"},"author":{"@type":"Person","name":"笔友🍉","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://biyouqiuqiu.com/"},"publisher":{"@type":"Organization","name":"笔友🍉の知识库","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://biyouqiuqiu.com/2023/01/18/Smart%20contracts/ethernaut/Naught%20Coin/","wordCount":0,"datePublished":"2023-01-18T07:10:10.000Z","dateModified":"2023-01-18T07:10:10.000Z","articleSection":"Smart contracts","keywords":"靶场,Solidity","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"笔友🍉の知识库","url":"https://biyouqiuqiu.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"笔友🍉","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://biyouqiuqiu.com/","sameAs":["https://github.com/volantis-x"],"description":"Self-Discipline"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://biyouqiuqiu.com/","name":"笔友🍉の知识库"}},{"@type":"ListItem","position":2,"item":{"@id":"https://biyouqiuqiu.com/categories/Smart-contracts/","name":"Smart contracts"}},{"@type":"ListItem","position":2,"item":{"@id":"https://biyouqiuqiu.com/categories/Smart-contracts/ethernaut/","name":"ethernaut"}},{"@type":"ListItem","position":3,"item":{"@id":"https://biyouqiuqiu.com/2023/01/18/Smart contracts/ethernaut/Naught Coin/","name":"Naught Coin"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"笔友🍉の知识库","url":"https://biyouqiuqiu.com/","keywords":null,"description":"Self-Discipline","author":{"@type":"Person","name":"笔友🍉","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://biyouqiuqiu.com/","description":"Self-Discipline"},"publisher":{"@type":"Organization","name":"笔友🍉の知识库","url":"https://biyouqiuqiu.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://biyouqiuqiu.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"Naught Coin","description":"Self-Discipline","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://biyouqiuqiu.com/2023/01/18/Smart%20contracts/ethernaut/Naught%20Coin/"},"author":{"@type":"Person","name":"笔友🍉","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://biyouqiuqiu.com/"},"publisher":{"@type":"Organization","name":"笔友🍉の知识库","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://biyouqiuqiu.com/2023/01/18/Smart%20contracts/ethernaut/Naught%20Coin/","wordCount":0,"datePublished":"2023-01-18T07:10:10.000Z","dateModified":"2023-01-18T07:10:10.000Z","articleSection":"Smart contracts","keywords":"Solidity,靶场","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

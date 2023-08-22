@@ -1794,7 +1794,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1690522141791),
+    lastupdate: new Date(1692682587051),
     sidebar: {
       for_page: ["blogger","category","tagcloud","webinfo","qrcode"],
       for_post: ["toc","blogger","qrcode"],
@@ -2995,7 +2995,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fa-solid fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：180 字</p>
+      <p>字数：174 字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -3054,7 +3054,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">// SPDX-License-Identifier: MIT</span><br><span class="line">pragma solidity ^0.4.21;</span><br><span class="line"></span><br><span class="line">contract GuessTheNumberChallenge &#123;</span><br><span class="line">    uint8 answer = 42;</span><br><span class="line"></span><br><span class="line">    function GuessTheNumberChallenge() public payable &#123;</span><br><span class="line">        require(msg.value == 1 ether);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function isComplete() public view returns (bool) &#123;</span><br><span class="line">        return address(this).balance == 0;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function guess(uint8 n) public payable &#123;</span><br><span class="line">        require(msg.value == 1 ether);</span><br><span class="line"></span><br><span class="line">        if (n == answer) &#123;</span><br><span class="line">            msg.sender.transfer(2 ether);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="2-分析"><a href="#2-分析" class="headerlink" title="2. 分析"></a>2. 分析</h2><ul>
-<li>2.1 这题是猜数字，但是他的数字是写死的，即42 。我们直接猜42 就好了</li>
+<li>2.1 这题是猜数字，但是他的数字是写死的，通过 <code>ethers</code>读取。</li>
 <li>2.2 但是部署和 猜数字都需要支付 1ether ，即两个，如果猜对了他就会返回之前支付的ether</li>
 </ul>
 <h2 id="3-解题"><a href="#3-解题" class="headerlink" title="3. 解题"></a>3. 解题</h2><ul>

