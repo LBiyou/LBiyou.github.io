@@ -1790,7 +1790,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1692682587051),
+    lastupdate: new Date(1693127581841),
     sidebar: {
       for_page: ["blogger","category","tagcloud","webinfo","qrcode"],
       for_post: ["toc","blogger","qrcode"],
@@ -2957,7 +2957,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           <div class='post-wrapper'>
             <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="https://biyouqiuqiu.com/2023/07/10/Smart contracts/damn defi/Truster/">
+  <link itemprop="mainEntityOfPage" href="https://biyouqiuqiu.com/2023/07/19/Knowledge literacy/proxy contract/Proxy_Contract/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="笔友🍉の知识库">
   </span>
@@ -2975,17 +2975,21 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
     <h2 class="article-title"  itemprop="name headline">
-      <a href="/2023/07/10/Smart%20contracts/damn%20defi/Truster/"  itemprop="url">
-        Truster
+      <a href="/2023/07/19/Knowledge%20literacy/proxy%20contract/Proxy_Contract/"  itemprop="url">
+        Proxy Contract No.1
       </a>
     </h2>
   
   <div class='md article-desc' itemprop="articleBody">
     
       
-        1. issue
-More and more lending pools are offering flash loans. In this case, a new pool has launched that is offering flash loans of DVT tokens for free.
-The pool holds 1 million DVT tokens. You ha...
+        代理合约1. 代理模式
+solidity合约部署到链上之后，代码是不可变的。
+这一特性存在了一个严重的缺点：就算合约中存在bug，也不能修改或者升级，只能部署新合约。但是新合约的地址和旧合约的地址不一样，而且合约的数据也需要花费大量的gas进行迁移。
+为了解决这一问题，从而引入了 代理模式这一概念。
+
+
+代理模式将合约数据和逻辑分开，分别保存在不同的合约中。以上图为例，数据（状态变量）存储在...
       
     
   </div>
@@ -3001,174 +3005,24 @@ The pool holds 1 million DVT tokens. You ha...
             <meta itemprop="url" content="/">
           </span>
         
-        <time itemprop="dateCreated datePublished" datetime="2023-07-10T11:37:10+08:00">2023-07-10</time>
+        <time itemprop="dateCreated datePublished" datetime="2023-07-19T09:47:10+08:00">2023-07-19</time>
         
           <span class="dot"></span>
-          <a class="category-link" href="/categories/Smart-contracts/">Smart contracts</a><span class="sep"></span><a class="category-link" href="/categories/Smart-contracts/damn-defi/">damn defi</a>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/Smart-contracts/" itemprop="url"><span itemprop="name">Smart contracts</span></a>
-            </span>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/Smart-contracts/damn-defi/" itemprop="url"><span itemprop="name">damn defi</span></a>
-            </span>
-          
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2023/07/10/Smart%20contracts/damn%20defi/Truster/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="https://biyouqiuqiu.com/2023/07/09/Smart contracts/damn defi/Naive receiver/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="笔友🍉の知识库">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="笔友🍉の知识库">
-    <meta itemprop="description" content="Self-Discipline">
-  </span>
-  
-  
-  
-    <span hidden>
-      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-    </span>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2023/07/09/Smart%20contracts/damn%20defi/Naive%20receiver/"  itemprop="url">
-        Naive receiver
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      
-        1. issue
-There’s a pool with 1000 ETH in balance, offering flash loans. It has a fixed fee of 1 ETH.
-A user has deployed a contract with 10 ETH in balance. It’s capable of interacting with the pool...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-          
-          <a class='avatar' href='/'><img src='https://cdn.staticaly.com/gh/LBiyou/BlogImages@main/img/202306010906086.jpg'></a>
-          <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-            <meta itemprop="image" content="https://cdn.staticaly.com/gh/LBiyou/BlogImages@main/img/202306010906086.jpg">
-            <meta itemprop="name" content="笔友🍉">
-            <meta itemprop="url" content="/">
-          </span>
-        
-        <time itemprop="dateCreated datePublished" datetime="2023-07-09T15:37:10+08:00">2023-07-09</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/Smart-contracts/">Smart contracts</a><span class="sep"></span><a class="category-link" href="/categories/Smart-contracts/damn-defi/">damn defi</a>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/Smart-contracts/" itemprop="url"><span itemprop="name">Smart contracts</span></a>
-            </span>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/Smart-contracts/damn-defi/" itemprop="url"><span itemprop="name">damn defi</span></a>
-            </span>
-          
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2023/07/09/Smart%20contracts/damn%20defi/Naive%20receiver/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="https://biyouqiuqiu.com/2023/07/09/Knowledge literacy/damn defi/靶场中学到的知识/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="笔友🍉の知识库">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="笔友🍉の知识库">
-    <meta itemprop="description" content="Self-Discipline">
-  </span>
-  
-  
-  
-    <span hidden>
-      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-    </span>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2023/07/09/Knowledge%20literacy/damn%20defi/%E9%9D%B6%E5%9C%BA%E4%B8%AD%E5%AD%A6%E5%88%B0%E7%9A%84%E7%9F%A5%E8%AF%86/"  itemprop="url">
-        靶场中学到的知识
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      Here's something encrypted, password is required to continue reading.
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-          
-          <a class='avatar' href='/'><img src='https://cdn.staticaly.com/gh/LBiyou/BlogImages@main/img/202306010906086.jpg'></a>
-          <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-            <meta itemprop="image" content="https://cdn.staticaly.com/gh/LBiyou/BlogImages@main/img/202306010906086.jpg">
-            <meta itemprop="name" content="笔友🍉">
-            <meta itemprop="url" content="/">
-          </span>
-        
-        <time itemprop="dateCreated datePublished" datetime="2023-07-09T13:47:10+08:00">2023-07-09</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/Knowledge-literacy/">Knowledge literacy</a><span class="sep"></span><a class="category-link" href="/categories/Knowledge-literacy/damn-defi/">damn defi</a>
+          <a class="category-link" href="/categories/Knowledge-literacy/">Knowledge literacy</a><span class="sep"></span><a class="category-link" href="/categories/Knowledge-literacy/proxy-contract/">proxy contract</a>
           
             <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
               <a href="/categories/Knowledge-literacy/" itemprop="url"><span itemprop="name">Knowledge literacy</span></a>
             </span>
           
             <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/Knowledge-literacy/damn-defi/" itemprop="url"><span itemprop="name">damn defi</span></a>
+              <a href="/categories/Knowledge-literacy/proxy-contract/" itemprop="url"><span itemprop="name">proxy contract</span></a>
             </span>
           
         
       </div>
       
         <div>
-          <a class='readmore' href='/2023/07/09/Knowledge%20literacy/damn%20defi/%E9%9D%B6%E5%9C%BA%E4%B8%AD%E5%AD%A6%E5%88%B0%E7%9A%84%E7%9F%A5%E8%AF%86/' itemprop="url">
+          <a class='readmore' href='/2023/07/19/Knowledge%20literacy/proxy%20contract/Proxy_Contract/' itemprop="url">
             阅读全文
           </a>
         </div>
@@ -3184,7 +3038,7 @@ A user has deployed a contract with 10 ETH in balance. It’s capable of interac
         
           <div class='post-wrapper'>
             <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="https://biyouqiuqiu.com/2023/07/09/Smart contracts/damn defi/ABI Smuggling/">
+  <link itemprop="mainEntityOfPage" href="https://biyouqiuqiu.com/2023/07/17/Knowledge literacy/uniswap/uniswap-v2/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="笔友🍉の知识库">
   </span>
@@ -3202,15 +3056,19 @@ A user has deployed a contract with 10 ETH in balance. It’s capable of interac
   
     
     <h2 class="article-title"  itemprop="name headline">
-      <a href="/2023/07/09/Smart%20contracts/damn%20defi/ABI%20Smuggling/"  itemprop="url">
-        2023年7月9日
+      <a href="/2023/07/17/Knowledge%20literacy/uniswap/uniswap-v2/"  itemprop="url">
+        uniswap v2
       </a>
     </h2>
   
   <div class='md article-desc' itemprop="articleBody">
     
       
-        1. issue2. analysing3. solving
+        前言：Uniswap V2代码结构
+Uniswap智能合约代码由两个github项目组成。一个是core，一个是periphery。
+https://github.com/Uniswap/uniswap-v2-core.git
+https://github.com/Uniswap/uniswap-v2-periphery.git
+core偏核心逻辑，单个swap的逻辑。periphery偏外...
       
     
   </div>
@@ -3226,24 +3084,24 @@ A user has deployed a contract with 10 ETH in balance. It’s capable of interac
             <meta itemprop="url" content="/">
           </span>
         
-        <time itemprop="dateCreated datePublished" datetime="2023-07-09T11:37:10+08:00">2023-07-09</time>
+        <time itemprop="dateCreated datePublished" datetime="2023-07-17T13:47:10+08:00">2023-07-17</time>
         
           <span class="dot"></span>
-          <a class="category-link" href="/categories/Smart-contracts/">Smart contracts</a><span class="sep"></span><a class="category-link" href="/categories/Smart-contracts/damn-defi/">damn defi</a>
+          <a class="category-link" href="/categories/Knowledge-literacy/">Knowledge literacy</a><span class="sep"></span><a class="category-link" href="/categories/Knowledge-literacy/uniswap/">uniswap</a>
           
             <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/Smart-contracts/" itemprop="url"><span itemprop="name">Smart contracts</span></a>
+              <a href="/categories/Knowledge-literacy/" itemprop="url"><span itemprop="name">Knowledge literacy</span></a>
             </span>
           
             <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/Smart-contracts/damn-defi/" itemprop="url"><span itemprop="name">damn defi</span></a>
+              <a href="/categories/Knowledge-literacy/uniswap/" itemprop="url"><span itemprop="name">uniswap</span></a>
             </span>
           
         
       </div>
       
         <div>
-          <a class='readmore' href='/2023/07/09/Smart%20contracts/damn%20defi/ABI%20Smuggling/' itemprop="url">
+          <a class='readmore' href='/2023/07/17/Knowledge%20literacy/uniswap/uniswap-v2/' itemprop="url">
             阅读全文
           </a>
         </div>
@@ -3259,7 +3117,7 @@ A user has deployed a contract with 10 ETH in balance. It’s capable of interac
         
           <div class='post-wrapper'>
             <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="https://biyouqiuqiu.com/2023/07/09/Smart contracts/damn defi/Puppet V3/">
+  <link itemprop="mainEntityOfPage" href="https://biyouqiuqiu.com/2023/07/14/Smart contracts/damn defi/Free Rider/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="笔友🍉の知识库">
   </span>
@@ -3277,83 +3135,8 @@ A user has deployed a contract with 10 ETH in balance. It’s capable of interac
   
     
     <h2 class="article-title"  itemprop="name headline">
-      <a href="/2023/07/09/Smart%20contracts/damn%20defi/Puppet%20V3/"  itemprop="url">
-        2023年7月9日
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      
-        1. issue2. analysing3. solving
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-          
-          <a class='avatar' href='/'><img src='https://cdn.staticaly.com/gh/LBiyou/BlogImages@main/img/202306010906086.jpg'></a>
-          <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-            <meta itemprop="image" content="https://cdn.staticaly.com/gh/LBiyou/BlogImages@main/img/202306010906086.jpg">
-            <meta itemprop="name" content="笔友🍉">
-            <meta itemprop="url" content="/">
-          </span>
-        
-        <time itemprop="dateCreated datePublished" datetime="2023-07-09T11:37:10+08:00">2023-07-09</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/Smart-contracts/">Smart contracts</a><span class="sep"></span><a class="category-link" href="/categories/Smart-contracts/damn-defi/">damn defi</a>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/Smart-contracts/" itemprop="url"><span itemprop="name">Smart contracts</span></a>
-            </span>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/Smart-contracts/damn-defi/" itemprop="url"><span itemprop="name">damn defi</span></a>
-            </span>
-          
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2023/07/09/Smart%20contracts/damn%20defi/Puppet%20V3/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="https://biyouqiuqiu.com/2023/07/09/Smart contracts/damn defi/Unstoppable/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="笔友🍉の知识库">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="笔友🍉の知识库">
-    <meta itemprop="description" content="Self-Discipline">
-  </span>
-  
-  
-  
-    <span hidden>
-      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-    </span>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2023/07/09/Smart%20contracts/damn%20defi/Unstoppable/"  itemprop="url">
-        Unstoppable
+      <a href="/2023/07/14/Smart%20contracts/damn%20defi/Free%20Rider/"  itemprop="url">
+        Free Rider
       </a>
     </h2>
   
@@ -3361,8 +3144,8 @@ A user has deployed a contract with 10 ETH in balance. It’s capable of interac
     
       
         1. issue
-There’s a tokenized vault with a million DVT tokens deposited. It’s offering flash loans for free, until the grace period ends.
-To pass the challenge, make the vault stop offering flash lo...
+A new marketplace of Damn Valuable NFTs has been released! There’s been an initial mint of 6 NFTs, which are available for sale in the marketplace. Each one at 15 ETH.
+The developers behin...
       
     
   </div>
@@ -3378,7 +3161,7 @@ To pass the challenge, make the vault stop offering flash lo...
             <meta itemprop="url" content="/">
           </span>
         
-        <time itemprop="dateCreated datePublished" datetime="2023-07-09T11:37:10+08:00">2023-07-09</time>
+        <time itemprop="dateCreated datePublished" datetime="2023-07-14T23:37:10+08:00">2023-07-14</time>
         
           <span class="dot"></span>
           <a class="category-link" href="/categories/Smart-contracts/">Smart contracts</a><span class="sep"></span><a class="category-link" href="/categories/Smart-contracts/damn-defi/">damn defi</a>
@@ -3395,7 +3178,7 @@ To pass the challenge, make the vault stop offering flash lo...
       </div>
       
         <div>
-          <a class='readmore' href='/2023/07/09/Smart%20contracts/damn%20defi/Unstoppable/' itemprop="url">
+          <a class='readmore' href='/2023/07/14/Smart%20contracts/damn%20defi/Free%20Rider/' itemprop="url">
             阅读全文
           </a>
         </div>
@@ -3411,7 +3194,7 @@ To pass the challenge, make the vault stop offering flash lo...
         
           <div class='post-wrapper'>
             <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="https://biyouqiuqiu.com/2023/07/08/Solidity/Basic_Knowledge/Using的使用/">
+  <link itemprop="mainEntityOfPage" href="https://biyouqiuqiu.com/2023/07/14/Smart contracts/damn defi/Puppet V2/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="笔友🍉の知识库">
   </span>
@@ -3429,20 +3212,17 @@ To pass the challenge, make the vault stop offering flash lo...
   
     
     <h2 class="article-title"  itemprop="name headline">
-      <a href="/2023/07/08/Solidity/Basic_Knowledge/Using%E7%9A%84%E4%BD%BF%E7%94%A8/"  itemprop="url">
-        using 的使用
+      <a href="/2023/07/14/Smart%20contracts/damn%20defi/Puppet%20V2/"  itemprop="url">
+        Puppet V2
       </a>
     </h2>
   
   <div class='md article-desc' itemprop="articleBody">
     
       
-        1.语法1using A for * // 效果是，库A中的函数被附着在做任意的类型上
-
-
-指令using A for B;用来附着库里定义的函数(从库A)到任意类型B。这些函数将会默认接收调用函数对象的实例作为第一个参数。
-
-2. 示例代码2.1 Math库合约：123456789101112// 声明一个库合约library Math &#123;    // 定义一个加法函数    f...
+        1. issue
+The developers of the previous pool seem to have learned the lesson. And released a new version!
+Now they’re using a Uniswap v2 exchange as a price oracle, along with the recommended utili...
       
     
   </div>
@@ -3458,95 +3238,24 @@ To pass the challenge, make the vault stop offering flash lo...
             <meta itemprop="url" content="/">
           </span>
         
-        <time itemprop="dateCreated datePublished" datetime="2023-07-08T22:47:10+08:00">2023-07-08</time>
+        <time itemprop="dateCreated datePublished" datetime="2023-07-14T15:37:10+08:00">2023-07-14</time>
         
           <span class="dot"></span>
-          <a class="category-link" href="/categories/Solidity/">Solidity</a><span class="sep"></span><a class="category-link" href="/categories/Solidity/Basic-Knowledge/">Basic_Knowledge</a>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/Solidity/" itemprop="url"><span itemprop="name">Solidity</span></a>
-            </span>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/Solidity/Basic-Knowledge/" itemprop="url"><span itemprop="name">Basic_Knowledge</span></a>
-            </span>
-          
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2023/07/08/Solidity/Basic_Knowledge/Using%E7%9A%84%E4%BD%BF%E7%94%A8/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="https://biyouqiuqiu.com/2023/07/08/Smart contracts/ERC/ERC2612/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="笔友🍉の知识库">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="笔友🍉の知识库">
-    <meta itemprop="description" content="Self-Discipline">
-  </span>
-  
-  
-  
-    <span hidden>
-      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-    </span>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2023/07/08/Smart%20contracts/ERC/ERC2612/"  itemprop="url">
-        ERC2612的理解
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-          
-          <a class='avatar' href='/'><img src='https://cdn.staticaly.com/gh/LBiyou/BlogImages@main/img/202306010906086.jpg'></a>
-          <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-            <meta itemprop="image" content="https://cdn.staticaly.com/gh/LBiyou/BlogImages@main/img/202306010906086.jpg">
-            <meta itemprop="name" content="笔友🍉">
-            <meta itemprop="url" content="/">
-          </span>
-        
-        <time itemprop="dateCreated datePublished" datetime="2023-07-08T17:47:10+08:00">2023-07-08</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/Smart-contracts/">Smart contracts</a><span class="sep"></span><a class="category-link" href="/categories/Smart-contracts/ERC/">ERC</a>
+          <a class="category-link" href="/categories/Smart-contracts/">Smart contracts</a><span class="sep"></span><a class="category-link" href="/categories/Smart-contracts/damn-defi/">damn defi</a>
           
             <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
               <a href="/categories/Smart-contracts/" itemprop="url"><span itemprop="name">Smart contracts</span></a>
             </span>
           
             <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/Smart-contracts/ERC/" itemprop="url"><span itemprop="name">ERC</span></a>
+              <a href="/categories/Smart-contracts/damn-defi/" itemprop="url"><span itemprop="name">damn defi</span></a>
             </span>
           
         
       </div>
       
         <div>
-          <a class='readmore' href='/2023/07/08/Smart%20contracts/ERC/ERC2612/' itemprop="url">
+          <a class='readmore' href='/2023/07/14/Smart%20contracts/damn%20defi/Puppet%20V2/' itemprop="url">
             阅读全文
           </a>
         </div>
@@ -3562,7 +3271,7 @@ To pass the challenge, make the vault stop offering flash lo...
         
           <div class='post-wrapper'>
             <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="https://biyouqiuqiu.com/2023/07/08/Smart contracts/ERC/ERC4626/">
+  <link itemprop="mainEntityOfPage" href="https://biyouqiuqiu.com/2023/07/13/Smart contracts/damn defi/Puppet/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="笔友🍉の知识库">
   </span>
@@ -3580,20 +3289,16 @@ To pass the challenge, make the vault stop offering flash lo...
   
     
     <h2 class="article-title"  itemprop="name headline">
-      <a href="/2023/07/08/Smart%20contracts/ERC/ERC4626/"  itemprop="url">
-        ERC4626的理解
+      <a href="/2023/07/13/Smart%20contracts/damn%20defi/Puppet/"  itemprop="url">
+        Puppet
       </a>
     </h2>
   
   <div class='md article-desc' itemprop="articleBody">
     
       
-        1. ERC4626介绍官方文档
-WTF学院
-简介：
-
-代币化保险库标准，也称为ERC-4626，是一种代币化保险库的标准协议，代表着可产生收益的代币份额，并基于ERC-20代币标准进行构建。
-换句话说，ERC-4626是ERC-20的扩展，增加了新的功能，允许用户从他们的股份中获利。以前使用ERC-20标准，用户只能提取不超过他们在账户中存入的代币数量。ERC-4626允许用户根据保险库产...
+        1. issue
+There’s a lending pool where users can borrow Damn Valuable Tokens (DVTs). To do so, they first need to deposit twice the borrow amount in ETH as collateral. The pool currently has 100000 ...
       
     
   </div>
@@ -3609,24 +3314,24 @@ WTF学院
             <meta itemprop="url" content="/">
           </span>
         
-        <time itemprop="dateCreated datePublished" datetime="2023-07-08T15:47:10+08:00">2023-07-08</time>
+        <time itemprop="dateCreated datePublished" datetime="2023-07-13T19:37:10+08:00">2023-07-13</time>
         
           <span class="dot"></span>
-          <a class="category-link" href="/categories/Smart-contracts/">Smart contracts</a><span class="sep"></span><a class="category-link" href="/categories/Smart-contracts/ERC/">ERC</a>
+          <a class="category-link" href="/categories/Smart-contracts/">Smart contracts</a><span class="sep"></span><a class="category-link" href="/categories/Smart-contracts/damn-defi/">damn defi</a>
           
             <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
               <a href="/categories/Smart-contracts/" itemprop="url"><span itemprop="name">Smart contracts</span></a>
             </span>
           
             <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/Smart-contracts/ERC/" itemprop="url"><span itemprop="name">ERC</span></a>
+              <a href="/categories/Smart-contracts/damn-defi/" itemprop="url"><span itemprop="name">damn defi</span></a>
             </span>
           
         
       </div>
       
         <div>
-          <a class='readmore' href='/2023/07/08/Smart%20contracts/ERC/ERC4626/' itemprop="url">
+          <a class='readmore' href='/2023/07/13/Smart%20contracts/damn%20defi/Puppet/' itemprop="url">
             阅读全文
           </a>
         </div>
@@ -3642,7 +3347,7 @@ WTF学院
         
           <div class='post-wrapper'>
             <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="https://biyouqiuqiu.com/2023/07/08/Solidity/Utils/判断合约是否实现某接口/">
+  <link itemprop="mainEntityOfPage" href="https://biyouqiuqiu.com/2023/07/13/Solidity/Utils/ASCII转私钥/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="笔友🍉の知识库">
   </span>
@@ -3660,15 +3365,17 @@ WTF学院
   
     
     <h2 class="article-title"  itemprop="name headline">
-      <a href="/2023/07/08/Solidity/Utils/%E5%88%A4%E6%96%AD%E5%90%88%E7%BA%A6%E6%98%AF%E5%90%A6%E5%AE%9E%E7%8E%B0%E6%9F%90%E6%8E%A5%E5%8F%A3/"  itemprop="url">
-        判断合约是否实现某接口
+      <a href="/2023/07/13/Solidity/Utils/ASCII%E8%BD%AC%E7%A7%81%E9%92%A5/"  itemprop="url">
+        From ASCII To  PrivateKey
       </a>
     </h2>
   
   <div class='md article-desc' itemprop="articleBody">
     
       
-        1. 计算代码1234567891011121314151617181920212223242526272829303132333435363738394041424344454647pragma solidity ^0.4.20;contract TestContractID &#123;    bytes4 constant InvalidID = 0xffffffff;    byte...
+        1. 前言主要是在 靶场 刷题的时候遇到的，题目要求 将一串ASCII码转为字符串，再将字符串解码为一串私钥。感觉很有趣，于是乎，便记录下来。
+2. 题目一串已知的ASCII码
+14d 48 68 6a 4e 6a 63 34 5a 57 59 78 59 57 45 30 4e 54 5a 6b 59 54 59 31 59 7a 5a 6d 59 7a 55 34 4e 6a 46 6b...
       
     
   </div>
@@ -3684,7 +3391,7 @@ WTF学院
             <meta itemprop="url" content="/">
           </span>
         
-        <time itemprop="dateCreated datePublished" datetime="2023-07-08T11:47:10+08:00">2023-07-08</time>
+        <time itemprop="dateCreated datePublished" datetime="2023-07-13T12:47:10+08:00">2023-07-13</time>
         
           <span class="dot"></span>
           <a class="category-link" href="/categories/Solidity/">Solidity</a><span class="sep"></span><a class="category-link" href="/categories/Solidity/Utils/">Utils</a>
@@ -3701,7 +3408,316 @@ WTF学院
       </div>
       
         <div>
-          <a class='readmore' href='/2023/07/08/Solidity/Utils/%E5%88%A4%E6%96%AD%E5%90%88%E7%BA%A6%E6%98%AF%E5%90%A6%E5%AE%9E%E7%8E%B0%E6%9F%90%E6%8E%A5%E5%8F%A3/' itemprop="url">
+          <a class='readmore' href='/2023/07/13/Solidity/Utils/ASCII%E8%BD%AC%E7%A7%81%E9%92%A5/' itemprop="url">
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
+  <link itemprop="mainEntityOfPage" href="https://biyouqiuqiu.com/2023/07/13/Smart contracts/damn defi/Compromised/">
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="笔友🍉の知识库">
+  </span>
+  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
+    <meta itemprop="name" content="笔友🍉の知识库">
+    <meta itemprop="description" content="Self-Discipline">
+  </span>
+  
+  
+  
+    <span hidden>
+      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+    </span>
+  
+  
+    
+    <h2 class="article-title"  itemprop="name headline">
+      <a href="/2023/07/13/Smart%20contracts/damn%20defi/Compromised/"  itemprop="url">
+        Compromised
+      </a>
+    </h2>
+  
+  <div class='md article-desc' itemprop="articleBody">
+    
+      
+        1. issue
+While poking around a web service of one of the most popular DeFi projects in the space, you get a somewhat strange response from their server. Here’s a snippet:
+123456789HTTP/2 200 OKcont...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+          
+          <a class='avatar' href='/'><img src='https://cdn.staticaly.com/gh/LBiyou/BlogImages@main/img/202306010906086.jpg'></a>
+          <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <meta itemprop="image" content="https://cdn.staticaly.com/gh/LBiyou/BlogImages@main/img/202306010906086.jpg">
+            <meta itemprop="name" content="笔友🍉">
+            <meta itemprop="url" content="/">
+          </span>
+        
+        <time itemprop="dateCreated datePublished" datetime="2023-07-13T11:37:10+08:00">2023-07-13</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/categories/Smart-contracts/">Smart contracts</a><span class="sep"></span><a class="category-link" href="/categories/Smart-contracts/damn-defi/">damn defi</a>
+          
+            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+              <a href="/categories/Smart-contracts/" itemprop="url"><span itemprop="name">Smart contracts</span></a>
+            </span>
+          
+            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+              <a href="/categories/Smart-contracts/damn-defi/" itemprop="url"><span itemprop="name">damn defi</span></a>
+            </span>
+          
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/2023/07/13/Smart%20contracts/damn%20defi/Compromised/' itemprop="url">
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
+  <link itemprop="mainEntityOfPage" href="https://biyouqiuqiu.com/2023/07/12/Smart contracts/damn defi/Selfie/">
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="笔友🍉の知识库">
+  </span>
+  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
+    <meta itemprop="name" content="笔友🍉の知识库">
+    <meta itemprop="description" content="Self-Discipline">
+  </span>
+  
+  
+  
+    <span hidden>
+      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+    </span>
+  
+  
+    
+    <h2 class="article-title"  itemprop="name headline">
+      <a href="/2023/07/12/Smart%20contracts/damn%20defi/Selfie/"  itemprop="url">
+        Selfie
+      </a>
+    </h2>
+  
+  <div class='md article-desc' itemprop="articleBody">
+    
+      
+        1. issue
+A new cool lending pool has launched! It’s now offering flash loans of DVT tokens. It even includes a fancy governance mechanism to control it.
+What could go wrong, right ?
+You start with ...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+          
+          <a class='avatar' href='/'><img src='https://cdn.staticaly.com/gh/LBiyou/BlogImages@main/img/202306010906086.jpg'></a>
+          <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <meta itemprop="image" content="https://cdn.staticaly.com/gh/LBiyou/BlogImages@main/img/202306010906086.jpg">
+            <meta itemprop="name" content="笔友🍉">
+            <meta itemprop="url" content="/">
+          </span>
+        
+        <time itemprop="dateCreated datePublished" datetime="2023-07-12T10:37:10+08:00">2023-07-12</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/categories/Smart-contracts/">Smart contracts</a><span class="sep"></span><a class="category-link" href="/categories/Smart-contracts/damn-defi/">damn defi</a>
+          
+            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+              <a href="/categories/Smart-contracts/" itemprop="url"><span itemprop="name">Smart contracts</span></a>
+            </span>
+          
+            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+              <a href="/categories/Smart-contracts/damn-defi/" itemprop="url"><span itemprop="name">damn defi</span></a>
+            </span>
+          
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/2023/07/12/Smart%20contracts/damn%20defi/Selfie/' itemprop="url">
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
+  <link itemprop="mainEntityOfPage" href="https://biyouqiuqiu.com/2023/07/11/Smart contracts/damn defi/The Rewarder/">
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="笔友🍉の知识库">
+  </span>
+  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
+    <meta itemprop="name" content="笔友🍉の知识库">
+    <meta itemprop="description" content="Self-Discipline">
+  </span>
+  
+  
+  
+    <span hidden>
+      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+    </span>
+  
+  
+    
+    <h2 class="article-title"  itemprop="name headline">
+      <a href="/2023/07/11/Smart%20contracts/damn%20defi/The%20Rewarder/"  itemprop="url">
+        The Rewarder
+      </a>
+    </h2>
+  
+  <div class='md article-desc' itemprop="articleBody">
+    
+      
+        1. issue
+There’s a pool offering rewards in tokens every 5 days for those who deposit their DVT tokens into it.
+Alice, Bob, Charlie and David have already deposited some DVT tokens, and have won th...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+          
+          <a class='avatar' href='/'><img src='https://cdn.staticaly.com/gh/LBiyou/BlogImages@main/img/202306010906086.jpg'></a>
+          <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <meta itemprop="image" content="https://cdn.staticaly.com/gh/LBiyou/BlogImages@main/img/202306010906086.jpg">
+            <meta itemprop="name" content="笔友🍉">
+            <meta itemprop="url" content="/">
+          </span>
+        
+        <time itemprop="dateCreated datePublished" datetime="2023-07-11T08:37:10+08:00">2023-07-11</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/categories/Smart-contracts/">Smart contracts</a><span class="sep"></span><a class="category-link" href="/categories/Smart-contracts/damn-defi/">damn defi</a>
+          
+            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+              <a href="/categories/Smart-contracts/" itemprop="url"><span itemprop="name">Smart contracts</span></a>
+            </span>
+          
+            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+              <a href="/categories/Smart-contracts/damn-defi/" itemprop="url"><span itemprop="name">damn defi</span></a>
+            </span>
+          
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/2023/07/11/Smart%20contracts/damn%20defi/The%20Rewarder/' itemprop="url">
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
+  <link itemprop="mainEntityOfPage" href="https://biyouqiuqiu.com/2023/07/10/Smart contracts/damn defi/Side Entrance/">
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="笔友🍉の知识库">
+  </span>
+  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
+    <meta itemprop="name" content="笔友🍉の知识库">
+    <meta itemprop="description" content="Self-Discipline">
+  </span>
+  
+  
+  
+    <span hidden>
+      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+    </span>
+  
+  
+    
+    <h2 class="article-title"  itemprop="name headline">
+      <a href="/2023/07/10/Smart%20contracts/damn%20defi/Side%20Entrance/"  itemprop="url">
+        Side Entrance
+      </a>
+    </h2>
+  
+  <div class='md article-desc' itemprop="articleBody">
+    
+      
+        1. issue
+A surprisingly simple pool allows anyone to deposit ETH, and withdraw it at any point in time.
+It has 1000 ETH in balance already, and is offering free flash loans using the deposited ETH ...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+          
+          <a class='avatar' href='/'><img src='https://cdn.staticaly.com/gh/LBiyou/BlogImages@main/img/202306010906086.jpg'></a>
+          <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <meta itemprop="image" content="https://cdn.staticaly.com/gh/LBiyou/BlogImages@main/img/202306010906086.jpg">
+            <meta itemprop="name" content="笔友🍉">
+            <meta itemprop="url" content="/">
+          </span>
+        
+        <time itemprop="dateCreated datePublished" datetime="2023-07-10T17:37:10+08:00">2023-07-10</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/categories/Smart-contracts/">Smart contracts</a><span class="sep"></span><a class="category-link" href="/categories/Smart-contracts/damn-defi/">damn defi</a>
+          
+            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+              <a href="/categories/Smart-contracts/" itemprop="url"><span itemprop="name">Smart contracts</span></a>
+            </span>
+          
+            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+              <a href="/categories/Smart-contracts/damn-defi/" itemprop="url"><span itemprop="name">damn defi</span></a>
+            </span>
+          
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/2023/07/10/Smart%20contracts/damn%20defi/Side%20Entrance/' itemprop="url">
             阅读全文
           </a>
         </div>
@@ -3728,7 +3744,7 @@ WTF学院
           </a>
         
         <p class="current">
-          4 / 12
+          4 / 13
         </p>
         
           <a class="next" rel="next" href="/pagination/5/">
@@ -3908,7 +3924,12 @@ WTF学院
           <li><a class="flat-box"
             title="/categories/Smart-contracts/" href="/categories/Smart-contracts/"
             active-action="action-categoriesSmart-contracts"
-            ><div class='name'>Smart contracts</div><div class='badge'>(75)</div></a></li>
+            ><div class='name'>Smart contracts</div><div class='badge'>(86)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/Smart-contracts/ChainFlag/" href="/categories/Smart-contracts/ChainFlag/"
+            active-action="action-categoriesSmart-contractsChainFlag"
+            ><div class='name'>ChainFlag</div><div class='badge'>(11)</div></a></li>
         
           <li><a class="flat-box child"
             title="/categories/Smart-contracts/ERC/" href="/categories/Smart-contracts/ERC/"
@@ -3988,7 +4009,7 @@ WTF学院
 
 
     <div class='content'>
-      <a href="/tags/ASCII/" style="font-size: 14px; color: #999">ASCII</a> <a href="/tags/ECDSA/" style="font-size: 15px; color: #929292">ECDSA</a> <a href="/tags/ERC/" style="font-size: 19px; color: #777">ERC</a> <a href="/tags/ERC165/" style="font-size: 14px; color: #999">ERC165</a> <a href="/tags/ERC1820/" style="font-size: 14px; color: #999">ERC1820</a> <a href="/tags/ERC20/" style="font-size: 14px; color: #999">ERC20</a> <a href="/tags/ERC2612/" style="font-size: 14px; color: #999">ERC2612</a> <a href="/tags/ERC3156/" style="font-size: 14px; color: #999">ERC3156</a> <a href="/tags/ERC4626/" style="font-size: 14px; color: #999">ERC4626</a> <a href="/tags/ERC721/" style="font-size: 14px; color: #999">ERC721</a> <a href="/tags/ERC777/" style="font-size: 14px; color: #999">ERC777</a> <a href="/tags/EVM-Puzzles/" style="font-size: 14px; color: #999">EVM_Puzzles</a> <a href="/tags/Hexo/" style="font-size: 15px; color: #929292">Hexo</a> <a href="/tags/Knowledge-literacy/" style="font-size: 20px; color: #707070">Knowledge literacy</a> <a href="/tags/PrivateKey/" style="font-size: 14px; color: #999">PrivateKey</a> <a href="/tags/Proxy/" style="font-size: 17px; color: #858585">Proxy</a> <a href="/tags/Remix-debug/" style="font-size: 14px; color: #999">Remix-debug</a> <a href="/tags/Smart-contracts/" style="font-size: 19px; color: #777">Smart contracts</a> <a href="/tags/Solidity/" style="font-size: 23px; color: #5c5c5c">Solidity</a> <a href="/tags/Timelock/" style="font-size: 14px; color: #999">Timelock</a> <a href="/tags/Transparent/" style="font-size: 14px; color: #999">Transparent</a> <a href="/tags/Upgradeable/" style="font-size: 14px; color: #999">Upgradeable</a> <a href="/tags/Web3/" style="font-size: 15px; color: #929292">Web3</a> <a href="/tags/abi-encode/" style="font-size: 14px; color: #999">abi.encode</a> <a href="/tags/abi-encodePacked/" style="font-size: 14px; color: #999">abi.encodePacked</a> <a href="/tags/abiCoder-encode/" style="font-size: 14px; color: #999">abiCoder.encode</a> <a href="/tags/article/" style="font-size: 14px; color: #999">article</a> <a href="/tags/capther%E6%80%BB%E7%BB%93/" style="font-size: 14px; color: #999">capther总结</a> <a href="/tags/create2/" style="font-size: 16px; color: #8b8b8b">create2</a> <a href="/tags/damn-defi/" style="font-size: 21px; color: #696969">damn defi</a> <a href="/tags/ecrecover/" style="font-size: 14px; color: #999">ecrecover</a> <a href="/tags/encode/" style="font-size: 14px; color: #999">encode</a> <a href="/tags/encodePacked/" style="font-size: 14px; color: #999">encodePacked</a> <a href="/tags/ethereumjs/" style="font-size: 14px; color: #999">ethereumjs</a> <a href="/tags/ethers-js/" style="font-size: 14px; color: #999">ethers.js</a> <a href="/tags/ethersjs/" style="font-size: 14px; color: #999">ethersjs</a> <a href="/tags/gnosis/" style="font-size: 15px; color: #929292">gnosis</a> <a href="/tags/hardhat/" style="font-size: 14px; color: #999">hardhat</a> <a href="/tags/hash/" style="font-size: 14px; color: #999">hash</a> <a href="/tags/interface/" style="font-size: 14px; color: #999">interface</a> <a href="/tags/proxiy/" style="font-size: 14px; color: #999">proxiy</a> <a href="/tags/python/" style="font-size: 14px; color: #999">python</a> <a href="/tags/selector/" style="font-size: 14px; color: #999">selector</a> <a href="/tags/signature/" style="font-size: 14px; color: #999">signature</a> <a href="/tags/sm-ms/" style="font-size: 14px; color: #999">sm.ms</a> <a href="/tags/soliditiy/" style="font-size: 22px; color: #636363">soliditiy</a> <a href="/tags/solidity/" style="font-size: 18px; color: #7e7e7e">solidity</a> <a href="/tags/solidityKeccak256/" style="font-size: 14px; color: #999">solidityKeccak256</a> <a href="/tags/temp/" style="font-size: 14px; color: #999">temp</a> <a href="/tags/uniswap-v2/" style="font-size: 14px; color: #999">uniswap v2</a> <a href="/tags/using/" style="font-size: 14px; color: #999">using</a> <a href="/tags/vika/" style="font-size: 14px; color: #999">vika</a> <a href="/tags/%E4%BB%A3%E7%90%86%E5%90%88%E7%BA%A6/" style="font-size: 14px; color: #999">代理合约</a> <a href="/tags/%E5%86%85%E8%81%94%E6%B1%87%E7%BC%96/" style="font-size: 15px; color: #929292">内联汇编</a> <a href="/tags/%E5%9B%BE%E5%BA%8A/" style="font-size: 14px; color: #999">图床</a> <a href="/tags/%E5%9F%BA%E7%A1%80%E6%BC%8F%E6%B4%9E/" style="font-size: 14px; color: #999">基础漏洞</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/" style="font-size: 14px; color: #999">学习总结</a> <a href="/tags/%E5%BF%83%E5%BE%97/" style="font-size: 14px; color: #999">心得</a> <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 14px; color: #999">总结</a> <a href="/tags/%E6%95%B0%E7%BB%84/" style="font-size: 14px; color: #999">数组</a> <a href="/tags/%E6%95%B4%E6%95%B0%E6%BA%A2%E5%87%BA/" style="font-size: 14px; color: #999">整数溢出</a> <a href="/tags/%E9%9D%B6%E5%9C%BA/" style="font-size: 24px; color: #555">靶场</a> <a href="/tags/%E9%AA%8C%E8%AF%81%E7%AD%BE%E5%90%8D/" style="font-size: 17px; color: #858585">验证签名</a>
+      <a href="/tags/ASCII/" style="font-size: 14px; color: #999">ASCII</a> <a href="/tags/ECDSA/" style="font-size: 15px; color: #929292">ECDSA</a> <a href="/tags/ERC/" style="font-size: 19px; color: #777">ERC</a> <a href="/tags/ERC165/" style="font-size: 14px; color: #999">ERC165</a> <a href="/tags/ERC1820/" style="font-size: 14px; color: #999">ERC1820</a> <a href="/tags/ERC20/" style="font-size: 14px; color: #999">ERC20</a> <a href="/tags/ERC2612/" style="font-size: 14px; color: #999">ERC2612</a> <a href="/tags/ERC3156/" style="font-size: 14px; color: #999">ERC3156</a> <a href="/tags/ERC4626/" style="font-size: 14px; color: #999">ERC4626</a> <a href="/tags/ERC721/" style="font-size: 14px; color: #999">ERC721</a> <a href="/tags/ERC777/" style="font-size: 14px; color: #999">ERC777</a> <a href="/tags/EVM-Puzzles/" style="font-size: 14px; color: #999">EVM_Puzzles</a> <a href="/tags/Hexo/" style="font-size: 15px; color: #929292">Hexo</a> <a href="/tags/Knowledge-literacy/" style="font-size: 20px; color: #707070">Knowledge literacy</a> <a href="/tags/PrivateKey/" style="font-size: 14px; color: #999">PrivateKey</a> <a href="/tags/Proxy/" style="font-size: 17px; color: #858585">Proxy</a> <a href="/tags/Remix-debug/" style="font-size: 14px; color: #999">Remix-debug</a> <a href="/tags/Smart-contracts/" style="font-size: 19px; color: #777">Smart contracts</a> <a href="/tags/Solidity/" style="font-size: 22px; color: #636363">Solidity</a> <a href="/tags/Timelock/" style="font-size: 14px; color: #999">Timelock</a> <a href="/tags/Transparent/" style="font-size: 14px; color: #999">Transparent</a> <a href="/tags/Upgradeable/" style="font-size: 14px; color: #999">Upgradeable</a> <a href="/tags/Web3/" style="font-size: 15px; color: #929292">Web3</a> <a href="/tags/abi-encode/" style="font-size: 14px; color: #999">abi.encode</a> <a href="/tags/abi-encodePacked/" style="font-size: 14px; color: #999">abi.encodePacked</a> <a href="/tags/abiCoder-encode/" style="font-size: 14px; color: #999">abiCoder.encode</a> <a href="/tags/article/" style="font-size: 14px; color: #999">article</a> <a href="/tags/capther%E6%80%BB%E7%BB%93/" style="font-size: 14px; color: #999">capther总结</a> <a href="/tags/create2/" style="font-size: 16px; color: #8b8b8b">create2</a> <a href="/tags/damn-defi/" style="font-size: 21px; color: #696969">damn defi</a> <a href="/tags/ecrecover/" style="font-size: 14px; color: #999">ecrecover</a> <a href="/tags/encode/" style="font-size: 14px; color: #999">encode</a> <a href="/tags/encodePacked/" style="font-size: 14px; color: #999">encodePacked</a> <a href="/tags/ethereumjs/" style="font-size: 14px; color: #999">ethereumjs</a> <a href="/tags/ethers-js/" style="font-size: 14px; color: #999">ethers.js</a> <a href="/tags/ethersjs/" style="font-size: 14px; color: #999">ethersjs</a> <a href="/tags/gnosis/" style="font-size: 15px; color: #929292">gnosis</a> <a href="/tags/hardhat/" style="font-size: 14px; color: #999">hardhat</a> <a href="/tags/hash/" style="font-size: 14px; color: #999">hash</a> <a href="/tags/interface/" style="font-size: 14px; color: #999">interface</a> <a href="/tags/proxiy/" style="font-size: 14px; color: #999">proxiy</a> <a href="/tags/python/" style="font-size: 14px; color: #999">python</a> <a href="/tags/selector/" style="font-size: 14px; color: #999">selector</a> <a href="/tags/signature/" style="font-size: 14px; color: #999">signature</a> <a href="/tags/sm-ms/" style="font-size: 14px; color: #999">sm.ms</a> <a href="/tags/soliditiy/" style="font-size: 23px; color: #5c5c5c">soliditiy</a> <a href="/tags/solidity/" style="font-size: 18px; color: #7e7e7e">solidity</a> <a href="/tags/solidityKeccak256/" style="font-size: 14px; color: #999">solidityKeccak256</a> <a href="/tags/temp/" style="font-size: 14px; color: #999">temp</a> <a href="/tags/uniswap-v2/" style="font-size: 14px; color: #999">uniswap v2</a> <a href="/tags/using/" style="font-size: 14px; color: #999">using</a> <a href="/tags/vika/" style="font-size: 14px; color: #999">vika</a> <a href="/tags/%E4%BB%A3%E7%90%86%E5%90%88%E7%BA%A6/" style="font-size: 14px; color: #999">代理合约</a> <a href="/tags/%E5%86%85%E8%81%94%E6%B1%87%E7%BC%96/" style="font-size: 15px; color: #929292">内联汇编</a> <a href="/tags/%E5%9B%BE%E5%BA%8A/" style="font-size: 14px; color: #999">图床</a> <a href="/tags/%E5%9F%BA%E7%A1%80%E6%BC%8F%E6%B4%9E/" style="font-size: 14px; color: #999">基础漏洞</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/" style="font-size: 14px; color: #999">学习总结</a> <a href="/tags/%E5%BF%83%E5%BE%97/" style="font-size: 14px; color: #999">心得</a> <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 14px; color: #999">总结</a> <a href="/tags/%E6%95%B0%E7%BB%84/" style="font-size: 14px; color: #999">数组</a> <a href="/tags/%E6%95%B4%E6%95%B0%E6%BA%A2%E5%87%BA/" style="font-size: 14px; color: #999">整数溢出</a> <a href="/tags/%E9%9D%B6%E5%9C%BA/" style="font-size: 24px; color: #555">靶场</a> <a href="/tags/%E9%AA%8C%E8%AF%81%E7%AD%BE%E5%90%8D/" style="font-size: 17px; color: #858585">验证签名</a>
     </div>
   </section>
 
@@ -4014,7 +4035,7 @@ WTF学院
       
         <div class="webinfo-item">
           <div>文章数目：</div>
-          <div>114 篇</div>
+          <div>125 篇</div>
         </div>
       
 
@@ -4024,7 +4045,7 @@ WTF学院
       
         <div class="webinfo-item">
           <div>本站总字数：</div>
-          <div>147.4k 字</div>
+          <div>159.4k 字</div>
         </div>
       
 
@@ -4035,7 +4056,7 @@ WTF学院
       
         <div class="webinfo-item">
           <div>最后活动时间：</div>
-          <div id="last-update-show">2023-08-22 日</div>
+          <div id="last-update-show">2023-08-27 日</div>
         </div>
       
     </div>
