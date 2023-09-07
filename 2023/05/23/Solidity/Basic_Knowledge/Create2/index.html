@@ -1794,7 +1794,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1693127581841),
+    lastupdate: new Date(1694063332537),
     sidebar: {
       for_page: ["blogger","category","tagcloud","webinfo","qrcode"],
       for_post: ["toc","blogger","qrcode"],
@@ -2995,13 +2995,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fa-solid fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：1.1k 字</p>
+      <p>字数：1.2k 字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fa-solid fa-bell fa-fw" aria-hidden="true"></i>
-      <p>时长：4 分钟</p>
+      <p>时长：5 分钟</p>
     </a>
   </div>
 
@@ -3086,7 +3086,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>一个灵活一点的代码：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">    function getCreate2Address(address addToDeploy, uint256 salt, bytes memory bycode) external pure returns(address  result) &#123;</span><br><span class="line">        result = address(uint160(uint(</span><br><span class="line">            keccak256(abi.encodePacked(</span><br><span class="line">                        uint8(0xff), // 固定的一个字节的常数 0xff</span><br><span class="line">                        addToDeploy, //当前合约地址（create2合约地址）</span><br><span class="line">                        keccak256(abi.encodePacked(salt)), //对盐进行紧打包                 </span><br><span class="line">                        keccak256(bycode) //要计算的合约的字节码                      </span><br><span class="line">                    ))</span><br><span class="line">        )));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="2-3-暴破求解create2地址"><a href="#2-3-暴破求解create2地址" class="headerlink" title="2.3 暴破求解create2地址"></a>2.3 暴破求解create2地址</h3><h3 id="————计算出-将来的地址合约含有某个字段"><a href="#————计算出-将来的地址合约含有某个字段" class="headerlink" title="————计算出 将来的地址合约含有某个字段"></a>————计算出 将来的地址合约含有某个字段</h3><p>操作方法 &#x3D;&#x3D;&#x3D;&#x3D;》计算指定合约地址（含某个字段）</p>
+<h3 id="2-3-使用内联汇编"><a href="#2-3-使用内联汇编" class="headerlink" title="2.3 使用内联汇编"></a>2.3 使用内联汇编</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">// /* 使用内联汇编自带的 create2() */</span><br><span class="line">function create2NewContractByInline(uint salt) public returns (address) &#123;</span><br><span class="line">    bytes memory code = type(test).creationCode;</span><br><span class="line">            // 如果待部署合约的构造器中有参数，则使用如下方式进行获取code</span><br><span class="line">    // bytes memory code = abi.encodePacked(type().creationCode, abi.encode())；</span><br><span class="line">    bytes32 _salt = keccak256(abi.encodePacked(salt));</span><br><span class="line"></span><br><span class="line">    address result;</span><br><span class="line">    assembly &#123;</span><br><span class="line">        result := create2(</span><br><span class="line">            0, // value 表示要向新合约发送的以太币数量</span><br><span class="line">            add(code, 32), // 表示跳过数组长度</span><br><span class="line">            mload(code), // 读取code的长度</span><br><span class="line">            _salt // 盐</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line">    return result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-4-暴破求解create2地址"><a href="#2-4-暴破求解create2地址" class="headerlink" title="2.4 暴破求解create2地址"></a>2.4 暴破求解create2地址</h3><h3 id="————计算出-将来的地址合约含有某个字段"><a href="#————计算出-将来的地址合约含有某个字段" class="headerlink" title="————计算出 将来的地址合约含有某个字段"></a>————计算出 将来的地址合约含有某个字段</h3><p>操作方法 &#x3D;&#x3D;&#x3D;&#x3D;》计算指定合约地址（含某个字段）</p>
 <p><a target="_blank" rel="noopener" href="https://learnblockchain.cn/article/4249">相关链接</a></p>
 
   </div>
@@ -3365,7 +3369,7 @@ ECDSA链接2
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-create"><span class="toc-text">1. create</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E7%AE%80%E4%BB%8B"><span class="toc-text">1.1 简介</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-create2"><span class="toc-text">2.create2</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E7%AE%80%E4%BB%8B"><span class="toc-text">2.1 简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E8%AE%A1%E7%AE%97create2%E5%9C%B0%E5%9D%80"><span class="toc-text">2.2 计算create2地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E6%9A%B4%E7%A0%B4%E6%B1%82%E8%A7%A3create2%E5%9C%B0%E5%9D%80"><span class="toc-text">2.3 暴破求解create2地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E8%AE%A1%E7%AE%97%E5%87%BA-%E5%B0%86%E6%9D%A5%E7%9A%84%E5%9C%B0%E5%9D%80%E5%90%88%E7%BA%A6%E5%90%AB%E6%9C%89%E6%9F%90%E4%B8%AA%E5%AD%97%E6%AE%B5"><span class="toc-text">————计算出 将来的地址合约含有某个字段</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-create"><span class="toc-text">1. create</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E7%AE%80%E4%BB%8B"><span class="toc-text">1.1 简介</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-create2"><span class="toc-text">2.create2</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E7%AE%80%E4%BB%8B"><span class="toc-text">2.1 简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E8%AE%A1%E7%AE%97create2%E5%9C%B0%E5%9D%80"><span class="toc-text">2.2 计算create2地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E4%BD%BF%E7%94%A8%E5%86%85%E8%81%94%E6%B1%87%E7%BC%96"><span class="toc-text">2.3 使用内联汇编</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-%E6%9A%B4%E7%A0%B4%E6%B1%82%E8%A7%A3create2%E5%9C%B0%E5%9D%80"><span class="toc-text">2.4 暴破求解create2地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E8%AE%A1%E7%AE%97%E5%87%BA-%E5%B0%86%E6%9D%A5%E7%9A%84%E5%9C%B0%E5%9D%80%E5%90%88%E7%BA%A6%E5%90%AB%E6%9C%89%E6%9F%90%E4%B8%AA%E5%AD%97%E6%AE%B5"><span class="toc-text">————计算出 将来的地址合约含有某个字段</span></a></li></ol></li></ol>
     </div>
   </section>
 
