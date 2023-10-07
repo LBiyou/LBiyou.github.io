@@ -1794,7 +1794,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1694063332537),
+    lastupdate: new Date(1696680122707),
     sidebar: {
       for_page: ["blogger","category","tagcloud","webinfo","qrcode"],
       for_post: ["toc","blogger","qrcode"],
@@ -2443,6 +2443,23 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
           
                     
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/categories/Foundry/" title="Foundry"
+                  
+                  
+                  
+                    active-action="action-categoriesFoundry"
+                  >
+                  <i class='fa-solid fa-book fa-fw'></i>Foundry
+                </a>
+                
+              </li>
+            
+          
+                    
                   </ul>
                 
               </li>
@@ -2750,6 +2767,23 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
           
                     
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/categories/Foundry/" title="Foundry"
+                  
+                  
+                  
+                    active-action="action-categoriesFoundry"
+                  >
+                  <i class='fa-solid fa-book fa-fw'></i>Foundry
+                </a>
+                
+              </li>
+            
+          
+                    
                   </ul>
                 
               </li>
@@ -2995,13 +3029,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fa-solid fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：2.4k 字</p>
+      <p>字数：2.6k 字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fa-solid fa-bell fa-fw" aria-hidden="true"></i>
-      <p>时长：10 分钟</p>
+      <p>时长：11 分钟</p>
     </a>
   </div>
 
@@ -3146,7 +3180,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p><img src="/2023/08/22/Smart%20contracts/ChainFlag/delegatecall/delegatecall(2)/image-20230829195432831.png" alt="image-20230829195432831"></p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><blockquote>
 <p>📌  <em>知道了如何搭建calldata，在函数体内的<code>msg.data</code>，其实是通过call来调用函数时，才会有。而且，在十六进制表示的数中，两位数实则代表着8位。最重要的是，在函数初始化时，构造器中可以调本合约中的函数，但是在构造中，其他合约不能调用本合约的函数，什么意思呢，就是比如在构造器中调用本合约的函数中，该函数调用了其他合约的函数方法，同时其他合约被调用的函数需要调用调用者的某个函数，即使合约本身实现了该函数，但是由于在构造ing，所以函数将会调用失败。</em></p>
-<p><em>想要变高手那必然需要是需要去接触底层的代码逻辑，甚至是EVM操作码。懂得了函数在底层并不是一个函数在同一个地方罗列出来，而是通过一步步跳转实现的，调用函数时，可以提前改变跳转的位置，从而实现控制代码的走向，忽视一些限制条件。</em></p>
+<p><em>想要变高手那必然需要是需要去接触底层的代码逻辑，甚至是EVM操作码。懂得了函数在底层并不是一个函数在同一个地方罗列出来，而是通过一步步跳转实现的，调用函数时，可以提前改变跳转的位置，从而实现控制代码的走向，忽视一些限制条件。（二刷：<code>mstore(func, sub(mload(func), val))</code>，我觉得如果函数是这样修改的话，执行func时，底层逻辑为：执行到前四个字节，随后往下读取32bytes，这32bytes存储的是—&gt;函数体内容，它可以是一个跳转地址，就比如<code>sub(mload(func), val)</code>存储的就是func函数的函数体内存位置，所以只要改变跳转位置，就可以实现自由控制函数执行逻辑）</em></p>
 </blockquote>
 
   </div>

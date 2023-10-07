@@ -1794,7 +1794,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1694063332537),
+    lastupdate: new Date(1696680122707),
     sidebar: {
       for_page: ["blogger","category","tagcloud","webinfo","qrcode"],
       for_post: ["toc","blogger","qrcode"],
@@ -2443,6 +2443,23 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
           
                     
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/categories/Foundry/" title="Foundry"
+                  
+                  
+                  
+                    active-action="action-categoriesFoundry"
+                  >
+                  <i class='fa-solid fa-book fa-fw'></i>Foundry
+                </a>
+                
+              </li>
+            
+          
+                    
                   </ul>
                 
               </li>
@@ -2750,6 +2767,23 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
           
                     
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/categories/Foundry/" title="Foundry"
+                  
+                  
+                  
+                    active-action="action-categoriesFoundry"
+                  >
+                  <i class='fa-solid fa-book fa-fw'></i>Foundry
+                </a>
+                
+              </li>
+            
+          
+                    
                   </ul>
                 
               </li>
@@ -2995,13 +3029,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fa-solid fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：655 字</p>
+      <p>字数：948 字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fa-solid fa-bell fa-fw" aria-hidden="true"></i>
-      <p>时长：3 分钟</p>
+      <p>时长：4 分钟</p>
     </a>
   </div>
 
@@ -3061,6 +3095,12 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p><em>配合使用的solidity代码</em></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">function create2NewContractByInline(uint salt) public returns (address) &#123;</span><br><span class="line"></span><br><span class="line">    /* 如果待部署合约的构造器中有参数，则使用如下方式进行获取code</span><br><span class="line">    	type():待部署的合约名</span><br><span class="line">    	abi.encode():部署合约需要传入的参数</span><br><span class="line">    */</span><br><span class="line">    bytes memory code = abi.encodePacked(type().creationCode, abi.encode());</span><br><span class="line">    bytes32 _salt = keccak256(abi.encodePacked(salt));</span><br><span class="line"></span><br><span class="line">    address result;</span><br><span class="line">    assembly &#123;</span><br><span class="line">        result := create2(</span><br><span class="line">            0, // value 表示要向新合约发送的以太币数量</span><br><span class="line">            add(code, 32), // 表示跳过数组长度</span><br><span class="line">            mload(code), // 读取code的长度</span><br><span class="line">            _salt // 盐</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line">    return result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>以上代码怎么说呢，毕竟是js代码嘛，数字的转化总会有问题，比如算某个地址对某个数取模是否等于某个值之类的，js代码不能轻易实现，反正对我来说不能，于是变自己编写了一个python 版的计算address的脚本。兼容了上述两种情况，完美应对待构建合约空参和有参两种情况。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> web3 <span class="keyword">import</span> Web3</span><br><span class="line"><span class="keyword">from</span> eth_abi <span class="keyword">import</span> encode</span><br><span class="line"></span><br><span class="line"><span class="comment"># 固定常量 0xff</span></span><br><span class="line">const_value = <span class="string">&quot;0xff&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># value of your address(this), delet the `0x`</span></span><br><span class="line">deployer_address = <span class="string">&quot;&quot;</span></span><br><span class="line">deployer_address = deployer_address[<span class="number">2</span>:]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将前两个值拼接起来</span></span><br><span class="line">prefixed = const_value + deployer_address</span><br><span class="line"></span><br><span class="line"><span class="comment"># 这个为待部署合约的字节码</span></span><br><span class="line">hacker_bytecode = <span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 这里是构造器的参数，encode([&#x27;type&#x27;], [&#x27;value&#x27;])</span></span><br><span class="line">parameter = encode([<span class="string">&#x27;&#x27;</span>],[<span class="string">&quot;&quot;</span>]).<span class="built_in">hex</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 拼接 字节码 和 构造器参数</span></span><br><span class="line">bytecode = <span class="string">&quot;0x&quot;</span> + hacker_bytecode + parameter</span><br><span class="line"></span><br><span class="line"><span class="comment"># 对 bytecode 进行 hash 运算</span></span><br><span class="line">bytecode_hash = Web3.solidity_keccak([<span class="string">&#x27;bytes&#x27;</span>], [bytecode]).<span class="built_in">hex</span>()</span><br><span class="line"><span class="comment"># print(bytecode_hash)</span></span><br><span class="line"></span><br><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span>(<span class="literal">True</span>):</span><br><span class="line"></span><br><span class="line">    salt = Web3.solidity_keccak([<span class="string">&#x27;uint256&#x27;</span>], [i]).<span class="built_in">hex</span>()</span><br><span class="line"></span><br><span class="line">    data = prefixed + salt[<span class="number">2</span>:] + bytecode_hash[<span class="number">2</span>:]</span><br><span class="line"></span><br><span class="line">    hashed = Web3.solidity_keccak([<span class="string">&#x27;bytes&#x27;</span>], [data]).<span class="built_in">hex</span>()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># address(uint(uint160(hashed)))</span></span><br><span class="line">    address = hashed[<span class="number">26</span>:]</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 按需求设置</span></span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">int</span>((<span class="string">&quot;0x&quot;</span> + address), <span class="number">16</span>) % <span class="number">1000</span> == <span class="number">137</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;salt=&quot;</span>, i)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;address=&quot;</span>, (<span class="string">&quot;0x&quot;</span> + address))</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    i += <span class="number">1</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>用了都说好！！！</p>
+</blockquote>
 
   </div>
   
@@ -3160,6 +3200,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   
     <div class="prev-next">
+      
+        <a class='prev' href='/2023/09/07/Foundry/foundry_using/'>
+          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>foundry_using</p>
+          <p class='content'>引言官方文档
+1. 下载安装(Windows版)
+📌  小插曲
+本人用的是Windows系统的电脑，而网上的一些安装教学基本上都不好用。有的说要去下载最新版本的VSCode，有的说要去下载c+...</p>
+        </a>
       
       
         <a class='next' href='/2023/09/02/Smart%20contracts/CTFProtocol/harvest_protocol_2022/'>
@@ -3326,7 +3374,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-text">引言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A9%BA%E5%8F%82%E6%9E%84%E9%80%A0%E5%99%A8"><span class="toc-text">空参构造器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%A6%E5%8F%82%E6%9E%84%E9%80%A0%E5%99%A8"><span class="toc-text">带参构造器</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-text">引言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A9%BA%E5%8F%82%E6%9E%84%E9%80%A0%E5%99%A8"><span class="toc-text">空参构造器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%A6%E5%8F%82%E6%9E%84%E9%80%A0%E5%99%A8"><span class="toc-text">带参构造器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E5%85%85"><span class="toc-text">补充</span></a></li></ol>
     </div>
   </section>
 

