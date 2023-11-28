@@ -1793,7 +1793,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1699179986114),
+    lastupdate: new Date(1701132743635),
     sidebar: {
       for_page: ["blogger","category","tagcloud","webinfo","qrcode"],
       for_post: ["toc","blogger","qrcode"],
@@ -3144,7 +3144,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>You know the drill, drain the funds (at least 90%). You start with 10,000 USDC.</p>
 </blockquote>
 <h4 id="2-analysis-1"><a href="#2-analysis-1" class="headerlink" title="2. analysis"></a>2. analysis</h4><blockquote>
-<p><em>这道题我记得难，难在我对递归这一数据结构忘得差不多了，导致我在进行重入的时候纠结了大半天。</em></p>
+<p><em>这道题我觉得难，难在我对递归这一数据结构忘得差不多了，导致我在进行重入的时候纠结了大半天。</em></p>
 <p>这道题大致看了一遍代码，最开始觉得问题肯定是出在<code>shares = (_amount * totalSupply()) / (_pool)</code>，而且分析<code>withdrawAll()</code>函数可以发现，如果取款数目大于金库的余额，金库的做法是将里面所有的钱取出来，所以看到这里就有了一点点眉目了，但是<code>_burn(msg.sender, _shares)</code>限制了取款数额最大为<code>_shares</code>，所以目标就是尽可以让<code>SafuVault</code>为自己创建更多的<code>tokens</code>，兜兜转转还是取决于这行代码<code>shares = (_amount * totalSupply()) / (_pool)</code>。</p>
 <p><em>如果是通过<code>deposit</code>或者<code>depositAll</code>函数进行存款的话，无论你如何修改<code>_pool</code>和<code>_after</code>的值，你只会亏损，这里被折磨了。。。</em>直到我看到了<code>depositFor</code>函数，这里的<code>token</code>为自定义，意味着<code>transferFrom</code>可以为自己所编写。这里有点类似重入，而重入我个人感觉和递归很像。可以在<code>transferFrom</code>调用<code>depositFor</code>，再进行转钱，这样就可以控制在每一次递归调用的时候<code>_pool</code>的值始终都是<code>10000 ether</code>。而<code>_after</code>的值每一次都会累加<code>_amount</code>，从而使得<code>_amount</code>的值越来越大，<code>totalSupply</code>也跟随着越来越大，<code>_pool</code>恒为10000 ether，这样就可以为自己创建尽可能多的<code>TP</code>代币。</p>
 </blockquote>
@@ -3337,18 +3337,16 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     <div class="prev-next">
       
-        <a class='prev' href='/2023/09/09/Smart%20contracts/Mr%20Steal%20Yo%20Crypto/Mr-Steal-Yo-Crypto(11-20)/'>
-          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>Mr-Steal-Yo-Crypto(11-20)</p>
-          <p class='content'></p>
+        <a class='prev' href='/2023/09/17/Smart%20contracts/MetaTrust%20CTF/harvest_MetaTrust%20CTF/'>
+          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>harvest_MetaTrust CTF</p>
+          <p class='content'>
+  2f6595452aee0adbb8d8a90439468713e258fd0327dbc830fd68af18f7d8f2f7652064e7fb9f483f959fa413c251fc...</p>
         </a>
       
       
-        <a class='next' href='/2023/09/07/Foundry/foundry_using/'>
-          <p class='title'>foundry_using<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>引言官方文档
-1. 下载安装(Windows版)
-📌  小插曲
-本人用的是Windows系统的电脑，而网上的一些安装教学基本上都不好用。有的说要去下载最新版本的VSCode，有的说要去下载c+...</p>
+        <a class='next' href='/2023/09/09/Smart%20contracts/Mr%20Steal%20Yo%20Crypto/Mr-Steal-Yo-Crypto(11-20)/'>
+          <p class='title'>Mr-Steal-Yo-Crypto(11-20)<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'></p>
         </a>
       
     </div>
