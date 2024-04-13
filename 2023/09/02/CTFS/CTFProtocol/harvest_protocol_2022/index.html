@@ -1,0 +1,4306 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/#5.8.0'>
+  <meta name="generator" content="Hexo 6.3.0">
+  <meta name="Volantis" content="5.8.0">
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+  <link rel="canonical" href="https://biyouqiuqiu.com/2023/09/02/ctfs/ctfprotocol/harvest_protocol_2022/"/>
+  <!-- 渲染优化 -->
+    <meta http-equiv='x-dns-prefetch-control' content='on' />
+      <link rel='dns-prefetch' href='https://unpkg.com'>
+      <link rel="preconnect" href="https://unpkg.com" crossorigin>
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Content-Security-Policy" content=" default-src 'self' https:; block-all-mixed-content; base-uri 'self' https:; form-action 'self' https:; worker-src 'self' https:; connect-src 'self' https: *; img-src 'self' data: https: *; media-src 'self' https: *; font-src 'self' data: https: *; frame-src 'self' https: *; manifest-src 'self' https: *; child-src https:; script-src 'self' https: 'unsafe-inline' *; style-src 'self' https: 'unsafe-inline' *; ">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
+  <meta content="telephone=no" name="format-detection">
+  <!-- import head_begin begin -->
+  <!-- import head_begin end -->
+  <!-- Custom Files headBegin begin-->
+  
+  <!-- Custom Files headBegin end-->
+  <!-- front-matter head_begin begin -->
+  <!-- front-matter head_begin end -->
+    <link rel="shortcut icon" type='image/x-icon' href="https://s21.ax1x.com/2024/04/13/pFjUn58.jpg">
+  <link rel="preload" href="/css/style.css" as="style">
+  <link rel="preload" href="https://unpkg.com/volantis-static@0.0.1654736714924/media/fonts/VarelaRound/VarelaRound-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+<link rel="preload" href="https://unpkg.com/volantis-static@0.0.1654736714924/media/fonts/UbuntuMono/UbuntuMono-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+
+  <!-- feed -->
+  <!-- 页面元数据 -->
+  <title>harvest_protocol_2022 - BY_DLIFE🍉</title>
+  <meta name="keywords" content="Experience,soliditiy,null">
+  <meta desc name="description" content="Here's something encrypted, password is required to continue reading. - BY_DLIFE🍉 - BY_DLIFE🍉">
+  
+<meta property="og:type" content="article">
+<meta property="og:title" content="harvest_protocol_2022">
+<meta property="og:url" content="https://biyouqiuqiu.com/2023/09/02/CTFS/CTFProtocol/harvest_protocol_2022/index.html">
+<meta property="og:site_name" content="BY_DLIFE🍉">
+<meta property="og:description" content="Here&#39;s something encrypted, password is required to continue reading.">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+<meta property="article:published_time" content="2023-09-02T04:50:10.000Z">
+<meta property="article:modified_time" content="2023-09-02T04:50:10.000Z">
+<meta property="article:author" content="BY_DLIFE🍉">
+<meta property="article:tag" content="Experience">
+<meta property="article:tag" content="soliditiy">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+  <style>
+    /* 首屏样式 */
+    #safearea {
+  display: none;
+}
+:root {
+  --color-site-body: #f4f4f4;
+  --color-site-bg: #f4f4f4;
+  --color-site-inner: #eee;
+  --color-site-footer: #000;
+  --color-card: #fff;
+  --color-text: #000;
+  --color-block: #f6f6f6;
+  --color-inlinecode: #000;
+  --color-codeblock: #fff7ea;
+  --color-h1: #3a3a3a;
+  --color-h2: #3a3a3a;
+  --color-h3: #333;
+  --color-h4: #444;
+  --color-h5: #555;
+  --color-h6: #666;
+  --color-p: #444;
+  --color-list: #000;
+  --color-list-hl: #30ad91;
+  --color-meta: #888;
+  --color-read-bkg: #e0d8c8;
+  --color-read-post: #f8f1e2;
+  --color-copyright-bkg: #ffdead;
+}
+* {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  outline: none;
+  margin: 0;
+  padding: 0;
+}
+*::-webkit-scrollbar {
+  height: 4px;
+  width: 4px;
+}
+*::-webkit-scrollbar-track-piece {
+  background: transparent;
+}
+*::-webkit-scrollbar-thumb {
+  background: #3dd9b6;
+  cursor: pointer;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: #ff5722;
+}
+html {
+  color: var(--color-text);
+  width: 100%;
+  height: 100%;
+  font-family: UbuntuMono, "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial, Menlo, Monaco, monospace, sans-serif;
+  font-size: 16px;
+}
+html >::-webkit-scrollbar {
+  height: 4px;
+  width: 4px;
+}
+html >::-webkit-scrollbar-track-piece {
+  background: transparent;
+}
+html >::-webkit-scrollbar-thumb {
+  background: #54b5a0 linear-gradient(45deg, rgba(255,255,255,0.4) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0.4) 75%, transparent 75%, transparent);
+  cursor: pointer;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+}
+html >::-webkit-scrollbar-thumb:hover {
+  background: #54b5a0 linear-gradient(45deg, rgba(255,255,255,0.4) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0.4) 75%, transparent 75%, transparent);
+}
+body {
+  background-color: var(--color-site-body);
+  text-rendering: optimizelegibility;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  line-height: 1.6;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+body.modal-active {
+  overflow: hidden;
+}
+@media screen and (max-width: 680px) {
+  body.modal-active {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+}
+a {
+  color: #16f4ef;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.28s ease;
+  -webkit-transition: all 0.28s ease;
+  -khtml-transition: all 0.28s ease;
+  -moz-transition: all 0.28s ease;
+  -o-transition: all 0.28s ease;
+  -ms-transition: all 0.28s ease;
+}
+a:hover {
+  color: #ff5722;
+}
+a:active,
+a:hover {
+  outline: 0;
+}
+ul,
+ol {
+  padding-left: 0;
+}
+ul li,
+ol li {
+  list-style: none;
+}
+header {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: block;
+}
+img {
+  border: 0;
+  background: none;
+  max-width: 100%;
+}
+svg:not(:root) {
+  overflow: hidden;
+}
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  height: 0;
+  border: 0;
+  border-radius: 1px;
+  -webkit-border-radius: 1px;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+button,
+input {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+button {
+  overflow: visible;
+  text-transform: none;
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+@supports (backdrop-filter: blur(20px)) {
+  .blur {
+    background: rgba(255,255,255,0.9) !important;
+    backdrop-filter: saturate(200%) blur(20px);
+  }
+}
+.shadow {
+  box-shadow: 0 1px 2px 0px rgba(0,0,0,0.1);
+  -webkit-box-shadow: 0 1px 2px 0px rgba(0,0,0,0.1);
+}
+.shadow.floatable {
+  transition: all 0.28s ease;
+  -webkit-transition: all 0.28s ease;
+  -khtml-transition: all 0.28s ease;
+  -moz-transition: all 0.28s ease;
+  -o-transition: all 0.28s ease;
+  -ms-transition: all 0.28s ease;
+}
+.shadow.floatable:hover {
+  box-shadow: 0 2px 4px 0px rgba(0,0,0,0.1), 0 4px 8px 0px rgba(0,0,0,0.1), 0 8px 16px 0px rgba(0,0,0,0.1);
+  -webkit-box-shadow: 0 2px 4px 0px rgba(0,0,0,0.1), 0 4px 8px 0px rgba(0,0,0,0.1), 0 8px 16px 0px rgba(0,0,0,0.1);
+}
+#l_cover {
+  min-height: 64px;
+}
+.cover-wrapper {
+  top: 0;
+  left: 0;
+  max-width: 100%;
+  height: 100vh;
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: -ms-flexbox /* TWEENER - IE 10 */;
+  display: -webkit-flex /* NEW - Chrome */;
+  display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
+  display: flex;
+  flex-wrap: nowrap;
+  -webkit-flex-wrap: nowrap;
+  -khtml-flex-wrap: nowrap;
+  -moz-flex-wrap: nowrap;
+  -o-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  align-items: center;
+  align-self: center;
+  align-content: center;
+  color: var(--color-site-inner);
+  padding: 0 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: -100px;
+}
+.cover-wrapper .cover-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+}
+.cover-wrapper .cover-bg.lazyload:not(.loaded) {
+  opacity: 0;
+  -webkit-opacity: 0;
+  -moz-opacity: 0;
+}
+.cover-wrapper .cover-bg.lazyload.loaded {
+  animation-delay: 0s;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+  animation-name: fadeIn;
+}
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+    -webkit-opacity: 0;
+    -moz-opacity: 0;
+    filter: blur(12px);
+    transform: scale(1.02);
+    -webkit-transform: scale(1.02);
+    -khtml-transform: scale(1.02);
+    -moz-transform: scale(1.02);
+    -o-transform: scale(1.02);
+    -ms-transform: scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+}
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+    -webkit-opacity: 0;
+    -moz-opacity: 0;
+    filter: blur(12px);
+    transform: scale(1.02);
+    -webkit-transform: scale(1.02);
+    -khtml-transform: scale(1.02);
+    -moz-transform: scale(1.02);
+    -o-transform: scale(1.02);
+    -ms-transform: scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+}
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+    -webkit-opacity: 0;
+    -moz-opacity: 0;
+    filter: blur(12px);
+    transform: scale(1.02);
+    -webkit-transform: scale(1.02);
+    -khtml-transform: scale(1.02);
+    -moz-transform: scale(1.02);
+    -o-transform: scale(1.02);
+    -ms-transform: scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    -webkit-opacity: 0;
+    -moz-opacity: 0;
+    filter: blur(12px);
+    transform: scale(1.02);
+    -webkit-transform: scale(1.02);
+    -khtml-transform: scale(1.02);
+    -moz-transform: scale(1.02);
+    -o-transform: scale(1.02);
+    -ms-transform: scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+}
+.cover-wrapper .cover-body {
+  z-index: 1;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.cover-wrapper#full {
+  height: calc(100vh + 100px);
+  padding-bottom: 100px;
+}
+.cover-wrapper#half {
+  max-height: 640px;
+  min-height: 400px;
+  height: calc(36vh - 64px + 200px);
+}
+.cover-wrapper #scroll-down {
+  width: 100%;
+  height: 64px;
+  position: absolute;
+  bottom: 100px;
+  text-align: center;
+  cursor: pointer;
+}
+.cover-wrapper #scroll-down .scroll-down-effects {
+  color: #fff;
+  font-size: 24px;
+  line-height: 64px;
+  position: absolute;
+  width: 24px;
+  left: calc(50% - 12px);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  animation: scroll-down-effect 1.5s infinite;
+  -webkit-animation: scroll-down-effect 1.5s infinite;
+  -khtml-animation: scroll-down-effect 1.5s infinite;
+  -moz-animation: scroll-down-effect 1.5s infinite;
+  -o-animation: scroll-down-effect 1.5s infinite;
+  -ms-animation: scroll-down-effect 1.5s infinite;
+}
+@-moz-keyframes scroll-down-effect {
+  0% {
+    top: 0;
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+  50% {
+    top: -16px;
+    opacity: 0.4;
+    -webkit-opacity: 0.4;
+    -moz-opacity: 0.4;
+  }
+  100% {
+    top: 0;
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+}
+@-webkit-keyframes scroll-down-effect {
+  0% {
+    top: 0;
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+  50% {
+    top: -16px;
+    opacity: 0.4;
+    -webkit-opacity: 0.4;
+    -moz-opacity: 0.4;
+  }
+  100% {
+    top: 0;
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+}
+@-o-keyframes scroll-down-effect {
+  0% {
+    top: 0;
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+  50% {
+    top: -16px;
+    opacity: 0.4;
+    -webkit-opacity: 0.4;
+    -moz-opacity: 0.4;
+  }
+  100% {
+    top: 0;
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+}
+@keyframes scroll-down-effect {
+  0% {
+    top: 0;
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+  50% {
+    top: -16px;
+    opacity: 0.4;
+    -webkit-opacity: 0.4;
+    -moz-opacity: 0.4;
+  }
+  100% {
+    top: 0;
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+}
+.cover-wrapper .cover-body {
+  margin-top: 64px;
+  margin-bottom: 100px;
+}
+.cover-wrapper .cover-body,
+.cover-wrapper .cover-body .top,
+.cover-wrapper .cover-body .bottom {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: -ms-flexbox /* TWEENER - IE 10 */;
+  display: -webkit-flex /* NEW - Chrome */;
+  display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
+  display: flex;
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  -webkit-justify-content: center;
+  -khtml-justify-content: center;
+  -moz-justify-content: center;
+  -o-justify-content: center;
+  -ms-justify-content: center;
+  max-width: 100%;
+}
+.cover-wrapper .cover-body .bottom {
+  margin-top: 32px;
+}
+.cover-wrapper .cover-body .title {
+  font-family: "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial, Helvetica, monospace;
+  font-size: 3.125rem;
+  line-height: 1.2;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+.cover-wrapper .cover-body .subtitle {
+  font-size: 20px;
+}
+.cover-wrapper .cover-body .logo {
+  max-height: 120px;
+  max-width: calc(100% - 4 * 16px);
+}
+@media screen and (min-height: 1024px) {
+  .cover-wrapper .cover-body .title {
+    font-size: 3rem;
+  }
+  .cover-wrapper .cover-body .subtitle {
+    font-size: 1.05rem;
+  }
+  .cover-wrapper .cover-body .logo {
+    max-height: 150px;
+  }
+}
+.cover-wrapper .cover-body .m_search {
+  position: relative;
+  max-width: calc(100% - 16px);
+  width: 320px;
+  vertical-align: middle;
+}
+.cover-wrapper .cover-body .m_search .form {
+  position: relative;
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: block;
+  width: 100%;
+}
+.cover-wrapper .cover-body .m_search .icon,
+.cover-wrapper .cover-body .m_search .input {
+  transition: all 0.28s ease;
+  -webkit-transition: all 0.28s ease;
+  -khtml-transition: all 0.28s ease;
+  -moz-transition: all 0.28s ease;
+  -o-transition: all 0.28s ease;
+  -ms-transition: all 0.28s ease;
+}
+.cover-wrapper .cover-body .m_search .icon {
+  position: absolute;
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: block;
+  line-height: 2.5rem;
+  width: 32px;
+  top: 0;
+  left: 5px;
+  color: rgba(68,68,68,0.75);
+}
+.cover-wrapper .cover-body .m_search .input {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: block;
+  height: 2.5rem;
+  width: 100%;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  font-size: 0.875rem;
+  -webkit-appearance: none;
+  padding-left: 36px;
+  border-radius: 1.4rem;
+  -webkit-border-radius: 1.4rem;
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(10px);
+  border: none;
+  color: var(--color-text);
+}
+@media screen and (max-width: 500px) {
+  .cover-wrapper .cover-body .m_search .input {
+    padding-left: 36px;
+  }
+}
+.cover-wrapper .cover-body .m_search .input:hover {
+  background: rgba(255,255,255,0.8);
+}
+.cover-wrapper .cover-body .m_search .input:focus {
+  background: #fff;
+}
+.cover-wrapper .list-h {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: -ms-flexbox /* TWEENER - IE 10 */;
+  display: -webkit-flex /* NEW - Chrome */;
+  display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
+  display: flex;
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -khtml-flex-wrap: wrap;
+  -moz-flex-wrap: wrap;
+  -o-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  align-items: stretch;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+.cover-wrapper .list-h a {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -webkit-flex: 1 0;
+  -ms-flex: 1 0;
+  flex: 1 0;
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: -ms-flexbox /* TWEENER - IE 10 */;
+  display: -webkit-flex /* NEW - Chrome */;
+  display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
+  display: flex;
+  font-weight: 600;
+}
+.cover-wrapper .list-h a img {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: block;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+  margin: 4px;
+  min-width: 40px;
+  max-width: 44px;
+}
+@media screen and (max-width: 768px) {
+  .cover-wrapper .list-h a img {
+    min-width: 36px;
+    max-width: 40px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .cover-wrapper .list-h a img {
+    margin: 2px 4px;
+    min-width: 32px;
+    max-width: 36px;
+  }
+}
+@media screen and (max-width: 375px) {
+  .cover-wrapper .list-h a img {
+    min-width: 28px;
+    max-width: 32px;
+  }
+}
+.cover-wrapper {
+  max-width: 100%;
+}
+.cover-wrapper.search .bottom .menu {
+  margin-top: 16px;
+}
+.cover-wrapper.search .bottom .menu .list-h a {
+  white-space: nowrap;
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  align-items: baseline;
+  padding: 2px;
+  margin: 4px;
+  color: var(--color-site-inner);
+  opacity: 0.75;
+  -webkit-opacity: 0.75;
+  -moz-opacity: 0.75;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  border-bottom: 2px solid transparent;
+}
+.cover-wrapper.search .bottom .menu .list-h a i {
+  margin-right: 4px;
+}
+.cover-wrapper.search .bottom .menu .list-h a p {
+  font-size: 0.9375rem;
+}
+.cover-wrapper.search .bottom .menu .list-h a:hover,
+.cover-wrapper.search .bottom .menu .list-h a.active,
+.cover-wrapper.search .bottom .menu .list-h a:active {
+  opacity: 1;
+  -webkit-opacity: 1;
+  -moz-opacity: 1;
+  border-bottom: 2px solid var(--color-site-inner);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-mode: 'dark';
+  }
+  :root:not([color-scheme]) {
+    --color-site-body: #121212;
+    --color-read-bkg: #1f1f1f;
+    --color-read-post: #262626;
+    --color-site-bg: #1f1f1f;
+    --color-site-inner: rgba(238,238,238,0.871);
+    --color-site-footer: rgba(170,170,170,0.871);
+    --color-card: #262626;
+    --color-text: rgba(238,238,238,0.871);
+    --color-block: #434343;
+    --color-codeblock: #c0c0c0;
+    --color-inlinecode: #000;
+    --color-h1: rgba(255,255,255,0.871);
+    --color-h2: rgba(255,255,255,0.871);
+    --color-h3: rgba(255,255,255,0.6);
+    --color-h4: rgba(255,255,255,0.6);
+    --color-h5: rgba(255,255,255,0.6);
+    --color-h6: rgba(255,255,255,0.6);
+    --color-p: rgba(217,217,217,0.871);
+    --color-list: rgba(217,217,217,0.871);
+    --color-list-hl: #63e0c4;
+    --color-meta: rgba(191,191,191,0.871);
+    --color-link: rgba(191,191,191,0.871);
+    --color-copyright-bkg: #21252b;
+  }
+  :root:not([color-scheme]) img {
+    filter: brightness(70%) !important;
+  }
+  :root:not([color-scheme]) .blur {
+    background: rgba(31,31,31,0.9) !important;
+  }
+  :root:not([color-scheme]) .white-box.blur {
+    background: rgba(38,38,38,0.9) !important;
+  }
+  :root:not([color-scheme]) .nav-main .u-search-input {
+    background: var(--color-card) !important;
+  }
+  :root:not([color-scheme]) #l_main .article .prev-next>a {
+    background: var(--color-block) !important;
+  }
+  :root:not([color-scheme]) #l_main .article .prev-next>a:hover {
+    background: var(--color-site-bg) !important;
+  }
+  :root:not([color-scheme]) .article blockquote {
+    background: var(--color-block) !important;
+  }
+  :root:not([color-scheme]) .article-title a {
+    color: var(--color-h1) !important;
+  }
+  :root:not([color-scheme]) details>summary {
+    color: var(--color-p) !important;
+    background: var(--color-site-bg) !important;
+  }
+  :root:not([color-scheme]) details {
+    border: 1px solid var(--color-site-bg) !important;
+    background: var(--color-site-bg) !important;
+  }
+  :root:not([color-scheme]) #u-search .modal,
+  :root:not([color-scheme]) #u-search .modal-header,
+  :root:not([color-scheme]) #u-search .modal-body {
+    background: var(--color-card) !important;
+  }
+  :root:not([color-scheme]) #u-search .modal-body .modal-results .result:hover {
+    background: var(--color-block) !important;
+  }
+  :root:not([color-scheme]) .u-search-input:hover {
+    background: var(--color-block) !important;
+  }
+  :root:not([color-scheme]) .u-search-input:focus {
+    background: var(--color-site-body) !important;
+  }
+}
+[color-scheme='dark'] {
+  --color-site-body: #121212;
+  --color-read-bkg: #1f1f1f;
+  --color-read-post: #262626;
+  --color-site-bg: #1f1f1f;
+  --color-site-inner: rgba(238,238,238,0.871);
+  --color-site-footer: rgba(170,170,170,0.871);
+  --color-card: #262626;
+  --color-text: rgba(238,238,238,0.871);
+  --color-block: #434343;
+  --color-codeblock: #c0c0c0;
+  --color-inlinecode: #000;
+  --color-h1: rgba(255,255,255,0.871);
+  --color-h2: rgba(255,255,255,0.871);
+  --color-h3: rgba(255,255,255,0.6);
+  --color-h4: rgba(255,255,255,0.6);
+  --color-h5: rgba(255,255,255,0.6);
+  --color-h6: rgba(255,255,255,0.6);
+  --color-p: rgba(217,217,217,0.871);
+  --color-list: rgba(217,217,217,0.871);
+  --color-list-hl: #63e0c4;
+  --color-meta: rgba(191,191,191,0.871);
+  --color-link: rgba(191,191,191,0.871);
+  --color-copyright-bkg: #21252b;
+}
+[color-scheme='dark'] img {
+  filter: brightness(70%) !important;
+}
+[color-scheme='dark'] .blur {
+  background: rgba(31,31,31,0.9) !important;
+}
+[color-scheme='dark'] .white-box.blur {
+  background: rgba(38,38,38,0.9) !important;
+}
+[color-scheme='dark'] .nav-main .u-search-input {
+  background: var(--color-card) !important;
+}
+[color-scheme='dark'] #l_main .article .prev-next>a {
+  background: var(--color-block) !important;
+}
+[color-scheme='dark'] #l_main .article .prev-next>a:hover {
+  background: var(--color-site-bg) !important;
+}
+[color-scheme='dark'] .article blockquote {
+  background: var(--color-block) !important;
+}
+[color-scheme='dark'] .article-title a {
+  color: var(--color-h1) !important;
+}
+[color-scheme='dark'] details>summary {
+  color: var(--color-p) !important;
+  background: var(--color-site-bg) !important;
+}
+[color-scheme='dark'] details {
+  border: 1px solid var(--color-site-bg) !important;
+  background: var(--color-site-bg) !important;
+}
+[color-scheme='dark'] #u-search .modal,
+[color-scheme='dark'] #u-search .modal-header,
+[color-scheme='dark'] #u-search .modal-body {
+  background: var(--color-card) !important;
+}
+[color-scheme='dark'] #u-search .modal-body .modal-results .result:hover {
+  background: var(--color-block) !important;
+}
+[color-scheme='dark'] .u-search-input:hover {
+  background: var(--color-block) !important;
+}
+[color-scheme='dark'] .u-search-input:focus {
+  background: var(--color-site-body) !important;
+}
+@media screen and (max-width: 500px) {
+  [color-scheme='dark'] .l_header .m_search {
+    background: var(--color-site-bg) !important;
+  }
+}
+@font-face {
+  font-family: 'Helvetica';
+  src: url("https://unpkg.com/volantis-static@0.0.1654736714924/media/fonts/UbuntuMono/UbuntuMono-Regular.ttf");
+  font-weight: 'normal';
+  font-style: 'normal';
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Varela Round';
+  src: url("https://unpkg.com/volantis-static@0.0.1654736714924/media/fonts/VarelaRound/VarelaRound-Regular.ttf");
+  font-weight: 'normal';
+  font-style: 'normal';
+  font-display: swap;
+}
+.l_header {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  width: 100%;
+  height: 64px;
+  background: var(--color-card);
+  box-shadow: 0 1px 2px 0px rgba(0,0,0,0.1);
+  -webkit-box-shadow: 0 1px 2px 0px rgba(0,0,0,0.1);
+}
+.l_header.auto {
+  transition: opacity 0.4s ease;
+  -webkit-transition: opacity 0.4s ease;
+  -khtml-transition: opacity 0.4s ease;
+  -moz-transition: opacity 0.4s ease;
+  -o-transition: opacity 0.4s ease;
+  -ms-transition: opacity 0.4s ease;
+  visibility: hidden;
+}
+.l_header.auto.show {
+  opacity: 1 !important;
+  -webkit-opacity: 1 !important;
+  -moz-opacity: 1 !important;
+  visibility: visible;
+}
+.l_header .container {
+  margin-left: 16px;
+  margin-right: 16px;
+}
+.l_header #wrapper {
+  height: 100%;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+.l_header #wrapper .nav-main,
+.l_header #wrapper .nav-sub {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: -ms-flexbox /* TWEENER - IE 10 */;
+  display: -webkit-flex /* NEW - Chrome */;
+  display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
+  display: flex;
+  flex-wrap: nowrap;
+  -webkit-flex-wrap: nowrap;
+  -khtml-flex-wrap: nowrap;
+  -moz-flex-wrap: nowrap;
+  -o-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  -khtml-justify-content: space-between;
+  -moz-justify-content: space-between;
+  -o-justify-content: space-between;
+  -ms-justify-content: space-between;
+  align-items: center;
+}
+.l_header #wrapper .nav-main {
+  transition: all 0.28s ease;
+  -webkit-transition: all 0.28s ease;
+  -khtml-transition: all 0.28s ease;
+  -moz-transition: all 0.28s ease;
+  -o-transition: all 0.28s ease;
+  -ms-transition: all 0.28s ease;
+}
+.l_header #wrapper.sub .nav-main {
+  transform: translateY(-64px);
+  -webkit-transform: translateY(-64px);
+  -khtml-transform: translateY(-64px);
+  -moz-transform: translateY(-64px);
+  -o-transform: translateY(-64px);
+  -ms-transform: translateY(-64px);
+}
+.l_header #wrapper .nav-sub {
+  transition: all 0.28s ease;
+  -webkit-transition: all 0.28s ease;
+  -khtml-transition: all 0.28s ease;
+  -moz-transition: all 0.28s ease;
+  -o-transition: all 0.28s ease;
+  -ms-transition: all 0.28s ease;
+  opacity: 0;
+  -webkit-opacity: 0;
+  -moz-opacity: 0;
+  height: 64px;
+  width: calc(100% - 2 * 16px);
+  position: absolute;
+}
+.l_header #wrapper .nav-sub ::-webkit-scrollbar {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: none;
+}
+@media screen and (min-width: 2048px) {
+  .l_header #wrapper .nav-sub {
+    max-width: 55vw;
+    margin: auto;
+  }
+}
+.l_header #wrapper.sub .nav-sub {
+  opacity: 1;
+  -webkit-opacity: 1;
+  -moz-opacity: 1;
+}
+.l_header #wrapper .title {
+  position: relative;
+  color: var(--color-text);
+  padding-left: 24px;
+  max-height: 64px;
+}
+.l_header #wrapper .nav-main .title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-shrink: 0;
+  line-height: 64px;
+  padding: 0 24px;
+  font-size: 1.25rem;
+  font-family: "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial, Helvetica, monospace;
+}
+.l_header #wrapper .nav-main .title img {
+  height: 64px;
+}
+.l_header .nav-sub {
+  max-width: 1080px;
+  margin: auto;
+}
+.l_header .nav-sub .title {
+  font-weight: bold;
+  font-family: UbuntuMono, "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial, Menlo, Monaco, monospace, sans-serif;
+  line-height: 1.2;
+  max-height: 64px;
+  white-space: normal;
+  flex-shrink: 1;
+}
+.l_header .switcher {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: none;
+  line-height: 64px;
+  align-items: center;
+}
+.l_header .switcher .s-toc {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  .l_header .switcher .s-toc {
+    display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+    display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+    display: -ms-flexbox /* TWEENER - IE 10 */;
+    display: -webkit-flex /* NEW - Chrome */;
+    display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
+    display: flex;
+  }
+}
+.l_header .switcher >li {
+  height: 48px;
+  transition: all 0.28s ease;
+  -webkit-transition: all 0.28s ease;
+  -khtml-transition: all 0.28s ease;
+  -moz-transition: all 0.28s ease;
+  -o-transition: all 0.28s ease;
+  -ms-transition: all 0.28s ease;
+  margin: 2px;
+}
+@media screen and (max-width: 500px) {
+  .l_header .switcher >li {
+    margin: 0 1px;
+    height: 48px;
+  }
+}
+.l_header .switcher >li >a {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: -ms-flexbox /* TWEENER - IE 10 */;
+  display: -webkit-flex /* NEW - Chrome */;
+  display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
+  display: flex;
+  justify-content: center;
+  -webkit-justify-content: center;
+  -khtml-justify-content: center;
+  -moz-justify-content: center;
+  -o-justify-content: center;
+  -ms-justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  padding: 0.85em 1.1em;
+  border-radius: 100px;
+  -webkit-border-radius: 100px;
+  border: none;
+  transition: all 0.28s ease;
+  -webkit-transition: all 0.28s ease;
+  -khtml-transition: all 0.28s ease;
+  -moz-transition: all 0.28s ease;
+  -o-transition: all 0.28s ease;
+  -ms-transition: all 0.28s ease;
+  color: #3dd9b6;
+}
+.l_header .switcher >li >a:hover {
+  border: none;
+}
+.l_header .switcher >li >a.active,
+.l_header .switcher >li >a:active {
+  border: none;
+  background: var(--color-site-bg);
+}
+@media screen and (max-width: 500px) {
+  .l_header .switcher >li >a {
+    width: 36px;
+    height: 48px;
+  }
+}
+.l_header .nav-sub .switcher {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: -ms-flexbox /* TWEENER - IE 10 */;
+  display: -webkit-flex /* NEW - Chrome */;
+  display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
+  display: flex;
+}
+.l_header .m_search {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: -ms-flexbox /* TWEENER - IE 10 */;
+  display: -webkit-flex /* NEW - Chrome */;
+  display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
+  display: flex;
+  height: 64px;
+  width: 240px;
+  transition: all 0.28s ease;
+  -webkit-transition: all 0.28s ease;
+  -khtml-transition: all 0.28s ease;
+  -moz-transition: all 0.28s ease;
+  -o-transition: all 0.28s ease;
+  -ms-transition: all 0.28s ease;
+}
+@media screen and (max-width: 1024px) {
+  .l_header .m_search {
+    width: 44px;
+    min-width: 44px;
+  }
+  .l_header .m_search input::placeholder {
+    opacity: 0;
+    -webkit-opacity: 0;
+    -moz-opacity: 0;
+  }
+  .l_header .m_search:hover {
+    width: 240px;
+  }
+  .l_header .m_search:hover input::placeholder {
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+}
+@media screen and (min-width: 500px) {
+  .l_header .m_search:hover .input {
+    width: 100%;
+  }
+  .l_header .m_search:hover .input::placeholder {
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+}
+@media screen and (max-width: 500px) {
+  .l_header .m_search {
+    min-width: 0;
+  }
+  .l_header .m_search input::placeholder {
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+}
+.l_header .m_search .form {
+  position: relative;
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: -ms-flexbox /* TWEENER - IE 10 */;
+  display: -webkit-flex /* NEW - Chrome */;
+  display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+.l_header .m_search .icon {
+  position: absolute;
+  width: 36px;
+  left: 5px;
+  color: var(--color-meta);
+}
+@media screen and (max-width: 500px) {
+  .l_header .m_search .icon {
+    display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+    display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+    display: none;
+  }
+}
+.l_header .m_search .input {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: block;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  line-height: 1.3;
+  width: 100%;
+  color: var(--color-text);
+  background: #fafafa;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  padding-left: 40px;
+  font-size: 0.875rem;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border: none;
+  transition: all 0.28s ease;
+  -webkit-transition: all 0.28s ease;
+  -khtml-transition: all 0.28s ease;
+  -moz-transition: all 0.28s ease;
+  -o-transition: all 0.28s ease;
+  -ms-transition: all 0.28s ease;
+}
+@media screen and (min-width: 500px) {
+  .l_header .m_search .input:focus {
+    box-shadow: 0 4px 8px 0px rgba(0,0,0,0.1);
+    -webkit-box-shadow: 0 4px 8px 0px rgba(0,0,0,0.1);
+  }
+}
+@media screen and (max-width: 500px) {
+  .l_header .m_search .input {
+    background: var(--color-block);
+    padding-left: 8px;
+    border: none;
+  }
+  .l_header .m_search .input:hover,
+  .l_header .m_search .input:focus {
+    border: none;
+  }
+}
+@media (max-width: 500px) {
+  .l_header .m_search {
+    left: 0;
+    width: 0;
+    overflow: hidden;
+    position: absolute;
+    background: #fff;
+    transition: all 0.28s ease;
+    -webkit-transition: all 0.28s ease;
+    -khtml-transition: all 0.28s ease;
+    -moz-transition: all 0.28s ease;
+    -o-transition: all 0.28s ease;
+    -ms-transition: all 0.28s ease;
+  }
+  .l_header .m_search .input {
+    border-radius: 32px;
+    -webkit-border-radius: 32px;
+    margin-left: 16px;
+    padding-left: 16px;
+  }
+  .l_header.z_search-open .m_search {
+    width: 100%;
+  }
+  .l_header.z_search-open .m_search .input {
+    width: calc(100% - 120px);
+  }
+}
+ul.m-pc >li>a {
+  color: inherit;
+  border-bottom: 2px solid transparent;
+}
+ul.m-pc >li>a:active,
+ul.m-pc >li>a.active {
+  border-bottom: 2px solid #3dd9b6;
+}
+ul.m-pc li:hover >ul.list-v,
+ul.list-v li:hover >ul.list-v {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: block;
+}
+ul.nav-list-h {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: -ms-flexbox /* TWEENER - IE 10 */;
+  display: -webkit-flex /* NEW - Chrome */;
+  display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
+  display: flex;
+  align-items: stretch;
+}
+ul.nav-list-h>li {
+  position: relative;
+  justify-content: center;
+  -webkit-justify-content: center;
+  -khtml-justify-content: center;
+  -moz-justify-content: center;
+  -o-justify-content: center;
+  -ms-justify-content: center;
+  height: 100%;
+  line-height: 2.4;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+}
+ul.nav-list-h>li >a {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 600;
+}
+ul.list-v {
+  z-index: 1;
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: none;
+  position: absolute;
+  background: var(--color-card);
+  box-shadow: 0 2px 4px 0px rgba(0,0,0,0.08), 0 4px 8px 0px rgba(0,0,0,0.08), 0 8px 16px 0px rgba(0,0,0,0.08);
+  -webkit-box-shadow: 0 2px 4px 0px rgba(0,0,0,0.08), 0 4px 8px 0px rgba(0,0,0,0.08), 0 8px 16px 0px rgba(0,0,0,0.08);
+  margin-top: -6px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  padding: 8px 0;
+}
+ul.list-v.show {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: block;
+}
+ul.list-v hr {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+ul.list-v >li {
+  white-space: nowrap;
+  word-break: keep-all;
+}
+ul.list-v >li.header {
+  font-size: 0.78125rem;
+  font-weight: bold;
+  line-height: 2em;
+  color: var(--color-meta);
+  margin: 8px 16px 4px;
+}
+ul.list-v >li.header i {
+  margin-right: 8px;
+}
+ul.list-v >li ul {
+  margin-left: 0;
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: none;
+  margin-top: -40px;
+}
+ul.list-v .aplayer-container {
+  min-height: 64px;
+  padding: 6px 16px;
+}
+ul.list-v >li>a {
+  transition: all 0.28s ease;
+  -webkit-transition: all 0.28s ease;
+  -khtml-transition: all 0.28s ease;
+  -moz-transition: all 0.28s ease;
+  -o-transition: all 0.28s ease;
+  -ms-transition: all 0.28s ease;
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: block;
+  color: var(--color-list);
+  font-size: 0.875rem;
+  font-weight: bold;
+  line-height: 36px;
+  padding: 0 20px 0 16px;
+  text-overflow: ellipsis;
+  margin: 0 4px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+}
+@media screen and (max-width: 1024px) {
+  ul.list-v >li>a {
+    line-height: 40px;
+  }
+}
+ul.list-v >li>a >i {
+  margin-right: 8px;
+}
+ul.list-v >li>a:active,
+ul.list-v >li>a.active {
+  color: var(--color-list-hl);
+}
+ul.list-v >li>a:hover {
+  color: var(--color-list-hl);
+  background: var(--color-site-bg);
+}
+.l_header .menu >ul>li>a {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: block;
+  padding: 0 8px;
+}
+.l_header .menu >ul>li>a >i {
+  margin-right: 4px;
+}
+.l_header ul.nav-list-h>li {
+  color: var(--color-list);
+  line-height: 64px;
+}
+.l_header ul.nav-list-h>li >a {
+  max-height: 64px;
+  overflow: hidden;
+  color: inherit;
+}
+.l_header ul.nav-list-h>li >a:active,
+.l_header ul.nav-list-h>li >a.active {
+  color: #3dd9b6;
+}
+.l_header ul.nav-list-h>li:hover>a {
+  color: var(--color-list-hl);
+}
+.l_header ul.nav-list-h>li i.music {
+  animation: rotate-effect 1.5s linear infinite;
+  -webkit-animation: rotate-effect 1.5s linear infinite;
+  -khtml-animation: rotate-effect 1.5s linear infinite;
+  -moz-animation: rotate-effect 1.5s linear infinite;
+  -o-animation: rotate-effect 1.5s linear infinite;
+  -ms-animation: rotate-effect 1.5s linear infinite;
+}
+@-moz-keyframes rotate-effect {
+  0% {
+    transform: rotate(0);
+    -webkit-transform: rotate(0);
+    -khtml-transform: rotate(0);
+    -moz-transform: rotate(0);
+    -o-transform: rotate(0);
+    -ms-transform: rotate(0);
+  }
+  25% {
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -khtml-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+  }
+  50% {
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -khtml-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+  }
+  75% {
+    transform: rotate(270deg);
+    -webkit-transform: rotate(270deg);
+    -khtml-transform: rotate(270deg);
+    -moz-transform: rotate(270deg);
+    -o-transform: rotate(270deg);
+    -ms-transform: rotate(270deg);
+  }
+  100% {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -khtml-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes rotate-effect {
+  0% {
+    transform: rotate(0);
+    -webkit-transform: rotate(0);
+    -khtml-transform: rotate(0);
+    -moz-transform: rotate(0);
+    -o-transform: rotate(0);
+    -ms-transform: rotate(0);
+  }
+  25% {
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -khtml-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+  }
+  50% {
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -khtml-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+  }
+  75% {
+    transform: rotate(270deg);
+    -webkit-transform: rotate(270deg);
+    -khtml-transform: rotate(270deg);
+    -moz-transform: rotate(270deg);
+    -o-transform: rotate(270deg);
+    -ms-transform: rotate(270deg);
+  }
+  100% {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -khtml-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+  }
+}
+@-o-keyframes rotate-effect {
+  0% {
+    transform: rotate(0);
+    -webkit-transform: rotate(0);
+    -khtml-transform: rotate(0);
+    -moz-transform: rotate(0);
+    -o-transform: rotate(0);
+    -ms-transform: rotate(0);
+  }
+  25% {
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -khtml-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+  }
+  50% {
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -khtml-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+  }
+  75% {
+    transform: rotate(270deg);
+    -webkit-transform: rotate(270deg);
+    -khtml-transform: rotate(270deg);
+    -moz-transform: rotate(270deg);
+    -o-transform: rotate(270deg);
+    -ms-transform: rotate(270deg);
+  }
+  100% {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -khtml-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+  }
+}
+@keyframes rotate-effect {
+  0% {
+    transform: rotate(0);
+    -webkit-transform: rotate(0);
+    -khtml-transform: rotate(0);
+    -moz-transform: rotate(0);
+    -o-transform: rotate(0);
+    -ms-transform: rotate(0);
+  }
+  25% {
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -khtml-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+  }
+  50% {
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -khtml-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+  }
+  75% {
+    transform: rotate(270deg);
+    -webkit-transform: rotate(270deg);
+    -khtml-transform: rotate(270deg);
+    -moz-transform: rotate(270deg);
+    -o-transform: rotate(270deg);
+    -ms-transform: rotate(270deg);
+  }
+  100% {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -khtml-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+  }
+}
+.menu-phone li ul.list-v {
+  right: calc(100% - 0.5 * 16px);
+}
+.menu-phone li ul.list-v ul {
+  right: calc(100% - 0.5 * 16px);
+}
+#wrapper {
+  max-width: 1080px;
+  margin: auto;
+}
+@media screen and (min-width: 2048px) {
+  #wrapper {
+    max-width: 55vw;
+  }
+}
+#wrapper .menu {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -webkit-flex: 1 1;
+  -ms-flex: 1 1;
+  flex: 1 1;
+  margin: 0 16px 0 0;
+}
+#wrapper .menu .list-v ul {
+  left: calc(100% - 0.5 * 16px);
+}
+.menu-phone {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: none;
+  margin-top: 16px;
+  right: 8px;
+  transition: all 0.28s ease;
+  -webkit-transition: all 0.28s ease;
+  -khtml-transition: all 0.28s ease;
+  -moz-transition: all 0.28s ease;
+  -o-transition: all 0.28s ease;
+  -ms-transition: all 0.28s ease;
+}
+.menu-phone ul {
+  right: calc(100% - 0.5 * 16px);
+}
+@media screen and (max-width: 500px) {
+  .menu-phone {
+    display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+    display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+    display: block;
+  }
+}
+.l_header {
+  max-width: 65vw;
+  left: calc((100% - 65vw) * 0.5);
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+@media screen and (max-width: 2048px) {
+  .l_header {
+    max-width: 1112px;
+    left: calc((100% - 1112px) * 0.5);
+  }
+}
+@media screen and (max-width: 1112px) {
+  .l_header {
+    left: 0;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    max-width: 100%;
+  }
+}
+@media screen and (max-width: 500px) {
+  .l_header .container {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .l_header #wrapper .nav-main .title {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .l_header #wrapper .nav-sub {
+    width: 100%;
+  }
+  .l_header #wrapper .nav-sub .title {
+    overflow-y: scroll;
+    margin-top: 2px;
+    padding: 8px 16px;
+  }
+  .l_header #wrapper .switcher {
+    display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+    display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+    display: -ms-flexbox /* TWEENER - IE 10 */;
+    display: -webkit-flex /* NEW - Chrome */;
+    display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
+    display: flex;
+    margin-right: 8px;
+  }
+  .l_header .menu {
+    display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+    display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+    display: none;
+  }
+}
+@media screen and (max-width: 500px) {
+  .list-v li {
+    max-width: 270px;
+  }
+}
+#u-search {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 60px 20px;
+  z-index: 1001;
+}
+@media screen and (max-width: 680px) {
+  #u-search {
+    padding: 0px;
+  }
+}
+@media screen and (prefers-color-scheme: dark) and (max-width: 500px) {
+  .l_header .m_search {
+    background: var(--color-site-bg) !important;
+  }
+}
+
+  </style>
+  <link rel="stylesheet" href="/css/style.css" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/css/style.css"></noscript>
+    <script>
+      let userColorScheme=localStorage.getItem("color-scheme")
+      if(userColorScheme){
+        document.documentElement.setAttribute("color-scheme", userColorScheme);
+      }
+    </script>
+  
+<script>
+if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode))
+    document.write(
+	'<style>'+
+		'html{'+
+			'overflow-x: hidden !important;'+
+			'overflow-y: hidden !important;'+
+		'}'+
+		'.kill-ie{'+
+			'text-align:center;'+
+			'height: 100%;'+
+			'margin-top: 15%;'+
+			'margin-bottom: 5500%;'+
+		'}'+
+    '.kill-t{'+
+      'font-size: 2rem;'+
+    '}'+
+    '.kill-c{'+
+      'font-size: 1.2rem;'+
+    '}'+
+		'#l_header,#l_body{'+
+			'display: none;'+
+		'}'+
+	'</style>'+
+    '<div class="kill-ie">'+
+        `<span class="kill-t"><b>抱歉，您的浏览器无法访问本站</b></span><br/>`+
+        `<span class="kill-c">微软已经于2016年终止了对 Internet Explorer (IE) 10 及更早版本的支持，<br/>继续使用存在极大的安全隐患，请使用当代主流的浏览器进行访问。</span><br/>`+
+        `<a target="_blank" rel="noopener" href="https://blogs.windows.com/windowsexperience/2021/05/19/the-future-of-internet-explorer-on-windows-10-is-in-microsoft-edge/"><strong>了解详情 ></strong></a>`+
+    '</div>');
+</script>
+
+
+<noscript>
+	<style>
+		html{
+			overflow-x: hidden !important;
+			overflow-y: hidden !important;
+		}
+		.kill-noscript{
+			text-align:center;
+			height: 100%;
+			margin-top: 15%;
+			margin-bottom: 5500%;
+		}
+    .kill-t{
+      font-size: 2rem;
+    }
+    .kill-c{
+      font-size: 1.2rem;
+    }
+		#l_header,#l_body{
+			display: none;
+		}
+	</style>
+    <div class="kill-noscript">
+        <span class="kill-t"><b>抱歉，您的浏览器无法访问本站</b></span><br/>
+        <span class="kill-c">本页面需要浏览器支持（启用）JavaScript</span><br/>
+        <a target="_blank" rel="noopener" href="https://www.baidu.com/s?wd=启用JavaScript"><strong>了解详情 ></strong></a>
+    </div>
+</noscript>
+
+
+  <script>
+  /************这个文件存放不需要重载的全局变量和全局函数*********/
+  window.volantis = {}; // volantis 全局变量
+  volantis.debug = "env"; // 调试模式
+  volantis.dom = {}; // 页面Dom see: /source/js/app.js etc.
+
+  volantis.GLOBAL_CONFIG ={
+    debug: "env",
+    cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
+    default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
+    lastupdate: new Date(1712977130898),
+    sidebar: {
+      for_page: ["blogger","category","tagcloud","webinfo"],
+      for_post: ["toc"],
+      webinfo: {
+        lastupd: {
+          enable: true,
+          friendlyShow: true
+        },
+        runtime: {
+          data: "2022/12/01",
+          unit: "天"
+        }
+      }
+    },
+    plugins: {
+      message: {"enable":true,"css":"https://unpkg.com/volantis-static@0.0.1654736714924/libs/izitoast/dist/css/iziToast.min.css","js":"https://unpkg.com/volantis-static@0.0.1654736714924/libs/izitoast/dist/js/iziToast.min.js","icon":{"default":"fa-solid fa-info-circle light-blue","quection":"fa-solid fa-question-circle light-blue"},"time":{"default":5000,"quection":20000},"position":"topRight","transitionIn":"bounceInLeft","transitionOut":"fadeOutRight","titleColor":"var(--color-text)","messageColor":"var(--color-text)","backgroundColor":"var(--color-card)","zindex":2147483647,"copyright":{"enable":true,"title":"知识共享许可协议","message":"请遵守 CC BY-NC-SA 4.0 协议。","icon":"far fa-copyright light-blue"},"aplayer":{"enable":true,"play":"fa-solid fa-play","pause":"fa-solid fa-pause"},"rightmenu":{"enable":true,"notice":true}},
+      fancybox: {"css":"https://unpkg.com/volantis-static@0.0.1654736714924/libs/@fancyapps/ui/dist/fancybox.css","js":"https://unpkg.com/volantis-static@0.0.1654736714924/libs/@fancyapps/ui/dist/fancybox.umd.js"},
+      
+      aplayer: {
+        id: 8913002428,
+        enable:true
+      },
+      
+      
+      
+      rightmenus: {"enable":true,"order":["plugins.navigation","hr","plugins.inputBox","plugins.seletctText","plugins.elementCheck","plugins.elementImage","menus.link","hr","menus.darkMode","plugins.articlePage","music"],"options":{"iconPrefix":"fa-solid","articleShowLink":true,"musicAlwaysShow":true},"plugins":{"navigation":[{"id":"left","name":"转到上一页","icon":"fa-solid fa-arrow-left","event":"history.back()","group":"navigation"},{"id":"right","name":"转到下一页","icon":"fa-solid fa-arrow-right","event":"history.forward()","group":"navigation"},{"id":"redo","name":"刷新当前页面","icon":"fa-solid fa-redo","event":"window.location.reload()","group":"navigation"},{"id":"up","name":"回到顶部","icon":"fa-solid fa-arrow-up","event":"VolantisApp.scrolltoElement(volantis.dom.bodyAnchor)","group":"navigation"}],"inputBox":[{"id":"copyPaste","name":"粘贴文本","icon":"fa-solid fa-paste","event":"copyPaste","group":"inputBox"},{"id":"copyAll","name":"全选文本","icon":"fa-solid fa-object-ungroup","event":"copyAll","group":"inputBox"},{"id":"copyCut","name":"剪切文本","icon":"fa-solid fa-cut","event":"copyCut","group":"inputBox"}],"seletctText":[{"id":"copyText","name":"复制文本","icon":"fa-solid fa-copy","event":"copyText","group":"seletctText"},{"id":"searchWord","name":"站内搜索","icon":"fa-solid fa-search","event":"OpenSearch(__text__)","group":"seletctText"},{"id":"bingSearch","name":"必应搜索","icon":"fa-solid fa-search","event":"window.open(`https://cn.bing.com/search?q=${__text__}`)","group":"seletctText"}],"elementCheck":[{"id":"openTab","name":"新标签页打开","icon":"fa-solid fa-external-link-square-alt","event":"window.open(__link__)","group":"elementCheck"},{"id":"copyLink","name":"复制链接地址","icon":"fa-solid fa-link","event":"copyLink","group":"elementCheck"}],"elementImage":[{"id":"copyImg","name":"复制图片","icon":"fa-solid fa-image","event":"copyImg","group":"elementImage"},{"id":"googleImg","name":"谷歌识图","icon":"fa-solid fa-images","event":"window.open(`https://www.google.com.hk/searchbyimage?image_url=${__link__}`)","group":"elementImage"}],"articlePage":[{"id":"printMode","name":"打印页面","icon":"fa-solid fa-print","event":"printMode","group":"articlePage"},{"id":"readMode","name":"阅读模式","icon":"fa-solid fa-book-open","event":"readMode","group":"articlePage"}]},"menus":{"link":[{"id":"help","name":"常见问题","icon":"fa-solid fa-question","link":"https://volantis.js.org/faqs/","group":"link"},{"id":"source_docs","name":"本站源码","icon":"fa-solid fa-code-branch","link":"https://github.com/LBiyou/LBiyou.github.io","group":"link"}],"darkMode":[{"id":"darkMode","name":"夜间模式","icon":"fa-solid fa-moon","event":"volantis.dark.toggle()","group":"darkMode"}]}}
+      
+    }
+  }
+
+  /******************** volantis.EventListener ********************************/
+  // 事件监听器 see: /source/js/app.js
+  volantis.EventListener = {}
+  // 这里存放pjax切换页面时将被移除的事件监听器
+  volantis.EventListener.list = []
+  //构造方法
+  function volantisEventListener(type, f, ele) {
+    this.type = type
+    this.f = f
+    this.ele = ele
+  }
+  // 移除事件监听器
+  volantis.EventListener.remove = () => {
+    volantis.EventListener.list.forEach(function (i) {
+      i.ele.removeEventListener(i.type, i.f, false)
+    })
+    volantis.EventListener.list = []
+  }
+  /******************** volantis.dom.$ ********************************/
+  // 注：这里没有选择器，也没有forEach一次只处理一个dom，这里重新封装主题常用的dom方法，返回的是dom对象，对象包含了以下方法，同时保留dom的原生API
+  function volantisDom(ele) {
+    if (!ele) ele = document.createElement("div")
+    this.ele = ele;
+    // ==============================================================
+    this.ele.find = (c) => {
+      let q = this.ele.querySelector(c)
+      if (q)
+        return new volantisDom(q)
+    }
+    // ==============================================================
+    this.ele.hasClass = (c) => {
+      return this.ele.className.match(new RegExp('(\\s|^)' + c + '(\\s|$)'));
+    }
+    this.ele.addClass = (c) => {
+      this.ele.classList.add(c);
+      return this.ele
+    }
+    this.ele.removeClass = (c) => {
+      this.ele.classList.remove(c);
+      return this.ele
+    }
+    this.ele.toggleClass = (c) => {
+      if (this.ele.hasClass(c)) {
+        this.ele.removeClass(c)
+      } else {
+        this.ele.addClass(c)
+      }
+      return this.ele
+    }
+    // ==============================================================
+    // 参数 r 为 true 表示pjax切换页面时事件监听器将被移除，false不移除
+    this.ele.on = (c, f, r = 1) => {
+      this.ele.addEventListener(c, f, false)
+      if (r) {
+        volantis.EventListener.list.push(new volantisEventListener(c, f, this.ele))
+      }
+      return this.ele
+    }
+    this.ele.click = (f, r) => {
+      this.ele.on("click", f, r)
+      return this.ele
+    }
+    this.ele.scroll = (f, r) => {
+      this.ele.on("scroll", f, r)
+      return this.ele
+    }
+    // ==============================================================
+    this.ele.html = (c) => {
+      // if(c=== undefined){
+      //   return this.ele.innerHTML
+      // }else{
+      this.ele.innerHTML = c
+      return this.ele
+      // }
+    }
+    // ==============================================================
+    this.ele.hide = (c) => {
+      this.ele.style.display = "none"
+      return this.ele
+    }
+    this.ele.show = (c) => {
+      this.ele.style.display = "block"
+      return this.ele
+    }
+    // ==============================================================
+    return this.ele
+  }
+  volantis.dom.$ = (ele) => {
+    return !!ele ? new volantisDom(ele) : null;
+  }
+  /******************** RunItem ********************************/
+  function RunItem() {
+    this.list = []; // 存放回调函数
+    this.start = () => {
+      for (var i = 0; i < this.list.length; i++) {
+        this.list[i].run();
+      }
+    };
+    this.push = (fn, name, setRequestAnimationFrame = true) => {
+      let myfn = fn
+      if (setRequestAnimationFrame) {
+        myfn = ()=>{
+          volantis.requestAnimationFrame(fn)
+        }
+      }
+      var f = new Item(myfn, name);
+      this.list.push(f);
+    };
+    this.remove = (name) =>{
+      for (let index = 0; index < this.list.length; index++) {
+        const e = this.list[index];
+        if (e.name == name) {
+          this.list.splice(index,1);
+        }
+      }
+    }
+    // 构造一个可以run的对象
+    function Item(fn, name) {
+      // 函数名称
+      this.name = name || fn.name;
+      // run方法
+      this.run = () => {
+        try {
+          fn()
+        } catch (error) {
+          console.log(error);
+        }
+      };
+    }
+  }
+  /******************** Pjax ********************************/
+  // /layout/_plugins/pjax/index.ejs
+  // volantis.pjax.send(callBack[,"callBackName"]) 传入pjax:send回调函数
+  // volantis.pjax.push(callBack[,"callBackName"]) 传入pjax:complete回调函数
+  // volantis.pjax.error(callBack[,"callBackName"]) 传入pjax:error回调函数
+  volantis.pjax = {};
+  volantis.pjax.method = {
+    complete: new RunItem(),
+    error: new RunItem(),
+    send: new RunItem(),
+  };
+  volantis.pjax = Object.assign(volantis.pjax, {
+    push: volantis.pjax.method.complete.push,
+    error: volantis.pjax.method.error.push,
+    send: volantis.pjax.method.send.push,
+  });
+  /******************** RightMenu ********************************/
+  // volantis.rightmenu.handle(callBack[,"callBackName"]) 外部菜单项控制
+  // 可在 volantis.mouseEvent 处获取右键事件
+  volantis.rightmenu = {};
+  volantis.rightmenu.method = {
+    handle: new RunItem(),
+  }
+  volantis.rightmenu = Object.assign(volantis.rightmenu, {
+    handle: volantis.rightmenu.method.handle.push,
+  });
+  /********************  Dark Mode  ********************************/
+  // /layout/_partial/scripts/darkmode.ejs
+  // volantis.dark.mode 当前模式 dark or light
+  // volantis.dark.toggle() 暗黑模式触发器
+  // volantis.dark.push(callBack[,"callBackName"]) 传入触发器回调函数
+  volantis.dark = {};
+  volantis.dark.method = {
+    toggle: new RunItem(),
+  };
+  volantis.dark = Object.assign(volantis.dark, {
+    push: volantis.dark.method.toggle.push,
+  });
+  /********************  Message  ********************************/
+  // VolantisApp.message
+  /********************  isMobile  ********************************/
+  // /source/js/app.js
+  // volantis.isMobile
+  // volantis.isMobileOld
+  /********************脚本动态加载函数********************************/
+  // volantis.js(src, cb)  cb 可以传入onload回调函数 或者 JSON对象 例如: volantis.js("src", ()=>{}) 或 volantis.js("src", {defer:true,onload:()=>{}})
+  // volantis.css(src)
+
+  // 返回Promise对象，如下方法同步加载资源，这利于处理文件资源之间的依赖关系，例如：APlayer 需要在 MetingJS 之前加载
+  // (async () => {
+  //     await volantis.js("...theme.plugins.aplayer.js.aplayer...")
+  //     await volantis.js("...theme.plugins.aplayer.js.meting...")
+  // })();
+
+  // 已经加入了setTimeout
+  volantis.js = (src, cb) => {
+    return new Promise(resolve => {
+      setTimeout(function () {
+        var HEAD = document.getElementsByTagName("head")[0] || document.documentElement;
+        var script = document.createElement("script");
+        script.setAttribute("type", "text/javascript");
+        if (cb) {
+          if (JSON.stringify(cb)) {
+            for (let p in cb) {
+              if (p == "onload") {
+                script[p] = () => {
+                  cb[p]()
+                  resolve()
+                }
+              } else {
+                script[p] = cb[p]
+                script.onload = resolve
+              }
+            }
+          } else {
+            script.onload = () => {
+              cb()
+              resolve()
+            };
+          }
+        } else {
+          script.onload = resolve
+        }
+        script.setAttribute("src", src);
+        HEAD.appendChild(script);
+      });
+    });
+  }
+  volantis.css = (src) => {
+    return new Promise(resolve => {
+      setTimeout(function () {
+        var link = document.createElement('link');
+        link.rel = "stylesheet";
+        link.href = src;
+        link.onload = resolve;
+        document.getElementsByTagName("head")[0].appendChild(link);
+      });
+    });
+  }
+  /********************按需加载的插件********************************/
+  // volantis.import.jQuery().then(()=>{})
+  volantis.import = {
+    jQuery: () => {
+      if (typeof jQuery == "undefined") {
+        return volantis.js("https://unpkg.com/volantis-static@0.0.1654736714924/libs/jquery/dist/jquery.min.js")
+      } else {
+        return new Promise(resolve => {
+          resolve()
+        });
+      }
+    }
+  }
+  /********************** requestAnimationFrame ********************************/
+  // 1、requestAnimationFrame 会把每一帧中的所有 DOM 操作集中起来，在一次重绘或回流中就完成，并且重绘或回流的时间间隔紧紧跟随浏览器的刷新频率，一般来说，这个频率为每秒60帧。
+  // 2、在隐藏或不可见的元素中，requestAnimationFrame 将不会进行重绘或回流，这当然就意味着更少的的 cpu，gpu 和内存使用量。
+  volantis.requestAnimationFrame = (fn)=>{
+    if (!window.requestAnimationFrame) {
+      window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame;
+    }
+    window.requestAnimationFrame(fn)
+  }
+  /************************ layoutHelper *****************************************/
+  volantis.layoutHelper = (helper, html, opt)=>{
+    opt = Object.assign({clean:false, pjax:true}, opt)
+    function myhelper(helper, html, clean) {
+      volantis.tempDiv = document.createElement("div");
+      volantis.tempDiv.innerHTML = html;
+      let layoutHelper = document.querySelector("#layoutHelper-"+helper)
+      if (layoutHelper) {
+        if (clean) {
+          layoutHelper.innerHTML = ""
+        }
+        layoutHelper.append(volantis.tempDiv);
+      }
+    }
+    myhelper(helper, html, opt.clean)
+    if (opt.pjax) {
+      volantis.pjax.push(()=>{
+        myhelper(helper, html, opt.clean)
+      },"layoutHelper-"+helper)
+    }
+  }
+  /****************************** 滚动事件处理 ****************************************/
+  volantis.scroll = {
+    engine: new RunItem(),
+    unengine: new RunItem(),
+  };
+  volantis.scroll = Object.assign(volantis.scroll, {
+    push: volantis.scroll.engine.push,
+  });
+  // 滚动条距离顶部的距离
+  volantis.scroll.getScrollTop = () =>{
+    let scrollPos;
+    if (window.pageYOffset) {
+      scrollPos = window.pageYOffset;
+    } else if (document.compatMode && document.compatMode != 'BackCompat') {
+      scrollPos = document.documentElement.scrollTop;
+    } else if (document.body) {
+      scrollPos = document.body.scrollTop;
+    }
+    return scrollPos;
+  }
+  // 使用 requestAnimationFrame 处理滚动事件
+  // `volantis.scroll.del` 中存储了一个数值, 该数值检测一定时间间隔内滚动条滚动的位移, 数值的检测频率是浏览器的刷新频率. 数值为正数时, 表示向下滚动. 数值为负数时, 表示向上滚动.
+  volantis.scroll.handleScrollEvents = () => {
+    volantis.scroll.lastScrollTop = volantis.scroll.getScrollTop()
+    function loop() {
+      const scrollTop = volantis.scroll.getScrollTop();
+      if (volantis.scroll.lastScrollTop !== scrollTop) {
+        volantis.scroll.del = scrollTop - volantis.scroll.lastScrollTop;
+        volantis.scroll.lastScrollTop = scrollTop;
+        // if (volantis.scroll.del > 0) {
+        //   console.log("向下滚动");
+        // } else {
+        //   console.log("向上滚动");
+        // }
+        // 注销过期的unengine未滚动事件
+        volantis.scroll.unengine.list=[]
+        volantis.scroll.engine.start();
+      }else{
+        volantis.scroll.unengine.start();
+      }
+      volantis.requestAnimationFrame(loop)
+    }
+    volantis.requestAnimationFrame(loop)
+  }
+  volantis.scroll.handleScrollEvents()
+  volantis.scroll.ele = null;
+  // 触发页面滚动至目标元素位置
+  volantis.scroll.to = (ele, option = {}) => {
+    if (!ele) return;
+    volantis.scroll.ele = ele;
+    // 默认配置
+    opt = {
+      top: ele.getBoundingClientRect().top + document.documentElement.scrollTop,
+      behavior: "smooth"
+    }
+    // 定义配置
+    if ("top" in option) {
+      opt.top = option.top
+    }
+    if ("behavior" in option) {
+      opt.behavior = option.behavior
+    }
+    if ("addTop" in option) {
+      opt.top += option.addTop
+    }
+    if (!("observerDic" in option)) {
+      option.observerDic = 100
+    }
+    // 滚动
+    window.scrollTo(opt);
+    // 监视器
+    // 监视并矫正元素滚动到指定位置
+    // 用于处理 lazyload 引起的 cls 导致的定位失败问题
+    // option.observer = false
+    if (option.observer) {
+      setTimeout(() => {
+        if (volantis.scroll.ele != ele) {
+          return
+        }
+        volantis.scroll.unengine.push(() => {
+          let me = ele.getBoundingClientRect().top
+          if(!(me >= -option.observerDic && me <= option.observerDic)){
+            volantis.scroll.to(ele, option)
+          }
+          volantis.scroll.unengine.remove("unengineObserver")
+        },"unengineObserver")
+      },1000)
+    }
+  }
+  /********************** Content Visibility ********************************/
+  // 见 source/css/first.styl 如果遇到任何问题 删除 .post-story 即可
+  // 一个元素被声明 content-visibility 属性后 如果元素不在 viewport 中 浏览器不会计算其后代元素样式和属性 从而节省 Style & Layout 耗时
+  // content-visibility 的副作用: 锚点失效 等等(实验初期 暂不明确), 使用此方法清除样式
+  volantis.cleanContentVisibility = ()=>{
+    if (document.querySelector(".post-story")) {
+      console.log("cleanContentVisibility");
+      document.querySelectorAll(".post-story").forEach(e=>{
+        e.classList.remove("post-story")
+      })
+    }
+  }
+  /******************************************************************************/
+  /******************************************************************************/
+  /******************************************************************************/
+  //图像加载出错时的处理
+  function errorImgAvatar(img) {
+    img.src = "https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg";
+    img.onerror = null;
+  }
+  function errorImgCover(img) {
+    img.src = "https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg";
+    img.onerror = null;
+  }
+  /******************************************************************************/
+</script>
+
+  <!-- import head_end begin -->
+  <!-- import head_end end -->
+  <!-- Custom Files headEnd begin-->
+  
+  <!-- Custom Files headEnd end-->
+  <!-- front-matter head_end begin -->
+  <!-- front-matter head_end end -->
+</head>
+  <body itemscope itemtype="http://schema.org/WebPage">
+    <!-- import body_begin begin-->
+    <!-- import body_begin end-->
+    <!-- Custom Files bodyBegin begin-->
+    
+    <!-- Custom Files bodyBegin end-->
+    <!-- front-matter body_begin begin -->
+    <!-- front-matter body_begin end -->
+    <header itemscope itemtype="http://schema.org/WPHeader" id="l_header" class="l_header auto shadow floatable blur show" style='opacity: 0' >
+  <div class='container'>
+  <div id='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h m-phone' id="pjax-header-nav-list">
+        <li><a id="s-comment" class="fa-solid fa-comments fa-fw" target="_self"  href="/" onclick="return false;" title="comment"></a></li>
+        
+          <li><a id="s-toc" class="s-toc fa-solid fa-list fa-fw" target="_self"  href="/" onclick="return false;" title="toc"></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+            <img no-lazy class='logo' src='https://s21.ax1x.com/2024/04/13/pFjUn58.jpg'/>
+          
+          
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h m-pc'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/" title="Home"
+                  
+                  
+                  
+                    active-action="action-home"
+                  >
+                  <i class='fa-solid fa-house fa-fw'></i>Home
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/categories/" title="Categories"
+                  
+                  
+                  
+                    active-action="action-categories"
+                  >
+                  <i class='fa-solid fa-folder-open fa-fw'></i>Categories
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/categories/Attack_Events/" title="Attack_Events"
+                  
+                  
+                  
+                    active-action="action-categoriesAttack_Events"
+                  >
+                  <i class='fa-solid fa-book fa-fw'></i>Attack_Events
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/categories/Basic-Knowledge/" title="Basic_Knowledge"
+                  
+                  
+                  
+                    active-action="action-categoriesBasic-Knowledge"
+                  >
+                  <i class='fa-solid fa-book fa-fw'></i>Basic_Knowledge
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/categories/Utils/" title="Utils"
+                  
+                  
+                  
+                    active-action="action-categoriesUtils"
+                  >
+                  <i class='fa-solid fa-book fa-fw'></i>Utils
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/categories/CTFS/" title="CTFS"
+                  
+                  
+                  
+                    active-action="action-categoriesCTFS"
+                  >
+                  <i class='fa-solid fa-book fa-fw'></i>CTFS
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/categories/DEFI/" title="DEFI"
+                  
+                  
+                  
+                    active-action="action-categoriesDEFI"
+                  >
+                  <i class='fa-solid fa-book fa-fw'></i>DEFI
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/categories/PoC/" title="PoC"
+                  
+                  
+                  
+                    active-action="action-categoriesPoC"
+                  >
+                  <i class='fa-solid fa-book fa-fw'></i>PoC
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/categories/Experience/" title="Experience"
+                  
+                  
+                  
+                    active-action="action-categoriesExperience"
+                  >
+                  <i class='fa-solid fa-book fa-fw'></i>Experience
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/archives/" title="Archives"
+                  
+                  
+                  
+                    active-action="action-archives"
+                  >
+                  <i class='fa-solid fa-archive fa-fw'></i>Archives
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/about/" title="About"
+                  
+                  
+                  
+                    active-action="action-about"
+                  >
+                  <i class='fa-solid fa-user fa-fw'></i>About
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box header toggle-mode-btn">
+                  <i class='fa-solid fa-lightbulb fa-fw'></i>Light
+                </a>
+              <li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                 href="/" onclick="return false;" title="More"
+                  
+                  
+                  >
+                  <i class='fa-solid fa-bars fa-fw'></i>More
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/tags/" title="Tags"
+                  
+                  
+                  
+                    active-action="action-tags"
+                  >
+                  <i class='fa-solid fa-tags fa-fw'></i>Tags
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/friends/" title="Friends"
+                  
+                  
+                  
+                    active-action="action-friends"
+                  >
+                  <i class='fa-solid fa-link fa-fw'></i>Friends
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+      
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fa-solid fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="search..." />
+        </form>
+      </div>
+      
+
+			<ul class='switcher nav-list-h m-phone'>
+				
+					<li><a class="s-search fa-solid fa-search fa-fw" target="_self" href="/" onclick="return false;" title="search"></a></li>
+				
+				<li>
+          <a class="s-menu fa-solid fa-bars fa-fw" target="_self" href="/" onclick="return false;" title="menu"></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/" title="Home"
+                  
+                  
+                  
+                    active-action="action-home"
+                  >
+                  <i class='fa-solid fa-house fa-fw'></i>Home
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/categories/" title="Categories"
+                  
+                  
+                  
+                    active-action="action-categories"
+                  >
+                  <i class='fa-solid fa-folder-open fa-fw'></i>Categories
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/categories/Attack_Events/" title="Attack_Events"
+                  
+                  
+                  
+                    active-action="action-categoriesAttack_Events"
+                  >
+                  <i class='fa-solid fa-book fa-fw'></i>Attack_Events
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/categories/Basic-Knowledge/" title="Basic_Knowledge"
+                  
+                  
+                  
+                    active-action="action-categoriesBasic-Knowledge"
+                  >
+                  <i class='fa-solid fa-book fa-fw'></i>Basic_Knowledge
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/categories/Utils/" title="Utils"
+                  
+                  
+                  
+                    active-action="action-categoriesUtils"
+                  >
+                  <i class='fa-solid fa-book fa-fw'></i>Utils
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/categories/CTFS/" title="CTFS"
+                  
+                  
+                  
+                    active-action="action-categoriesCTFS"
+                  >
+                  <i class='fa-solid fa-book fa-fw'></i>CTFS
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/categories/DEFI/" title="DEFI"
+                  
+                  
+                  
+                    active-action="action-categoriesDEFI"
+                  >
+                  <i class='fa-solid fa-book fa-fw'></i>DEFI
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/categories/PoC/" title="PoC"
+                  
+                  
+                  
+                    active-action="action-categoriesPoC"
+                  >
+                  <i class='fa-solid fa-book fa-fw'></i>PoC
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/categories/Experience/" title="Experience"
+                  
+                  
+                  
+                    active-action="action-categoriesExperience"
+                  >
+                  <i class='fa-solid fa-book fa-fw'></i>Experience
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/archives/" title="Archives"
+                  
+                  
+                  
+                    active-action="action-archives"
+                  >
+                  <i class='fa-solid fa-archive fa-fw'></i>Archives
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/about/" title="About"
+                  
+                  
+                  
+                    active-action="action-about"
+                  >
+                  <i class='fa-solid fa-user fa-fw'></i>About
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box header toggle-mode-btn">
+                  <i class='fa-solid fa-lightbulb fa-fw'></i>Light
+                </a>
+              <li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                 href="/" onclick="return false;" title="More"
+                  
+                  
+                  >
+                  <i class='fa-solid fa-bars fa-fw'></i>More
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/tags/" title="Tags"
+                  
+                  
+                  
+                    active-action="action-tags"
+                  >
+                  <i class='fa-solid fa-tags fa-fw'></i>Tags
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/friends/" title="Friends"
+                  
+                  
+                  
+                    active-action="action-friends"
+                  >
+                  <i class='fa-solid fa-link fa-fw'></i>Friends
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+
+      <!-- Custom Files header begin -->
+      
+      <!-- Custom Files header end -->
+		</div>
+	</div>
+  </div>
+</header>
+
+    <div id="l_body">
+      <div id="l_cover">
+  
+    
+      <!-- see: /layout/_partial/scripts/_ctrl/coverCtrl.ejs -->
+      <div id="none" class='cover-wrapper post search' style="display: none;">
+        
+  <div class='cover-bg' style='background-image:url(https://w.wallhaven.cc/full/kx/wallhaven-kx6e7d.png)'></div>
+
+<div class='cover-body'>
+  <div class='top'>
+    
+    
+      <p class="title">学会七十二变，应对八十一难</p>
+    
+    
+  </div>
+  <div class='bottom'>
+    
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <input type="text" class="input u-search-input" placeholder="search..." />
+          <i class="icon fa-solid fa-search fa-fw"></i>
+        </form>
+      </div>
+    
+    <div class='menu navigation'>
+      <div class='list-h'>
+        
+          
+            <a href="/"
+              
+              
+              active-action="action-home">
+              <i class='fa-solid fa-house fa-fw'></i><p>Home</p>
+            </a>
+          
+            <a href="/categories/"
+              
+              
+              active-action="action-categories">
+              <i class='fa-solid fa-folder-open fa-fw'></i><p>Categories</p>
+            </a>
+          
+            <a href="/archives/"
+              
+              
+              active-action="action-archives">
+              <i class='fa-solid fa-clipboard fa-fw'></i><p>Archives</p>
+            </a>
+          
+            <a href="/about/"
+              
+              
+              active-action="action-about">
+              <i class='fa-solid fa-address-card fa-fw'></i><p>About</p>
+            </a>
+          
+            <a target="_blank" rel="noopener" href="https://github.com/LBiyou/LBiyou.github.io"
+              
+              
+              active-action="action-https:githubcomLBiyouLBiyougithubio">
+              <i class='fab fa-github fa-fw'></i><p>Code</p>
+            </a>
+          
+            <a href="/resource/"
+              
+              
+              active-action="action-resource">
+              <i class='fa-solid fa-bars fa-fw'></i><p>Resource</p>
+            </a>
+          
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div id="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+      </div>
+    
+  
+</div>
+
+      <div id="safearea">
+        <div class="body-wrapper">
+          
+<div id="l_main" class=''>
+  <article itemscope itemtype="http://schema.org/Article" class="article post white-box reveal md shadow floatable blur article-type-post" id="post" itemscope itemprop="blogPost">
+  <link itemprop="mainEntityOfPage" href="https://biyouqiuqiu.com/2023/09/02/CTFS/CTFProtocol/harvest_protocol_2022/">
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="BY_DLIFE🍉">
+  </span>
+  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
+    <meta itemprop="name" content="BY_DLIFE🍉">
+    <meta itemprop="description" content="Self-Discipline">
+  </span>
+  
+
+
+  
+    <span hidden>
+      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+    </span>
+  
+  <div class="article-meta" id="top">
+    
+    
+    
+      <h1 class="title" itemprop="name headline">
+        harvest_protocol_2022
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author' itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <a itemprop="url" class='author' href="/" rel="nofollow">
+    <img itemprop="image" src="https://s21.ax1x.com/2024/04/13/pFjUn58.jpg">
+    <p itemprop="name">BY_DLIFE🍉</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item wordcount">
+    <a class='notlink'>
+      <i class="fa-solid fa-keyboard fa-fw" aria-hidden="true"></i>
+      <p>字数：6 字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class='notlink'>
+      <i class="fa-solid fa-bell fa-fw" aria-hidden="true"></i>
+      <p>时长：1 分钟</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2023-09-02T12:50:10+08:00">
+  <a class='notlink'>
+    <i class="fa-solid fa-pen fa-fw" aria-hidden="true"></i>
+    <p>发布于：2023年9月2日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+
+<div class="new-meta-item browse">
+  <a class='notlink'>
+    <p>
+      <i class="fa-solid fa-eye fa-fw" aria-hidden="true"></i>
+      
+      <span id="busuanzi_value_page_pv"><i class="fa-solid fa-loader fa-spin fa-fw" aria-hidden="true"></i></span>
+      
+      <span>次浏览</span>
+    </p>
+  </a>
+</div>
+
+
+          
+        
+        <!-- Custom Files topMeta begin-->
+        
+        <!-- Custom Files topMeta end-->
+      </div>
+    
+  </div>
+
+
+  <div id="layoutHelper-page-plugins"></div>
+  <div id="post-body" itemprop="articleBody">
+    <div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="2f5fa5a0074886277e702ab7feb8345e97381e7f52702020ec4f5ed94dd3301b">2f6595452aee0adbb8d8a90439468713e258fd0327dbc830fd68af18f7d8f2f749965bd0e4d48f16b7b48d875cf56ed9f74257eb258a70db5433ebacdfca20f9a0dcc8ee01d4287bd61b177c3a8eece8ea3e31e0f67b0263383c42880eca1d9362b30e14473436563de0147342e491ddc8ab095b463f84c10b9226b577a11be96ed5b4689c308c0f9d4712cff50a555ece00a6bde57964c94077f9b25f4e5c9884c4426d7a100447e5521c710bdc21215fb5c50ab180081440409361cc19d5e824d85da67e09147c33549144086c7ceab497af5cb2159a6f6a7fa0adc9d5d5b40e3a683320f187a911b3f03aa4e4ac4aa6c79da92d004c9d51d7ef043ec76343171e94a13395d750d17a4c1ad3b7374d94a55bbccff87e6bcffcec6a24f48094b4fbbf0ac319e823b564b69f346aac3424b0693b2e661c2ae3ef1c4ecac4f6094322550d7fd947ce3b53d7bf6b31ce223504bc7de29b924aa8d000ce573343f12439587c6d385d4c69f6875ca2bda9d828418d19151524bba84c3244a7eb5f884f52d9dba81c88c86168f73a07727831c79ae31ffdeda6987e1b330f9eec1a624806fb55ac0eeb9e623637aa803c6e66c14667d775cacc05c335a424842434197bbd05e2043302f501ba81cc176f5ba1085c73c8ebee033d9b6e3abb5488b8e4455d7cf1e6fed47c8abcbcc3bac090d65316de74b8b3d85e49af998b7ad2f0c6a513ac03df732c50d25db3477e5e44b29c94b32dfe1b97bb985c857c2aaa51750c28eec51c78a9ff3ea378d2cea7a9229cb1214f520abadfced3f0fb4b8ec3bc513c7e4874b49be847d504431950c37cd6171d00c4804a3d07260ebfc1bc7fb81d82435b1cd92467243c87d91e2611ab7725ecc425493d7f76632210f06239075c665a752d0ed5ff9b8c832a6f0472b1735f2327e00628f49be98bd3a8f03b85a7a81f171a81feeeb33d0418a84a18e0e9d6c76d0ce463623f93a67c47c7cc30c0785cbec7c0376627596ba821701beaed480cd42c2a34c8aaf64a19c8d50a3b4c5cd18c17a0baa37c15911969ef93b2b87f94feca51edb2fa0d06855be0e2aea7100502c8f8d93111edbd3a53a86d481ef018944cb14b92248123c7b6d8227298cfb3838fe364a4597be99e319eb7a322bd5816d15ac2621f2be7a29739b82b2787e8b4b976cf8d4a9b7855001c626c881055b519f7fdc83974333706dbabf54d08452408668b0c2942ef72a00523ee3dcdb5e88bf4c70283ff9f19a15d0435c3f6e0a69e84e0d11a6ab5b58bf7de88e7f0b3ec010bcefbaea928432e87e22a55659e2317ac6f5f0fe3c2c58fcdf9b795f1f853a90a996089b9f82e87fc2e9d751ca7c821394f328d41e298818670d1d9c783676f1ddd01e3d93597c02cd6c2f7883683b845592b4bcedbc54fd7b7a715ab71485aea8e255474d736f9714fde53e3b5d7977d549f34c173a4ec9c5fa91ce1cfd4ea772c19c4830c3b5d264567bfe1e743d3bf1e48163d2d7325179448e98762e7f69b697e8ea0231e3ca91d48fc0cf3ade92eed7c72df80aae41422349f10ad3ad6103672bbc847f4f2d293eaabe2b3851d090cd23658fb5effb015a997fb07b1e2f8f170247ebeb4e8499169941892d306159c72bccfc498e1ddca97c606c2edad530cbf46bded87933914c65e1483d595a1ac6000e1c0ca5cbff5bc12c4dd0e0fd76f4fcb157eff661291d3f37f381476faf0a263bc41d3b2332e26c6ab242f625fb62afd93364474ea2cd35ee8212aa7eefd43750c349b61d9ea77c3a0fbd2caf913cb32f580355c06b318e6d5312eef5a3910146c9650fd77fc9b373792769ba22f65411de882774f3d3dcd844c9666d9960f359f41bc4556af7ce5e5498ff195ea131a6b46c1a638039eff8f8030d616a1abe9762c0bd945df34a90434788fcd5b3fa008669042bd796e103bbbaa49aa9aee9d07ec2d5a49c1600a8186a9120115c5fc216d0b65e2c1f42e3b34da43910a961a3cc97cff3b0ca1dcecafa3801472073b7814549e15cc303579002953cce6f007f23b8c8d903694e6e3759471c7dbf9cb02a43090ba6b2772564437f0be968383cc0ffcec612d016f724778c2f8b7433e0a196e9301d9bb9f93ab70c94beaf286e7afdc9e83e237e1bbc31fa421a0ca630b2235c223f8b8d9a3579fd6f2bfaa67e55adca7f53a53f7be70da4164d8484564a843811897fc7e29bab905d5f6aa9bf0dae38778e918f838d638ca22b24f3c20c8e807a6d5466e66e48329063a0e3635ffea659bd2d4b571530e2d5cdd360299317cbc16c14a55710c492b0e5a766131bbe3e2f3b9b06706317bb494998652f7cfc421843fe8251cec9a9772afa9849f294318e4452bf29772750fa59ec86d804f2f5343f932c2aaf66b58bdee0b5600a01418f06270e50456b742d547bbca27b70cf5db6290467ce98ed13c03aff7ce42903e7dff9fdb02d35e82ea58964899da5fce43a3c220ccf45d50fbbbdced78098b79d9bd6c8c6f6d6cf4594edd3a5a33c1e2670ed1abfc8f3416e084180a9110a0e210cbd78261ac33f3229581a3211a47d939bd674366a2a2ecb6cc41bfd48e8346c3036fe95a0bd8544c6ac2e37bcf0680d7ecc1b2700b31f5ab1b0277bc1166debe2f4997a1bec25bfb826b8651763ffd1422147c801efbd222b4afa777bcfda99a86b30af6ef069819738fb157e19d2762a55c919c90d8aa91fbdd88d6247e5413d14b0b9dc11ea65dd6f7c3647a635a34163487da2d8bf75245668a4e847577968e77c25c74eaf1c384c7de18690ba4cb3ad252ac92c0763cf035574baa65e0129feda9ab7babd6ad6e172d4d6d8066900a73a79cb349c41ae64e7ad95298252ff12ea9a82bb2c591169af8f9b266ff38c8060a80e6bbfe9fc732f4aefd7d29ee09ea7fa5f0ecd3804efbb5ecfe31515ab3f82b45dc5324db5b5c449bc57875cd78909e01bc5d511fd5ee08a371569a05997a4ce934abb7f9913018782b9b69d76a1b74531c51837bb3b71fded6ac25ebb7eed8414cc1d69a7b4b8477cf02b8f1d25bc6925d80b56c4c9fd222a32cf7f0bb6a3799e1a5a7e7534b8d8f9aab8393da166f0387ebb687685f7a762555a2617fa63be0e5b4ce8eec61eb6db3e8edef585be2f2fd5b28e6c85e57e711868a741dc3a53cc30ab9297493da019b5c7ed5768d8fc85419cbc2faf7e27a4eb21ac3a7eff3d55dfbe1e16301e2daa4acf9694fe68eb9b778a68ac45f8ccac9ba5b7ce61eaaa8cbb9d84468bcea1ccbe648193305cc8833004e3b6d18fa0a15a823e89a33357c58c45b1d3d29b7ab2d9196f7fb4667ff4d16fd768b5c227ae94a7c860020fcde6c1c91d140640c27a553733ce4b70159a87342c5be618c3cf0cda90c1f16365f7e765c56c10042e2961f5b0ba18393ccf571ce9460a0ca14a801efbaeb4c92ba49011a3bcc8f485a4b5b61aba34aeb88718451e9a02497d5a87f21b4759dbfb2587cca4029d930bd72c708c22b395a38da5022cee0630d8b1e239b7775d9a28e284084794e93311fc9963b94829c3fdbfb446fdb495edfc050b1792c2793146fec5547fc2a455a877f5c3e2ca7b61b0e101f562ee9f535885a3dbe12326c959848d1e9a09b04818ccd9f841db25503ab6251fadb61b136427eea635eb7f4f79d129fbd9c2d84f225993b58a33b8a092048c21ded1cceaf5919d831f987382a1848d80836623e22a5a071aba3263c89097ba566067cce2c677c3dcb39cdcd8a63b87f310d6df56b59f5c57d5202af1ed4027a3e40b7413b623f2a9bafce6b95ab1ec9ffd897f912dee498860ca126fa0948ac277eacd65b5a64c27f8df94be9f701f3af8fc5514ffcc4257b3df48a8331d2412f72b1917d140bb0f9719057d2bfbf4864dcbc73a2efed66d4ba2948ecfd0dd892dfec56e45f6124a83551a3e8b90822d565afddc9f0b1d9a71850ac8d77cedebfccd9922ed612f48a509187f25b4c915e058d34cb89585dcc9742808e54a1c56729fc25b4229b4e3c9fa3e2334f7111e29d62ce667acbfeb7af3fa235408c53e68d7af38c33f70c7d03e5f2e74bf4f56d101f8872157229686f92609b283b218a117179060ae520a15037b373f6c7ae75d466cd6b289a0266be8ff94974d3aff45e8dc4f832c83154d35453ad233ecbd85c0516e4a79facf1dc45274567cfae41d0f865efb9db64f148dd0b054804d8365402f7b086fef7ecef8ab10d6def357661bbe2250ad4317ddbd1ef9cbbcf209bfad2b839b9e8e0306e3d861b6ef6880c65122ad1a44fec4c160fd41ed1b55f2e822cc5a9eeb8a42be142e454219a1bdab8c2f629b8ac5ac78986c341e3bc7aa8d4a553bcc2fd5f3ad63ffd24abe506ec5ad37c24a951a0d64737b9ea8489162c87989ab9341208b2d8565b4916fc6ded5fed441f030627d4880f576701eddc52b67631c1255c55ea576034db23498605c844bb1f60f5f6559986f2b2d09e647164cc084913b2cdbef60219cf37e8e3807f91c9fa0a4d73b31b185b7323b281cf03c70beceb07cfeaa5c30adca2acf5dc427e929871ee479e4993e1de7b4605b67a65183b66c9d2c0076b3859823fd73982a2d50968252656bb154c73ef2bff60c664f74da243697f96340e8dc770c8183fbb9e7a56ffe42696ed7908ecb6d6e92eaca76d09390970261817f37947da8198da6715674a2d6953543b08764f93acaaf2d1e08979b83a5413b27df6d4b90f7be5b4f4dc309f0c0bc1187de08687ccb69e469a5e37d565281d46c1f04540cc5df199374fc66753e178bcd02d412e1d22752cc4c31dc3354fda14b19c33380c1fb9456ef594ba3cadcea2168b829756d7567a58a76aeaefd77aa281b1e50dcc545216993e0e953ef776357ddc8564cb54b8c4f18349ae3d5e39c268357faf60c479b63281f3cf7e7372291a3e948fcbcab33aa05760705b660526e961c8081d3277094dcb01c9d7b3e76a0e35d90ad0f54ebbacf2507b882497d67c16b231f5b5e93a3ab36248da86c2078046b06f7dd89cb227c57bb374d92f80e9c160ec3a6c653a018572065bcdc84c516891a68326ea717b8367e9a97a63eee76e3ea14e382cc5af15b5fd6a9cf58eda497a6fa469357591031f902f37dcdab87853bb61c635d17f49c93dda75a68e04d52bfc4283f6cb05f81ac4e90a87b604e383d39d7937bb0c4a1afa031aa413d35ae1a99bd08cd8d62be913ca3668134fa39028a6f11a49be82165e5d4172181351c47d517c80b8e67f82875abf8584731f15366543fa99b1b9fbc4943ad90676113efb18d43322b6b8127e0c84109d4e6044b42f0d6c5e50bebfb6770387caae963e35b3116e9febf5d6ccbb96808dc635afc1dfadfcb926b22c142879dc41ead3399395fb2d5d703000e7333297cbdeff40c524b14894ceb71b73933ff6d080a636661bb7b1533dd91939d9537c90d886f99712e5943f4acdb4a0dba105d73345ed452ac057ad6b88ac9f87e2a20f717f72a0900f4bac2a097d3c351580c3fd29cdd14912fd1b28847b2a7fe62daf86fa8f081473f7f04c6d2fcf7d29226c0457916019cfd753de31af17ba05c96c3b2251452ae10cfce6f943c21eab8ea3b9a64ba3deb0e694843330837e1fe5569e9f17ea73a7cb05f7b3c10a4b18e007768ccdd7855abb5b7e5e22cf0e843ab05e0b0e846f1fb2c4e6b25f36032cbecd12ca0974ba2cd26ee7794843d37f8323d475671cde2cac30195c9f17e83e37f2e365bb0d0d8ca74e3d031a3b9ca201edf4c91fcbedac62994f05e8e3734e12a042da4f1637245b99bbc9b8589b933a43f7fef2c9ef02eb2208add936f00e7a9583dde9bd4cfb3bb3509d317654ce5e5c53aac307126ce5ed64eec1d38002a1bffd330a84c074d501c3c914af49330335543435ed3d8187dcc2dbf203f61eeb1536b3ffc7f0cf85562808e0acf93a37f9f5f8c2cada8f5c003fcbf6cdb25019938337d9b899e2d8f3d1b14ee6e5f62dd8cda198a709c4c4cab9171a2ebcfc32c78b9ba05b0fbedc6f905d5316e6558efeab357dd6e427363ee9c23baf6ee13c3433128043cfccf5cde572f2a18f43aa6ea2a9a66be87cfbdea81ceff796366dade78db69cf5c231fe939b429483e4680da09f5b0ee666d22906d2e78b8ecfb7ceae050b34462714cc66af454e202c5ae7ee6bf832e070b5c5bf8c41f9d2f5a8ae5935dfea705bc709bf6cf4a3c193003a1baf86f5e381610e18025bba20791c39c898640c52a565286ea6e43056d752c3b10b4d616c2a5ede99d89055bd77cb5f9bb814d43e1ab4b877dfe4673dea9241b27e12fffdbfbe833c1e6e1c94d4ec53ee500f9572bfa76ef4baf1187252fe4e199f02c3cc91782a5a6fa2545f27a0e5939a286ebadad18ead11d90bfb72c836b0f338b0b7f4cda5550550beec33a84f0272ad62894f2b1dd31de0c52d74185c8629e05d6847102ff637e13eb73755e4bdf95d4044ca3686f398a7b159b5abe6551e586fb859dadef6dab954f5ad8909b8d871c57b246bbc4c2515f285383b7e23b0461f49fe30258ed405c2772ac187021b3757330d76e7fd529398e3b0c0be742237dd554064199f35275245e83cac153ab80c32bfe458e5e146c4fb5566c9b5fc1f82e292157de21e7c26167d4c1912c8998cc03bb216e0430bf8f3de23e7e33a980c06ef7c5725f74cc5f0bf2a9835d086c525eb5d907d59d35039c5940a6daf107b748bcdb04a6232b6d9a760ba04fab3f4f3f2275895c67d3c519e9b4c8b20e61d6309e2fc4c9bfb85ee9960e73bc49cea84fd659b0aa6e9e04f19806a92f644908c17ce3e36feb1f07e4a246a730e29a31c91102c4dd9b223c8d8883935b8c0652d1ddcd727bea482d2aa763846aaa9bee94bcb98b5ed7bd4012966732f9b4c4048297c6f28a4c2835c8d9f727d2d468589f00c939d4f2316cc602dfc7dc4e031146476f4bc4b744efe74ae4b25eed47d359b3b8de501ec0948859976d5377566564fb869e3129af333fc939c4269521e35dfd1165a082a1489b97e116ff66f80f1b2bdd2c9c3c3e02be6c0c02623a906848eb54f3792e58540f4f98deb7abcc586b7efd028779e6ffc73da5daeccd691d1a5bdc9896257ca72f4060338b5f01092215f0659d7ad667677090ea720f43068358c899e22641377bbe4714d06fac1a0882a2080bda2a0c6a619937d751a5f0fe3fc81b500f6bb2f77b7058a7f3c54b8fe49ee2a413c03d51ec97a89225efc2927af9b93023d6de79a449c8bc3141e2797a44aec12165a88ee76fb1412e1501fcfe69e71ad6c61f0bb71a4de79de37aac03c369ade43e2088df0b72cc4502eca56d36f58f428e02aa11dbb900a6adbb75d1189086be5090580da90bd0d4cfc1c50913d123922e2095973ea10487acf926572195c4c8a44f7a9b14af527306609b8bbf9e43cd8547f208d90a1d81ecbe556926b2df8cc788dfe5916627ef1784e3beb58217565db1df18b17d7028de9a3dc08171f5a543f11f351e85b2b54d4592c72105ef028344850138ca379a7b3a5f4bb3c342ceb7c26f61ee2a28a05aa4b4fd72c91e17227da174ca3f229ebb1b29f5e72b2424c55c19eb150e813d63a8ced5856f77093feac013a5cafb91cb6f1bbee48cdae11a4295952d1a46676a09b2def7b7463f1244138b315ebe9f601bdbf47ad49f5ee8dccf6b0cd3797b84ff4c4762fbfced0d470e83e6025e60676bd14a09f6b6a6ad8ef73b630767c602cda98093d1cadc20af33cf57c010719f5d644d057e7ef61320b7fdca2d29de5bd3da324f25cb297b0597a8f23d42f3ebd6bd7b2010072dbeb5a7c4b77455098431089d751f31a239f0a6082be27878c4f63f44cf5f3b79250945ab4b6cad9f35866a9f477ff534b5c4c2701a16c51e1d747328369e31fbbd8cfcdbbfd4f52c4dc15df57d9ce6260fef98ec8c5189a4be3a104574d5e09d008b82cd052aa8e4d6291cec3f87f5227057b0be1212a423aad0cf466b41f313fadec6aa96e6e31994eeb5ecf0eda45ab3978015f8045a5aab170570a87d7815b52b01c140559890e442f758b1148a1996172ab9ce6a4d538fcff6186d6f463087381bd4968cd32027a121f354634a68f46a2d573182ee6ba1709a2dd116aec19fde6a9014e8c9bcb2fb6da1abd8d6141241c3d7ebd5ed3e16883ef5684bab2370dec7a76d04988ac7c378f16fb6e708a650f3abc63b21f6a79919ee0c46e513e563bd24c51764e325c41302db56c3fac62229cd135a39b9bb5cc81784427290251db9f9257975481f78c1fd7a7544442e66e70400d59736763b6bb6ff841c5dadc4f1d94795dcf636300e83077fcef72b5d8ae5a70c4e1cf7a1b871c6cab811af41bbb14121b141b12dd9edf27142d7474a9c22eae43a62de56b63e9ea4b74b9b3f5d303b743eb70c50c96c114854aa1b01b538aca03b35c33daa4104a3899850203a49de8bde1280720f8f110f1419781f0bcc420c60a2189873a9c5a9e76802c70840c9fc46676e1bab45c680b9c83241b9379003d6e8828af2184fb526efab7015736e46642911cc109a981b19f18a6cca46b80584d07c6f4a5d371628ef75ee6759b8681af357af91668aedd4b8b42fb00fb990309186fe557a12431f3feae15b479ae0e8cd3215f6e992f812936f689ba6b61574bde52a2098a3cca98e524487a8fb71f86f60f49c7d76e7503da6c28739f8b6bdfb31de766b4c4060b7b10ed7edc97bdceb88e908875b789b4410f85aad153ef11a1363012c415fd36e2ca1ba505c9eb78b48e353a2bfe2bb0da7256160f9459e03a0b4f44ff6ffa5805c7b6e0889538649ac6ab4496e2c7a6adefb97fa3c8d023b6ee3586275383b5cc2a0eb948daf9f7fc01853cc5bd7df079ba7da5f1b4bd5620805adb4bc8cc781981b172f06816e1af0788be2166953d12d8d37c2e21ea8ba32bf364f007896fe4297afa5a0d5dda2eea1a2eec3d233050c84222df0b0dae15ec521fc5d60768e84eee608512df26589c5c4f0cad5dc9ef41f14dac8cdb1d5df74ed9dd363c024ccb1e097f3201cfbf37e046e4810d968a2b17ce1bf19386922dbecad86a5cedad784555b888fb1ad96bc1f61d48b08adbc5cab2d963f0777e3d2b370b2ad805e8dd1ee54d24c6c66c4bf6ca00fda6e7d2586121d71968778ee8967b171da44090ed77e738478b1716bf8c9eb9e762c4bf8a6d561b70a72bc952820439128b5ca1f8d1baebc6fda7255000a46a03159f4ce239f71f9482625169e4aebc1125e5954fb6a49875b0e469e6897fb7972ee4d85ed38e4b2972fac537e543cc6a0001040882a16d3cc05571300a7e48bdb798be034e5eabb17703e9dbf933cff6289c2c018255d0e5216e1f231f655d5ff187ea4fb5f0910609e6de2e2007329e591644272d9a79a22ba020b267d94b4dc7a5a1c89c03baef0f968ecdd10f8689fbf1156b6d644862a97167b9215898d430f3556731bbd53f7e930b0508b42757ee323fe066621664024e87c59433f1ce8410e3a5b2c117fea955d9163e8bdf3e2d1bf393c0a35b9ea4f47ab6dfe904ba44fa39cdf18851b87cdcf89adb64548e2acaf23f9a5849d93bc7b52cdd4067c31a23c5ed343264c758606efe0131808fffdefce365214a5b4eb2e004f5b71ee74d99fd7f4f49cdce88ed55244199b5b52bcf5bb89975a57429db743715043bcb12bba950fb882c3e5d5a70189cb4da777702a8463fdf11ccdd2b11fa19861a746bbbec25c64a5bd2d48150d808d97c09d7a71f1e24a692505ba598bd97e94cbc1f089ac78ac78c80ce17b41c21e2d81a579fe6381d02c7dfcb118c1ffe99459356fc2ebf5b5476af126a800647a1131e9960c951c9ee27214271a3ae56dd30bc7691a8b33a5defdbcb6e7b0648628c3cf98a72654b185a58db9c470c801ec675035cc5230c99ca5061f3e835ba87559ecda8b5999bd4a0e23b8ea500d4ca5780e1589bfee1f9bc494820e6f3d76a103f21b5e5ecf27cbad4dd657e5f6aa000ccf4ed1f98885d953cc0f62781c02a8a84282c7458de6acee42d4ab15d9c38aab61f1aece6584fb01878c61f4de5887a5ac19b42375b6843a2d7271eb0ec6f604a88027220e3fe0578198f59ec2d8a25ff135fd32b00f2c82c79d8264c2cebf8c006e30c544b1f723794c68b3d7d8bf96bf01b234a914b112792c946f697a92a013d188f7d8e795eb82cc9951a0a984fe1a9dfd48af47d2d9792ff178f515c14405f825869a0f84df876fa37ea1c032fdc7936c034775e60c2548dcf96ded479e99b158b25cf9dfd7d9149f1134cd8cb8983c9ee15e3c3a77fd4c636b8fafe8191e7b5404ab0c6ec76d457843d41be56a9fb489acb1b9fd169fbbb2320486660b5f6ee112a3ed5cb2ccdd0190d9b9884fed25121d3bace43473768a28201601a66eb3514510fe3f35be2d13db1dfdbbcee7fdfeebc2ded87ea6c1dcefd8d3ad1a6cc81c836114d54aa2ba3a9c275153409aecaaa983fa05a3ce3b6e4e59a9855b24d9d8b6174c3b855ea66a8228a7b6cbb8c8e7d13fba20d81ac0156adb604cd613129fc07b92b850a156b6a8b786dd0a6479b0290caa77599cdde42faac0972aab4f465d07b437f32e279bec55e503631ce6aeb955a6afa63983463c92e944caba915aa323ea166625749fb08e4cb287531453211ffcd254686d81cad7d4bf6b71eaa4915e5e5ea5db6f78c2dde3331b24113d2d2c9d4fa5b2c6d5a99dc081d660d81be01508e4e09910ce8f80a8dce118b1952cb297402f3cd31251b3932b4e9c52deb057f7ce05fa049f85aa77c98c6b466b1d25405bedaf5efa494a540002a41bc82afd545813e33433ff36048875684344123b39732b11aa820014989f0be858cdf604845a79a8bff9f46a9b465c7f634e91dc1d0e2120b1a63b7bc8a51ae2753c6e2513ed5fdd709b8421b6f1cd3e9b962b01b19c88f302428f63e5eaf4146b68152ef1da5d1f737df099819e8e4d231bf749e4d200109dc32dea58218fb1cecfcf1628f9ce2b3dafe49709665b57d57b7a919efdb00791500d56b3608a8b3331cc8d0c607a1e5af9d9267cb225da6352ff2034198592a94076596fbeab2b6d0e9b9976e4e30b960eef21c049c4ee86e24e59152d401721fe4f4a0ca5cad027209ed0044660e965617c77645f2813862abafb6950ea9de0c0bbca9857f4f05f2a259e90d138efcdb2f4f5dcc9e095b792107818f7645e30b2d1ea9d4bf47dce086678cfd3330a20ef7cedb2150d7e98dc8de5a39df79c6283b1dde15df8809bac983e2c30617cc0bb085b59143c619185a01f306e53e4a85cb04bcbd33252294f96dfd9e620daf805349fdee686ea6c415416b0d5b005ce3bcd14f4e0afdacd56629d9f60410efb506cbdd0fd1dafbc3caf3458c5b301f38690178d45cd37c98c59c6982213f57d53485e5dc1f8d8a150b19be6965691d5a2471b0b02de883fd29d3be5263e711944b29903fb181b4dd930a6cfe5aff90164632345b06765ce4ee249b26128530f446e655b5c2c87154c500f8fc982a3becc9a67d51594b555b7684723a355cd6289e26ce04e7ec0daf1f20176a1c41f9f05cfea33936a93dfbe9a886855a30a0837bb746113694fd9b72547204862a8ac5ef66ef2397a5cbc5647e38ba2433b75467f2653969a05097ba29e58b5a94777b4e740097c3740faa033cc5c15755c9b4a7d5a60961d3ff49e0e747a973d9cb10a37f949786a45fb62e3e89537d0e2103ca158750fc8b0d4019edcd60b47a987419930842772f19043f4acf513ee9de9538a7ee756627b594dcd7437943eb5bd05d90d1682890fc68667d617ab0c9510de9a98a8cb341cc754ddcae8344923697dd24b20ec68bf197719d3fc7915e0e85d00c5b69434961de9ddac4dbfefe595f54a472ec8f210ccbc3e46ac374f4f946666b10943b0c790c0d92dd554d6145f26e37bca338815b8d83dceb0aa18c733b35a761b4db13585bebb01e20f7aa6c762d74e4d40b2f9555ab29292c965b718a3b485c8d4fe6dccda5c1165d0e8db71f19340a8edff22fd82871f81778a9e7e66b19f6c1d5f2211559168f1b2c6e7e73b71a149959292ebe31eeed45689966462693b9b5e6f6e229551fb1e597e8021db07a37249ba1872a0ec30a62f3b882bd68abf2b433f130c6358be048cce8f11f5aa8c5b040fc54087a932ec7589ffafe046b00dc23b34a07347c3070d97e0014130bc127557c1c610ff0327e604a24c907c5ea8ce9de15c90c1502a2ae1bdcae2ad08ece5492d4064887120f4bc5d47cc1a2bfdf1ceb2fe3a72fd7ddf98739a4f4e20193d2395fec9fdaee079b629adb777ecff6b6a236b391390d4683508ecac83b986809b797db404df929e213898d7bd58b7801f9b29784abfb8e6ffc77ed8807117a432e6cd088ed7e2fae28787599f4a76dba9ee58de1a30ad976326a2440e2287b400c0b1b189743c2f1ad19761eec48249987792dc3c075afcf735b33fdb6f3a33a8a11181d226bc7ea953ba5f9ac220fa95f6388ee31174fd3d304aa35519648446197c813318313ceabfe83d8680a3d7769ffb57010809813f1475e6db5010fa86325adb185b95ed4ff055117c348685a6f6a9cb8b75df8a9540bc710ca0b09c77baf5c2f14d98ba0fc07129895c1fc81eef5841927b03f827e4fb4219d4c13385249ce157eb3aec765e65e44890ffb7b5d8b89017e05d208cc9538822cad9fe5616a799f14a285a844402c64314779b19ddad8ce87c5272952417460140db88544d1b6aa4773e13edd1384dfd2e72c224f75ef9baec6b4717866d5a77e80b977fd03b15ab9982cfa0c27902e4c066390b245a09d41a033e19ee5402b91b47bbdb2cdb3ac81a5b610ebc81fd7025e59361e52fb4da37a3e28d4a89be4a26c07e0c65614fd5624eaf6a9d2eb614372ee2229801b45c2cfd95f61c4dfd834cb7d275875d3b6636eda6227213c46b858d3964f542454ddc6c7d85fbe80104a52a0c5105a7e360a5fa86e55c53ecb5245e2bab20be1c66a8613c420ad2249a763e85580aeeadee808b122bba8bc1dedcb1d7d3a2e056646733f9cd00e2878b017391c24bbc13517ced5df0dc2ae88a95b677788683c5359073b8d607416aae55194c76530fab419d546f4e7c94563aad4a6cbacc9b05895d22fc0f957cbd4f9c5ead398720c4f8240d5203f7bfe5567db3b3a90e40d8029b5a8ea9df41e8d747380fe2744c0ebec756d75da1f7307e24246ffd358795c9d5a898fda374f8813fd3181528ea65d6662ac098fe090cf68e78a38e892d5d3f1731b5af8cfbe6f406a462d1898be5108110b1462f992b233b719d5c177c5f387fbe9e2bd3a0474bd6bd2efc0021c3f527dcead58ce837ea7c187c072b8ab51487160263c11d12c36b46919e4cc7e985f68a6104abc2bc612f824670eee14d45ef59e46ac1eae302bcde5a172141bfa1595a71949d9ef9b19313109aaab6ffb8080b5d9a6e1b1af4a45b2179ceb035212789c7f1c5644cc7cc7aac5517c097dbbef6d9ee93b1f357b1687ba9362a219b2ae2e7eae26014a1b3c1d62d60b4c64b8173986d2eed4ab8dad38a6e9e50a8f2befe9319a50ca4fc875bd669c8d6c0fc68e3128af6f801e58dee8c3c4177eb26b8b19fb015e36f2688cdba9a8e540ba5bae66b5fda3361b7c4f23738fd0135bf2d235e3c7b16ebd0f0068904eea7b9724895aee53e4d1a09b66937537ead2d9f45fa268554f4aa0c7220c2b4d4c25bacb415c1daaaa7da954efe1b9d4c865f3d2ff8db3df0e5f3001e4e71477d9df6c3c8cbfa6fde7b53bc3aca70954fbc19421e9f6ac80c4141d25d94e08d5f3a4dd47a9b53a032f5214fdeee9489a7be0d34c6d861288774792d7a71faee1fe9ea0c9f418e77cdfbcdde51a859d50d0fbf017070654d1987d3c8f084e5f8152c55eaa305f91233d7dd4ca62ae8d60bf383e06b1ec475e6d7a20300cd3da64019c2dba29e537833949ed03f463b0789e943d8578441ecf6b0cefaf4ed9390dc8a7a1ef3cd8a83931cc18809791864ecc93f0b32e0b1752bcc8541e5c3c08f9c326e670a24cd123e3a668c3c75bcf83ef79fa8ee45e31d0b0422ffeaa00c9c1582fb22c1687d07182abb93a9565c6f96eb29304edb581484bf55e930c08296b1c783079c8de0184aec93fc2b7a988db05f376c21f30b751bbd08abbe8e3b863acb8522785618026bc56df0498607d36d893b1480a6a4b247fce3218aeadf19aac7ac667b0f1ed5f0a2263a9f5769a15a4f6f53357f7d53bd93d305c120ca5327562ac24ab83ddf828a0026d484dfa8e2786ac8f8d1b55f9c4ae13f31979c79b5bcb02e03921d2444c0f838ad1b56b553551b77c2dd68beab0d52432b8efe39fce328a1e5b8696912c43272901d7ba129843384402d8ad796eb3a63a42749c63359f499879daf0ee2722bdbba7db9338e194f5436cd36fde7441fd19c6ae4a34a9bb26d0e16673dd213ad772109f53771e3fe75f74f59646b5d037de8052b2641eae207bec9ed5ab223745b875811f3ef5aea4cd38a6fcb77a652a33e1ab7e7600569393f448e8157ae75364cfed303c2cbd0b3f17be819282e970746ca16a0be17bae8ab78558228a543ff9cfafacbbddf4c4f1753cdaff298dda0cfd12ec85b2b53efe4757f451655e6d9616f64755e731c1f951c3f20e461a0a521fdc6d49796b976527b3331153a123e0f2c3125227f5c224086603f7c52f781626ab991c051c320903ee2e75dce1347f51d704794230483f36035aae634d656882493f8bfe720effc3aef61b1b875a66deb647f6d5f1b8d553d081238a4bcbc5d392c2f3dbd3c87e2b74ff23d711d5829aa2ac52527fe7c79fdcc8755d7b3cabd1b23cc7ae59602f84cad8e585dbfa3de0d997e2d15375af29e8feab0ed1c94ab121542f32adb03bb451bbf38752ee1a678d8c98158f1d015fd9470d59b34009aac932ee48f21ffe890dcdf6f94dfd76c734761905158093e7ac7bd90028fad0562e6dba863235b990866afef38616c93e8e44210d7f6cef92abf4e4fe04f817785c8e89f0bf6e739f6821a25e603e03c590c024e7ba3eae85927c281d3d6d2e2281674c3a4121a60c62909b6034df92c2bdab04696fd29053e2693ccbba56e10ee1b8865118e9ac288d5cfea6883cb62723658fff2ee5c3c00b8fbc078797e4acafd8e6461095f6ae85b0e54c50588caabc9e0a723756309c9f2d26c2cdd40cb0552342cc811864a52b39b1cd9349dbcd9e385d2708104751d135fd7ca1d7f20c50a01bd36f2d7f5d02c27512d110daa0470e399b3817ef65fe8abd7cf89175e2df231f5c96f591ebd4ad0e0fadf36e942448fd1df2e2027da8c2d6ab26cedc672422df271a3d6a870f2d336466c2dfad6dff700e143b24fd81aadcdbdd14f4e7bbc07b06832bc83a3b29db4c9b978a7f43a8b158aee37ef8bc78ea154963239b65b30a7ea559fed03f73840c22b3244e49674896f963516fb096b0dbbbe2773d48c98417e0b8f3edeb79a723654f0f1c4576dc199bc6ae1b8d1c69267fdaf15db2aa7753b4a5e7e3a334c61d37d47a9e7ccba93861e0384e3b579880083a783cfb9d9ce5d2bf138712c0f510371886f3bb5f8f87096b3626e92be7f4f80e936ea6bdd251e6586dd9fa3018be7aaf3cfe85e50ae497352b3db3e9669a2da39aa42788a8ac3705aed6e8c5eb9e6f021a6639139b3c3d7fd50806d910232daabe09573a25f84ce771a113daf264cc1845de57d216019dc89e8fbc5b0789ec6b96b6d277e03897e504f876947bada77baf92612d339d14462459b91840f8f12aedbb0500c3b2691d3cc87a5d9b46c9c106e247a583eaa757716b2d22ff3ba816a1ad7eecbdf4e9901c1d0ee2810aad3ca30c5ae3fb37357dc5ee5d26b49c6d97db2a2516ad1a4fbb301145b1bb5a584ecdf47a55e530234bd4e98f4c69ec2b6503568ed76337676d3309a796c466e975d0587e29846abd967df1ee73f360fb180f97f26b685531c72e92253a0e170151380a3fb953dda822549229b857f7b007e70205d72efc4d7c82d7809f8bb7c01f3c955733a858a1a4adb0aa8c7db3f74762ec9cad89af78e968c8cd8de93279a18866d34a8cf5913808c0e4eb0b419f812878342ed46b7dcc4f2fd2454b5f9621b232e1147d2fe94263d177ab1048a7248f0a59f1622dc22c0ab90c6c2467125960d36549f3826b2673b98d36e51bbd73b8b9adb2ea05dd8446f4175a77c04f8d64408d0ed9e1ebad4f45a1d7c45a0439e0821edb917957b52ef71f4b1093c20faa6ebfa67d675a5ba33e1b153f9b12372a99957d5d1b32a445b2c96e9c5ede869af90fb1dccb2b0bdd36a4d2803646f02a72fab568c158afc4bc5b5f8c53c56ea679b41e0d5cd5d1fff867a098f74cc29b67502850e97bf206c108108cba5962bf7856ea60d7b7868a2fb0f2f7a1619abe48e3ab81c4275ccb767e5274636e27672fe8490e62e3a1de87096a31caad5119fec4a9f6f964087e14c1c072bc6663ea252daf595a305f9bea1a9d5d79ba64cd4274772895c3446c7dc43ae1e478e4b5c5863e285877e2563685ce0781fc4b051d0800237b4d44e4385575161a599da864cdf49237bff458f03abbff77bc8fb347000d8daf538e76f568ff96abd03e4af948b5fdf18cd1e543b64490ebee8b79ae87dc0430d510cca7649dc4d424300b4c3393e2239dab57b75736160b045edea6900c923a8a5ed6beeba7a93617ac5057951ffca6fe8b89049fe7cd7a3b770e85b560ad3faee267a80711ccd02cccaf0ecd3da7b2c3c811f4c381ff92206cb0fb24bfadd9bf6c58375ef52956c5f3bddc334dab6a90eca645b6254b05f8851c6c7f9a20afe236d7f82c69fe7abee5173d98c3655588c82ad431a659f5415713ba2efa4fff6489deaa2e3bf2537e72799cd9b9269cb82384e4fde208e627e31f7f505e4f393e613e3297d42907febcb02629aedbc9b6a5b5e230f72fc5921fd1383570dd4ba6dc7c6f6312075bb011d759507539e1cc6b137f6a6c67cfac4fc0f23f006b08ca846446057b423c581048f1a40b093eb9073c85e379dbc1dff232eb896e4d1afe18b05626235d7d7ffcf8b6297c6e820e098c4f6505a3ca3c4bccc6bda8f970bf01ec87cc98d8061b7cf2a61d05742dd477c17dbf989a5dd76924d6cfd357eda177c317933a4b2e8fb73b3c6d24bed879c7814566dddbac9309f1c4a6fdefff8da5362cd4590503e288512bf33cdb2bfcf157486c4b6e6061b5207320d803744e97fdeb8739557addd10a1d061eeceed6079bf28d165c87d7ea22586d7f7c4c75374447c34169b6068d5e1fedf93b8889a195f44b4489b5caa49a7a038bb456038bea99a91653d972265c14605ba7a1b1ccca10546b0774e712cef1a95ff54cd2135fa2e68e441fcb11c90a581176ddb539af0c3e55fc8048d0b1003dc6bf67ee31ee9eec625751bf008db1c0282b74e84bd189b7182e4596ad86dfd49114a708cc97c789fabd086ee5f35b70f290ea27cc48f3e195738497541fae27f82f15234e755e8349de08142dad7ebe8db7738f31724f86f3fee6214bb6d8361da53a74c45b9829efcf96f7b49bee5e5aa4fe6cb85495ee0f3a647cc4a192353785d8df4993916c7b801664c2362037969ac2a2f65d92d21d56da81678013fbe4cba951067dc3239efc21eafa3ca282a733deeb0afb781884234e4878bc9167347c5f8273d8c46401b3a9b1c045a0eb11d706c21e046bc9ed48449ad75af52cf216eff87a5625737043007f6227778ea907b255b3473f02ae40c68e21e8f84cd5702b6472bb915fec7fcf14c27ffcffcc6bbd645b0421e0c69cecb5493c9cf378a07f6d1be4af6e52e0ac08165ad9685df43d78fa4533593fc13eb5ca927a912f658dc41136b770ecbd8240ce131b909832b10cd1369d81b48f385a5de02d5152fcc5a10a58a1809430336ac9c887bc7f336f92024357f75fc41382fae53490fe1c2938d5ee029ac1da8254873dabffa83bce7eab0836c1e46bb1df24002e62ff979ab42b6dc65541dcfbf2c5721c8d894c4206267636b7b7d75625acb8779b7cdfd119060b0f823233b79a6b439d04125e934d0eeb8a1dcf433050e2f6f5c23c9f1dc2c423bd6dc00c786b31108e754719fce187bd7a423794e0f496e1969c4723042cc9be38b13e69c30299c1d5615d72c60b0b7c3010f6a189af2d84c7121b9f0fd6ab2cce0570e5c4aca1ca5a5bd43e232f0ecbc332db235b50e3f54a9e85a32f1861337d94ee3cb8e68263ec865dd345a004c89efc82b0e53dee719d5daa1fe3fbb7081f9b6248c77162dc73ea4403a74d4b880a069c0b8bc6e22847dceccc5b7775bcb6c40fa2791b013ab8659b319cb01b928cf2159b77e0238b2b113206883a4b14ffcbb63a57b2ab01e1a0486a80a18a58e8a4064d1bb3ffa3d1bd3d766df7419adcfc53d65c656a3a0b06090fc289e7bda75a6da16d3a14926721718639a4ba6ee6195046ebecbb4a1ff22db1f7155cc79f897cb3f6a8ed403bad1a1b54e6b6b8099007b063b96c8d226457e3a7e2ebc19accf82efef96605a70fe10bbf2a8514979b3a3703c8beb6c6f17632cce9a203e71ac9c6303de1db770f3ef254adaffa8cb6ab1fc056ba32008d3955bdc65375c38b2c0aa672c46a3c016628a60effa3bc3ad3dd9b4494cc07bbd4778330885b335e157f749978f41d71a98accb6534fc83f8d95baea8eee32fd4316609b8060f1fe35e4b9714607f9c7f132eb7df83d950659bbda737c196ddd1e08e847642ef1f1c92fe75e6691a7255aeaf830ef7aa9ba8c11b4be4cf57d6a582d164432d4b61ebc95f9f1afbdf5030961cb7493856768cf9c4eabb43dc76dc5a69d849755b11f3976868defba9f217718c346b7284356c4591326a86608756f6b4eb186b28fe6c12dc3a1c8ae8ebbd2d3ca2469fb009fb56de7e6a3f77d0b3607ddafdb784434429511f1491f833241c5bb74de7ea531d9bad4f144aa93350b70c1fc20a717ca2b5f6da96c145e8b615d458715cfaa9dd637bba4fde821919f2f9d5c23d2a7ebc2a251c6c5706dfebb5fa409beffa7a671bd79817007c85a73cc82809bbfad8d4fb3136463fb5298cd5f9e371eda97a664716e5008cda93339c3f20e71b62af0b4c39f0c35dd9ae12e646fad6186fb303944e03a5dd71f4fce650471fd47742e16d6e413d500e7d6e78e631ad74e978500dbdfcfad3c1533cf86654d2f481cb62cd10e4a96f1223a43b900e653537399a49442850d51915894bd1bc95872d75397db775bbad5a031399e32f81bfdcbc2f146b6184749bfe30217dc1657d9ad935af14aecd3ed6336322a952abae39bd75be14ef8dbf983db1e0d5c5333f7e267f64fa0c12ba3630854224d304580545b6467063d39348feba2cb7221f1e9740fc605f3653b5a130be5eecfe67a463e354f3dee8e69501c90261c9dacdf33f59a473a3a7cc8bce4b2f981b9596a04eb443b92c857d5d4154ba46a2f0d922a6e993971a6f21c3dd85f343041734a710ffe0de75726fa35af4a6f54961429eb3db562e20f3f74ad8248d5b242a9107b47ad800f241b4958c31e5c08377582a45c135969dd8c60ed0e1810513fbe55cb806a1672b2a76ef00bd42e5b539272b3c0f7a8145f521a9254d1571a386c6310fb7c49375df685c1587c84dde49cc33fa450392318f9b7a70487de164f9ce011b912b293f74fbe7203b855481d2f998c47c429b9580b81acf2057911ad8a720eb94e620cd27517593daeaa497628caea55efec89740bd85b140b1b0d2ebf0c8d5e850ed5e9972b3fb0e90270385ca012cffa8cd4a65b1061632247e74fe4e154bcafac5d20049ea830f767489fed75943a47bdf7359fc48b94826b9f1e40c40b08e8cdafc261bfb4648f4d646ccb37872faacf875e478520c3dacf07d6f846198a2b7b17ac8accf91285a1e1d0b02906da7f7fb3bcb07cae9d224e097a0743a2ae9cfa6d513c1fa094e8607f2b0f57ac25f922a03eb52d0114366ece6af37f2c0a3b583a9245824153147c7bb041016a81cb758f43d8674c0230f5ce9e6d9680eb2d73b8f29f8b7aebbfb2455519d8b9dfc4dde581cc75a63884d7962ea3917b60829d4fd0d9daed45726f6a918d40815d0afc438ccac6f39240d9c95d307f7eef6394c3054da12cf4b286a4eed89e0267c54c3a26ee2a5e33dec4bf5035be386c40051b735dd27c47391fdf182d6e60a68e399c4002491f23a5ebf551f59fa1a72f9b0fee988a5fb6866f8da413b7fd404f06f8f0dd4b0d0b727937e363982ec50ee7062fcad08af847b548307d9d5068365cca08a408dbd0edbbb511ed03dca65e9da0ae00f29c03e990cae159776e7333eba0a0399feaec567df8e8ca77b8a1fcf004e08ae4ceebd2552f71408dd32b44abc9d24c6897c6c0ba61cd7cef0f4beb7b661ff80857723e5cecebdfa9292c1dc25c10f0aa62d46b4b25366acda89fbd4d8390231d075dded92a408ec87a08a03236c082fdf5a572e4d1c55b99fd9756aae488717722fbba07cee438ad4adaec397c16c1363ce337e7e4b1e5ce1983cf97f64641814597cc55b1aab057c33af4cdb298dc42d1151aa067b08a1aa3d5657541fae1c55b1f93c93068d2d12c8f6e06748a56f7e04271fbf4b68e61a3625e70e2dca367c8f3cf4e7bd93a5baece2576ec59c901b8bfd90f9c2ca714266afade2254ec5591fd23f8bd4f62d9214e68b0aa33e55238ddab6c1ccbb61906930ed627e37bae291a7ffacf77850ced61217d89b4a0f0606c32e0edd5c41563e9346fa5b4462df0addb0c12bdd9a813d5b050d6687fc3174d2fc6f28216749465fa39cf938749c3177d4b4a194c6b786e6d7444e054e52c1c8f3703ba79336279a5c34c8ed6bc339bcc1029be9577ff650bfd67231773b3413f572d9282c3710b4b59a32ac722717032e854d6a87fa466fdd374a2fb20823a288c5a0dc94a1d3ab744ca6e6ff17a68cdd2b452c6ee5d132b6cd827d16953a79f37c75bdbacb4528c7c1d8dd2bb553c26d45e9e0e662a5416a7d15dd362736d6d88e8d9a4a7bb80193c0296021b5223471285ec817307c7cbf13d317046c9eec5b0d8d96c9bd65d8e1f13198f2a9fbf90e69917d1ffd99f635474b28606105d7c642aff5943aee5b2fc771b03f80f1844a37bf46785520364cfec0dc28006c179094b26d5f7a5ca86925126d9ff55aebb58e5951c729f4f40eb900e2ee8276ec2ad51aa05f7d79b78240c62bbadb2b407fade350528c2392d83886c68dd79bf85545d887d1d7afc44a67ba6df81806307ca3da61281c9814c584f</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Hey, password is required here.</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
+  </div>
+  
+  
+    
+    <div class='footer'>
+       <!-- 参考资料、相关资料等 -->
+      
+       <!-- 相关文章 -->
+      
+      <!-- 版权声明组件 -->
+      
+        
+          
+          <div class="copyright license">
+            <div class="license-title">harvest_protocol_2022</div>
+            <div class="license-link"><a href="https://biyouqiuqiu.com/2023/09/02/CTFS/CTFProtocol/harvest_protocol_2022/">https://biyouqiuqiu.com/2023/09/02/CTFS/CTFProtocol/harvest_protocol_2022/</a>
+            </div>
+            <div class="license-meta">
+              <div class="license-meta-item">
+                <div class="license-meta-title">本文作者</div>
+                <div class="license-meta-text">BY_DLIFE🍉</div>
+              </div>
+              <div class="license-meta-item">
+                <div class="license-meta-title">发布于</div>
+                <div class="license-meta-text">2023年9月2日</div>
+              </div>
+              
+              
+              <div class="license-meta-item">
+                <div class="license-meta-title">许可协议</div>
+                <div class="license-meta-text">禁止转载引用</div>
+              </div>
+            </div>
+            <div class="license-statement">除非获得原作者的单独授权，任何第三方不得转载！</div>
+          </div>
+        
+      
+      <!-- 打赏组件 -->
+      
+    </div>
+  
+  
+    
+
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          
+  <div class='new-meta-item category'>
+    <i class="fa-solid fa-folder fa-fw" aria-hidden="true"></i>
+    <a class="category-link" href="/categories/Experience/">Experience</a><span class="sep"></span><a class="category-link" href="/categories/Experience/CTF/">CTF</a>
+    
+      <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+        <a href="/categories/Experience/" itemprop="url"><span itemprop="name">Experience</span></a>
+      </span>
+    
+      <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+        <a href="/categories/Experience/CTF/" itemprop="url"><span itemprop="name">CTF</span></a>
+      </span>
+    
+  </div>
+
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Experience/" rel="nofollow"><i class="fa-solid fa-bookmark fa-fw" aria-hidden="true"></i><p>Experience</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/soliditiy/" rel="nofollow"><i class="fa-solid fa-bookmark fa-fw" aria-hidden="true"></i><p>soliditiy</p></a></div>
+  <span hidden itemprop="keywords">Experience soliditiy</span>
+
+
+        
+      
+        
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2023-09-02T12:50:10+08:00">
+  <a class='notlink'>
+    <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2023年9月2日</p>
+  </a>
+</div>
+
+        
+      
+    </div>
+    <!-- Custom Files bottomMeta begin -->
+    
+    <!-- Custom Files bottomMeta end -->
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+        <a class='prev' href='/2023/09/04/Basic_Knowledge/solidity/utils-create2/'>
+          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>utils-create2</p>
+          <p class='content'>引言
+在靶场刷题的时候经常会遇到各种涉及到create2操作码的题，这里整理了两个计算脚本(一个用于创建空参构造器的合约，另一个是用于创建带参构造器的合约)，都是基于etherjs-v5
+注：脚...</p>
+        </a>
+      
+      
+        <a class='next' href='/2023/09/01/CTFS/CTFProtocol/CTFProtocol/'>
+          <p class='title'>CTFProtocol-2022（11）<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>由简入难
+The Lost Kitty1. question
+Lucas is a scientist who lives with his cat in a big house that ha...</p>
+        </a>
+      
+    </div>
+  
+  <!-- Custom Files postEnd begin-->
+  
+  <!-- Custom Files postEnd end-->
+</article>
+
+
+  
+
+
+  <article class="post white-box shadow floatable blur" id="comments">
+    <span hidden>
+      <meta itemprop="discussionUrl" content="/2023/09/02/CTFS/CTFProtocol/harvest_protocol_2022/index.html#comments">
+    </span>
+    <p ct><i class='fa-solid fa-comments'></i> 评论</p>
+    
+
+    <div id="layoutHelper-comments"></div>
+
+  </article>
+
+
+
+
+
+
+</div>
+<aside id='l_side' itemscope itemtype="http://schema.org/WPSideBar">
+  
+
+  
+    
+    
+      
+    
+  
+
+
+<div class="widget-sticky pjax">
+
+  
+  
+
+
+  <section class="widget toc-wrapper desktop mobile " id="toc-div" style="display:none" >
+    
+  <header>
+    
+      <i class="fa-solid fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#The-Lost-Kitty"><span class="toc-text">The Lost Kitty</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RootMe"><span class="toc-text">RootMe</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Trickster"><span class="toc-text">Trickster</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#The-Golden-Ticket"><span class="toc-text">The Golden Ticket</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Smart-Horrocrux"><span class="toc-text">Smart Horrocrux</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Gas-Valve"><span class="toc-text">Gas Valve</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Stonks"><span class="toc-text">Stonks</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Pelusa"><span class="toc-text">Pelusa</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Phoenixtto"><span class="toc-text">Phoenixtto</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Mothership"><span class="toc-text">Mothership</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Metaverse-Supermarket"><span class="toc-text">Metaverse Supermarket</span></a></li></ol>
+    </div>
+  </section>
+
+  
+
+</div>
+
+
+<!-- 没有 pjax 占位会报错 万恶的 pjax -->
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <!-- Custom Files side begin -->
+  
+  <!-- Custom Files side end -->
+</aside>
+
+
+
+          <!--此文件用来存放一些不方便取值的变量-->
+<!--思路大概是将值藏到重加载的区域内-->
+
+<pjax>
+<script>
+  window.pdata={}
+  pdata.ispage=true;
+  pdata.commentPath="";
+  pdata.commentPlaceholder="";
+  pdata.commentConfig={};
+  //  see: /layout/_partial/scripts/_ctrl/coverCtrl.ejs
+  
+    // header
+    var l_header=document.getElementById("l_header");
+    
+    l_header.classList.add("show");
+    
+    
+      // cover
+      var cover_wrapper=document.querySelector('#l_cover .cover-wrapper');
+      var scroll_down=document.getElementById('scroll-down');
+      cover_wrapper.id="none";
+      cover_wrapper.style.display="none";
+      scroll_down.style.display="none";
+    
+  
+</script>
+</pjax>
+        </div>
+        
+  
+  <footer class="footer clearfix"  itemscope itemtype="http://schema.org/WPFooter">
+    <br><br>
+    
+      
+        <div class='copyright'>
+        <p><span>© 2018 - 2023 </span><span> BY_DLIFE🍉</span></p>
+
+        </div>
+      
+    
+      
+        
+          <div><p>政策 · 统计 | 本站使用 <a href="https://volantis.js.org/" target="_blank">Volantis</a> 主题设计</p>
+</div>
+        
+      
+    
+      
+        <br>
+        <div class="social-wrapper" itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          
+            
+              <a href="/"
+                class="social fas fa-rss flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer" itemprop="url">
+                
+              </a>
+            
+          
+            
+              <a href="mailto:3071709373@.com"
+                class="social fas fa-envelope flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer" itemprop="url">
+                
+              </a>
+            
+          
+            
+              <a href="https://github.com/LBiyou"
+                class="social fab fa-github flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer" itemprop="url">
+                
+              </a>
+            
+          
+        </div>
+      
+    
+    <!-- Custom Files footer begin-->
+    
+    <!-- Custom Files footer end-->
+  </footer>
+
+
+        <a id="s-top" class="fa-solid fa-arrow-up fa-fw" href="/" onclick="return false;" title="top"></a>
+      </div>
+    </div>
+    <div>
+      <script>
+  /******************** volantis.dom ********************************/
+  // 页面选择器 将dom对象缓存起来 see: /source/js/app.js etc.
+  volantis.dom.bodyAnchor = volantis.dom.$(document.getElementById("safearea")); // 页面主体
+  volantis.dom.topBtn = volantis.dom.$(document.getElementById('s-top')); // 向上
+  volantis.dom.wrapper = volantis.dom.$(document.getElementById('wrapper')); // 整个导航栏
+  volantis.dom.coverAnchor = volantis.dom.$(document.querySelector('#l_cover .cover-wrapper')); // 1个
+  volantis.dom.switcher = volantis.dom.$(document.querySelector('#l_header .switcher .s-search')); // 搜索按钮   移动端 1个
+  volantis.dom.header = volantis.dom.$(document.getElementById('l_header')); // 移动端导航栏
+  volantis.dom.search = volantis.dom.$(document.querySelector('#l_header .m_search')); // 搜索框 桌面端 移动端 1个
+  volantis.dom.mPhoneList = volantis.dom.$(document.querySelectorAll('#l_header .m-phone .list-v')); //  手机端 子菜单 多个
+</script>
+
+<script>
+  
+  volantis.css("https://unpkg.com/volantis-static@0.0.1654736714924/libs/@fortawesome/fontawesome-free/css/all.min.css");
+  
+  
+  
+</script>
+
+<!-- required -->
+
+
+<!-- internal -->
+
+<script src="/js/app.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="rightmenu-wrapper">
+  <ul class="list-v rightmenu" id="rightmenu-content">
+    
+  <li class='navigation menuNavigation-Content'>
+
+
+    <a class="nav icon-only fix-cursor-default" onclick="history.back()"><i class="fa-solid fa-arrow-left fa-fw"></i></a>
+
+
+
+    <a class="nav icon-only fix-cursor-default" onclick="history.forward()"><i class="fa-solid fa-arrow-right fa-fw"></i></a>
+
+
+
+    <a class="nav icon-only fix-cursor-default" onclick="window.location.reload()"><i class="fa-solid fa-redo fa-fw"></i></a>
+
+
+
+    <a class="nav icon-only fix-cursor-default" onclick="VolantisApp.scrolltoElement(volantis.dom.bodyAnchor)"><i class="fa-solid fa-arrow-up fa-fw"></i></a>
+
+
+  </li>
+
+
+    <hr class="menuLoad-Content" >
+
+
+
+  <li class="menuLoad-Content">
+    <span class="vlts-menu fix-cursor-default event" id="copyPaste" data-event="copyPaste" data-group="inputBox">
+      <i class="fa-solid fa-paste fa-fw"></i>
+      粘贴文本
+    </span>
+  </li>
+
+
+
+  <li class="menuLoad-Content">
+    <span class="vlts-menu fix-cursor-default event" id="copyAll" data-event="copyAll" data-group="inputBox">
+      <i class="fa-solid fa-object-ungroup fa-fw"></i>
+      全选文本
+    </span>
+  </li>
+
+
+
+  <li class="menuLoad-Content">
+    <span class="vlts-menu fix-cursor-default event" id="copyCut" data-event="copyCut" data-group="inputBox">
+      <i class="fa-solid fa-cut fa-fw"></i>
+      剪切文本
+    </span>
+  </li>
+
+
+
+  <li class="menuLoad-Content">
+    <span class="vlts-menu fix-cursor-default event" id="copyText" data-event="copyText" data-group="seletctText">
+      <i class="fa-solid fa-copy fa-fw"></i>
+      复制文本
+    </span>
+  </li>
+
+
+
+  <li class="menuLoad-Content">
+    <span class="vlts-menu fix-cursor-default event" id="searchWord" data-event="OpenSearch(__text__)" data-group="seletctText">
+      <i class="fa-solid fa-search fa-fw"></i>
+      站内搜索
+    </span>
+  </li>
+
+
+
+  <li class="menuLoad-Content">
+    <span class="vlts-menu fix-cursor-default event" id="bingSearch" data-event="window.open(`https://cn.bing.com/search?q=${__text__}`)" data-group="seletctText">
+      <i class="fa-solid fa-search fa-fw"></i>
+      必应搜索
+    </span>
+  </li>
+
+
+
+  <li class="menuLoad-Content">
+    <span class="vlts-menu fix-cursor-default event" id="openTab" data-event="window.open(__link__)" data-group="elementCheck">
+      <i class="fa-solid fa-external-link-square-alt fa-fw"></i>
+      新标签页打开
+    </span>
+  </li>
+
+
+
+  <li class="menuLoad-Content">
+    <span class="vlts-menu fix-cursor-default event" id="copyLink" data-event="copyLink" data-group="elementCheck">
+      <i class="fa-solid fa-link fa-fw"></i>
+      复制链接地址
+    </span>
+  </li>
+
+
+
+  <li class="menuLoad-Content">
+    <span class="vlts-menu fix-cursor-default event" id="copyImg" data-event="copyImg" data-group="elementImage">
+      <i class="fa-solid fa-image fa-fw"></i>
+      复制图片
+    </span>
+  </li>
+
+
+
+  <li class="menuLoad-Content">
+    <span class="vlts-menu fix-cursor-default event" id="googleImg" data-event="window.open(`https://www.google.com.hk/searchbyimage?image_url=${__link__}`)" data-group="elementImage">
+      <i class="fa-solid fa-images fa-fw"></i>
+      谷歌识图
+    </span>
+  </li>
+
+
+
+  <li class="menuLoad-Content">
+    <a class="vlts-menu fix-cursor-default" id="help" target="_blank" rel="noopener" href="https://volantis.js.org/faqs/" data-group="link">
+      <i class="fa-solid fa-question fa-fw"></i>
+      常见问题
+    </a>
+  </li>
+
+
+
+  <li class="menuLoad-Content">
+    <a class="vlts-menu fix-cursor-default" id="source_docs" target="_blank" rel="noopener" href="https://github.com/LBiyou/LBiyou.github.io" data-group="link">
+      <i class="fa-solid fa-code-branch fa-fw"></i>
+      本站源码
+    </a>
+  </li>
+
+
+
+    <hr class="menuLoad-Content" >
+
+
+
+  <li class="menuLoad-Content">
+    <span class="vlts-menu fix-cursor-default event" id="darkMode" data-event="volantis.dark.toggle()" data-group="darkMode">
+      <i class="fa-solid fa-moon fa-fw"></i>
+      夜间模式
+    </span>
+  </li>
+
+
+
+  <li class="menuLoad-Content">
+    <span class="vlts-menu fix-cursor-default event" id="printMode" data-event="printMode" data-group="articlePage">
+      <i class="fa-solid fa-print fa-fw"></i>
+      打印页面
+    </span>
+  </li>
+
+
+
+  <li class="menuLoad-Content">
+    <span class="vlts-menu fix-cursor-default event" id="readMode" data-event="readMode" data-group="articlePage">
+      <i class="fa-solid fa-book-open fa-fw"></i>
+      阅读模式
+    </span>
+  </li>
+
+
+<div id="menuMusic">
+  <li class='music name menuOption-Content'>
+    <p class='nav music-title fix-cursor-default'></p>
+  </li>
+  <li class='music ctrl'>
+    <a class='nav icon-only backward fix-cursor-default' href="/" onclick="return false;" title="backward">
+      <i class='fa-solid fa-step-backward fa-fw'></i>
+    </a>
+    <a class='nav icon-only toggle fix-cursor-default' href="/" onclick="return false;" title="toggle">
+      <i class='fa-solid fa-play fa-fw'></i>
+    </a>
+    <a class='nav icon-only forward fix-cursor-default' href="/" onclick="return false;" title="forward">
+      <i class='fa-solid fa-step-forward fa-fw'></i>
+    </a>
+  </li>
+  <li class='music volume'>
+    <div class='nav volume'>
+      <div class="aplayer-volume-bar-wrap">
+        <div class="aplayer-volume-bar fix-cursor-pointer">
+          <div class="aplayer-volume"></div>
+          <i class='left fa-solid fa-volume-off fa-fw'></i>
+          <i class='right fa-solid fa-volume-up fa-fw'></i>
+        </div>
+      </div>
+    </div>
+  </li>
+</div>
+
+  </ul>
+</div>
+<script src="/js/plugins/rightMenus.js"></script>
+<script>
+  const RightMenusFunction = {};
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  //RightMenusFunction['copyPaste'] = (fun) => {fun()}
+
+
+
+
+
+  //RightMenusFunction['copyAll'] = (fun) => {fun()}
+
+
+
+
+
+  //RightMenusFunction['copyCut'] = (fun) => {fun()}
+
+
+
+
+
+  //RightMenusFunction['copyText'] = (fun) => {fun()}
+
+
+
+
+
+  RightMenusFunction['searchWord'] = (__text__) => {OpenSearch(__text__)}
+
+
+
+
+
+  RightMenusFunction['bingSearch'] = (__text__) => {window.open(`https://cn.bing.com/search?q=${__text__}`)}
+
+
+
+
+
+  RightMenusFunction['openTab'] = (__link__) => {window.open(__link__)}
+
+
+
+
+
+  //RightMenusFunction['copyLink'] = (fun) => {fun()}
+
+
+
+
+
+  //RightMenusFunction['copyImg'] = (fun) => {fun()}
+
+
+
+
+
+  RightMenusFunction['googleImg'] = (__link__) => {window.open(`https://www.google.com.hk/searchbyimage?image_url=${__link__}`)}
+
+
+
+
+
+
+
+
+
+
+
+  RightMenusFunction['darkMode'] = () => {volantis.dark.toggle()}
+
+
+
+
+
+  //RightMenusFunction['printMode'] = (fun) => {fun()}
+
+
+
+
+
+  //RightMenusFunction['readMode'] = (fun) => {fun()}
+
+
+
+
+
+</script>
+
+
+
+<!-- rightmenu要在darkmode之前（ToggleButton） darkmode要在comments之前（volantis.dark.push）-->
+
+  <script>
+const rootElement = document.documentElement;
+const darkModeStorageKey = "color-scheme";
+const rootElementDarkModeAttributeName = "color-scheme";
+const setLS = (k, v) => {
+    localStorage.setItem(k, v);
+};
+const removeLS = (k) => {
+    localStorage.removeItem(k);
+};
+const getLS = (k) => {
+    return localStorage.getItem(k);
+};
+const getModeFromCSSMediaQuery = () => {
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+};
+const resetRootDarkModeAttributeAndLS = () => {
+  rootElement.removeAttribute(rootElementDarkModeAttributeName);
+  removeLS(darkModeStorageKey);
+};
+const validColorModeKeys = {
+  dark: true,
+  light: true,
+};
+const applyCustomDarkModeSettings = (mode) => {
+  const currentSetting = mode || getLS(darkModeStorageKey);
+  getCustomDarkMode();
+  if (currentSetting === getModeFromCSSMediaQuery()) {
+    resetRootDarkModeAttributeAndLS();
+  } else if (validColorModeKeys[currentSetting]) {
+    rootElement.setAttribute(rootElementDarkModeAttributeName, currentSetting);
+  } else {
+    resetRootDarkModeAttributeAndLS();
+  }
+};
+const invertDarkModeObj = {
+  dark: "light",
+  light: "dark",
+};
+/**
+ * get target mode
+ */
+ const getCustomDarkMode = () => {
+  let currentSetting = getLS(darkModeStorageKey);
+  if (validColorModeKeys[currentSetting]) {
+    currentSetting = invertDarkModeObj[currentSetting];
+  } else if (currentSetting === null) {
+    currentSetting = invertDarkModeObj[getModeFromCSSMediaQuery()];
+  } else {
+    return;
+  }
+  if(currentSetting=="dark"){
+    volantis.dark.mode="light";
+  }else{
+    volantis.dark.mode="dark";
+  }
+  // console.log(volantis.dark.mode)
+};
+const toggleCustomDarkMode = () => {
+  let currentSetting = getLS(darkModeStorageKey);
+  if (validColorModeKeys[currentSetting]) {
+    currentSetting = invertDarkModeObj[currentSetting];
+  } else if (currentSetting === null) {
+    currentSetting = invertDarkModeObj[getModeFromCSSMediaQuery()];
+  } else {
+    return;
+  }
+  setLS(darkModeStorageKey, currentSetting);
+  return currentSetting;
+};
+/**
+ * 暗黑模式触发器
+ */
+volantis.dark.toggle=()=>{
+  const mode = toggleCustomDarkMode();
+  applyCustomDarkModeSettings(mode);
+  // 使用 volantis.dark.push 方法传入volantis.dark.toggle回调函数 参见layout/_partial/scripts/global.ejs
+  volantis.dark.method.toggle.start();
+}
+/**
+ * bind event for toggle button
+ */
+
+function bindToggleButton() {
+  var btn= document.querySelectorAll("#wrapper .toggle-mode-btn,#rightmenu-wrapper .toggle-mode-btn")
+  btn.forEach(function (e) {
+    volantis.dom.$(e).on('click',volantis.dark.toggle);
+  })
+}
+applyCustomDarkModeSettings();
+document.addEventListener("DOMContentLoaded", ()=>{
+  volantis.requestAnimationFrame(bindToggleButton)
+});
+volantis.pjax.push(bindToggleButton);
+
+const darkModelListeners={
+  dark:(mediaQueryList )=>{
+    if(mediaQueryList.matches){
+      volantis.dark.mode = "dark";
+    }
+    volantis.dark.method.toggle.start();
+  },
+  light:(mediaQueryList)=>{
+    if(mediaQueryList.matches){
+      volantis.dark.mode = "light";
+    }
+    volantis.dark.method.toggle.start();
+  }
+}
+window.matchMedia('(prefers-color-scheme: dark)').addListener(darkModelListeners.dark)
+window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListeners.light)
+</script>
+
+
+
+
+<script>
+  function loadIssuesJS() {
+    
+      const sites_api = document.getElementById('sites-api');
+      if (sites_api != undefined && typeof SitesJS === 'undefined') {
+        volantis.js("/js/plugins/tags/sites.js")
+      }
+    
+    
+      const friends_api = document.getElementById('friends-api');
+      if (friends_api != undefined && typeof FriendsJS === 'undefined') {
+        volantis.js("/js/plugins/tags/friends.js")
+      }
+    
+    
+      const contributors_api = document.getElementById('contributors-api');
+      if (contributors_api != undefined && typeof ContributorsJS === 'undefined') {
+        volantis.js("/js/plugins/tags/contributors.js")
+      }
+    
+  };
+  loadIssuesJS()
+  volantis.pjax.push(()=>{
+    loadIssuesJS();
+  })
+
+</script>
+
+
+
+
+
+
+  
+
+<script>
+  window.FPConfig = {
+	delay: 0,
+	ignoreKeywords: ["#"],
+	maxRPS: 6,
+	hoverDelay: 0
+  };
+</script>
+<script defer src="https://unpkg.com/volantis-static@0.0.1654736714924/libs/flying-pages/flying-pages.min.js"></script>
+
+
+
+
+
+
+
+  <script>
+  volantis.css("https://unpkg.com/volantis-static@0.0.1654736714924/libs/aplayer/dist/APlayer.min.css");
+  (async () => {
+    // APlayer 需要在  MetingJS 之前加载
+    await volantis.js("https://unpkg.com/volantis-static@0.0.1654736714924/libs/aplayer/dist/APlayer.min.js")
+    await volantis.js("https://unpkg.com/volantis-static@0.0.1654736714924/libs/meting/dist/Meting.min.js")
+  
+    // 右键 music 需要在 APlayer  MetingJS 之后加载
+    await volantis.js('/js/plugins/aplayer.js')
+  
+  })();
+
+  function SetAPlayerPlugin(){
+    let Metings = document.querySelectorAll('meting-js');
+    if (Metings.length === 0) {return;};
+    if (Metings[0].aplayer && Metings[0].aplayer.on) {
+      // improve the accessibility https://web.dev/button-name/
+      document.querySelectorAll(".aplayer-icon-menu").forEach(e=>{
+        e.setAttribute("aria-label","Aplayer Menu")
+      })
+      // message see: /layout/_plugins/message/script.ejs
+      
+        try {
+          setTimeout(() => {
+            Metings.forEach((item, index) => {
+              const aplayerItem = item.aplayer; if(!aplayerItem) return;
+              const rightAplayerCheck = 'true' === 'true'
+                && item.meta.id === '8913002428';
+              if(rightAplayerCheck && typeof RightMenuAplayer !="undefined") RightMenuAplayer.checkAPlayer();
+              if(aplayerItem.events.events.play.every(item => {return item.name !== 'messagePlay'})) {
+                aplayerItem.on('play', function messagePlay() {
+                  let index = aplayerItem.list.index;
+                  let title = aplayerItem.list.audios[index].title;
+                  let artist = aplayerItem.list.audios[index].artist;
+                  setTimeout(() => {
+                    VolantisApp.message('音乐通知', title + ' - ' + artist, {
+                      icon: 'fa-solid fa-play',
+                      transitionIn: 'flipInX',
+                      transitionOut: 'flipOutX'
+                    });
+                  }, 100)
+                });
+              }
+              if(aplayerItem.events.events.pause.every(item => {return item.name !== 'messagePause'})) {
+                aplayerItem.on('pause', function messagePause() {
+                  let index = aplayerItem.list.index;
+                  let title = aplayerItem.list.audios[index].title;
+                  let artist = aplayerItem.list.audios[index].artist;
+                  setTimeout(() => {
+                    // 歌曲播放结束也会触发 pause 事件，为了避免错误提示，等待一会儿
+                    if(aplayerItem.paused) {
+                      VolantisApp.message('音乐通知', title + ' - ' + artist, {
+                        icon: 'fa-solid fa-pause',
+                        transitionIn: 'flipInX',
+                        transitionOut: 'flipOutX'
+                      });
+                    }
+                  }, 100)
+                });
+              }
+            });
+          }, 500)
+        } catch (error) { console.error(error); }
+      
+    }else{
+      volantis.requestAnimationFrame(SetAPlayerPlugin)
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", ()=>{
+    SetAPlayerPlugin();
+  });
+  volantis.pjax.push(SetAPlayerPlugin);
+</script>
+
+
+
+
+      <script>
+  volantis.layoutHelper("comments",`<div id="giscus_container"></div>`)
+
+  volantis.giscus = {};
+
+  function check_giscus() {
+    if (volantis.dark.mode === "dark") {
+      volantis.giscus.Theme = 'dark';
+    } else {
+      volantis.giscus.Theme = 'light';
+    }
+
+    return document.getElementById("giscus_container");
+  }
+
+  function pjax_giscus() {
+    const HEAD = check_giscus();
+    if (!HEAD) return;
+    let cfg = Object.assign({"theme":{"light":"light","dark":"dark"},"repo":"LBiyou/blog_comments","repo-id":"R_kgDOJfOxQg","category":"Announcements","category-id":"DIC_kwDOJfOxQs4CW34_","mapping":"pathname","reactions-enabled":"1","emit-metadata":"0","lang":"zh-CN"},pdata.commentConfig)
+    const script = document.createElement('script');
+    script.setAttribute('src', 'https://giscus.app/client.js');
+    Object.keys(cfg).forEach(k=>{
+      if (k != "theme") {
+        script.setAttribute('data-'+k, cfg[k]);
+      }
+    })
+    script.setAttribute('data-theme', volantis.giscus.Theme);
+    script.setAttribute('crossorigin', "anonymous");
+    HEAD.appendChild(script);
+  }
+
+  function dark_giscus() {
+    const HEAD = check_giscus();
+    if (!HEAD) return;
+
+    const message = {
+      setConfig: {
+        theme: volantis.giscus.Theme
+      }
+    };
+    const giscusIframe = document.querySelector('iframe.giscus-frame');
+    giscusIframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+  }
+  pjax_giscus();
+  volantis.pjax.push(pjax_giscus);
+  volantis.dark.push(dark_giscus);
+</script>
+
+    
+
+
+
+
+  <script defer src="https://unpkg.com/volantis-static@0.0.1654736714924/libs/busuanzi/js/busuanzi.pure.mini.js" data-pjax></script>
+
+
+<!-- optional -->
+
+  <script>
+  const SearchServiceDataPathRoot = ("/" || "/").endsWith("/") ?
+    "/" || "/" :
+    "//" || "/";
+  const SearchServiceDataPath = SearchServiceDataPathRoot + "content.json";
+
+  function loadSearchScript() {
+    // see: layout/_partial/scripts/_ctrl/cdnCtrl.ejs
+    return volantis.js("/js/search/hexo.js");
+  }
+
+  function loadSearchService() {
+    loadSearchScript();
+    document.querySelectorAll(".input.u-search-input").forEach((e) => {
+      e.removeEventListener("focus", loadSearchService, false);
+    });
+
+    document.querySelectorAll(".u-search-form").forEach((e) => {
+      e.addEventListener("submit", (event) => {
+        event.preventDefault();
+      }, false);
+    });
+  }
+
+  // 打开并搜索 字符串 s
+  function OpenSearch(s) {
+    if (typeof SearchService === 'undefined')
+      loadSearchScript().then(() => {
+        SearchService.setQueryText(s);
+        SearchService.search();
+      });
+    else {
+      SearchService.setQueryText(s);
+      SearchService.search();
+    }
+  }
+
+  // 访问含有 ?s=xxx  的链接时打开搜索 // 与搜索引擎 structured data 相关: /scripts/helpers/structured-data/lib/config.js
+  if (window.location.search && /^\?s=/g.test(window.location.search)) {
+    let queryText = decodeURI(window.location.search)
+      .replace(/\ /g, "-")
+      .replace(/^\?s=/g, "");
+    OpenSearch(queryText);
+  }
+
+  // 搜索输入框获取焦点时加载搜索
+  document.querySelectorAll(".input.u-search-input").forEach((e) => {
+    e.addEventListener("focus", loadSearchService, false);
+  });
+</script>
+
+
+
+
+
+
+
+  <script>
+
+
+
+  function pjax_highlightjs_copyCode(){
+    if (!(document.querySelector(".highlight .code pre") ||
+      document.querySelector(".article pre code"))) {
+      return;
+    }
+    VolantisApp.utilCopyCode(".highlight .code pre, .article pre code")
+  }
+  volantis.requestAnimationFrame(pjax_highlightjs_copyCode)
+  volantis.pjax.push(pjax_highlightjs_copyCode)
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  <script>
+  function load_swiper() {
+    if (!document.querySelectorAll(".swiper-container")[0]) return;
+    volantis.css("https://unpkg.com/volantis-static@0.0.1654736714924/libs/swiper/swiper-bundle.min.css");
+    volantis.js("https://unpkg.com/volantis-static@0.0.1654736714924/libs/swiper/swiper-bundle.min.js").then(() => {
+      pjax_swiper();
+    });
+  }
+
+  load_swiper();
+
+  function pjax_swiper() {
+    volantis.swiper = new Swiper('.swiper-container', {
+      slidesPerView: 'auto',
+      spaceBetween: 8,
+      centeredSlides: true,
+      loop: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+  }
+
+  volantis.pjax.push(() => {
+    if (!document.querySelectorAll(".swiper-container")[0]) return;
+    if (typeof volantis.swiper === "undefined") {
+      load_swiper();
+    } else {
+      pjax_swiper();
+    }
+  });
+</script>
+
+
+<!-- pjax 标签必须存在于所有页面 否则 pjax error -->
+<pjax>
+
+</pjax>
+
+<script>
+  function listennSidebarTOC() {
+    const navItems = document.querySelectorAll(".toc li");
+    if (!navItems.length) return;
+    let targets = []
+    const sections = [...navItems].map((element) => {
+      const link = element.querySelector(".toc-link");
+      const target = document.getElementById(
+        decodeURI(link.getAttribute("href")).replace("#", "")
+      );
+      targets.push(target)
+      // 解除 a 标签 href 的 锚点定位, a 标签 href 的 锚点定位 会随机启用?? 产生错位???
+      link.setAttribute("onclick","return false;")
+      link.setAttribute("toc-action","toc-"+decodeURI(link.getAttribute("href")).replace("#", ""))
+      link.setAttribute("href","/")
+      // 配置 点击 触发新的锚点定位
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+        // 这里的 addTop 是通过错位使得 toc 自动展开.
+        volantis.scroll.to(target,{addTop: 5, observer:true})
+        // Anchor id
+        history.pushState(null, document.title, "#" + target.id);
+      });
+      return target;
+    });
+
+    function activateNavByIndex(target) {
+      if (target.classList.contains("active-current")) return;
+
+      document.querySelectorAll(".toc .active").forEach((element) => {
+        element.classList.remove("active", "active-current");
+      });
+      target.classList.add("active", "active-current");
+      let parent = target.parentNode;
+      while (!parent.matches(".toc")) {
+        if (parent.matches("li")) parent.classList.add("active");
+        parent = parent.parentNode;
+      }
+    }
+
+    // 方案一：
+    volantis.activateNavIndex=0
+    activateNavByIndex(navItems[volantis.activateNavIndex])
+    volantis.scroll.push(()=>{
+      if (targets[0].getBoundingClientRect().top >= 0) {
+        volantis.activateNavIndex = 0
+      }else if (targets[targets.length-1].getBoundingClientRect().top < 0) {
+        volantis.activateNavIndex = targets.length-1
+      } else {
+        for (let index = 0; index < targets.length; index++) {
+          const target0 = targets[index];
+          const target1 = targets[(index+1)%targets.length];
+          if (target0.getBoundingClientRect().top < 0&&target1.getBoundingClientRect().top >= 0) {
+            volantis.activateNavIndex=index
+            break;
+          }
+        }
+      }
+      activateNavByIndex(navItems[volantis.activateNavIndex])
+    })
+
+    // 方案二：
+    // IntersectionObserver 不是完美精确到像素级别 也不是低延时性的
+    // function findIndex(entries) {
+    //   let index = 0;
+    //   let entry = entries[index];
+    //   if (entry.boundingClientRect.top > 0) {
+    //     index = sections.indexOf(entry.target);
+    //     return index === 0 ? 0 : index - 1;
+    //   }
+    //   for (; index < entries.length; index++) {
+    //     if (entries[index].boundingClientRect.top <= 0) {
+    //       entry = entries[index];
+    //     } else {
+    //       return sections.indexOf(entry.target);
+    //     }
+    //   }
+    //   return sections.indexOf(entry.target);
+    // }
+    // function createIntersectionObserver(marginTop) {
+    //   marginTop = Math.floor(marginTop + 10000);
+    //   let intersectionObserver = new IntersectionObserver(
+    //     (entries, observe) => {
+    //       let scrollHeight = document.documentElement.scrollHeight;
+    //       if (scrollHeight > marginTop) {
+    //         observe.disconnect();
+    //         createIntersectionObserver(scrollHeight);
+    //         return;
+    //       }
+    //       let index = findIndex(entries);
+    //       activateNavByIndex(navItems[index]);
+    //     }, {
+    //       rootMargin: marginTop + "px 0px -100% 0px",
+    //       threshold: 0,
+    //     }
+    //   );
+    //   sections.forEach((element) => {
+    //     element && intersectionObserver.observe(element);
+    //   });
+    // }
+    // createIntersectionObserver(document.documentElement.scrollHeight);
+  }
+
+  document.addEventListener("DOMContentLoaded", ()=>{
+    volantis.requestAnimationFrame(listennSidebarTOC)
+  });
+  document.addEventListener("pjax:success", ()=>{
+    volantis.requestAnimationFrame(listennSidebarTOC)
+  });
+</script>
+
+
+
+<script>
+  document.onreadystatechange = function () {
+    if (document.readyState == 'complete') {
+      // 页面加载完毕 样式加载失败，或是当前网速慢，或是开启了省流模式
+      const { saveData, effectiveType } = navigator.connection || navigator.mozConnection || navigator.webkitConnection || {}
+      if (getComputedStyle(document.querySelector("#safearea"), null)["display"] == "none" || saveData || /2g/.test(effectiveType)) {
+        document.querySelectorAll(".reveal").forEach(function (e) {
+          e.style["opacity"] = "1";
+        });
+        document.querySelector("#safearea").style["display"] = "block";
+      }
+    }
+  }
+</script>
+
+
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"BY_DLIFE🍉","url":"https://biyouqiuqiu.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"BY_DLIFE🍉","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://biyouqiuqiu.com/","sameAs":["https://github.com/volantis-x"],"description":"Self-Discipline"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://biyouqiuqiu.com/","name":"BY_DLIFE🍉"}},{"@type":"ListItem","position":2,"item":{"@id":"https://biyouqiuqiu.com/categories/Experience/","name":"Experience"}},{"@type":"ListItem","position":2,"item":{"@id":"https://biyouqiuqiu.com/categories/Experience/CTF/","name":"CTF"}},{"@type":"ListItem","position":3,"item":{"@id":"https://biyouqiuqiu.com/2023/09/02/CTFS/CTFProtocol/harvest_protocol_2022/","name":"harvest_protocol_2022"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"BY_DLIFE🍉","url":"https://biyouqiuqiu.com/","keywords":null,"description":"Self-Discipline","author":{"@type":"Person","name":"BY_DLIFE🍉","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://biyouqiuqiu.com/","description":"Self-Discipline"},"publisher":{"@type":"Organization","name":"BY_DLIFE🍉","url":"https://biyouqiuqiu.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://biyouqiuqiu.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"harvest_protocol_2022","description":"Here's something encrypted, password is required to continue reading.","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://biyouqiuqiu.com/2023/09/02/CTFS/CTFProtocol/harvest_protocol_2022/"},"author":{"@type":"Person","name":"BY_DLIFE🍉","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://biyouqiuqiu.com/"},"publisher":{"@type":"Organization","name":"BY_DLIFE🍉","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://biyouqiuqiu.com/2023/09/02/CTFS/CTFProtocol/harvest_protocol_2022/","wordCount":69,"datePublished":"2023-09-02T04:50:10.000Z","dateModified":"2023-09-02T04:50:10.000Z","articleSection":"Experience","keywords":"Experience,soliditiy","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+
+
+
+      
+        <!--
+  pjax重载区域接口：
+  1.  <pjax></pjax> 标签 pjax 标签必须存在于所有页面 否则 pjax error
+  2.  script[data-pjax]
+  3.  .pjax-reload script
+  4.  .pjax
+-->
+
+
+
+<script src="https://unpkg.com/volantis-static@0.0.1654736714924/libs/pjax/pjax.min.js"></script>
+
+
+<script>
+    var pjax;
+    document.addEventListener('DOMContentLoaded', function () {
+      pjax = new Pjax({
+        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox]):not([onclick="return false;"]):not([onclick="return!1"]):not([target="_blank"]):not([target="view_window"]):not([href$=".xml"])',
+        selectors: [
+          "head title",
+          "head meta[name=keywords]",
+          "head meta[name=description]",
+          
+          "#l_main",
+          "#pjax-header-nav-list",
+          ".pjax",
+          "pjax", // <pjax></pjax> 标签
+          "script[data-pjax], .pjax-reload script" // script标签添加data-pjax 或 script标签外层添加.pjax-reload 的script代码段重载
+        ],
+        cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+        timeout: 5000,
+        
+      });
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+      //window.stop(); // 相当于点击了浏览器的停止按钮
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = [""];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      // 使用 volantis.pjax.send 方法传入pjax:send回调函数 参见layout/_partial/scripts/global.ejs
+      volantis.pjax.method.send.start();
+    });
+
+    document.addEventListener('pjax:complete', function () {
+      // 使用 volantis.pjax.push 方法传入重载函数 参见layout/_partial/scripts/global.ejs
+      volantis.pjax.method.complete.start();
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+      if(volantis.debug) {
+        console.error(e);
+        console.log('pjax error: \n' + JSON.stringify(e));
+      }else{
+        // 使用 volantis.pjax.error 方法传入pjax:error回调函数 参见layout/_partial/scripts/global.ejs
+        volantis.pjax.method.error.start();
+        window.location.href = e.triggerElement.href;
+      }
+    });
+</script>
+
+      
+    </div>
+    <!-- import body_end begin-->
+    <!-- import body_end end-->
+    <!-- Custom Files bodyEnd begin-->
+    
+    <!-- Custom Files bodyEnd end-->
+    <!-- front-matter body_end begin -->
+    <!-- front-matter body_end end -->
+  </body>
+</html>
