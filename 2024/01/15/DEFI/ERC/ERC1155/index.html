@@ -1794,7 +1794,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1714813929111),
+    lastupdate: new Date(1716387798136),
     sidebar: {
       for_page: ["blogger","category","tagcloud","webinfo"],
       for_post: ["toc"],
@@ -2980,7 +2980,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
     <h3 id="1-ERC1155-简介"><a href="#1-ERC1155-简介" class="headerlink" title="1. ERC1155 简介"></a>1. ERC1155 简介</h3><blockquote>
-<p>这是一个管理多种代币类型的合约标准，该合约可以包括同质化代币和非同质化代币，可以代表任意数量的同质化和非同质化的代币类型，抽象上可以解释为：ERC1155 囊括了 ERC20和ERC777这两种标准。ERC1155的用处，举个游戏的例子（王者荣耀）例子：要是使用ERC20来表示游戏的金币、钻石、点券，很明显ERC20无法做到，因为ERC20 token是同质化的，不能明确区分token与token之间的不同；要是使用ERC721，根据ERC721非同质化的特点，确实是可以表示金币、钻石、点券，但是ERC721 token不能细分，从而导致只能表示“1”个金币、钻石、点券，这很显然是可取的。正是为了解决这些不足，从而发行了ERC1155标准，这可以很完美的解决上述问题。在ERC1155 token中不同的id表示不同的属性，而且还可以给id设置数量，有了这些特性，便可以很好的解决上述痛点。</p>
+<p>这是一个管理多种代币类型的合约标准，该合约可以包括同质化代币和非同质化代币，可以代表任意数量的同质化和非同质化的代币类型，抽象上可以解释为：ERC1155 囊括了 ERC20和ERC777这两种标准。ERC1155的用处，举个游戏的例子（王者荣耀）例子：要是使用ERC20来表示游戏的金币、钻石、点券，很明显ERC20无法做到，因为ERC20 token是同质化的，不能明确区分token与token之间的不同；要是使用ERC721，根据ERC721非同质化的特点，确实是可以表示金币、钻石、点券，但是ERC721 token不能细分，从而导致只能表示“1”个金币、钻石、点券，这很显然是不可取的。正是为了解决这些不足，从而发行了ERC1155标准，这可以很完美的解决上述问题。在ERC1155 token中不同的id表示不同的属性，而且还可以给id设置数量，有了这些特性，便可以很好的解决上述痛点。</p>
 <ul>
 <li>同质化代币的表示方式为：如果某个<code>id</code>对应的代币总量为<code>1</code>，那么它就是非同质化代币，类似<code>ERC721</code>；</li>
 <li>非同质化代币的表示方式为：如果某个<code>id</code>对应的代币总量大于<code>1</code>，那么他就是同质化代币，因为这些代币都分享同一个<code>id</code>，类似<code>ERC20</code>。</li>

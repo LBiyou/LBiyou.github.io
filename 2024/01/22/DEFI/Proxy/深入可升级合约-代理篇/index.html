@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
-  <link rel="canonical" href="https://biyouqiuqiu.com/2023/07/19/defi/proxy/upgradeable_contract/"/>
+  <link rel="canonical" href="https://biyouqiuqiu.com/2024/01/22/defi/proxy/深入可升级合约-代理篇/"/>
   <!-- 渲染优化 -->
     <meta http-equiv='x-dns-prefetch-control' content='on' />
       <link rel='dns-prefetch' href='https://unpkg.com'>
@@ -34,19 +34,19 @@
 
   <!-- feed -->
   <!-- 页面元数据 -->
-  <title>Upgradeable Contract - BY_DLIFE🍉</title>
+  <title>Upgradeable Contract with delegatecall - BY_DLIFE🍉</title>
   <meta name="keywords" content="Upgradeable,null">
   <meta desc name="description" content="Self-Discipline - BY_DLIFE🍉 - BY_DLIFE🍉">
   
 <meta property="og:type" content="article">
-<meta property="og:title" content="Upgradeable Contract">
-<meta property="og:url" content="https://biyouqiuqiu.com/2023/07/19/DEFI/Proxy/Upgradeable_Contract/index.html">
+<meta property="og:title" content="Upgradeable Contract with delegatecall">
+<meta property="og:url" content="https://biyouqiuqiu.com/2024/01/22/DEFI/Proxy/%E6%B7%B1%E5%85%A5%E5%8F%AF%E5%8D%87%E7%BA%A7%E5%90%88%E7%BA%A6-%E4%BB%A3%E7%90%86%E7%AF%87/index.html">
 <meta property="og:site_name" content="BY_DLIFE🍉">
-<meta property="og:description" content="1. 可升级合约 在理解可升级合约之前，需要先去了解代理合约。  实现逻辑(通过替换代理合约中引用的逻辑合约)：  简单实现 包含3个合约：代理合约，旧的逻辑合约，和新的逻辑合约。  代理合约它包含3个变量：  implementation：逻辑合约地址。 admin：admin地址。 words：字符串，可以通过逻辑合约的函数改变。  它包含3个函数  构造函数：初始化admin和逻辑合约地址。">
+<meta property="og:description" content="1. 前言 合约升级代理模式是通过 delegatecall操作码实现的，而这一操作码的特点便是，代码的数据来自于代理合约，执行逻辑来自于逻辑合约。同时正是由于这个特性容易引发插槽冲突问题。  delegatecall的使用方式就不多说了，不懂的可以去看看这篇文章。 先来简单了解一下什么是插槽冲突，这是 solidity CTF 最常见的一种考察方式。 举个最简单的例子： 123456789101">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-<meta property="article:published_time" content="2023-07-19T08:47:10.000Z">
-<meta property="article:modified_time" content="2023-07-19T08:47:10.000Z">
+<meta property="article:published_time" content="2024-01-22T04:00:00.000Z">
+<meta property="article:modified_time" content="2024-01-22T04:00:00.000Z">
 <meta property="article:author" content="BY_DLIFE🍉">
 <meta property="article:tag" content="Upgradeable">
 <meta name="twitter:card" content="summary">
@@ -1793,7 +1793,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1714813929111),
+    lastupdate: new Date(1716387798136),
     sidebar: {
       for_page: ["blogger","category","tagcloud","webinfo"],
       for_post: ["toc"],
@@ -2885,7 +2885,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
 <div id="l_main" class=''>
   <article itemscope itemtype="http://schema.org/Article" class="article post white-box reveal md shadow floatable blur article-type-post" id="post" itemscope itemprop="blogPost">
-  <link itemprop="mainEntityOfPage" href="https://biyouqiuqiu.com/2023/07/19/DEFI/Proxy/Upgradeable_Contract/">
+  <link itemprop="mainEntityOfPage" href="https://biyouqiuqiu.com/2024/01/22/DEFI/Proxy/深入可升级合约-代理篇/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="BY_DLIFE🍉">
   </span>
@@ -2906,7 +2906,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       <h1 class="title" itemprop="name headline">
-        Upgradeable Contract
+        Upgradeable Contract with delegatecall
       </h1>
       <div class='new-meta-box'>
         
@@ -2926,13 +2926,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fa-solid fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：1.6k 字</p>
+      <p>字数：3.4k 字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fa-solid fa-bell fa-fw" aria-hidden="true"></i>
-      <p>时长：6 分钟</p>
+      <p>时长：13 分钟</p>
     </a>
   </div>
 
@@ -2940,10 +2940,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
         
           
-            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2023-07-19T16:47:10+08:00">
+            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2024-01-22T12:00:00+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-pen fa-fw" aria-hidden="true"></i>
-    <p>发布于：2023年7月19日</p>
+    <p>发布于：2024年1月22日</p>
   </a>
 </div>
 
@@ -2978,75 +2978,150 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <h2 id="1-可升级合约"><a href="#1-可升级合约" class="headerlink" title="1. 可升级合约"></a>1. 可升级合约</h2><blockquote>
-<p>在理解可升级合约之前，需要先去了解<a target="_blank" rel="noopener" href="https://github.com/AmazingAng/WTF-Solidity/tree/main/46_ProxyContract">代理合约</a>。</p>
+    <h3 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h3><blockquote>
+<p>合约升级代理模式是通过 <code>delegatecall</code>操作码实现的，而这一操作码的特点便是，代码的数据来自于代理合约，执行逻辑来自于逻辑合约。同时正是由于这个特性容易引发插槽冲突问题。</p>
 </blockquote>
-<p>实现逻辑(通过替换代理合约中引用的逻辑合约)：</p>
-<p><img src="/2023/07/19/DEFI/Proxy/Upgradeable_Contract/image-20230719170048191.png" alt="image-20230719170048191"></p>
-<h3 id="简单实现"><a href="#简单实现" class="headerlink" title="简单实现"></a>简单实现</h3><blockquote>
-<p>包含<code>3</code>个合约：代理合约，旧的逻辑合约，和新的逻辑合约。</p>
-</blockquote>
-<h4 id="代理合约"><a href="#代理合约" class="headerlink" title="代理合约"></a>代理合约</h4><p>它包含<code>3</code>个变量：</p>
+<p><code>delegatecall</code>的使用方式就不多说了，不懂的可以去看看这篇<a target="_blank" rel="noopener" href="https://medium.com/@bansaltushar014/delegatecall-in-solidity-4138b121cbe">文章</a>。</p>
+<p>先来简单了解一下什么是插槽冲突，这是 solidity CTF 最常见的一种考察方式。</p>
+<p>举个最简单的例子：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// SPDX-License-Identifier: MIT</span><br><span class="line">pragma solidity ^0.8.20;</span><br><span class="line"></span><br><span class="line">contract Challenge &#123;</span><br><span class="line"></span><br><span class="line">    address public owner;</span><br><span class="line">    </span><br><span class="line">    constructor() &#123;</span><br><span class="line">        owner = msg.sender;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function pwn(address hacker) external &#123;</span><br><span class="line">        hacker.delegatecall(&quot;&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>比如这道题，通过的条件是成为<code>Challenge</code>合约的所有者，熟悉<code>delegatecall</code>原理的很容易想到，可以利用合约执行的<code>上下文</code>在<code>Challenge</code>中，而执行的逻辑来自<code>hacker</code>地址。</p>
+<p>因此，攻击合约可以这样写：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">contract Hacker &#123;</span><br><span class="line"></span><br><span class="line">    address public addr;</span><br><span class="line">    </span><br><span class="line">    fallback() external &#123;</span><br><span class="line">        addr = msg.sender;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>复现：</p>
 <ul>
-<li><code>implementation</code>：逻辑合约地址。</li>
-<li><code>admin</code>：admin地址。</li>
-<li><code>words</code>：字符串，可以通过逻辑合约的函数改变。</li>
+<li>部署<code>Challege</code>合约</li>
 </ul>
-<p>它包含<code>3</code>个函数</p>
+<p><img src="/2024/01/22/DEFI/Proxy/%E6%B7%B1%E5%85%A5%E5%8F%AF%E5%8D%87%E7%BA%A7%E5%90%88%E7%BA%A6-%E4%BB%A3%E7%90%86%E7%AF%87/image-20240513171959597.png" alt="image-20240513171959597"></p>
 <ul>
-<li>构造函数：初始化admin和逻辑合约地址。</li>
-<li><code>fallback()</code>：回调函数，将调用委托给逻辑合约。</li>
-<li><code>upgrade()</code>：升级函数，改变逻辑合约地址，只能由<code>admin</code>调用。</li>
+<li>切换<code>EOA</code>账户</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">// SPDX-License-Identifier: MIT</span><br><span class="line">// wtf.academy</span><br><span class="line">pragma solidity ^0.8.4;</span><br><span class="line"></span><br><span class="line">// 简单的可升级合约，管理员可以通过升级函数更改逻辑合约地址，从而改变合约的逻辑。</span><br><span class="line">// 教学演示用，不要用在生产环境</span><br><span class="line">contract SimpleUpgrade &#123;</span><br><span class="line">    address public implementation; // 逻辑合约地址</span><br><span class="line">    address public admin; // admin地址</span><br><span class="line">    string public words; // 字符串，可以通过逻辑合约的函数改变</span><br><span class="line"></span><br><span class="line">    // 构造函数，初始化admin和逻辑合约地址</span><br><span class="line">    constructor(address _implementation)&#123;</span><br><span class="line">        admin = msg.sender;</span><br><span class="line">        implementation = _implementation;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // fallback函数，将调用委托给逻辑合约</span><br><span class="line">    fallback() external payable &#123;</span><br><span class="line">        (bool success, bytes memory data) = implementation.delegatecall(msg.data);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 升级函数，改变逻辑合约地址，只能由admin调用</span><br><span class="line">    function upgrade(address newImplementation) external &#123;</span><br><span class="line">        require(msg.sender == admin);</span><br><span class="line">        implementation = newImplementation;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/2024/01/22/DEFI/Proxy/%E6%B7%B1%E5%85%A5%E5%8F%AF%E5%8D%87%E7%BA%A7%E5%90%88%E7%BA%A6-%E4%BB%A3%E7%90%86%E7%AF%87/image-20240513172017842.png" alt="image-20240513172017842"></p>
+<ul>
+<li><p>部署<code>Hacker</code>合约</p>
+</li>
+<li><p>调用<code>pwn()</code>函数，并传入<code>Hacker</code>的地址</p>
+<p>  <img src="/2024/01/22/DEFI/Proxy/%E6%B7%B1%E5%85%A5%E5%8F%AF%E5%8D%87%E7%BA%A7%E5%90%88%E7%BA%A6-%E4%BB%A3%E7%90%86%E7%AF%87/image-20240513172124569.png" alt="image-20240513172124569"></p>
+</li>
+<li><p>执行之后，可以看到<code>owner</code>的值已经发生了变化</p>
+</li>
+</ul>
+<p><img src="/2024/01/22/DEFI/Proxy/%E6%B7%B1%E5%85%A5%E5%8F%AF%E5%8D%87%E7%BA%A7%E5%90%88%E7%BA%A6-%E4%BB%A3%E7%90%86%E7%AF%87/image-20240513172203045.png" alt="image-20240513172203045"></p>
+<p><strong>画图理解：</strong></p>
+<p><img src="/2024/01/22/DEFI/Proxy/%E6%B7%B1%E5%85%A5%E5%8F%AF%E5%8D%87%E7%BA%A7%E5%90%88%E7%BA%A6-%E4%BB%A3%E7%90%86%E7%AF%87/image-20240513174212954.png" alt="image-20240513174212954"></p>
+<p>简单来说，Hacker在回调函数中修改的<code>owner</code>其实是<code>Challenge</code>中的<code>owner</code>。<strong>因此插槽冲突就可以看作是，逻辑合约和代理合约中具有相同插槽位置的变量，可能会因为操作逻辑合约中的变量从而覆盖掉代理合约中的变量值。</strong></p>
+<h3 id="2-简单的可升级合约"><a href="#2-简单的可升级合约" class="headerlink" title="2. 简单的可升级合约"></a>2. 简单的可升级合约</h3><p>简单的可升级合约的实现原理是：部署一个代理合约，代理合约通过委托调用的形式去调用逻辑合约，如果要进行合约升级，只要将代理合约中的 实现合约（也叫逻辑合约）替换掉即可。<strong>需要注意的是：更换逻辑合约的函数需要有严格的访问控制，不能随便给其他人调用。</strong></p>
+<p>示意图：</p>
+<p><img src="/2024/01/22/DEFI/Proxy/%E6%B7%B1%E5%85%A5%E5%8F%AF%E5%8D%87%E7%BA%A7%E5%90%88%E7%BA%A6-%E4%BB%A3%E7%90%86%E7%AF%87/image-20240513201028387.png" alt="image-20240513201028387"></p>
+<h4 id="2-1-复现可升级合约"><a href="#2-1-复现可升级合约" class="headerlink" title="2.1 复现可升级合约"></a>2.1 复现可升级合约</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">// SPDX-License-Identifier: MIT</span><br><span class="line">pragma solidity ^0.8.21;</span><br><span class="line"></span><br><span class="line">// 简单的可升级合约，管理员可以通过升级函数更改逻辑合约地址，从而改变合约的逻辑。</span><br><span class="line">contract SimpleUpgrade &#123;</span><br><span class="line">    address public implementation; // 逻辑合约地址</span><br><span class="line">    address public admin; // admin地址</span><br><span class="line">    string public words; // 字符串，可以通过逻辑合约的函数改变</span><br><span class="line"></span><br><span class="line">    // 构造函数，初始化admin和逻辑合约地址</span><br><span class="line">    constructor(address _implementation)&#123;</span><br><span class="line">        admin = msg.sender;</span><br><span class="line">        implementation = _implementation;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // fallback函数，将调用委托给逻辑合约</span><br><span class="line">    fallback() external payable &#123;</span><br><span class="line">        (bool success, bytes memory data) = implementation.delegatecall(msg.data);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 升级函数，改变逻辑合约地址，只能由admin调用</span><br><span class="line">    function upgrade(address newImplementation) external &#123;</span><br><span class="line">        require(msg.sender == admin);</span><br><span class="line">        implementation = newImplementation;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h4 id="旧逻辑合约"><a href="#旧逻辑合约" class="headerlink" title="旧逻辑合约"></a>旧逻辑合约</h4><p>这个逻辑合约包含<code>3</code>个状态变量，与保持代理合约一致，防止插槽冲突。它只有一个函数<code>foo()</code>，将代理合约中的<code>words</code>的值改为<code>&quot;old&quot;</code>。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">// 逻辑合约1</span><br><span class="line">contract Logic1 &#123;</span><br><span class="line">    // 状态变量和proxy合约一致，防止插槽冲突</span><br><span class="line">    address public implementation; </span><br><span class="line">    address public admin; </span><br><span class="line">    string public words; // 字符串，可以通过逻辑合约的函数改变</span><br><span class="line"></span><br><span class="line">    // 改变proxy中状态变量，选择器： 0xc2985578</span><br><span class="line">    function foo() public&#123;</span><br><span class="line">        words = &quot;old&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这是一个简单的代理合约，构造函数初始化了<code>admin</code>以及<code>implementation</code>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">contract Logic1 &#123;</span><br><span class="line">    // 状态变量和proxy合约一致，防止插槽冲突</span><br><span class="line">    address public implementation; </span><br><span class="line">    address public admin; </span><br><span class="line">    string public words; // 字符串，可以通过逻辑合约的函数改变</span><br><span class="line"></span><br><span class="line">    // 改变proxy中状态变量，选择器： 0xc2985578</span><br><span class="line">    function foo() public&#123;</span><br><span class="line">        words = &quot;old&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h4 id="新逻辑合约"><a href="#新逻辑合约" class="headerlink" title="新逻辑合约"></a>新逻辑合约</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">// 逻辑合约2</span><br><span class="line">contract Logic2 &#123;</span><br><span class="line">    // 状态变量和proxy合约一致，防止插槽冲突</span><br><span class="line">    address public implementation; </span><br><span class="line">    address public admin; </span><br><span class="line">    string public words; // 字符串，可以通过逻辑合约的函数改变</span><br><span class="line"></span><br><span class="line">    // 改变proxy中状态变量，选择器：0xc2985578</span><br><span class="line">    function foo() public&#123;</span><br><span class="line">        words = &quot;new&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这是<code>V1</code>版本的逻辑合约，逻辑合约中很明显有两个“无用”的变量，为什么不直接删掉呢？</p>
+<p>答案：因为这是避免插槽冲突，前面我已经讲了。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">contract Logic2 &#123;</span><br><span class="line">    // 状态变量和proxy合约一致，防止插槽冲突</span><br><span class="line">    address public implementation; </span><br><span class="line">    address public admin; </span><br><span class="line">    string public words; // 字符串，可以通过逻辑合约的函数改变</span><br><span class="line"></span><br><span class="line">    // 改变proxy中状态变量，选择器：0xc2985578</span><br><span class="line">    function foo() public&#123;</span><br><span class="line">        words = &quot;new&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>remix代码演示： <a target="_blank" rel="noopener" href="https://www.wtf.academy/solidity-application/Upgrade/#remix%E5%AE%9E%E7%8E%B0">remix实现</a></p>
-<h2 id="2-通用可升级代理"><a href="#2-通用可升级代理" class="headerlink" title="2. 通用可升级代理"></a>2. 通用可升级代理</h2><h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>代理合约中选择器冲突（Selector Clash）的另一个解决办法：通用可升级代理（UUPS，universal upgradeable proxy standard）。</p>
+<p>这是<code>v2</code>版本的逻辑合约，同样需要保证插槽的一致性。</p>
+<p>复现逻辑：</p>
+<ul>
+<li><p>部署<code>Logic1</code>合约。</p>
+</li>
+<li><p>部署<code>SimpleUpgrade</code>合约，传入<code>Logic1</code>的地址。</p>
+</li>
+<li><p>通过<code>remix</code>向可升级合约传入函数选择器。</p>
+<p>  <img src="/2024/01/22/DEFI/Proxy/%E6%B7%B1%E5%85%A5%E5%8F%AF%E5%8D%87%E7%BA%A7%E5%90%88%E7%BA%A6-%E4%BB%A3%E7%90%86%E7%AF%87/image-20240513202423552.png" alt="image-20240513202423552"></p>
+</li>
+</ul>
+<p>可以看到<code>words</code>返回的结果是<code>old</code>。</p>
+<ul>
+<li><p>进行合约升级，部署<code>Logic2</code>，让<code>admin</code>调用<code>SimpleUpgrade</code>合约的升级函数<code>upgrade()</code>。</p>
+</li>
+<li><p>再次通过<code>remix</code>向可升级合约传入函数选择器。</p>
+<p>  <img src="/2024/01/22/DEFI/Proxy/%E6%B7%B1%E5%85%A5%E5%8F%AF%E5%8D%87%E7%BA%A7%E5%90%88%E7%BA%A6-%E4%BB%A3%E7%90%86%E7%AF%87/image-20240513202745324.png" alt="image-20240513202745324"></p>
+</li>
+</ul>
+<p>可以看到<code>words</code>返回的结果已经变成<code>new</code>了，说明合约升级成功。</p>
+<p><em><strong>注意：实际上这里需要有严格的访问控制，升级函数不能随意给他人调用。</strong></em></p>
+<h4 id="2-2-缺陷"><a href="#2-2-缺陷" class="headerlink" title="2.2 缺陷"></a>2.2 缺陷</h4><h5 id="2-2-1-插槽冲突和代码冗余"><a href="#2-2-1-插槽冲突和代码冗余" class="headerlink" title="2.2.1 插槽冲突和代码冗余"></a>2.2.1 插槽冲突和代码冗余</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">|Proxy                     |Implementation           |</span><br><span class="line">|--------------------------|-------------------------|</span><br><span class="line">|address _implementation   |address _owner           | &lt;=== 插槽冲突</span><br><span class="line">|...                       |mapping _balances        |</span><br><span class="line">|                          |uint256 _supply          |</span><br><span class="line">|                          |...                      |</span><br></pre></td></tr></table></figure>
+
+<p>这类升级方式会存在插槽冲突，如果想要解决这个冲突问题，则必须要在逻辑合约中，严格按照代理合约中状态变量的声明顺序，在逻辑合约中重声一遍，以此来解决冲突问题。但是这样一来会造成代码冗余，而且在以太坊上的gas费用很贵，状态变量的存储方式为<code>storage</code>，占用一个槽的费用是<code>20000gas</code>，如果代理合约中的状态变量的数量很多，那么会导致升级的成本变得很高。</p>
+<p>但是如果不声明这些变量，则会造成插槽冲突。</p>
+<h5 id="2-2-2-选择器碰撞"><a href="#2-2-2-选择器碰撞" class="headerlink" title="2.2.2 选择器碰撞"></a>2.2.2 选择器碰撞</h5><p>先来了解一下什么是选择器碰撞。</p>
+<p>都知道在智能合约的代码执行中，函数的调用是通过函数选择器来匹配的，如果说在代码中有两个函数的函数选择器是一样的，那么代码将无法找到<code>msg.sender</code>想要调用的函数，从而导致函数调用被<code>revert()</code>。</p>
+<p>显然，在同一个合约中不可能出现两个函数选择器一样的函数，这是连编译都不能通过的。可代理模式不一样，代理合约和逻辑合约是分开的，就算他们之间存在“选择器冲突”也可以正常编译，这可能会导致很严重的安全事故。</p>
+<p>例子：假如逻辑合约的 <code>a</code>函数和代理合约中的的升级函数选择器相同，那么管理人就会在调用<code>a</code>函数的时候，将代理合约升级成一个黑洞合约。</p>
+<p><strong>代码复现：</strong></p>
+<p>已知<code>burn(uint256)</code>和<code>collate_propagate_storage(bytes16)</code>函数的函数选择器都为<code>0x42966c68</code>。</p>
+<p><img src="/2024/01/22/DEFI/Proxy/%E6%B7%B1%E5%85%A5%E5%8F%AF%E5%8D%87%E7%BA%A7%E5%90%88%E7%BA%A6-%E4%BB%A3%E7%90%86%E7%AF%87/image-20240514152633794.png" alt="image-20240514152633794"></p>
+<p><em>假设代理合约的升级函数为<code>burn(uint256)</code>，此时合约管理人通过代理合约调用<code>collate_propagate_storage(bytes16)</code>函数，实际的执行并不会通过<code>fallback()</code>去委托调用，而是执行代理合约中的<code>burn(uint256)</code>。</em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">// SPDX-License-Identifier: MIT</span><br><span class="line">pragma solidity ^0.8.21;</span><br><span class="line"></span><br><span class="line">import &quot;hardhat/console.sol&quot;;</span><br><span class="line"></span><br><span class="line">contract SelectorCrash &#123;</span><br><span class="line"></span><br><span class="line">    address public implementation; </span><br><span class="line"></span><br><span class="line">    constructor(address _implementation)&#123;</span><br><span class="line">        implementation = _implementation;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    fallback() external payable &#123;</span><br><span class="line">        bytes memory _calldata = abi.encodeWithSignature(&quot;burn(uint256)&quot;, uint256(0));</span><br><span class="line">        (bool success, bytes memory data) = implementation.delegatecall(_calldata);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function burn(uint256 num) external &#123;</span><br><span class="line">        console.log(&quot;SelectorCrash Contract&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">contract Hacker &#123;</span><br><span class="line">    function collate_propagate_storage(bytes16) external &#123;</span><br><span class="line">        console.log(&quot;Hacker Contract&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">contract Test &#123;</span><br><span class="line">    </span><br><span class="line">    function test(address _crash) external &#123;</span><br><span class="line">        (bool ok,) = _crash.call(abi.encodeWithSelector(Hacker.collate_propagate_storage.selector, bytes16(0)));</span><br><span class="line">        console.log(&quot;ok=&gt;&quot;, ok);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>代理合约的管理人通过<code>Test</code>合约调用<code>collate_propagate_storag()</code>函数，可以看到输出结果为：</p>
+<p><img src="/2024/01/22/DEFI/Proxy/%E6%B7%B1%E5%85%A5%E5%8F%AF%E5%8D%87%E7%BA%A7%E5%90%88%E7%BA%A6-%E4%BB%A3%E7%90%86%E7%AF%87/image-20240514153210373.png" alt="image-20240514153210373"></p>
+<p>也就是说明，被调用的函数是<code>SelectorCrash</code>合约中的<code>burn(uint256)</code>函数。</p>
+<p>针对如上问题，现已有解决方法，解决方法如下：</p>
+<h3 id="3-EIP1967-proxy"><a href="#3-EIP1967-proxy" class="headerlink" title="3. EIP1967 proxy"></a>3. EIP1967 proxy</h3><h4 id="3-1-非结构化存储"><a href="#3-1-非结构化存储" class="headerlink" title="3.1 非结构化存储"></a>3.1 非结构化存储</h4><p>我之前有篇文章写过关于对 <code>EIP1967</code>的解读，感兴趣的可以去看看。</p>
+<p>在学习该代理时，需要了解什么是非结构化存储。</p>
+<p>上面已经说了 <code>EVM</code>存储数据的机制，也说了插槽冲突。</p>
 <blockquote>
-<p>知识点：</p>
-<p>在合约中函数不能定义一样的，即函数名一样，形参一样，这样导致的后果是编译报错。在合约中，一样的判断标准为 <code>selector</code>，计算出函数选择器作比较。即使是两个完全不一样的函数，函数选择器相同也是不能声明在同一个合约中。</p>
-<p>如下例：</p>
-<p><img src="/2023/07/19/DEFI/Proxy/Upgradeable_Contract/image-20230719201342138.png" alt="image-20230719201342138"></p>
-<p><img src="/2023/07/19/DEFI/Proxy/Upgradeable_Contract/image-20230719201357477.png" alt="image-20230719201357477"></p>
-<p>所以这一特性，将为UUPS的实现提供了可行性。</p>
+<p>假设代理将逻辑合约的地址存储在其唯一变量 中<code>address public _implementation;</code>。现在，假设逻辑合约是一个基本代币，其第一个变量是<code>address public _owner</code>。这两个变量的大小均为 32 字节，据 EVM 所知，它们占据代理调用结果执行流的第一个槽。当逻辑合约写入 时<code>_owner</code>，它是在代理状态的范围内进行的，并且实际上写入的是<code>_implementation</code>。这个问题可以称为“存储冲突”。</p>
 </blockquote>
-<h4 id="UUPS的概念"><a href="#UUPS的概念" class="headerlink" title="UUPS的概念"></a>UUPS的概念</h4><p>UUPS（universal upgradeable proxy standard，通用可升级代理）将升级函数放在逻辑合约中。这样一来，如果有其它函数与升级函数存在“选择器冲突”，编译时就会报错。即保证了在逻辑合约中不出现两个函数选择器相同的情况。</p>
-<p><em><strong>可升级合约，透明代理，UUPS的不同点</strong></em></p>
-<p><img src="/2023/07/19/DEFI/Proxy/Upgradeable_Contract/image-20230719201658996.png" alt="image-20230719201658996"></p>
-<h4 id="UUPS-合约"><a href="#UUPS-合约" class="headerlink" title="UUPS 合约"></a>UUPS 合约</h4><p>如果用户A通过合约B（代理合约）去<code>delegatecall</code>合约C（逻辑合约），上下文仍是合约B的上下文，<code>msg.sender</code>仍是用户A而不是合约B。因此，UUPS合约可以将升级函数放在逻辑合约中，并检查调用者是否为管理员。</p>
-<p><img src="/2023/07/19/DEFI/Proxy/Upgradeable_Contract/image-20230719202310619.png" alt="image-20230719202310619"></p>
-<h4 id="UUPS的代理合约"><a href="#UUPS的代理合约" class="headerlink" title="UUPS的代理合约"></a>UUPS的代理合约</h4><p>UUPS的代理合约看起来像是个不可升级的代理合约，非常简单，因为升级函数被放在了逻辑合约中。它包含<code>3</code>个变量：</p>
-<ul>
-<li><code>implementation</code>：逻辑合约地址。</li>
-<li><code>admin</code>：admin地址。</li>
-<li><code>words</code>：字符串，可以通过逻辑合约的函数改变。</li>
-</ul>
-<p>它包含<code>2</code>个函数</p>
-<ul>
-<li>构造函数：初始化admin和逻辑合约地址。</li>
-<li><code>fallback()</code>：回调函数，将调用委托给逻辑合约。</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">contract UUPSProxy &#123;</span><br><span class="line">    address public implementation; // 逻辑合约地址</span><br><span class="line">    address public admin; // admin地址</span><br><span class="line">    string public words; // 字符串，可以通过逻辑合约的函数改变</span><br><span class="line"></span><br><span class="line">    // 构造函数，初始化admin和逻辑合约地址</span><br><span class="line">    constructor(address _implementation)&#123;</span><br><span class="line">        admin = msg.sender;</span><br><span class="line">        implementation = _implementation;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // fallback函数，将调用委托给逻辑合约</span><br><span class="line">    fallback() external payable &#123;</span><br><span class="line">        (bool success, bytes memory data) = implementation.delegatecall(msg.data);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="UUPS的逻辑合约"><a href="#UUPS的逻辑合约" class="headerlink" title="UUPS的逻辑合约"></a>UUPS的逻辑合约</h4><p>UUPS的逻辑合约与<a target="_blank" rel="noopener" href="https://github.com/AmazingAng/WTFSolidity/blob/main/47_Upgrade/readme.md">第47讲</a>中的不同是多了个升级函数。UUPS逻辑合约包含<code>3</code>个状态变量，与保持代理合约一致，防止插槽冲突。它包含<code>2</code>个</p>
-<ul>
-<li><code>upgrade()</code>：升级函数，将改变逻辑合约地址<code>implementation</code>，只能由<code>admin</code>调用。</li>
-<li><code>foo()</code>：旧UUPS逻辑合约会将<code>words</code>的值改为<code>&quot;old&quot;</code>，新的会改为<code>&quot;new&quot;</code>。</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">// UUPS逻辑合约（升级函数写在逻辑合约内）</span><br><span class="line">contract UUPS1&#123;</span><br><span class="line">    // 状态变量和proxy合约一致，防止插槽冲突</span><br><span class="line">    address public implementation; </span><br><span class="line">    address public admin; </span><br><span class="line">    string public words; // 字符串，可以通过逻辑合约的函数改变</span><br><span class="line"></span><br><span class="line">    // 改变proxy中状态变量，选择器： 0xc2985578</span><br><span class="line">    function foo() public&#123;</span><br><span class="line">        words = &quot;old&quot;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 升级函数，改变逻辑合约地址，只能由admin调用。选择器：0x0900f010</span><br><span class="line">    // UUPS中，逻辑合约中必须包含升级函数，不然就不能再升级了。</span><br><span class="line">    function upgrade(address newImplementation) external &#123;</span><br><span class="line">        require(msg.sender == admin);</span><br><span class="line">        implementation = newImplementation;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 新的UUPS逻辑合约</span><br><span class="line">contract UUPS2&#123;</span><br><span class="line">    // 状态变量和proxy合约一致，防止插槽冲突</span><br><span class="line">    address public implementation; </span><br><span class="line">    address public admin; </span><br><span class="line">    string public words; // 字符串，可以通过逻辑合约的函数改变</span><br><span class="line"></span><br><span class="line">    // 改变proxy中状态变量，选择器： 0xc2985578</span><br><span class="line">    function foo() public&#123;</span><br><span class="line">        words = &quot;new&quot;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 升级函数，改变逻辑合约地址，只能由admin调用。选择器：0x0900f010</span><br><span class="line">    // UUPS中，逻辑合约中必须包含升级函数，不然就不能再升级了。</span><br><span class="line">    function upgrade(address newImplementation) external &#123;</span><br><span class="line">        require(msg.sender == admin);</span><br><span class="line">        implementation = newImplementation;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">|Proxy                     |Implementation           |</span><br><span class="line">|--------------------------|-------------------------|</span><br><span class="line">|address _implementation   |address _owner           | &lt;=== Slot collision!</span><br><span class="line">|...                       |mapping _balances        |</span><br><span class="line">|                          |uint256 _supply          |</span><br><span class="line">|                          |...                      |</span><br></pre></td></tr></table></figure>
 
 <blockquote>
-<p>解读：</p>
-<p>这是通过在逻辑合约中实现代码的升级，确保了升级函数和 <code>msg.data</code>不冲突。</p>
-<p>调用逻辑合约中的 upgrade()函数，并传入新的逻辑合约，即可实现 修改Proxy合约的逻辑合约地址。</p>
+<p>有很多方法可以克服这个问题，OpenZeppelin Upgrades 实现的“非结构化存储”方法的工作原理如下。它没有将<code>_implementation</code>地址存储在代理的第一个存储槽中，而是选择伪随机槽。该槽足够随机，逻辑合约在同一槽声明变量的概率可以忽略不计。代理存储中的随机槽位置的相同原理也适用于代理可能具有的任何其他变量，例如管理地址（允许更新 的值<code>_implementation</code>）等。</p>
 </blockquote>
-<h4 id="Remix实现"><a href="#Remix实现" class="headerlink" title="Remix实现"></a><a target="_blank" rel="noopener" href="https://www.wtf.academy/solidity-application/UUPS/#remix%E5%AE%9E%E7%8E%B0">Remix实现</a></h4><h3 id="参考博客"><a href="#参考博客" class="headerlink" title="参考博客"></a>参考博客</h3><p><a target="_blank" rel="noopener" href="https://www.wtf.academy/solidity-application/Upgrade/">link1</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.wtf.academy/solidity-application/UUPS/">link2</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">|Proxy                     |Implementation           |</span><br><span class="line">|--------------------------|-------------------------|</span><br><span class="line">|...                       |address _owner           |</span><br><span class="line">|...                       |mapping _balances        |</span><br><span class="line">|...                       |uint256 _supply          |</span><br><span class="line">|...                       |...                      |</span><br><span class="line">|...                       |                         |</span><br><span class="line">|...                       |                         |</span><br><span class="line">|...                       |                         |</span><br><span class="line">|...                       |                         |</span><br><span class="line">|address _implementation   |                         | &lt;=== Randomized slot.</span><br><span class="line">|...                       |                         |</span><br><span class="line">|...                       |                         |</span><br></pre></td></tr></table></figure>
+
+<p>比如在上述的 <code>简单的可升级合约</code>案例中，代理合约的<code>slot0</code>存储的是逻辑合约的地址，如果逻辑合约中也有状态变量则很可能会发生插槽冲突，<code>EIP1967</code>的解决方式是，将<code>implementation</code>的地址存储在随机位置，该随机位置的计算方法如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bytes32 private constant implementationPosition = bytes32(uint256(</span><br><span class="line">  keccak256(&#x27;eip1967.proxy.implementation&#x27;)) - 1));</span><br></pre></td></tr></table></figure>
+
+<p>那么会有人好奇，为什么这样会避免插槽冲突呢。因为<code>keccak256(&#39;eip1967.proxy.implementation&#39;)) - 1)</code>的哈希结果是一个很庞大的数值，要是想实现插槽冲突那得声明多少变量，而合约的大小最大只能为<code>24kb</code>，光部署的成本都已经非常高了，作为智能合约的开发者绝对不会允许这种情况发生。</p>
+<h4 id="3-2-复现"><a href="#3-2-复现" class="headerlink" title="3.2 复现"></a>3.2 复现</h4><p>复现的逻辑是引用 <code>OZ</code> 库的 <a target="_blank" rel="noopener" href="https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/proxy/ERC1967/ERC1967Proxy.sol">ERC1967Proxy.sol</a>，旨在解决上述例子中的插槽冲突和逻辑合约代码冗余问题，我准备在逻辑合约中从<code>slot0, slot1, slot2...</code>依次声明较多状态变量，而不像<code>简单的可升级合约</code>案例中预留代理合约声明的状态变量。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">// SPDX-License-Identifier: MIT</span><br><span class="line">pragma solidity ^0.8.20;</span><br><span class="line"></span><br><span class="line">import &quot;https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/proxy/ERC1967/ERC1967Proxy.sol&quot;;</span><br><span class="line"></span><br><span class="line">contract Proxy_Test is ERC1967Proxy &#123;</span><br><span class="line">    constructor(address implementation) ERC1967Proxy(implementation, &quot;&quot;) &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">contract Logic &#123;</span><br><span class="line"></span><br><span class="line">    uint256 public a;</span><br><span class="line">    uint256 public b;</span><br><span class="line">    uint256 public c;</span><br><span class="line">    uint256 public d;</span><br><span class="line">    uint256 public e;</span><br><span class="line">    uint256 public f;</span><br><span class="line"></span><br><span class="line">    function set() public &#123;</span><br><span class="line">        a = 0;</span><br><span class="line">        b = 1;</span><br><span class="line">        c = 2;</span><br><span class="line">        d = 3;</span><br><span class="line">        e = 4;</span><br><span class="line">        f = 5;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>化繁为简，就不搞那么复杂了。旨在验证通过<code>Proxy_Test</code>合约，委托调用<code>Logic</code>合约的<code>set()</code>函数，验证是否会发生插槽冲突，以及验证<code>Logic</code>合约的状态变量是否被写入逻辑合约中。</p>
+</blockquote>
+<p>执行逻辑：</p>
+<ul>
+<li><p>部署<code>Logic</code>合约，将其地址作为参数传入<code>Proxy_Test</code>合约。</p>
+</li>
+<li><p>通过<code>Proxy_Test</code>调用<code>set()</code>函数。</p>
+<p>  <img src="/2024/01/22/DEFI/Proxy/%E6%B7%B1%E5%85%A5%E5%8F%AF%E5%8D%87%E7%BA%A7%E5%90%88%E7%BA%A6-%E4%BB%A3%E7%90%86%E7%AF%87/image-20240515165914551.png" alt="image-20240515165914551"></p>
+<p>  通过脚本验证各个插槽的值：</p>
+<p>  <img src="/2024/01/22/DEFI/Proxy/%E6%B7%B1%E5%85%A5%E5%8F%AF%E5%8D%87%E7%BA%A7%E5%90%88%E7%BA%A6-%E4%BB%A3%E7%90%86%E7%AF%87/image-20240515170023037.png" alt="image-20240515170023037"></p>
+<p>  可以看到这没有发生插槽冲突，implementation的值没有发生变化，以及逻辑合约的状态变量的确被写入了代理合约中。</p>
+<p>  我是在本地开启了测试节点，脚本如下：</p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; ethers &#125; <span class="keyword">from</span> <span class="string">&quot;ethers&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="variable constant_">URL</span> = <span class="string">&quot;HTTP://127.0.0.1:8545&quot;</span>;</span><br><span class="line"><span class="keyword">const</span> provider = <span class="keyword">new</span> ethers.<span class="title class_">JsonRpcProvider</span>(<span class="variable constant_">URL</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> address = <span class="string">&quot;0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span>  <span class="title function_">print</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">6</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">let</span> slot = <span class="keyword">await</span> provider.<span class="title function_">getStorage</span>(address, i);</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`slot<span class="subst">$&#123;i&#125;</span> = <span class="subst">$&#123;slot&#125;</span>`</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> implementation = <span class="keyword">await</span> provider.<span class="title function_">getStorage</span>(address, <span class="number">0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbcn</span>);</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`implementation = <span class="subst">$&#123;implementation&#125;</span>`</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">await</span> <span class="title function_">print</span>();</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="3-3-缺陷"><a href="#3-3-缺陷" class="headerlink" title="3.3  缺陷"></a>3.3  缺陷</h4><ul>
+<li>这种代理模式解决了插槽冲突问题，但是并没有解决选择器冲突问题。</li>
+<li>安全性较低。</li>
+</ul>
+<h3 id="4-透明代理"><a href="#4-透明代理" class="headerlink" title="4. 透明代理"></a>4. 透明代理</h3><p><a target="_blank" rel="noopener" href="https://eips.ethereum.org/EIPS/eip-1538">EIP-1967 透明合约标准</a></p>
+<p>该代理模式旨在解决选择器冲突问题，通常配合<code>EIP1967</code>使用，虽然被弃用了，但是还是值得学习的。</p>
+<p>透明代理模式的逻辑是：管理员可能会因为“函数选择器冲突”，在调用逻辑合约的函数时，误调用代理合约的可升级函数。那么限制管理员的权限，不让他调用任何逻辑合约的函数，就能解决冲突。</p>
+<ul>
+<li>管理员变成工具人，仅能调用代理合约和可升级函数对合约升级，不能通过回调函数调用逻辑合约。</li>
+<li>非管理员用户不能调用升级合约函数，可以通过回调函数调用逻辑合约。</li>
+</ul>
+<h4 id="4-1-复现"><a href="#4-1-复现" class="headerlink" title="4.1 复现"></a>4.1 复现</h4><p>根据上述要求，代理合约的实现如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">contract TransparentProxy &#123;</span><br><span class="line">    address implementation; // logic</span><br><span class="line">    address admin; </span><br><span class="line">    string public words; </span><br><span class="line"></span><br><span class="line">    constructor(address _implementation)&#123;</span><br><span class="line">        admin = msg.sender;</span><br><span class="line">        implementation = _implementation;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // fallback函数，将调用委托给逻辑合约</span><br><span class="line">    // 不能被admin调用，避免选择器冲突引发意外</span><br><span class="line">    fallback() external payable &#123;</span><br><span class="line">        require(msg.sender != admin);</span><br><span class="line">        (bool success, bytes memory data) = implementation.delegatecall(msg.data);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 升级函数，改变逻辑合约地址，只能由admin调用</span><br><span class="line">    function upgrade(address newImplementation) external &#123;</span><br><span class="line">        if (msg.sender != admin) revert();</span><br><span class="line">        implementation = newImplementation;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这样就可以简单的实现 <strong>升级函数只能由管理员调用，回调函数不能由管理员调用。</strong></p>
+<h4 id="4-2-缺陷"><a href="#4-2-缺陷" class="headerlink" title="4.2 缺陷"></a>4.2 缺陷</h4><ul>
+<li>采用<code>EIP1967</code>的存储方式，每一次调用都需要<code>sload</code>读取管理员插槽，消耗的gas成本高。</li>
+</ul>
+<h3 id="5-通用可升级代理-UUPS"><a href="#5-通用可升级代理-UUPS" class="headerlink" title="5. 通用可升级代理 - UUPS"></a>5. 通用可升级代理 - UUPS</h3><p>UUPS 通用可升级代理 来自 <a target="_blank" rel="noopener" href="https://eips.ethereum.org/EIPS/eip-1822">EIP1822</a>，该代理模式是采用伪随机的存储槽存储逻辑合约地址，其实也可以看作是<code>EIP1967</code>的前生，后者将存储槽进行了规范化。</p>
+<p>在<code>EIP1822</code>中，逻辑合约的地址存储位置为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keccak256(&quot;PROXIABLE&quot;) = 0xc5f16f0fcc639fa48a6947836d9850f504798523bf8c9a3a87d5876cf622bcf7</span><br></pre></td></tr></table></figure>
+
+<p>由于计算结果数值很大，这也就消除了代理和逻辑合约中变量之间发生冲突的可能性。</p>
+<p>除此之外，<code>UUPS</code>还解决了选择器冲突问题，它采用的方式是：将升级函数编写于逻辑合约中而不是代理合约中，这样一来就可以直接避免了逻辑合约中的某个函数的函数选择器和升级函数的选择器相同，即使是开发者不经意间写出来了，编译器也会报错，从而很巧妙的解决了这个问题。</p>
 
   </div>
   
@@ -3062,8 +3137,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           
           <div class="copyright license">
-            <div class="license-title">Upgradeable Contract</div>
-            <div class="license-link"><a href="https://biyouqiuqiu.com/2023/07/19/DEFI/Proxy/Upgradeable_Contract/">https://biyouqiuqiu.com/2023/07/19/DEFI/Proxy/Upgradeable_Contract/</a>
+            <div class="license-title">Upgradeable Contract with delegatecall</div>
+            <div class="license-link"><a href="https://biyouqiuqiu.com/2024/01/22/DEFI/Proxy/深入可升级合约-代理篇/">https://biyouqiuqiu.com/2024/01/22/DEFI/Proxy/深入可升级合约-代理篇/</a>
             </div>
             <div class="license-meta">
               <div class="license-meta-item">
@@ -3072,7 +3147,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               </div>
               <div class="license-meta-item">
                 <div class="license-meta-title">发布于</div>
-                <div class="license-meta-text">2023年7月19日</div>
+                <div class="license-meta-text">2024年1月22日</div>
               </div>
               
               
@@ -3125,10 +3200,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2023-07-19T16:47:10+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2024-01-22T12:00:00+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2023年7月19日</p>
+    <p>更新于：2024年1月22日</p>
   </a>
 </div>
 
@@ -3147,18 +3222,20 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     <div class="prev-next">
       
-        <a class='prev' href='/2023/07/20/CTFS/damn%20defi/Backdoor/'>
-          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>Backdoor</p>
-          <p class='content'>1. issue
-To incentivize the creation of more secure wallets in their team, someone has deployed a...</p>
+        <a class='prev' href='/2024/01/25/DEFI/ERC/ERC1167/'>
+          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>ERC1167</p>
+          <p class='content'>1. ERC1167 简介
+EIP-1167，又称Minimal Proxy Contract，提供了一种低成本复制合约的方法，也可以叫作是克隆合约的方法。如何理解克隆呢？克隆就是类似复制的意思...</p>
         </a>
       
       
-        <a class='next' href='/2023/07/19/DEFI/Proxy/Proxy_Contract/'>
-          <p class='title'>Proxy Contract No.1<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>代理合约1. 代理模式
-solidity合约部署到链上之后，代码是不可变的。
-这一特性存在了一个严重的缺点：就算合约中存在bug，也不能修改或者升级，只能部署新合约。但是新合约的地址和旧合约的地...</p>
+        <a class='next' href='/2024/01/21/Utils/Solidity/sign_a_message/'>
+          <p class='title'>sign a message<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>前言
+📌靶场刷题遇得到很多关于验证签名的题，在这里汇总一下，消息签名的工具和方法。
+
+1. 采用 web3.py1.1 适用于本地测试
+这是不符合当前 以太坊 规定的签名，即未加入\x19Et...</p>
         </a>
       
     </div>
@@ -3174,7 +3251,7 @@ solidity合约部署到链上之后，代码是不可变的。
 
   <article class="post white-box shadow floatable blur" id="comments">
     <span hidden>
-      <meta itemprop="discussionUrl" content="/2023/07/19/DEFI/Proxy/Upgradeable_Contract/index.html#comments">
+      <meta itemprop="discussionUrl" content="/2024/01/22/DEFI/Proxy/%E6%B7%B1%E5%85%A5%E5%8F%AF%E5%8D%87%E7%BA%A7%E5%90%88%E7%BA%A6-%E4%BB%A3%E7%90%86%E7%AF%87/index.html#comments">
     </span>
     <p ct><i class='fa-solid fa-comments'></i> 评论</p>
     
@@ -3216,7 +3293,7 @@ solidity合约部署到链上之后，代码是不可变的。
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%8F%AF%E5%8D%87%E7%BA%A7%E5%90%88%E7%BA%A6"><span class="toc-text">1. 可升级合约</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0"><span class="toc-text">简单实现</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A3%E7%90%86%E5%90%88%E7%BA%A6"><span class="toc-text">代理合约</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%97%A7%E9%80%BB%E8%BE%91%E5%90%88%E7%BA%A6"><span class="toc-text">旧逻辑合约</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B0%E9%80%BB%E8%BE%91%E5%90%88%E7%BA%A6"><span class="toc-text">新逻辑合约</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E9%80%9A%E7%94%A8%E5%8F%AF%E5%8D%87%E7%BA%A7%E4%BB%A3%E7%90%86"><span class="toc-text">2. 通用可升级代理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#UUPS%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="toc-text">UUPS的概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#UUPS-%E5%90%88%E7%BA%A6"><span class="toc-text">UUPS 合约</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#UUPS%E7%9A%84%E4%BB%A3%E7%90%86%E5%90%88%E7%BA%A6"><span class="toc-text">UUPS的代理合约</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#UUPS%E7%9A%84%E9%80%BB%E8%BE%91%E5%90%88%E7%BA%A6"><span class="toc-text">UUPS的逻辑合约</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Remix%E5%AE%9E%E7%8E%B0"><span class="toc-text">Remix实现</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E5%8D%9A%E5%AE%A2"><span class="toc-text">参考博客</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%89%8D%E8%A8%80"><span class="toc-text">1. 前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E7%AE%80%E5%8D%95%E7%9A%84%E5%8F%AF%E5%8D%87%E7%BA%A7%E5%90%88%E7%BA%A6"><span class="toc-text">2. 简单的可升级合约</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-%E5%A4%8D%E7%8E%B0%E5%8F%AF%E5%8D%87%E7%BA%A7%E5%90%88%E7%BA%A6"><span class="toc-text">2.1 复现可升级合约</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-%E7%BC%BA%E9%99%B7"><span class="toc-text">2.2 缺陷</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2-2-1-%E6%8F%92%E6%A7%BD%E5%86%B2%E7%AA%81%E5%92%8C%E4%BB%A3%E7%A0%81%E5%86%97%E4%BD%99"><span class="toc-text">2.2.1 插槽冲突和代码冗余</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-2-2-%E9%80%89%E6%8B%A9%E5%99%A8%E7%A2%B0%E6%92%9E"><span class="toc-text">2.2.2 选择器碰撞</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-EIP1967-proxy"><span class="toc-text">3. EIP1967 proxy</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-%E9%9D%9E%E7%BB%93%E6%9E%84%E5%8C%96%E5%AD%98%E5%82%A8"><span class="toc-text">3.1 非结构化存储</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-%E5%A4%8D%E7%8E%B0"><span class="toc-text">3.2 复现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-%E7%BC%BA%E9%99%B7"><span class="toc-text">3.3  缺陷</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E9%80%8F%E6%98%8E%E4%BB%A3%E7%90%86"><span class="toc-text">4. 透明代理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-%E5%A4%8D%E7%8E%B0"><span class="toc-text">4.1 复现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-%E7%BC%BA%E9%99%B7"><span class="toc-text">4.2 缺陷</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E9%80%9A%E7%94%A8%E5%8F%AF%E5%8D%87%E7%BA%A7%E4%BB%A3%E7%90%86-UUPS"><span class="toc-text">5. 通用可升级代理 - UUPS</span></a></li></ol>
     </div>
   </section>
 
@@ -4272,7 +4349,7 @@ window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListener
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"BY_DLIFE🍉","url":"https://biyouqiuqiu.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"BY_DLIFE🍉","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://biyouqiuqiu.com/","sameAs":["https://github.com/volantis-x"],"description":"Self-Discipline"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://biyouqiuqiu.com/","name":"BY_DLIFE🍉"}},{"@type":"ListItem","position":2,"item":{"@id":"https://biyouqiuqiu.com/categories/DEFI/","name":"DEFI"}},{"@type":"ListItem","position":2,"item":{"@id":"https://biyouqiuqiu.com/categories/DEFI/proxy/","name":"proxy"}},{"@type":"ListItem","position":3,"item":{"@id":"https://biyouqiuqiu.com/2023/07/19/DEFI/Proxy/Upgradeable_Contract/","name":"Upgradeable Contract"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"BY_DLIFE🍉","url":"https://biyouqiuqiu.com/","keywords":null,"description":"Self-Discipline","author":{"@type":"Person","name":"BY_DLIFE🍉","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://biyouqiuqiu.com/","description":"Self-Discipline"},"publisher":{"@type":"Organization","name":"BY_DLIFE🍉","url":"https://biyouqiuqiu.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://biyouqiuqiu.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"Upgradeable Contract","description":"Self-Discipline","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://biyouqiuqiu.com/2023/07/19/DEFI/Proxy/Upgradeable_Contract/"},"author":{"@type":"Person","name":"BY_DLIFE🍉","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://biyouqiuqiu.com/"},"publisher":{"@type":"Organization","name":"BY_DLIFE🍉","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://biyouqiuqiu.com/2023/07/19/DEFI/Proxy/Upgradeable_Contract/","wordCount":0,"datePublished":"2023-07-19T08:47:10.000Z","dateModified":"2023-07-19T08:47:10.000Z","articleSection":"DEFI","keywords":"Upgradeable","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"BY_DLIFE🍉","url":"https://biyouqiuqiu.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"BY_DLIFE🍉","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://biyouqiuqiu.com/","sameAs":["https://github.com/volantis-x"],"description":"Self-Discipline"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://biyouqiuqiu.com/","name":"BY_DLIFE🍉"}},{"@type":"ListItem","position":2,"item":{"@id":"https://biyouqiuqiu.com/categories/DEFI/","name":"DEFI"}},{"@type":"ListItem","position":2,"item":{"@id":"https://biyouqiuqiu.com/categories/DEFI/proxy/","name":"proxy"}},{"@type":"ListItem","position":3,"item":{"@id":"https://biyouqiuqiu.com/2024/01/22/DEFI/Proxy/深入可升级合约-代理篇/","name":"Upgradeable Contract with delegatecall"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"BY_DLIFE🍉","url":"https://biyouqiuqiu.com/","keywords":null,"description":"Self-Discipline","author":{"@type":"Person","name":"BY_DLIFE🍉","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://biyouqiuqiu.com/","description":"Self-Discipline"},"publisher":{"@type":"Organization","name":"BY_DLIFE🍉","url":"https://biyouqiuqiu.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://biyouqiuqiu.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"Upgradeable Contract with delegatecall","description":"Self-Discipline","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://biyouqiuqiu.com/2024/01/22/DEFI/Proxy/%E6%B7%B1%E5%85%A5%E5%8F%AF%E5%8D%87%E7%BA%A7%E5%90%88%E7%BA%A6-%E4%BB%A3%E7%90%86%E7%AF%87/"},"author":{"@type":"Person","name":"BY_DLIFE🍉","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://biyouqiuqiu.com/"},"publisher":{"@type":"Organization","name":"BY_DLIFE🍉","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://biyouqiuqiu.com/2024/01/22/DEFI/Proxy/%E6%B7%B1%E5%85%A5%E5%8F%AF%E5%8D%87%E7%BA%A7%E5%90%88%E7%BA%A6-%E4%BB%A3%E7%90%86%E7%AF%87/","wordCount":0,"datePublished":"2024-01-22T04:00:00.000Z","dateModified":"2024-01-22T04:00:00.000Z","articleSection":"DEFI","keywords":"Upgradeable","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
