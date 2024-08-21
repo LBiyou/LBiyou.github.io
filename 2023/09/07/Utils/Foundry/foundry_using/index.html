@@ -42,7 +42,7 @@
 <meta property="og:title" content="foundry_using">
 <meta property="og:url" content="https://biyouqiuqiu.com/2023/09/07/Utils/Foundry/foundry_using/index.html">
 <meta property="og:site_name" content="BY_DLIFE🍉">
-<meta property="og:description" content="引言官方文档 1. 下载安装(Windows版) 📌  小插曲 本人用的是Windows系统的电脑，而网上的一些安装教学基本上都不好用。有的说要去下载最新版本的VSCode，有的说要去下载c++编译器，还有去下载rust等等。反正我兜兜转转一大圈回来，emmm，c盘莫名其妙少了10个G，我™裂开。最后还是在学长的建议中把foundry安装好了。  可以直接到GitHub上找到.exe文件，下载下">
+<meta property="og:description" content="引言官方文档 下载安装(Windows版)  📌  小插曲 本人用的是Windows系统的电脑，而网上的一些安装教学基本上都不好用。有的说要去下载最新版本的VSCode，有的说要去下载c++编译器，还有去下载rust等等。反正我兜兜转转一大圈回来，emmm，c盘莫名其妙少了10个G。最后还是在学长的建议中把foundry安装好了。  可以直接到GitHub上找到.exe文件，下载下来之后，将其配">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2023-09-07T05:47:10.000Z">
@@ -1793,7 +1793,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1716387798136),
+    lastupdate: new Date(1724205810090),
     sidebar: {
       for_page: ["blogger","category","tagcloud","webinfo"],
       for_post: ["toc"],
@@ -2926,7 +2926,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fa-solid fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：541 字</p>
+      <p>字数：565 字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -2979,40 +2979,71 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
     <h3 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h3><p><em><a target="_blank" rel="noopener" href="https://book.getfoundry.sh/">官方文档</a></em></p>
-<h3 id="1-下载安装-Windows版"><a href="#1-下载安装-Windows版" class="headerlink" title="1. 下载安装(Windows版)"></a>1. 下载安装(Windows版)</h3><blockquote>
+<p><em><strong>下载安装(Windows版)</strong></em></p>
+<blockquote>
 <p>📌  <em>小插曲</em></p>
-<p>本人用的是Windows系统的电脑，而网上的一些安装教学基本上都不好用。有的说要去下载最新版本的VSCode，有的说要去下载c++编译器，还有去下载rust等等。反正我兜兜转转一大圈回来，emmm，c盘莫名其妙少了10个G，我™裂开。最后还是在学长的建议中把foundry安装好了。</p>
+<p>本人用的是Windows系统的电脑，而网上的一些安装教学基本上都不好用。有的说要去下载最新版本的VSCode，有的说要去下载c++编译器，还有去下载rust等等。反正我兜兜转转一大圈回来，emmm，c盘莫名其妙少了10个G。最后还是在学长的建议中把foundry安装好了。</p>
 </blockquote>
 <p>可以直接到GitHub上找到<code>.exe</code>文件，下载下来之后，将其配置到环境变量中即可。下载链接：<a target="_blank" rel="noopener" href="https://github.com/foundry-rs/foundry/releases">LINK</a> <em>，其中下载的是<code>.zip</code>那个压缩包。</em></p>
 <p><img src="/2023/09/07/Utils/Foundry/foundry_using/image-20230907141359711.png" alt="image-20230907141359711"></p>
 <p><em>随后，在桌面打开命令行(win+cmd)，输入<code>forge test</code>，运行结果应该为<code>Nothing to compile</code></em></p>
-<h3 id="2-基本指令"><a href="#2-基本指令" class="headerlink" title="2. 基本指令"></a>2. 基本指令</h3><h4 id="2-1-启动新项目"><a href="#2-1-启动新项目" class="headerlink" title="2.1 启动新项目"></a>2.1 启动新项目</h4><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">forge init <span class="section">[项目名]</span></span><br></pre></td></tr></table></figure>
+<h3 id="0x00-Foundry操作指令"><a href="#0x00-Foundry操作指令" class="headerlink" title="0x00. Foundry操作指令"></a>0x00. Foundry操作指令</h3><ol>
+<li>初始化 <code>Foundry</code>项目</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">forge init [项目名字]</span><br></pre></td></tr></table></figure>
 
-<h4 id="2-2-构建项目"><a href="#2-2-构建项目" class="headerlink" title="2.2 构建项目"></a>2.2 构建项目</h4><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">forge build</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>编译合约</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">forge compile</span><br></pre></td></tr></table></figure>
 
-<h4 id="2-3-运行测试"><a href="#2-3-运行测试" class="headerlink" title="2.3 运行测试"></a>2.3 运行测试</h4><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">forge test</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>部署合约</li>
+</ol>
+<ul>
+<li>使用<code>forge create</code>指令<ul>
+<li>配置临时环境变量（即当前窗口有效）</li>
+<li>powershell：例如 &#x3D;&gt; $env:PRIVATE_KEY&#x3D;”xxxx”，取值：$env:PRIVATE_KEY</li>
+<li>cmd: 例如 &#x3D;&gt; set PRIVATE_KEY&#x3D;”xxxx”，取值： %PRIVATE_KEY%</li>
+<li>keystore的使用：<a target="_blank" rel="noopener" href="https://updraft.cyfrin.io/courses/foundry/foundry-simple-storage/private-key-safety-part-2?lesson_format=video">link</a></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">forge create --rpc-url &lt;your_rpc_url&gt; --private-key &lt;your_private_key&gt; --constructor-args &lt;arg1&gt; &lt;arg2&gt; ... &lt;argN&gt; &lt;contract_name&gt;</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 配置环境变量之后</span></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># powershell</span></span></span><br><span class="line">forge create --rpc-url $env:RPC_URL --private-key $env:PRIVATE_KEY --constructor-args &lt;arg1&gt; &lt;arg2&gt; ... &lt;argN&gt; &lt;contract_name&gt;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">#cmd</span></span></span><br><span class="line">forge create --rpc-url %RPC_URL%  --private-key %PRIVATE_KEY% --constructor-args &lt;arg1&gt; &lt;arg2&gt; ... &lt;argN&gt; &lt;contract_name&gt;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 如果有合约同名的情况则需要使用文件路径来区分</span></span></span><br><span class="line">forge create --rpc-url &lt;your_rpc_url&gt; --private-key &lt;your_private_key&gt; --constructor-args &lt;arg1&gt; &lt;arg2&gt; ... &lt;argN&gt; src/.../MyContract.sol:MyContract</span><br></pre></td></tr></table></figure>
 
-<h4 id="2-4-从GitHub克隆库"><a href="#2-4-从GitHub克隆库" class="headerlink" title="2.4 从GitHub克隆库"></a>2.4 从GitHub克隆库</h4><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 执行克隆操作</span><br><span class="line">git clone https://github.com/...</span><br><span class="line">// 安装醒目中的子模块依赖项</span><br><span class="line">forge install</span><br><span class="line">// 构建</span><br><span class="line">forge build</span><br><span class="line">// 测试</span><br><span class="line">forge test</span><br></pre></td></tr></table></figure>
+<p><img src="/2023/09/07/Utils/Foundry/foundry_using/image-20240722161236540.png" alt="image-20240722161236540"></p>
+<ul>
+<li>使用 <code>forge script</code>指令<ul>
+<li>同上假设已经配置好临时环境变量</li>
+<li>待部署合约为 <code>script/DeploySimpleStorage.s.sol</code></li>
+</ul>
+</li>
+</ul>
+<p><strong>DeploySimpleStorage.s.sol</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// SPDX-License-Identifier: MIT</span><br><span class="line">pragma solidity 0.8.20;</span><br><span class="line"></span><br><span class="line">import &#123; Script &#125; from &quot;forge-std/Script.sol&quot;;</span><br><span class="line">import &#123; SimpleStorage &#125; from &quot;../src/SimpleStorage.sol&quot;;</span><br><span class="line"></span><br><span class="line">contract DeploySimpleStorage is Script &#123;</span><br><span class="line">    </span><br><span class="line">    function run() external returns (SimpleStorage) &#123;</span><br><span class="line">        vm.startBroadcast();</span><br><span class="line">        SimpleStorage simpleStorage = new SimpleStorage();</span><br><span class="line">        vm.stopBroadcast();</span><br><span class="line">        return simpleStorage;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="3-项目布局"><a href="#3-项目布局" class="headerlink" title="3. 项目布局"></a>3. 项目布局</h3><p><em>平时写代码还得规范一些，需要知道在没事目录下放源码，在什么目录下放测试代码等等。</em></p>
-<p><img src="/2023/09/07/Utils/Foundry/foundry_using/image-20230907143515729.png" alt="image-20230907143515729"></p>
-<h3 id="4-编写测试"><a href="#4-编写测试" class="headerlink" title="4. 编写测试"></a>4. 编写测试</h3><p><em>注：只对以<code>test</code>开头的函数进行测试，而且在测试每一个<code>test</code>开头的函数之前都会去执行一遍<code>setUp</code>函数。</em></p>
-<h4 id="4-1-forge-test"><a href="#4-1-forge-test" class="headerlink" title="4.1 forge test"></a>4.1 forge test</h4><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">forge test</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">forge script script/xxxx/xxx.s.sol:xxx --rpc-url $env:RPC_URL --broadcast  --private-key $env:PRIVATE_KEY</span><br></pre></td></tr></table></figure>
 
-<p><em>该命令会测试test目录下的所有<code>.sol</code>文件</em></p>
-<h4 id="4-2-forge-test-–match-path-path"><a href="#4-2-forge-test-–match-path-path" class="headerlink" title="4.2 forge test –match-path [path]"></a>4.2 forge test –match-path [path]</h4><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">forge test --match-path <span class="section">[path]</span> // 测试path文件中所有以test开头的函数</span><br></pre></td></tr></table></figure>
+<p><img src="/2023/09/07/Utils/Foundry/foundry_using/image-20240722160927664.png" alt="image-20240722160927664"></p>
+<ol start="4">
+<li>调用合约函数</li>
+</ol>
+<ul>
+<li>调用写函数</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cast send &lt;contract_address&gt; &lt;function(args type)&gt; &lt;args...&gt; --rpc-url $env:RPC_URL --private-key $env:PRIVATE_KEY</span><br></pre></td></tr></table></figure>
 
-<p><em>该命令会根据<code>[path]</code>找到指定的<code>.sol</code>文件，然会对其进行编译</em></p>
-<p><img src="/2023/09/07/Utils/Foundry/foundry_using/image-20230908141811741.png" alt="image-20230908141811741"></p>
-<h4 id="4-3-forge-test-–match-contract-合约名"><a href="#4-3-forge-test-–match-contract-合约名" class="headerlink" title="4.3 forge test –match-contract [合约名]"></a>4.3 forge test –match-contract [合约名]</h4><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">forge test --match-contract <span class="section">[合约名]</span></span><br></pre></td></tr></table></figure>
+<p><em><strong>example:</strong></em></p>
+<p><img src="/2023/09/07/Utils/Foundry/foundry_using/image-20240722162909760.png" alt="image-20240722162909760"></p>
+<p>​	</p>
+<ul>
+<li>调用读函数</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cast call &lt;contract_address&gt; &lt;function(args type)&gt; &lt;args...&gt; --rpc-url $env:RPC_URL --private-key $env:PRIVATE_KEY</span><br></pre></td></tr></table></figure>
 
-<p><em>该命令会测试指定的[合约名]</em></p>
-<p><img src="/2023/09/07/Utils/Foundry/foundry_using/image-20230908142148192.png" alt="image-20230908142148192"></p>
-<h4 id="4-4-forge-test-–match-test-函数名"><a href="#4-4-forge-test-–match-test-函数名" class="headerlink" title="4.4 forge test –match-test [函数名]"></a>4.4 forge test –match-test [函数名]</h4><p><em>tips：这里的函数名有着匹配功能，什么意思呢，可以指定匹配以什么开头的函数（但函数肯定是test开头，这里开头指的是，test之后的字符）</em>同时该函数还可以搭配如上指令执行，<em>以测试Counter.test_Increment()为例</em></p>
-<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">forge test --match-test <span class="section">[函数名]</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="/2023/09/07/Utils/Foundry/foundry_using/image-20230908143436059.png" alt="image-20230908143436059"></p>
-
+<p><em><strong>example:</strong></em></p>
+<p><img src="/2023/09/07/Utils/Foundry/foundry_using/image-20240722163627913.png" alt="image-20240722163627913"></p>
+<h3 id="0x01-Deploy-on-L2"><a href="#0x01-Deploy-on-L2" class="headerlink" title="0x01. Deploy on L2"></a>0x01. Deploy on L2</h3><h3 id="0x02-Foundy-toml"><a href="#0x02-Foundy-toml" class="headerlink" title="0x02. Foundy.toml"></a>0x02. Foundy.toml</h3>
   </div>
   
   
@@ -3181,7 +3212,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-text">引言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85-Windows%E7%89%88"><span class="toc-text">1. 下载安装(Windows版)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%9F%BA%E6%9C%AC%E6%8C%87%E4%BB%A4"><span class="toc-text">2. 基本指令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-%E5%90%AF%E5%8A%A8%E6%96%B0%E9%A1%B9%E7%9B%AE"><span class="toc-text">2.1 启动新项目</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-%E6%9E%84%E5%BB%BA%E9%A1%B9%E7%9B%AE"><span class="toc-text">2.2 构建项目</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-%E8%BF%90%E8%A1%8C%E6%B5%8B%E8%AF%95"><span class="toc-text">2.3 运行测试</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-%E4%BB%8EGitHub%E5%85%8B%E9%9A%86%E5%BA%93"><span class="toc-text">2.4 从GitHub克隆库</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E9%A1%B9%E7%9B%AE%E5%B8%83%E5%B1%80"><span class="toc-text">3. 项目布局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E7%BC%96%E5%86%99%E6%B5%8B%E8%AF%95"><span class="toc-text">4. 编写测试</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-forge-test"><span class="toc-text">4.1 forge test</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-forge-test-%E2%80%93match-path-path"><span class="toc-text">4.2 forge test –match-path [path]</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-3-forge-test-%E2%80%93match-contract-%E5%90%88%E7%BA%A6%E5%90%8D"><span class="toc-text">4.3 forge test –match-contract [合约名]</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-4-forge-test-%E2%80%93match-test-%E5%87%BD%E6%95%B0%E5%90%8D"><span class="toc-text">4.4 forge test –match-test [函数名]</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-text">引言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x00-Foundry%E6%93%8D%E4%BD%9C%E6%8C%87%E4%BB%A4"><span class="toc-text">0x00. Foundry操作指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x01-Deploy-on-L2"><span class="toc-text">0x01. Deploy on L2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x02-Foundy-toml"><span class="toc-text">0x02. Foundy.toml</span></a></li></ol>
     </div>
   </section>
 
